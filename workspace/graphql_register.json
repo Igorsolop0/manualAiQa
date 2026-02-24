@@ -1,0 +1,15 @@
+{
+  "query": "mutation PlayerRegisterUniversal($bmsPartnerId: Int!, $locale: Locale!, $input: PlayerRegisterUniversalInput!) { playerRegisterUniversal(bmsPartnerId: $bmsPartnerId, locale: $locale, input: $input) { recordId record { id email userName } status } }",
+  "variables": {
+    "bmsPartnerId": 5,
+    "locale": "en",
+    "input": {
+      "email": "test-deposit-20260224@nextcode.tech",
+      "password": "Qweasd123!",
+      "confirmPassword": "Qweasd123!",
+      "acceptTerms": true,
+      "ageAccepted": true,
+      "currency": "USD"
+    }
+  }
+}

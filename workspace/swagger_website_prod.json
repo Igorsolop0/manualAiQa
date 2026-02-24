@@ -1,0 +1,5719 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Tech.CP.WebSiteWebApi V1",
+    "version": "v1"
+  },
+  "paths": {
+    "/hc/ping": {
+      "get": {
+        "tags": [
+          "HealthCheck"
+        ],
+        "parameters": [
+          {
+            "name": "api-version",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "HealthCheck"
+        ],
+        "parameters": [
+          {
+            "name": "api-version",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/hc/longping/{password}": {
+      "get": {
+        "tags": [
+          "HealthCheck"
+        ],
+        "parameters": [
+          {
+            "name": "password",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "api-version",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "HealthCheck"
+        ],
+        "parameters": [
+          {
+            "name": "password",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "api-version",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/hc/ping/with-filters/{shouldThrow}": {
+      "get": {
+        "tags": [
+          "HealthCheck"
+        ],
+        "parameters": [
+          {
+            "name": "shouldThrow",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "api-version",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "HealthCheck"
+        ],
+        "parameters": [
+          {
+            "name": "shouldThrow",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "api-version",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/hc/ping/with-filters/with-auth/{shouldThrow}": {
+      "get": {
+        "tags": [
+          "HealthCheck"
+        ],
+        "parameters": [
+          {
+            "name": "shouldThrow",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "api-version",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "HealthCheck"
+        ],
+        "parameters": [
+          {
+            "name": "shouldThrow",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "api-version",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/{partnerId}/api/Main/ApiRequest": {
+      "post": {
+        "tags": [
+          "Main"
+        ],
+        "parameters": [
+          {
+            "name": "partnerId",
+            "in": "path",
+            "description": "The Id of the partner",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "api-version",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.RequestBase"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.RequestBase"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.RequestBase"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.RequestBase"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": true
+      }
+    },
+    "/{partnerId}/api/v1/Main/ApiRequest": {
+      "post": {
+        "tags": [
+          "Main"
+        ],
+        "parameters": [
+          {
+            "name": "partnerId",
+            "in": "path",
+            "description": "The Id of the partner",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.RequestBase"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.RequestBase"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.RequestBase"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.RequestBase"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": true
+      }
+    },
+    "/{partnerId}/api/Main/ClientUploadImage": {
+      "post": {
+        "tags": [
+          "Main"
+        ],
+        "parameters": [
+          {
+            "name": "partnerId",
+            "in": "path",
+            "description": "The Id of the partner",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "api-version",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "RequestBase.Controller": {
+                    "type": "string"
+                  },
+                  "RequestBase.Method": {
+                    "type": "string"
+                  },
+                  "RequestBase.Token": {
+                    "type": "string"
+                  },
+                  "RequestBase.ProductId": {
+                    "type": "string"
+                  },
+                  "RequestBase.RequestData": {
+                    "type": "string"
+                  },
+                  "RequestBase.PartnerId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "RequestBase.LanguageId": {
+                    "type": "string"
+                  },
+                  "RequestBase.TimeZone": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "RequestBase.CountryCode": {
+                    "type": "string"
+                  },
+                  "RequestBase.Domain": {
+                    "type": "string"
+                  },
+                  "File": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              },
+              "encoding": {
+                "RequestBase.Controller": {
+                  "style": "form"
+                },
+                "RequestBase.Method": {
+                  "style": "form"
+                },
+                "RequestBase.Token": {
+                  "style": "form"
+                },
+                "RequestBase.ProductId": {
+                  "style": "form"
+                },
+                "RequestBase.RequestData": {
+                  "style": "form"
+                },
+                "RequestBase.PartnerId": {
+                  "style": "form"
+                },
+                "RequestBase.LanguageId": {
+                  "style": "form"
+                },
+                "RequestBase.TimeZone": {
+                  "style": "form"
+                },
+                "RequestBase.CountryCode": {
+                  "style": "form"
+                },
+                "RequestBase.Domain": {
+                  "style": "form"
+                },
+                "File": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "deprecated": true
+      }
+    },
+    "/{partnerId}/api/v1/Main/ClientUploadImage": {
+      "post": {
+        "tags": [
+          "Main"
+        ],
+        "parameters": [
+          {
+            "name": "partnerId",
+            "in": "path",
+            "description": "The Id of the partner",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "RequestBase.Controller": {
+                    "type": "string"
+                  },
+                  "RequestBase.Method": {
+                    "type": "string"
+                  },
+                  "RequestBase.Token": {
+                    "type": "string"
+                  },
+                  "RequestBase.ProductId": {
+                    "type": "string"
+                  },
+                  "RequestBase.RequestData": {
+                    "type": "string"
+                  },
+                  "RequestBase.PartnerId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "RequestBase.LanguageId": {
+                    "type": "string"
+                  },
+                  "RequestBase.TimeZone": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "RequestBase.CountryCode": {
+                    "type": "string"
+                  },
+                  "RequestBase.Domain": {
+                    "type": "string"
+                  },
+                  "File": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              },
+              "encoding": {
+                "RequestBase.Controller": {
+                  "style": "form"
+                },
+                "RequestBase.Method": {
+                  "style": "form"
+                },
+                "RequestBase.Token": {
+                  "style": "form"
+                },
+                "RequestBase.ProductId": {
+                  "style": "form"
+                },
+                "RequestBase.RequestData": {
+                  "style": "form"
+                },
+                "RequestBase.PartnerId": {
+                  "style": "form"
+                },
+                "RequestBase.LanguageId": {
+                  "style": "form"
+                },
+                "RequestBase.TimeZone": {
+                  "style": "form"
+                },
+                "RequestBase.CountryCode": {
+                  "style": "form"
+                },
+                "RequestBase.Domain": {
+                  "style": "form"
+                },
+                "File": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "deprecated": true
+      }
+    },
+    "/{partnerId}/api/Main/RegisterClient": {
+      "post": {
+        "tags": [
+          "Main"
+        ],
+        "parameters": [
+          {
+            "name": "partnerId",
+            "in": "path",
+            "description": "The Id of the partner",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "api-version",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.ClientModel"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.ClientModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.ClientModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.ClientModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.LegacyApiLoginClientOutput"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.LegacyApiLoginClientOutput"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.LegacyApiLoginClientOutput"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": true
+      }
+    },
+    "/{partnerId}/api/v1/Main/RegisterClient": {
+      "post": {
+        "tags": [
+          "Main"
+        ],
+        "parameters": [
+          {
+            "name": "partnerId",
+            "in": "path",
+            "description": "The Id of the partner",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.ClientModel"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.ClientModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.ClientModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.ClientModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.LegacyApiLoginClientOutput"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.LegacyApiLoginClientOutput"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.LegacyApiLoginClientOutput"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": true
+      }
+    },
+    "/{partnerId}/api/Main/QuickSmsRegistration": {
+      "post": {
+        "tags": [
+          "Main"
+        ],
+        "parameters": [
+          {
+            "name": "partnerId",
+            "in": "path",
+            "description": "The Id of the partner",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "api-version",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.ClientQuickSmsRegistrationModel"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.ClientQuickSmsRegistrationModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.ClientQuickSmsRegistrationModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.ClientQuickSmsRegistrationModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.LegacyApiLoginClientOutput"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.LegacyApiLoginClientOutput"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.LegacyApiLoginClientOutput"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": true
+      }
+    },
+    "/{partnerId}/api/v1/Main/QuickSmsRegistration": {
+      "post": {
+        "tags": [
+          "Main"
+        ],
+        "parameters": [
+          {
+            "name": "partnerId",
+            "in": "path",
+            "description": "The Id of the partner",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.ClientQuickSmsRegistrationModel"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.ClientQuickSmsRegistrationModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.ClientQuickSmsRegistrationModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.ClientQuickSmsRegistrationModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.LegacyApiLoginClientOutput"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.LegacyApiLoginClientOutput"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.LegacyApiLoginClientOutput"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": true
+      }
+    },
+    "/{partnerId}/api/Main/SendRecoveryToken": {
+      "post": {
+        "tags": [
+          "Main"
+        ],
+        "parameters": [
+          {
+            "name": "partnerId",
+            "in": "path",
+            "description": "The Id of the partner",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "api-version",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.Clients.ApiSendRecoveryTokenInput"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.Clients.ApiSendRecoveryTokenInput"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.Clients.ApiSendRecoveryTokenInput"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.Clients.ApiSendRecoveryTokenInput"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse`1[Tech.CP.BLL.Models.ClientTokenSender.ClientTokenSendResult]"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse`1[Tech.CP.BLL.Models.ClientTokenSender.ClientTokenSendResult]"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse`1[Tech.CP.BLL.Models.ClientTokenSender.ClientTokenSendResult]"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": true
+      }
+    },
+    "/{partnerId}/api/v1/Main/SendRecoveryToken": {
+      "post": {
+        "tags": [
+          "Main"
+        ],
+        "parameters": [
+          {
+            "name": "partnerId",
+            "in": "path",
+            "description": "The Id of the partner",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.Clients.ApiSendRecoveryTokenInput"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.Clients.ApiSendRecoveryTokenInput"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.Clients.ApiSendRecoveryTokenInput"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.Clients.ApiSendRecoveryTokenInput"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse`1[Tech.CP.BLL.Models.ClientTokenSender.ClientTokenSendResult]"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse`1[Tech.CP.BLL.Models.ClientTokenSender.ClientTokenSendResult]"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse`1[Tech.CP.BLL.Models.ClientTokenSender.ClientTokenSendResult]"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": true
+      }
+    },
+    "/{partnerId}/api/Main/RecoverPassword": {
+      "post": {
+        "tags": [
+          "Main"
+        ],
+        "parameters": [
+          {
+            "name": "partnerId",
+            "in": "path",
+            "description": "The Id of the partner",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "api-version",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.ClientPasswordRecovery"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.ClientPasswordRecovery"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.ClientPasswordRecovery"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.ClientPasswordRecovery"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": true
+      }
+    },
+    "/{partnerId}/api/v1/Main/RecoverPassword": {
+      "post": {
+        "tags": [
+          "Main"
+        ],
+        "parameters": [
+          {
+            "name": "partnerId",
+            "in": "path",
+            "description": "The Id of the partner",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.ClientPasswordRecovery"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.ClientPasswordRecovery"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.ClientPasswordRecovery"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.ClientPasswordRecovery"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": true
+      }
+    },
+    "/{partnerId}/api/Main/LoginClient": {
+      "post": {
+        "tags": [
+          "Main"
+        ],
+        "parameters": [
+          {
+            "name": "partnerId",
+            "in": "path",
+            "description": "The Id of the partner",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "api-version",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.EncryptedData"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.EncryptedData"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.EncryptedData"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.EncryptedData"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "deprecated": true
+      }
+    },
+    "/{partnerId}/api/v1/Main/LoginClient": {
+      "post": {
+        "tags": [
+          "Main"
+        ],
+        "parameters": [
+          {
+            "name": "partnerId",
+            "in": "path",
+            "description": "The Id of the partner",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.EncryptedData"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.EncryptedData"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.EncryptedData"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.EncryptedData"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "deprecated": true
+      }
+    },
+    "/{partnerId}/api/Main/Login": {
+      "post": {
+        "tags": [
+          "Main"
+        ],
+        "parameters": [
+          {
+            "name": "partnerId",
+            "in": "path",
+            "description": "The Id of the partner",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "api-version",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.LoginInput"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.LoginInput"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.LoginInput"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.LoginInput"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "deprecated": true
+      }
+    },
+    "/{partnerId}/api/v1/Main/Login": {
+      "post": {
+        "tags": [
+          "Main"
+        ],
+        "parameters": [
+          {
+            "name": "partnerId",
+            "in": "path",
+            "description": "The Id of the partner",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.LoginInput"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.LoginInput"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.LoginInput"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.LoginInput"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "deprecated": true
+      }
+    },
+    "/{partnerId}/api/Main/GetClientBalance": {
+      "get": {
+        "tags": [
+          "Main"
+        ],
+        "parameters": [
+          {
+            "name": "partnerId",
+            "in": "path",
+            "description": "The Id of the partner",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "api-version",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.RequestBase"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.RequestBase"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.RequestBase"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.RequestBase"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": true
+      },
+      "post": {
+        "tags": [
+          "Main"
+        ],
+        "parameters": [
+          {
+            "name": "partnerId",
+            "in": "path",
+            "description": "The Id of the partner",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "api-version",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.RequestBase"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.RequestBase"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.RequestBase"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.RequestBase"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": true
+      }
+    },
+    "/{partnerId}/api/v1/Main/GetClientBalance": {
+      "get": {
+        "tags": [
+          "Main"
+        ],
+        "parameters": [
+          {
+            "name": "partnerId",
+            "in": "path",
+            "description": "The Id of the partner",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.RequestBase"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.RequestBase"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.RequestBase"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.RequestBase"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": true
+      },
+      "post": {
+        "tags": [
+          "Main"
+        ],
+        "parameters": [
+          {
+            "name": "partnerId",
+            "in": "path",
+            "description": "The Id of the partner",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.RequestBase"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.RequestBase"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.RequestBase"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.RequestBase"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": true
+      }
+    },
+    "/{partnerId}/api/Main/GetClientByToken": {
+      "get": {
+        "tags": [
+          "Main"
+        ],
+        "parameters": [
+          {
+            "name": "partnerId",
+            "in": "path",
+            "description": "The Id of the partner",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "api-version",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.RequestBase"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.RequestBase"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.RequestBase"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.RequestBase"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.LegacyApiLoginClientOutput"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.LegacyApiLoginClientOutput"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.LegacyApiLoginClientOutput"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": true
+      },
+      "post": {
+        "tags": [
+          "Main"
+        ],
+        "parameters": [
+          {
+            "name": "partnerId",
+            "in": "path",
+            "description": "The Id of the partner",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "api-version",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.RequestBase"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.RequestBase"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.RequestBase"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.RequestBase"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.LegacyApiLoginClientOutput"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.LegacyApiLoginClientOutput"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.LegacyApiLoginClientOutput"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": true
+      }
+    },
+    "/{partnerId}/api/v1/Main/GetClientByToken": {
+      "get": {
+        "tags": [
+          "Main"
+        ],
+        "parameters": [
+          {
+            "name": "partnerId",
+            "in": "path",
+            "description": "The Id of the partner",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.RequestBase"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.RequestBase"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.RequestBase"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.RequestBase"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.LegacyApiLoginClientOutput"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.LegacyApiLoginClientOutput"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.LegacyApiLoginClientOutput"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": true
+      },
+      "post": {
+        "tags": [
+          "Main"
+        ],
+        "parameters": [
+          {
+            "name": "partnerId",
+            "in": "path",
+            "description": "The Id of the partner",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.RequestBase"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.RequestBase"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.RequestBase"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.RequestBase"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.LegacyApiLoginClientOutput"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.LegacyApiLoginClientOutput"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.LegacyApiLoginClientOutput"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": true
+      }
+    },
+    "/{partnerId}/api/Main/GetProductUrl": {
+      "get": {
+        "tags": [
+          "Main"
+        ],
+        "parameters": [
+          {
+            "name": "partnerId",
+            "in": "path",
+            "description": "The Id of the partner",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "api-version",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.Products.GetProductUrlInput"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.Products.GetProductUrlInput"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.Products.GetProductUrlInput"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.Products.GetProductUrlInput"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": true
+      },
+      "post": {
+        "tags": [
+          "Main"
+        ],
+        "parameters": [
+          {
+            "name": "partnerId",
+            "in": "path",
+            "description": "The Id of the partner",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "api-version",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.Products.GetProductUrlInput"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.Products.GetProductUrlInput"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.Products.GetProductUrlInput"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.Products.GetProductUrlInput"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": true
+      }
+    },
+    "/{partnerId}/api/v1/Main/GetProductUrl": {
+      "get": {
+        "tags": [
+          "Main"
+        ],
+        "parameters": [
+          {
+            "name": "partnerId",
+            "in": "path",
+            "description": "The Id of the partner",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.Products.GetProductUrlInput"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.Products.GetProductUrlInput"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.Products.GetProductUrlInput"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.Products.GetProductUrlInput"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": true
+      },
+      "post": {
+        "tags": [
+          "Main"
+        ],
+        "parameters": [
+          {
+            "name": "partnerId",
+            "in": "path",
+            "description": "The Id of the partner",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.Products.GetProductUrlInput"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.Products.GetProductUrlInput"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.Products.GetProductUrlInput"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.Products.GetProductUrlInput"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": true
+      }
+    },
+    "/{partnerId}/api/Main/CheckProductAvailability": {
+      "get": {
+        "tags": [
+          "Main"
+        ],
+        "parameters": [
+          {
+            "name": "partnerId",
+            "in": "path",
+            "description": "The Id of the partner",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "api-version",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.Products.CheckProductAvailability"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.Products.CheckProductAvailability"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.Products.CheckProductAvailability"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.Products.CheckProductAvailability"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": true
+      },
+      "post": {
+        "tags": [
+          "Main"
+        ],
+        "parameters": [
+          {
+            "name": "partnerId",
+            "in": "path",
+            "description": "The Id of the partner",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "api-version",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.Products.CheckProductAvailability"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.Products.CheckProductAvailability"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.Products.CheckProductAvailability"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.Products.CheckProductAvailability"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": true
+      }
+    },
+    "/{partnerId}/api/v1/Main/CheckProductAvailability": {
+      "get": {
+        "tags": [
+          "Main"
+        ],
+        "parameters": [
+          {
+            "name": "partnerId",
+            "in": "path",
+            "description": "The Id of the partner",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.Products.CheckProductAvailability"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.Products.CheckProductAvailability"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.Products.CheckProductAvailability"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.Products.CheckProductAvailability"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": true
+      },
+      "post": {
+        "tags": [
+          "Main"
+        ],
+        "parameters": [
+          {
+            "name": "partnerId",
+            "in": "path",
+            "description": "The Id of the partner",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.Products.CheckProductAvailability"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.Products.CheckProductAvailability"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.Products.CheckProductAvailability"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.Products.CheckProductAvailability"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": true
+      }
+    },
+    "/{partnerId}/api/Main/GetPaymentMethodTypesEnum": {
+      "get": {
+        "tags": [
+          "Main"
+        ],
+        "parameters": [
+          {
+            "name": "partnerId",
+            "in": "path",
+            "description": "The Id of the partner",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "api-version",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.ApiRequestBase"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.ApiRequestBase"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.ApiRequestBase"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.ApiRequestBase"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": true
+      },
+      "post": {
+        "tags": [
+          "Main"
+        ],
+        "parameters": [
+          {
+            "name": "partnerId",
+            "in": "path",
+            "description": "The Id of the partner",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "api-version",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.ApiRequestBase"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.ApiRequestBase"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.ApiRequestBase"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.ApiRequestBase"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": true
+      }
+    },
+    "/{partnerId}/api/v1/Main/GetPaymentMethodTypesEnum": {
+      "get": {
+        "tags": [
+          "Main"
+        ],
+        "parameters": [
+          {
+            "name": "partnerId",
+            "in": "path",
+            "description": "The Id of the partner",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.ApiRequestBase"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.ApiRequestBase"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.ApiRequestBase"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.ApiRequestBase"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": true
+      },
+      "post": {
+        "tags": [
+          "Main"
+        ],
+        "parameters": [
+          {
+            "name": "partnerId",
+            "in": "path",
+            "description": "The Id of the partner",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.ApiRequestBase"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.ApiRequestBase"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.ApiRequestBase"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.ApiRequestBase"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": true
+      }
+    },
+    "/{partnerId}/api/Main/GetBonusStatusesEnum": {
+      "get": {
+        "tags": [
+          "Main"
+        ],
+        "parameters": [
+          {
+            "name": "partnerId",
+            "in": "path",
+            "description": "The Id of the partner",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "api-version",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.ApiRequestBase"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.ApiRequestBase"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.ApiRequestBase"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.ApiRequestBase"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": true
+      },
+      "post": {
+        "tags": [
+          "Main"
+        ],
+        "parameters": [
+          {
+            "name": "partnerId",
+            "in": "path",
+            "description": "The Id of the partner",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "api-version",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.ApiRequestBase"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.ApiRequestBase"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.ApiRequestBase"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.ApiRequestBase"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": true
+      }
+    },
+    "/{partnerId}/api/v1/Main/GetBonusStatusesEnum": {
+      "get": {
+        "tags": [
+          "Main"
+        ],
+        "parameters": [
+          {
+            "name": "partnerId",
+            "in": "path",
+            "description": "The Id of the partner",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.ApiRequestBase"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.ApiRequestBase"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.ApiRequestBase"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.ApiRequestBase"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": true
+      },
+      "post": {
+        "tags": [
+          "Main"
+        ],
+        "parameters": [
+          {
+            "name": "partnerId",
+            "in": "path",
+            "description": "The Id of the partner",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.ApiRequestBase"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.ApiRequestBase"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.ApiRequestBase"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.ApiRequestBase"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": true
+      }
+    },
+    "/{partnerId}/api/Main/GetRegions": {
+      "get": {
+        "tags": [
+          "Main"
+        ],
+        "parameters": [
+          {
+            "name": "partnerId",
+            "in": "path",
+            "description": "The Id of the partner",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "api-version",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.ApiFilterRegion"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.ApiFilterRegion"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.ApiFilterRegion"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.ApiFilterRegion"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": true
+      },
+      "post": {
+        "tags": [
+          "Main"
+        ],
+        "parameters": [
+          {
+            "name": "partnerId",
+            "in": "path",
+            "description": "The Id of the partner",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "api-version",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.ApiFilterRegion"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.ApiFilterRegion"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.ApiFilterRegion"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.ApiFilterRegion"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": true
+      }
+    },
+    "/{partnerId}/api/v1/Main/GetRegions": {
+      "get": {
+        "tags": [
+          "Main"
+        ],
+        "parameters": [
+          {
+            "name": "partnerId",
+            "in": "path",
+            "description": "The Id of the partner",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.ApiFilterRegion"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.ApiFilterRegion"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.ApiFilterRegion"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.ApiFilterRegion"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": true
+      },
+      "post": {
+        "tags": [
+          "Main"
+        ],
+        "parameters": [
+          {
+            "name": "partnerId",
+            "in": "path",
+            "description": "The Id of the partner",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.ApiFilterRegion"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.ApiFilterRegion"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.ApiFilterRegion"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.ApiFilterRegion"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": true
+      }
+    },
+    "/{partnerId}/api/Main/GetPromotions": {
+      "post": {
+        "tags": [
+          "Main"
+        ],
+        "parameters": [
+          {
+            "name": "partnerId",
+            "in": "path",
+            "description": "The Id of the partner",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "api-version",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.PromotionFilter"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.PromotionFilter"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.PromotionFilter"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.PromotionFilter"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": true
+      }
+    },
+    "/{partnerId}/api/v1/Main/GetPromotions": {
+      "post": {
+        "tags": [
+          "Main"
+        ],
+        "parameters": [
+          {
+            "name": "partnerId",
+            "in": "path",
+            "description": "The Id of the partner",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.PromotionFilter"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.PromotionFilter"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.PromotionFilter"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.PromotionFilter"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": true
+      }
+    },
+    "/{partnerId}/api/Main/GeolocationData": {
+      "post": {
+        "tags": [
+          "Main"
+        ],
+        "parameters": [
+          {
+            "name": "partnerId",
+            "in": "path",
+            "description": "The Id of the partner",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "api-version",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": true
+      }
+    },
+    "/{partnerId}/api/v1/Main/GeolocationData": {
+      "post": {
+        "tags": [
+          "Main"
+        ],
+        "parameters": [
+          {
+            "name": "partnerId",
+            "in": "path",
+            "description": "The Id of the partner",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": true
+      }
+    },
+    "/{partnerId}/api/Main/GetGames": {
+      "post": {
+        "tags": [
+          "Main"
+        ],
+        "parameters": [
+          {
+            "name": "partnerId",
+            "in": "path",
+            "description": "The Id of the partner",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "api-version",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.Products.ApiGetGamesInput"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.Products.ApiGetGamesInput"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.Products.ApiGetGamesInput"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.Products.ApiGetGamesInput"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": true
+      }
+    },
+    "/{partnerId}/api/v1/Main/GetGames": {
+      "post": {
+        "tags": [
+          "Main"
+        ],
+        "parameters": [
+          {
+            "name": "partnerId",
+            "in": "path",
+            "description": "The Id of the partner",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.Products.ApiGetGamesInput"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.Products.ApiGetGamesInput"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.Products.ApiGetGamesInput"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.Products.ApiGetGamesInput"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": true
+      }
+    },
+    "/{partnerId}/api/Main/GetNonAvailableGames": {
+      "post": {
+        "tags": [
+          "Main"
+        ],
+        "parameters": [
+          {
+            "name": "partnerId",
+            "in": "path",
+            "description": "The Id of the partner",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "api-version",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.Products.ApiGetNonAvailableGamesInput"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.Products.ApiGetNonAvailableGamesInput"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.Products.ApiGetNonAvailableGamesInput"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.Products.ApiGetNonAvailableGamesInput"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": true
+      }
+    },
+    "/{partnerId}/api/v1/Main/GetNonAvailableGames": {
+      "post": {
+        "tags": [
+          "Main"
+        ],
+        "parameters": [
+          {
+            "name": "partnerId",
+            "in": "path",
+            "description": "The Id of the partner",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.Products.ApiGetNonAvailableGamesInput"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.Products.ApiGetNonAvailableGamesInput"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.Products.ApiGetNonAvailableGamesInput"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.Products.ApiGetNonAvailableGamesInput"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": true
+      }
+    },
+    "/{partnerId}/api/Main/GetGameProviders": {
+      "post": {
+        "tags": [
+          "Main"
+        ],
+        "parameters": [
+          {
+            "name": "partnerId",
+            "in": "path",
+            "description": "The Id of the partner",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "api-version",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.Products.ApiGetGamesInput"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.Products.ApiGetGamesInput"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.Products.ApiGetGamesInput"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.Products.ApiGetGamesInput"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": true
+      }
+    },
+    "/{partnerId}/api/v1/Main/GetGameProviders": {
+      "post": {
+        "tags": [
+          "Main"
+        ],
+        "parameters": [
+          {
+            "name": "partnerId",
+            "in": "path",
+            "description": "The Id of the partner",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.Products.ApiGetGamesInput"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.Products.ApiGetGamesInput"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.Products.ApiGetGamesInput"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.Products.ApiGetGamesInput"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": true
+      }
+    },
+    "/{partnerId}/api/Main/ClientUserNameExists": {
+      "post": {
+        "tags": [
+          "Main"
+        ],
+        "parameters": [
+          {
+            "name": "partnerId",
+            "in": "path",
+            "description": "The Id of the partner",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "api-version",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.ApiUniqueUserNameInput"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.ApiUniqueUserNameInput"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.ApiUniqueUserNameInput"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.ApiUniqueUserNameInput"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": true
+      }
+    },
+    "/{partnerId}/api/v1/Main/ClientUserNameExists": {
+      "post": {
+        "tags": [
+          "Main"
+        ],
+        "parameters": [
+          {
+            "name": "partnerId",
+            "in": "path",
+            "description": "The Id of the partner",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.ApiUniqueUserNameInput"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.ApiUniqueUserNameInput"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.ApiUniqueUserNameInput"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.ApiUniqueUserNameInput"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": true
+      }
+    },
+    "/{partnerId}/api/Main/ClientEmailExists": {
+      "post": {
+        "tags": [
+          "Main"
+        ],
+        "parameters": [
+          {
+            "name": "partnerId",
+            "in": "path",
+            "description": "The Id of the partner",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "api-version",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.ApiUniqueEmailInput"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.ApiUniqueEmailInput"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.ApiUniqueEmailInput"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.ApiUniqueEmailInput"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": true
+      }
+    },
+    "/{partnerId}/api/v1/Main/ClientEmailExists": {
+      "post": {
+        "tags": [
+          "Main"
+        ],
+        "parameters": [
+          {
+            "name": "partnerId",
+            "in": "path",
+            "description": "The Id of the partner",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.ApiUniqueEmailInput"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.ApiUniqueEmailInput"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.ApiUniqueEmailInput"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.ApiUniqueEmailInput"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": true
+      }
+    },
+    "/{partnerId}/api/Main/GetProductTypesEnum": {
+      "post": {
+        "tags": [
+          "Main"
+        ],
+        "parameters": [
+          {
+            "name": "partnerId",
+            "in": "path",
+            "description": "The Id of the partner",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "api-version",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.ApiRequestBase"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.ApiRequestBase"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.ApiRequestBase"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.ApiRequestBase"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": true
+      }
+    },
+    "/{partnerId}/api/v1/Main/GetProductTypesEnum": {
+      "post": {
+        "tags": [
+          "Main"
+        ],
+        "parameters": [
+          {
+            "name": "partnerId",
+            "in": "path",
+            "description": "The Id of the partner",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.ApiRequestBase"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.ApiRequestBase"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.ApiRequestBase"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.ApiRequestBase"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": true
+      }
+    },
+    "/build": {
+      "get": {
+        "tags": [
+          "Version"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Version"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/pingasync": {
+      "get": {
+        "tags": [
+          "Version"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Version"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/ping": {
+      "get": {
+        "tags": [
+          "Version"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Version"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Tech.CP.BLL.Models.ClientTokenSender.ClientTokenSendResult": {
+        "type": "object",
+        "properties": {
+          "cooldown": {
+            "type": "string",
+            "format": "date-span"
+          },
+          "isCodeSent": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Tech.CP.Common.Models.WebSiteModels.ApiClientBonusWithMinimalSchema": {
+        "required": [
+          "bonusType",
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "bonusType": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Tech.CP.Common.Models.WebSiteModels.ApiFilterRegion": {
+        "type": "object",
+        "properties": {
+          "partnerId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "languageId": {
+            "type": "string",
+            "nullable": true
+          },
+          "timeZone": {
+            "type": "number",
+            "format": "double"
+          },
+          "countryCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "domain": {
+            "type": "string",
+            "nullable": true
+          },
+          "parentId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "typeId": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Tech.CP.Common.Models.WebSiteModels.ApiRequestBase": {
+        "type": "object",
+        "properties": {
+          "partnerId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "languageId": {
+            "type": "string",
+            "nullable": true
+          },
+          "timeZone": {
+            "type": "number",
+            "format": "double"
+          },
+          "countryCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "domain": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Tech.CP.Common.Models.WebSiteModels.ApiUniqueEmailInput": {
+        "type": "object",
+        "properties": {
+          "partnerId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "languageId": {
+            "type": "string",
+            "nullable": true
+          },
+          "timeZone": {
+            "type": "number",
+            "format": "double"
+          },
+          "countryCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "domain": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Tech.CP.Common.Models.WebSiteModels.ApiUniqueUserNameInput": {
+        "type": "object",
+        "properties": {
+          "partnerId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "languageId": {
+            "type": "string",
+            "nullable": true
+          },
+          "timeZone": {
+            "type": "number",
+            "format": "double"
+          },
+          "countryCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "domain": {
+            "type": "string",
+            "nullable": true
+          },
+          "userName": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Tech.CP.Common.Models.WebSiteModels.ClientModel": {
+        "required": [
+          "address",
+          "birthYear",
+          "city",
+          "countryId",
+          "email",
+          "firstName",
+          "gender",
+          "lastName"
+        ],
+        "type": "object",
+        "properties": {
+          "partnerId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "languageId": {
+            "type": "string",
+            "nullable": true
+          },
+          "timeZone": {
+            "type": "number",
+            "format": "double"
+          },
+          "countryCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "domain": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "maxLength": 50,
+            "minLength": 1,
+            "pattern": "^([\\w-\\.]+)@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.)|(([\\w-]+\\.)+))([a-zA-Z]{2,10}|[0-9]{1,3})(\\]?)$",
+            "type": "string"
+          },
+          "countryId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "regionId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "city": {
+            "maxLength": 255,
+            "minLength": 1,
+            "pattern": "^\\p{L}+(?:[\\s-]\\p{L}+)*$",
+            "type": "string"
+          },
+          "gender": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "firstName": {
+            "maxLength": 255,
+            "minLength": 2,
+            "pattern": "^\\p{L}+(?:[\\s'-]*\\p{L}+)*$",
+            "type": "string"
+          },
+          "lastName": {
+            "maxLength": 255,
+            "minLength": 2,
+            "pattern": "^\\p{L}+(?:[\\s'-]*\\p{L}+)*$",
+            "type": "string"
+          },
+          "mobileNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "address": {
+            "maxLength": 255,
+            "minLength": 1,
+            "type": "string"
+          },
+          "zipCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "taxNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "personalId": {
+            "type": "string",
+            "nullable": true
+          },
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "currencyId": {
+            "type": "string",
+            "nullable": true
+          },
+          "userName": {
+            "type": "string",
+            "nullable": true
+          },
+          "password": {
+            "type": "string",
+            "nullable": true
+          },
+          "birthYear": {
+            "maximum": 9999,
+            "minimum": 1,
+            "type": "integer",
+            "format": "int32"
+          },
+          "birthMonth": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "birthDay": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "nickName": {
+            "type": "string",
+            "nullable": true
+          },
+          "documentType": {
+            "$ref": "#/components/schemas/Tech.Contracts.Enums.KYCDocumentTypes"
+          },
+          "documentNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "phoneNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "documentIssuedBy": {
+            "type": "string",
+            "nullable": true
+          },
+          "promoCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "creationTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "token": {
+            "type": "string",
+            "nullable": true
+          },
+          "sendMail": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "sendSms": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "callToPhone": {
+            "type": "boolean"
+          },
+          "sendPromotions": {
+            "type": "boolean"
+          },
+          "isDocumentVerified": {
+            "type": "boolean"
+          },
+          "affiliateId": {
+            "type": "string",
+            "nullable": true
+          },
+          "termsConditionsAccepted": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "citizenship": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "apartment": {
+            "type": "string",
+            "nullable": true
+          },
+          "buildingNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "affiliateData": {
+            "type": "string",
+            "nullable": true
+          },
+          "deviceType": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "deviceFingerPrint": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Tech.CP.Common.Models.WebSiteModels.ClientPasswordRecovery": {
+        "type": "object",
+        "properties": {
+          "partnerId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "languageId": {
+            "type": "string",
+            "nullable": true
+          },
+          "timeZone": {
+            "type": "number",
+            "format": "double"
+          },
+          "countryCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "domain": {
+            "type": "string",
+            "nullable": true
+          },
+          "recoveryToken": {
+            "type": "string",
+            "nullable": true
+          },
+          "newPassword": {
+            "type": "string",
+            "nullable": true
+          },
+          "clientIdentifier": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Tech.CP.Common.Models.WebSiteModels.ClientQuickSmsRegistrationModel": {
+        "required": [
+          "countryId",
+          "currencyId",
+          "partnerId",
+          "password",
+          "userName"
+        ],
+        "type": "object",
+        "properties": {
+          "partnerId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "languageId": {
+            "type": "string",
+            "nullable": true
+          },
+          "timeZone": {
+            "type": "number",
+            "format": "double"
+          },
+          "countryCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "domain": {
+            "type": "string",
+            "nullable": true
+          },
+          "userName": {
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9_]+$",
+            "type": "string"
+          },
+          "password": {
+            "maxLength": 25,
+            "minLength": 6,
+            "type": "string"
+          },
+          "currencyId": {
+            "maxLength": 5,
+            "minLength": 3,
+            "pattern": "^[A-Z]{3,5}$",
+            "type": "string"
+          },
+          "promoCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "affiliateId": {
+            "type": "string",
+            "nullable": true
+          },
+          "firstName": {
+            "type": "string",
+            "nullable": true
+          },
+          "lastName": {
+            "type": "string",
+            "nullable": true
+          },
+          "specialOffersAccepted": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "affiliateData": {
+            "type": "string",
+            "nullable": true
+          },
+          "countryId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "deviceFingerPrint": {
+            "type": "string",
+            "nullable": true
+          },
+          "mobileNumber": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Tech.CP.Common.Models.WebSiteModels.Clients.ApiSendRecoveryTokenInput": {
+        "type": "object",
+        "properties": {
+          "partnerId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "languageId": {
+            "type": "string",
+            "nullable": true
+          },
+          "timeZone": {
+            "type": "number",
+            "format": "double"
+          },
+          "countryCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "domain": {
+            "type": "string",
+            "nullable": true
+          },
+          "emailOrMobile": {
+            "type": "string",
+            "nullable": true
+          },
+          "reCaptcha": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Tech.CP.Common.Models.WebSiteModels.EncryptedData": {
+        "type": "object",
+        "properties": {
+          "partnerId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "languageId": {
+            "type": "string",
+            "nullable": true
+          },
+          "timeZone": {
+            "type": "number",
+            "format": "double"
+          },
+          "countryCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "domain": {
+            "type": "string",
+            "nullable": true
+          },
+          "data": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Tech.CP.Common.Models.WebSiteModels.LegacyApiLoginClientOutput": {
+        "type": "object",
+        "properties": {
+          "responseCode": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "newResponseCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "interruptionCode": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "responseObject": {
+            "nullable": true
+          },
+          "traceId": {
+            "type": "string",
+            "nullable": true
+          },
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "isEmailVerified": {
+            "type": "boolean"
+          },
+          "currencyId": {
+            "type": "string",
+            "nullable": true
+          },
+          "userName": {
+            "type": "string",
+            "nullable": true
+          },
+          "password": {
+            "type": "string",
+            "nullable": true
+          },
+          "partnerId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "regionId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "cityId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "countryId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "gender": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "birthDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "firstName": {
+            "type": "string",
+            "nullable": true
+          },
+          "lastName": {
+            "type": "string",
+            "nullable": true
+          },
+          "nickName": {
+            "type": "string",
+            "nullable": true
+          },
+          "documentNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "phoneNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "isPhoneNumberVerified": {
+            "type": "boolean"
+          },
+          "documentIssuedBy": {
+            "type": "string",
+            "nullable": true
+          },
+          "address": {
+            "type": "string",
+            "nullable": true
+          },
+          "mobileNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "isMobileNumberVerified": {
+            "type": "boolean"
+          },
+          "languageId": {
+            "type": "string",
+            "nullable": true
+          },
+          "registrationIp": {
+            "type": "string",
+            "nullable": true
+          },
+          "creationTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "lastUpdateTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "token": {
+            "type": "string",
+            "nullable": true
+          },
+          "emailOrMobile": {
+            "type": "string",
+            "nullable": true
+          },
+          "sendMail": {
+            "type": "boolean"
+          },
+          "sendSms": {
+            "type": "boolean"
+          },
+          "callToPhone": {
+            "type": "boolean"
+          },
+          "sendPromotions": {
+            "type": "boolean"
+          },
+          "isDocumentVerified": {
+            "type": "boolean"
+          },
+          "zipCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "info": {
+            "type": "string",
+            "nullable": true
+          },
+          "categoryId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "categoryName": {
+            "type": "string",
+            "nullable": true
+          },
+          "welcomeBonusActivationKey": {
+            "type": "string",
+            "nullable": true
+          },
+          "citizenship": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "currencySymbol": {
+            "type": "string",
+            "nullable": true
+          },
+          "lastLogin": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "lastLogout": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "lastLoginIp": {
+            "type": "string",
+            "nullable": true
+          },
+          "resetPassword": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "resetNickName": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "acceptTermsConditions": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "documentExpirationStatus": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "ad": {
+            "type": "string",
+            "nullable": true
+          },
+          "adm": {
+            "type": "string",
+            "nullable": true
+          },
+          "timeZone": {
+            "type": "number",
+            "format": "double"
+          },
+          "city": {
+            "type": "string",
+            "nullable": true
+          },
+          "documentType": {
+            "$ref": "#/components/schemas/Tech.Contracts.Enums.KYCDocumentTypes"
+          },
+          "segmentIds": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "nullable": true
+          },
+          "depositsCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "activeBonus": {
+            "$ref": "#/components/schemas/Tech.CP.Common.Models.WebSiteModels.ApiClientBonusWithMinimalSchema"
+          },
+          "isPoliticallyExposedPerson": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "lastLotteryId": {
+            "type": "string",
+            "nullable": true
+          },
+          "canCreateLotteries": {
+            "type": "boolean"
+          },
+          "lastLotteryStatus": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "affiliateId": {
+            "type": "string",
+            "nullable": true
+          },
+          "affiliateData": {
+            "type": "string",
+            "nullable": true
+          },
+          "taxNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "personalId": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Tech.CP.Common.Models.WebSiteModels.LoginInput": {
+        "type": "object",
+        "properties": {
+          "partnerId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "languageId": {
+            "type": "string",
+            "nullable": true
+          },
+          "timeZone": {
+            "type": "number",
+            "format": "double"
+          },
+          "countryCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "domain": {
+            "type": "string",
+            "nullable": true
+          },
+          "clientIdentifier": {
+            "type": "string",
+            "nullable": true
+          },
+          "password": {
+            "type": "string",
+            "nullable": true
+          },
+          "token": {
+            "type": "string",
+            "nullable": true
+          },
+          "deviceType": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "deviceFingerPrint": {
+            "type": "string",
+            "nullable": true
+          },
+          "fraudCheckDeviceFingerPrint": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Tech.CP.Common.Models.WebSiteModels.Products.ApiGetGamesInput": {
+        "type": "object",
+        "properties": {
+          "partnerId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "languageId": {
+            "type": "string",
+            "nullable": true
+          },
+          "timeZone": {
+            "type": "number",
+            "format": "double"
+          },
+          "countryCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "domain": {
+            "type": "string",
+            "nullable": true
+          },
+          "pageIndex": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "withWidget": {
+            "type": "boolean"
+          },
+          "isForMobile": {
+            "type": "boolean"
+          },
+          "categoryId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "subcategoryId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "providerIds": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "pattern": {
+            "type": "string",
+            "nullable": true
+          },
+          "productTypeId": {
+            "$ref": "#/components/schemas/Tech.Contracts.Enums.ProductType"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Tech.CP.Common.Models.WebSiteModels.Products.ApiGetNonAvailableGamesInput": {
+        "type": "object",
+        "properties": {
+          "partnerId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "languageId": {
+            "type": "string",
+            "nullable": true
+          },
+          "timeZone": {
+            "type": "number",
+            "format": "double"
+          },
+          "countryCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "domain": {
+            "type": "string",
+            "nullable": true
+          },
+          "clientId": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Tech.CP.Common.Models.WebSiteModels.Products.CheckProductAvailability": {
+        "type": "object",
+        "properties": {
+          "partnerId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "languageId": {
+            "type": "string",
+            "nullable": true
+          },
+          "timeZone": {
+            "type": "number",
+            "format": "double"
+          },
+          "countryCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "domain": {
+            "type": "string",
+            "nullable": true
+          },
+          "token": {
+            "type": "string",
+            "nullable": true
+          },
+          "productId": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Tech.CP.Common.Models.WebSiteModels.Products.GetProductUrlInput": {
+        "type": "object",
+        "properties": {
+          "partnerId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "languageId": {
+            "type": "string",
+            "nullable": true
+          },
+          "timeZone": {
+            "type": "number",
+            "format": "double"
+          },
+          "countryCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "domain": {
+            "type": "string",
+            "nullable": true
+          },
+          "token": {
+            "type": "string",
+            "nullable": true
+          },
+          "position": {
+            "type": "string",
+            "nullable": true
+          },
+          "deviceType": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "isForDemo": {
+            "type": "boolean"
+          },
+          "isForMobile": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "productId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "productViewId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "category": {
+            "type": "string",
+            "nullable": true
+          },
+          "limitId": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Tech.CP.Common.Models.WebSiteModels.PromotionFilter": {
+        "type": "object",
+        "properties": {
+          "partnerId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "languageId": {
+            "type": "string",
+            "nullable": true
+          },
+          "timeZone": {
+            "type": "number",
+            "format": "double"
+          },
+          "countryCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "domain": {
+            "type": "string",
+            "nullable": true
+          },
+          "controller": {
+            "type": "string",
+            "nullable": true
+          },
+          "method": {
+            "type": "string",
+            "nullable": true
+          },
+          "token": {
+            "type": "string",
+            "nullable": true
+          },
+          "productId": {
+            "type": "string",
+            "nullable": true
+          },
+          "requestData": {
+            "type": "string",
+            "nullable": true
+          },
+          "id": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "routes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "types": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Tech.CP.Common.Models.WebSiteModels.RequestBase": {
+        "type": "object",
+        "properties": {
+          "partnerId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "languageId": {
+            "type": "string",
+            "nullable": true
+          },
+          "timeZone": {
+            "type": "number",
+            "format": "double"
+          },
+          "countryCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "domain": {
+            "type": "string",
+            "nullable": true
+          },
+          "controller": {
+            "type": "string",
+            "nullable": true
+          },
+          "method": {
+            "type": "string",
+            "nullable": true
+          },
+          "token": {
+            "type": "string",
+            "nullable": true
+          },
+          "productId": {
+            "type": "string",
+            "nullable": true
+          },
+          "requestData": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Tech.CP.Infrastructure.API.Models.ApiResponse": {
+        "type": "object",
+        "properties": {
+          "responseCode": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "newResponseCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "interruptionCode": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "responseObject": {
+            "nullable": true
+          },
+          "traceId": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Tech.CP.Infrastructure.API.Models.ApiResponse`1[Tech.CP.BLL.Models.ClientTokenSender.ClientTokenSendResult]": {
+        "type": "object",
+        "properties": {
+          "responseCode": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "newResponseCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "interruptionCode": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "responseObject": {
+            "$ref": "#/components/schemas/Tech.CP.BLL.Models.ClientTokenSender.ClientTokenSendResult"
+          },
+          "traceId": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Tech.Contracts.Enums.KYCDocumentTypes": {
+        "enum": [
+          "IDDocument",
+          "ProofOfResidence",
+          "Card",
+          "DepositMethodConfirmation",
+          "WireInstruction",
+          "BTCWallet",
+          "Other",
+          "USDTWalletTRC20",
+          "USDTWalletERC20",
+          "SelfieWithDocument",
+          "RFC",
+          "CURP",
+          "ProofOfIncome",
+          "CryptoExchangeAccountVerification",
+          "IDDocumentBackPage"
+        ],
+        "type": "string"
+      },
+      "Tech.Contracts.Enums.ProductType": {
+        "enum": [
+          "Regular",
+          "Static",
+          "Sportsbook",
+          "LiveGame"
+        ],
+        "type": "string"
+      }
+    },
+    "securitySchemes": {
+      "token": {
+        "type": "apiKey",
+        "description": "Enter user token",
+        "name": "token",
+        "in": "header"
+      }
+    }
+  },
+  "security": [
+    {
+      "token": [ ]
+    }
+  ]
+}

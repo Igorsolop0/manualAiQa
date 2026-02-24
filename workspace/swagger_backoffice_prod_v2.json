@@ -1,0 +1,3045 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Tech.CP.AdminWebApi V2",
+    "version": "v2"
+  },
+  "paths": {
+    "/clear": {
+      "delete": {
+        "tags": [
+          "Cache"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/inmemory-clear": {
+      "delete": {
+        "tags": [
+          "Cache"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/clear/key": {
+      "delete": {
+        "tags": [
+          "Cache"
+        ],
+        "parameters": [
+          {
+            "name": "key",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/get/key": {
+      "get": {
+        "tags": [
+          "Cache"
+        ],
+        "parameters": [
+          {
+            "name": "key",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/clear/products": {
+      "delete": {
+        "tags": [
+          "Cache"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v2/HubbleGateSettings/Create": {
+      "post": {
+        "tags": [
+          "HubbleGateSettings"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.Payment.Contracts.Dtos.HubbleGateSettingsCommandDto"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.Payment.Contracts.Dtos.HubbleGateSettingsCommandDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.Payment.Contracts.Dtos.HubbleGateSettingsCommandDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.Payment.Contracts.Dtos.HubbleGateSettingsCommandDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v2/HubbleGateSettings/Update": {
+      "put": {
+        "tags": [
+          "HubbleGateSettings"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.Payment.Contracts.Dtos.HubbleGateSettingsCommandDto"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.Payment.Contracts.Dtos.HubbleGateSettingsCommandDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.Payment.Contracts.Dtos.HubbleGateSettingsCommandDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.Payment.Contracts.Dtos.HubbleGateSettingsCommandDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v2/HubbleGateSettings/Delete/{id}": {
+      "delete": {
+        "tags": [
+          "HubbleGateSettings"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v2/HubbleGateSettings/GetById/{id}": {
+      "get": {
+        "tags": [
+          "HubbleGateSettings"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v2/HubbleGateSettings/GetAll": {
+      "post": {
+        "tags": [
+          "HubbleGateSettings"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.Payment.Contracts.Filters.HubbleGateSettingsFilter"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.Payment.Contracts.Filters.HubbleGateSettingsFilter"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.Payment.Contracts.Filters.HubbleGateSettingsFilter"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.Payment.Contracts.Filters.HubbleGateSettingsFilter"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/switch": {
+      "get": {
+        "tags": [
+          "LogLevelSwitch"
+        ],
+        "parameters": [
+          {
+            "name": "area",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/Tech.CP.Infrastructure.Logging.LoggingArea"
+            }
+          },
+          {
+            "name": "logEventLevel",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/Serilog.Events.LogEventLevel"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/switchAll": {
+      "get": {
+        "tags": [
+          "LogLevelSwitch"
+        ],
+        "parameters": [
+          {
+            "name": "logEventLevel",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/Serilog.Events.LogEventLevel"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/reset": {
+      "get": {
+        "tags": [
+          "LogLevelSwitch"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v2/PartnerConfig/Create": {
+      "post": {
+        "tags": [
+          "PartnerConfig"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.Payment.Contracts.Dtos.PartnerConfigCommandDto"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.Payment.Contracts.Dtos.PartnerConfigCommandDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.Payment.Contracts.Dtos.PartnerConfigCommandDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.Payment.Contracts.Dtos.PartnerConfigCommandDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v2/PartnerConfig/Update": {
+      "put": {
+        "tags": [
+          "PartnerConfig"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.Payment.Contracts.Dtos.PartnerConfigCommandDto"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.Payment.Contracts.Dtos.PartnerConfigCommandDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.Payment.Contracts.Dtos.PartnerConfigCommandDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.Payment.Contracts.Dtos.PartnerConfigCommandDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v2/PartnerConfig/Delete/{id}": {
+      "delete": {
+        "tags": [
+          "PartnerConfig"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v2/PartnerConfig/GetById/{id}": {
+      "get": {
+        "tags": [
+          "PartnerConfig"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v2/PartnerConfig/GetAll": {
+      "post": {
+        "tags": [
+          "PartnerConfig"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.Payment.Contracts.Dtos.PartnerConfigFilter"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.Payment.Contracts.Dtos.PartnerConfigFilter"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.Payment.Contracts.Dtos.PartnerConfigFilter"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.Payment.Contracts.Dtos.PartnerConfigFilter"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v2/PartnerPaymentLimit/Create": {
+      "post": {
+        "tags": [
+          "PartnerPaymentLimit"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.Payment.Contracts.Dtos.PartnerPaymentLimitCommandDto"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.Payment.Contracts.Dtos.PartnerPaymentLimitCommandDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.Payment.Contracts.Dtos.PartnerPaymentLimitCommandDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.Payment.Contracts.Dtos.PartnerPaymentLimitCommandDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v2/PartnerPaymentLimit/Update": {
+      "put": {
+        "tags": [
+          "PartnerPaymentLimit"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.Payment.Contracts.Dtos.PartnerPaymentLimitCommandDto"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.Payment.Contracts.Dtos.PartnerPaymentLimitCommandDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.Payment.Contracts.Dtos.PartnerPaymentLimitCommandDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.Payment.Contracts.Dtos.PartnerPaymentLimitCommandDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v2/PartnerPaymentLimit/Delete/{id}": {
+      "delete": {
+        "tags": [
+          "PartnerPaymentLimit"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v2/PartnerPaymentLimit/GetById/{id}": {
+      "get": {
+        "tags": [
+          "PartnerPaymentLimit"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v2/PartnerPaymentLimit/GetAll": {
+      "post": {
+        "tags": [
+          "PartnerPaymentLimit"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.Payment.Contracts.Filters.PartnerPaymentLimitFilter"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.Payment.Contracts.Filters.PartnerPaymentLimitFilter"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.Payment.Contracts.Filters.PartnerPaymentLimitFilter"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.Payment.Contracts.Filters.PartnerPaymentLimitFilter"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v2/PartnerPaymentMethod/Create": {
+      "post": {
+        "tags": [
+          "PartnerPaymentMethod"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.Payment.Contracts.Dtos.PartnerPaymentMethodCommandDto"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.Payment.Contracts.Dtos.PartnerPaymentMethodCommandDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.Payment.Contracts.Dtos.PartnerPaymentMethodCommandDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.Payment.Contracts.Dtos.PartnerPaymentMethodCommandDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v2/PartnerPaymentMethod/Update": {
+      "put": {
+        "tags": [
+          "PartnerPaymentMethod"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.Payment.Contracts.Dtos.PartnerPaymentMethodCommandDto"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.Payment.Contracts.Dtos.PartnerPaymentMethodCommandDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.Payment.Contracts.Dtos.PartnerPaymentMethodCommandDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.Payment.Contracts.Dtos.PartnerPaymentMethodCommandDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v2/PartnerPaymentMethod/Delete/{id}": {
+      "delete": {
+        "tags": [
+          "PartnerPaymentMethod"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v2/PartnerPaymentMethod/GetById/{id}": {
+      "get": {
+        "tags": [
+          "PartnerPaymentMethod"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v2/PartnerPaymentMethod/GetAll": {
+      "post": {
+        "tags": [
+          "PartnerPaymentMethod"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.Payment.Contracts.Filters.PartnerPaymentMethodFilter"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.Payment.Contracts.Filters.PartnerPaymentMethodFilter"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.Payment.Contracts.Filters.PartnerPaymentMethodFilter"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.Payment.Contracts.Filters.PartnerPaymentMethodFilter"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v2/PaycosSettings/Create": {
+      "post": {
+        "tags": [
+          "PaycosSettings"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.Payment.Contracts.Dtos.PaycosSettingsCommandDto"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.Payment.Contracts.Dtos.PaycosSettingsCommandDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.Payment.Contracts.Dtos.PaycosSettingsCommandDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.Payment.Contracts.Dtos.PaycosSettingsCommandDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v2/PaycosSettings/Update": {
+      "put": {
+        "tags": [
+          "PaycosSettings"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.Payment.Contracts.Dtos.PaycosSettingsCommandDto"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.Payment.Contracts.Dtos.PaycosSettingsCommandDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.Payment.Contracts.Dtos.PaycosSettingsCommandDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.Payment.Contracts.Dtos.PaycosSettingsCommandDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v2/PaycosSettings/Delete/{id}": {
+      "delete": {
+        "tags": [
+          "PaycosSettings"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v2/PaycosSettings/GetById/{id}": {
+      "get": {
+        "tags": [
+          "PaycosSettings"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v2/PaycosSettings/GetAll": {
+      "post": {
+        "tags": [
+          "PaycosSettings"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.Payment.Contracts.Filters.PaycosSettingsFilter"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.Payment.Contracts.Filters.PaycosSettingsFilter"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.Payment.Contracts.Filters.PaycosSettingsFilter"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.Payment.Contracts.Filters.PaycosSettingsFilter"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v2/Payment/GetAll": {
+      "post": {
+        "tags": [
+          "Payment"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.Payment.Contracts.Filters.PaymentFilter"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.Payment.Contracts.Filters.PaymentFilter"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.Payment.Contracts.Filters.PaymentFilter"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.Payment.Contracts.Filters.PaymentFilter"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v2/Payment/GetAllWithTotal": {
+      "post": {
+        "tags": [
+          "Payment"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.Payment.Contracts.Filters.PaymentFilter"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.Payment.Contracts.Filters.PaymentFilter"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.Payment.Contracts.Filters.PaymentFilter"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.Payment.Contracts.Filters.PaymentFilter"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v2/Payment/GetPaymentRequests": {
+      "post": {
+        "tags": [
+          "Payment"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.AdminWebApi.Filters.PaymentRequests.ApiFilterfnPaymentRequest"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.AdminWebApi.Filters.PaymentRequests.ApiFilterfnPaymentRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.AdminWebApi.Filters.PaymentRequests.ApiFilterfnPaymentRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.AdminWebApi.Filters.PaymentRequests.ApiFilterfnPaymentRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v2/Payment/GetHistory/{paymentId}": {
+      "get": {
+        "tags": [
+          "Payment"
+        ],
+        "parameters": [
+          {
+            "name": "paymentId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v2/Payment/ChangeStatus": {
+      "patch": {
+        "tags": [
+          "Payment"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.AdminWebApi.Models.PaymentModels.ChangePaymentRequestState"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.AdminWebApi.Models.PaymentModels.ChangePaymentRequestState"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.AdminWebApi.Models.PaymentModels.ChangePaymentRequestState"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.AdminWebApi.Models.PaymentModels.ChangePaymentRequestState"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v2/Payment/GetById/{id}": {
+      "get": {
+        "tags": [
+          "Payment"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v2/PaymentMethod/GetById/{id}": {
+      "get": {
+        "tags": [
+          "PaymentMethod"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v2/PaymentMethod/GetAll": {
+      "post": {
+        "tags": [
+          "PaymentMethod"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.Payment.Contracts.Filters.PaymentMethodFilter"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.Payment.Contracts.Filters.PaymentMethodFilter"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.Payment.Contracts.Filters.PaymentMethodFilter"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.Payment.Contracts.Filters.PaymentMethodFilter"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v2/PaymentSystem/GetById/{id}": {
+      "get": {
+        "tags": [
+          "PaymentSystem"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v2/PaymentSystem/GetAll": {
+      "post": {
+        "tags": [
+          "PaymentSystem"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.Payment.Contracts.Filters.PaymentSystemFilter"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.Payment.Contracts.Filters.PaymentSystemFilter"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.Payment.Contracts.Filters.PaymentSystemFilter"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.Payment.Contracts.Filters.PaymentSystemFilter"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v2/Product/GetProducts/{partnerId}": {
+      "post": {
+        "tags": [
+          "Product"
+        ],
+        "parameters": [
+          {
+            "name": "partnerId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.AdminWebApi.Filters.ApiFilterProductAdmin"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.AdminWebApi.Filters.ApiFilterProductAdmin"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.AdminWebApi.Filters.ApiFilterProductAdmin"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.AdminWebApi.Filters.ApiFilterProductAdmin"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/v2/Product/CopyImages/{sourcePartnerId}/copy-to/{targetPartnerId}": {
+      "post": {
+        "tags": [
+          "Product"
+        ],
+        "parameters": [
+          {
+            "name": "sourcePartnerId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "targetPartnerId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.DomainApiResponse`1[Tech.CP.BLL.Models.Products.CopyImagesResultDto]"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.DomainApiResponse`1[Tech.CP.BLL.Models.Products.CopyImagesResultDto]"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.DomainApiResponse`1[Tech.CP.BLL.Models.Products.CopyImagesResultDto]"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.Mvc.ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/v2/Product/GetPartnerProductSettings": {
+      "post": {
+        "tags": [
+          "Product"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.AdminWebApi.Filters.ApiFilterPartnerProductSetting"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.AdminWebApi.Filters.ApiFilterPartnerProductSetting"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.AdminWebApi.Filters.ApiFilterPartnerProductSetting"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.AdminWebApi.Filters.ApiFilterPartnerProductSetting"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/v2/Product/CopyPartnerProductSettings": {
+      "post": {
+        "tags": [
+          "Product"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.AdminWebApi.Models.ContentModels.ApiCloneObject"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.AdminWebApi.Models.ContentModels.ApiCloneObject"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.AdminWebApi.Models.ContentModels.ApiCloneObject"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Tech.CP.AdminWebApi.Models.ContentModels.ApiCloneObject"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/v2/Product/SavePartnerProductSettings": {
+      "post": {
+        "tags": [
+          "Product"
+        ],
+        "parameters": [
+          {
+            "name": "apiPartnerProductSettingPartial",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/Tech.CP.AdminWebApi.Models.PartialModel`1[Tech.CP.Common.Models.Products.ApiPartnerProductSettingInput]"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tech.CP.Infrastructure.API.Models.ApiResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/build": {
+      "get": {
+        "tags": [
+          "Version"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Version"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/pingasync": {
+      "get": {
+        "tags": [
+          "Version"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Version"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/ping": {
+      "get": {
+        "tags": [
+          "Version"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Version"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Microsoft.AspNetCore.Mvc.ProblemDetails": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "detail": {
+            "type": "string",
+            "nullable": true
+          },
+          "instance": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": { }
+      },
+      "Serilog.Events.LogEventLevel": {
+        "enum": [
+          "Verbose",
+          "Debug",
+          "Information",
+          "Warning",
+          "Error",
+          "Fatal"
+        ],
+        "type": "string"
+      },
+      "Tech.CP.AdminWebApi.Filters.ApiFilterPartnerProductSetting": {
+        "type": "object",
+        "properties": {
+          "tab": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "fromDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "toDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "takeCount": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "isBackgroundReport": {
+            "type": "boolean"
+          },
+          "skipCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "orderBy": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "fieldNameToOrderBy": {
+            "type": "string",
+            "nullable": true
+          },
+          "exportFields": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "partnerId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "providerId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "isForMobile": {
+            "$ref": "#/components/schemas/Tech.CP.AdminWebApi.Filters.ApiFiltersOperation"
+          },
+          "isForDesktop": {
+            "$ref": "#/components/schemas/Tech.CP.AdminWebApi.Filters.ApiFiltersOperation"
+          },
+          "hasDemo": {
+            "$ref": "#/components/schemas/Tech.CP.AdminWebApi.Filters.ApiFiltersOperation"
+          },
+          "productIsLeaf": {
+            "$ref": "#/components/schemas/Tech.CP.AdminWebApi.Filters.ApiFiltersOperation"
+          },
+          "ids": {
+            "$ref": "#/components/schemas/Tech.CP.AdminWebApi.Filters.ApiFiltersOperation"
+          },
+          "productIds": {
+            "$ref": "#/components/schemas/Tech.CP.AdminWebApi.Filters.ApiFiltersOperation"
+          },
+          "names": {
+            "$ref": "#/components/schemas/Tech.CP.AdminWebApi.Filters.ApiFiltersOperation"
+          },
+          "gameProviderIds": {
+            "$ref": "#/components/schemas/Tech.CP.AdminWebApi.Filters.ApiFiltersOperation"
+          },
+          "externalIds": {
+            "$ref": "#/components/schemas/Tech.CP.AdminWebApi.Filters.ApiFiltersOperation"
+          },
+          "subProviderIds": {
+            "$ref": "#/components/schemas/Tech.CP.AdminWebApi.Filters.ApiFiltersOperation"
+          },
+          "states": {
+            "$ref": "#/components/schemas/Tech.CP.AdminWebApi.Filters.ApiFiltersOperation"
+          },
+          "openModes": {
+            "$ref": "#/components/schemas/Tech.CP.AdminWebApi.Filters.ApiFiltersOperation"
+          },
+          "categoryIds": {
+            "$ref": "#/components/schemas/Tech.CP.AdminWebApi.Filters.ApiFiltersOperation"
+          },
+          "subCategoryIds": {
+            "$ref": "#/components/schemas/Tech.CP.AdminWebApi.Filters.ApiFiltersOperation"
+          },
+          "rtPs": {
+            "$ref": "#/components/schemas/Tech.CP.AdminWebApi.Filters.ApiFiltersOperation"
+          },
+          "volatilities": {
+            "$ref": "#/components/schemas/Tech.CP.AdminWebApi.Filters.ApiFiltersOperation"
+          },
+          "ratings": {
+            "$ref": "#/components/schemas/Tech.CP.AdminWebApi.Filters.ApiFiltersOperation"
+          },
+          "percents": {
+            "$ref": "#/components/schemas/Tech.CP.AdminWebApi.Filters.ApiFiltersOperation"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Tech.CP.AdminWebApi.Filters.ApiFilterProductAdmin": {
+        "type": "object",
+        "properties": {
+          "tab": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "fromDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "toDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "takeCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "skipCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "orderBy": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "fieldNameToOrderBy": {
+            "type": "string",
+            "nullable": true
+          },
+          "productId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "productStructureId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "parentProductStructureId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "gameProviderOrSubProviderId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "isWithoutImages": {
+            "type": "boolean"
+          },
+          "ids": {
+            "$ref": "#/components/schemas/Tech.CP.AdminWebApi.Filters.ApiFiltersOperation"
+          },
+          "productStructureIds": {
+            "$ref": "#/components/schemas/Tech.CP.AdminWebApi.Filters.ApiFiltersOperation"
+          },
+          "names": {
+            "$ref": "#/components/schemas/Tech.CP.AdminWebApi.Filters.ApiFiltersOperation"
+          },
+          "descriptions": {
+            "$ref": "#/components/schemas/Tech.CP.AdminWebApi.Filters.ApiFiltersOperation"
+          },
+          "externalIds": {
+            "$ref": "#/components/schemas/Tech.CP.AdminWebApi.Filters.ApiFiltersOperation"
+          },
+          "states": {
+            "$ref": "#/components/schemas/Tech.CP.AdminWebApi.Filters.ApiFiltersOperation"
+          },
+          "gameProviderIds": {
+            "$ref": "#/components/schemas/Tech.CP.AdminWebApi.Filters.ApiFiltersOperation"
+          },
+          "subProviderIds": {
+            "$ref": "#/components/schemas/Tech.CP.AdminWebApi.Filters.ApiFiltersOperation"
+          },
+          "isForDesktops": {
+            "$ref": "#/components/schemas/Tech.CP.AdminWebApi.Filters.ApiFiltersOperation"
+          },
+          "isForMobiles": {
+            "$ref": "#/components/schemas/Tech.CP.AdminWebApi.Filters.ApiFiltersOperation"
+          },
+          "freeSpinSupports": {
+            "$ref": "#/components/schemas/Tech.CP.AdminWebApi.Filters.ApiFiltersOperation"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Tech.CP.AdminWebApi.Filters.ApiFiltersOperation": {
+        "type": "object",
+        "properties": {
+          "apiOperationTypeList": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Tech.CP.Common.Models.Filters.ApiFiltersOperationType"
+            },
+            "nullable": true
+          },
+          "isAnd": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Tech.CP.AdminWebApi.Filters.PaymentRequests.ApiFilterfnPaymentRequest": {
+        "type": "object",
+        "properties": {
+          "tab": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "takeCount": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "isBackgroundReport": {
+            "type": "boolean"
+          },
+          "skipCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "orderBy": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "fieldNameToOrderBy": {
+            "type": "string",
+            "nullable": true
+          },
+          "partnerId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "fromDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "toDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "type": {
+            "$ref": "#/components/schemas/Tech.Payment.Contracts.Enums.PaymentRequestType"
+          },
+          "hasNote": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "agentId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "ids": {
+            "$ref": "#/components/schemas/Tech.CP.AdminWebApi.Filters.ApiFiltersOperation"
+          },
+          "userNames": {
+            "$ref": "#/components/schemas/Tech.CP.AdminWebApi.Filters.ApiFiltersOperation"
+          },
+          "names": {
+            "$ref": "#/components/schemas/Tech.CP.AdminWebApi.Filters.ApiFiltersOperation"
+          },
+          "creatorNames": {
+            "$ref": "#/components/schemas/Tech.CP.AdminWebApi.Filters.ApiFiltersOperation"
+          },
+          "clientIds": {
+            "$ref": "#/components/schemas/Tech.CP.AdminWebApi.Filters.ApiFiltersOperation"
+          },
+          "clientEmails": {
+            "$ref": "#/components/schemas/Tech.CP.AdminWebApi.Filters.ApiFiltersOperation"
+          },
+          "userIds": {
+            "$ref": "#/components/schemas/Tech.CP.AdminWebApi.Filters.ApiFiltersOperation"
+          },
+          "partnerPaymentMethodIds": {
+            "$ref": "#/components/schemas/Tech.CP.AdminWebApi.Filters.ApiFiltersOperation"
+          },
+          "paymentSystemIds": {
+            "$ref": "#/components/schemas/Tech.CP.AdminWebApi.Filters.ApiFiltersOperation"
+          },
+          "currencies": {
+            "$ref": "#/components/schemas/Tech.CP.AdminWebApi.Filters.ApiFiltersOperation"
+          },
+          "states": {
+            "$ref": "#/components/schemas/Tech.CP.AdminWebApi.Filters.ApiFiltersOperation"
+          },
+          "amounts": {
+            "$ref": "#/components/schemas/Tech.CP.AdminWebApi.Filters.ApiFiltersOperation"
+          },
+          "creationDates": {
+            "$ref": "#/components/schemas/Tech.CP.AdminWebApi.Filters.ApiFiltersOperation"
+          },
+          "lastUpdateDates": {
+            "$ref": "#/components/schemas/Tech.CP.AdminWebApi.Filters.ApiFiltersOperation"
+          },
+          "externalIds": {
+            "$ref": "#/components/schemas/Tech.CP.AdminWebApi.Filters.ApiFiltersOperation"
+          },
+          "affiliatePlatformIds": {
+            "$ref": "#/components/schemas/Tech.CP.AdminWebApi.Filters.ApiFiltersOperation"
+          },
+          "affiliateIds": {
+            "$ref": "#/components/schemas/Tech.CP.AdminWebApi.Filters.ApiFiltersOperation"
+          },
+          "activatedBonusTypes": {
+            "$ref": "#/components/schemas/Tech.CP.AdminWebApi.Filters.ApiFiltersOperation"
+          },
+          "commissionAmounts": {
+            "$ref": "#/components/schemas/Tech.CP.AdminWebApi.Filters.ApiFiltersOperation"
+          },
+          "cardNumbers": {
+            "$ref": "#/components/schemas/Tech.CP.AdminWebApi.Filters.ApiFiltersOperation"
+          },
+          "segmentIds": {
+            "$ref": "#/components/schemas/Tech.CP.AdminWebApi.Filters.ApiFiltersOperation"
+          },
+          "segmentNames": {
+            "$ref": "#/components/schemas/Tech.CP.AdminWebApi.Filters.ApiFiltersOperation"
+          },
+          "paymentMethodIds": {
+            "$ref": "#/components/schemas/Tech.CP.AdminWebApi.Filters.ApiFiltersOperation"
+          },
+          "processingTypes": {
+            "$ref": "#/components/schemas/Tech.CP.AdminWebApi.Filters.ApiFiltersOperation"
+          },
+          "updatedByUserNames": {
+            "$ref": "#/components/schemas/Tech.CP.AdminWebApi.Filters.ApiFiltersOperation"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Tech.CP.AdminWebApi.Models.ContentModels.ApiCloneObject": {
+        "type": "object",
+        "properties": {
+          "fromPartnerId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "toPartnerId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "menuItemId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Tech.CP.AdminWebApi.Models.PartialModel`1[Tech.CP.Common.Models.Products.ApiPartnerProductSettingInput]": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/Tech.CP.Common.Models.Products.ApiPartnerProductSettingInput"
+          },
+          "fields": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Tech.CP.AdminWebApi.Models.PaymentModels.ChangePaymentRequestState": {
+        "type": "object",
+        "properties": {
+          "paymentRequestId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "changeStatusTo": {
+            "$ref": "#/components/schemas/Tech.Payment.Contracts.Enums.ChangePaymentStatusTo"
+          },
+          "comment": {
+            "type": "string",
+            "nullable": true
+          },
+          "type": {
+            "$ref": "#/components/schemas/Tech.Payment.Contracts.Enums.PaymentRequestType"
+          },
+          "processingType": {
+            "$ref": "#/components/schemas/Tech.Payment.Contracts.Enums.ProcessingType"
+          },
+          "publicCancellationReasonComment": {
+            "type": "string",
+            "nullable": true
+          },
+          "cancellationReason": {
+            "$ref": "#/components/schemas/Tech.Payment.Contracts.Enums.PaymentCancellationReason"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Tech.CP.BLL.Models.Products.CopyImagesResultDto": {
+        "type": "object",
+        "properties": {
+          "updatedCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "notUpdatedCount": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Tech.CP.Common.Enums.FilterOperations": {
+        "enum": [
+          "IsEqualTo",
+          "IsGreaterThenOrEqualTo",
+          "IsGreaterThen",
+          "IsLessThenOrEqualTo",
+          "IsLessThen",
+          "IsNotEqualTo",
+          "Contains",
+          "StartsWith",
+          "EndsWith",
+          "DoesNotContain",
+          "InSet",
+          "OutOfSet",
+          "AtLeastOneInSet",
+          "IsNull"
+        ],
+        "type": "string"
+      },
+      "Tech.CP.Common.Models.Filters.ApiFiltersOperationType": {
+        "type": "object",
+        "properties": {
+          "operationTypeId": {
+            "$ref": "#/components/schemas/Tech.CP.Common.Enums.FilterOperations"
+          },
+          "stringValue": {
+            "type": "string",
+            "nullable": true
+          },
+          "intValue": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "decimalValue": {
+            "type": "number",
+            "format": "double"
+          },
+          "dateTimeValue": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Tech.CP.Common.Models.Products.ApiPartnerProductSettingInput": {
+        "type": "object",
+        "properties": {
+          "partnerId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "percent": {
+            "type": "number",
+            "format": "double"
+          },
+          "state": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "rating": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "categoryIds": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "nullable": true
+          },
+          "categorySubcategoryIds": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "array",
+              "items": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "nullable": true
+            },
+            "nullable": true
+          },
+          "rtp": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "volatility": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "openMode": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "hasDemo": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "productIds": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Tech.CP.Infrastructure.API.Models.ApiResponse": {
+        "type": "object",
+        "properties": {
+          "responseCode": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "newResponseCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "interruptionCode": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "responseObject": {
+            "nullable": true
+          },
+          "traceId": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Tech.CP.Infrastructure.API.Models.DomainApiResponse`1[Tech.CP.BLL.Models.Products.CopyImagesResultDto]": {
+        "required": [
+          "responseCode"
+        ],
+        "type": "object",
+        "properties": {
+          "responseCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "interruptionCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "responseObject": {
+            "$ref": "#/components/schemas/Tech.CP.BLL.Models.Products.CopyImagesResultDto"
+          },
+          "traceId": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Tech.CP.Infrastructure.Logging.LoggingArea": {
+        "enum": [
+          "Common",
+          "Database",
+          "Messaging",
+          "Caching",
+          "HTTP"
+        ],
+        "type": "string"
+      },
+      "Tech.Payment.Contracts.Dtos.HubbleGateSettingsCommandDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "merchantKey": {
+            "type": "string",
+            "nullable": true
+          },
+          "merchantSecret": {
+            "type": "string",
+            "nullable": true
+          },
+          "brandId": {
+            "type": "string",
+            "nullable": true
+          },
+          "apiUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "partnerPaymentMethodId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "isDefault": {
+            "type": "boolean"
+          },
+          "createdBy": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "updatedBy": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Tech.Payment.Contracts.Dtos.PartnerConfigCommandDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "partnerId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "bookMoneyLater": {
+            "type": "boolean"
+          },
+          "recommendedDepositCalculation": {
+            "type": "boolean"
+          },
+          "updatedBy": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "parameters": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Tech.Payment.Contracts.Dtos.PartnerConfigParameterDto"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Tech.Payment.Contracts.Dtos.PartnerConfigFilter": {
+        "type": "object",
+        "properties": {
+          "partnerId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "bookMoneyLater": {
+            "type": "boolean",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Tech.Payment.Contracts.Dtos.PartnerConfigParameterDto": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/Tech.Payment.Contracts.Enums.PartnerConfigParameterType"
+          }
+        },
+        "additionalProperties": { }
+      },
+      "Tech.Payment.Contracts.Dtos.PartnerPaymentLimitCommandDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "clientId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "partnerId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "type": {
+            "$ref": "#/components/schemas/Tech.Payment.Contracts.Enums.PaymentRequestType"
+          },
+          "maxTotalCountPerDay": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "maxTotalCountPerWeek": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "maxTotalCountPerMonth": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "maxTotalAmountPerDay": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "maxTotalAmountPerWeek": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "maxTotalAmountPerMonth": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Tech.Payment.Contracts.Dtos.PartnerPaymentMethodCommandDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "paymentMethodId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "paymentSystemId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "partnerId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "currencyId": {
+            "type": "string",
+            "nullable": true
+          },
+          "commission": {
+            "type": "number",
+            "format": "double"
+          },
+          "state": {
+            "$ref": "#/components/schemas/Tech.Payment.Contracts.Enums.PartnerPaymentMethodStates"
+          },
+          "type": {
+            "$ref": "#/components/schemas/Tech.Payment.Contracts.Enums.PaymentRequestType"
+          },
+          "minAmount": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "maxAmount": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "externalSessionExpireInMinutes": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "updatedBy": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "createdBy": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Tech.Payment.Contracts.Dtos.PaycosSettingsCommandDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "authenticationKey": {
+            "type": "string",
+            "nullable": true
+          },
+          "paymentParameterName": {
+            "type": "string",
+            "nullable": true
+          },
+          "infoApiUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "commandApiUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "actionUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "partnerPaymentMethodId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "createdBy": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "updatedBy": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Tech.Payment.Contracts.Enums.ChangePaymentStatusTo": {
+        "enum": [
+          "Approve",
+          "Cancel",
+          "MarkAsPaid"
+        ],
+        "type": "string"
+      },
+      "Tech.Payment.Contracts.Enums.PartnerConfigParameterType": {
+        "enum": [
+          "RecommendedDepositCalculation"
+        ],
+        "type": "string"
+      },
+      "Tech.Payment.Contracts.Enums.PartnerPaymentMethodStates": {
+        "enum": [
+          "Active",
+          "Inactive",
+          "Hidden"
+        ],
+        "type": "string"
+      },
+      "Tech.Payment.Contracts.Enums.PaymentCancellationReason": {
+        "enum": [
+          "NeedVerification",
+          "NeedAdditionalVerification",
+          "UnrelatedWithdrawalMethod",
+          "IncorrectPaymentDetails",
+          "IncorrectWithdrawalMethod",
+          "UnconfirmedPaymentDetails",
+          "DepositConfirmation",
+          "DailyPayoutLimitReached",
+          "WeeklyPayoutLimitReached",
+          "MonthlyPayoutLimitReached",
+          "UserProfilePersonalDataNotFilled",
+          "Bug",
+          "ConfiscatingDueToRulesViolations",
+          "BlockedDueToRulesViolationOfThirdParty",
+          "FailedWithdrawal",
+          "Other",
+          "CancelledByUser",
+          "InsufficientFunds"
+        ],
+        "type": "string"
+      },
+      "Tech.Payment.Contracts.Enums.PaymentMethodType": {
+        "enum": [
+          "UrlRedirect",
+          "CreditCardNumber",
+          "CryptoAddress",
+          "PaymentHub",
+          "AccountNumber"
+        ],
+        "type": "string"
+      },
+      "Tech.Payment.Contracts.Enums.PaymentRequestState": {
+        "enum": [
+          "Created",
+          "Pending",
+          "Approved",
+          "ManualReviewRequired",
+          "InProgress",
+          "Confirming",
+          "Canceling",
+          "Successful",
+          "Canceled"
+        ],
+        "type": "string"
+      },
+      "Tech.Payment.Contracts.Enums.PaymentRequestType": {
+        "enum": [
+          "Withdraw",
+          "Deposit",
+          "ChargeBack"
+        ],
+        "type": "string"
+      },
+      "Tech.Payment.Contracts.Enums.ProcessingType": {
+        "enum": [
+          "ByPlatform",
+          "ByProvider",
+          "ManuallyByUser",
+          "ManuallyByClient"
+        ],
+        "type": "string"
+      },
+      "Tech.Payment.Contracts.Filters.HubbleGateSettingsFilter": {
+        "type": "object",
+        "properties": {
+          "takeCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "skipCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ids": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "nullable": true
+          },
+          "partners": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "nullable": true
+          },
+          "partnerPaymentMethods": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Tech.Payment.Contracts.Filters.PartnerPaymentLimitFilter": {
+        "type": "object",
+        "properties": {
+          "takeCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "skipCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ids": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "nullable": true
+          },
+          "partners": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "nullable": true
+          },
+          "clients": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "nullable": true
+          },
+          "paymentRequestTypes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Tech.Payment.Contracts.Enums.PaymentRequestType"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Tech.Payment.Contracts.Filters.PartnerPaymentMethodFilter": {
+        "type": "object",
+        "properties": {
+          "takeCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "skipCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ids": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "nullable": true
+          },
+          "partners": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "nullable": true
+          },
+          "paymentRequestTypes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Tech.Payment.Contracts.Enums.PaymentRequestType"
+            },
+            "nullable": true
+          },
+          "paymentSystems": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "nullable": true
+          },
+          "currencies": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "states": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Tech.Payment.Contracts.Enums.PartnerPaymentMethodStates"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Tech.Payment.Contracts.Filters.PaycosSettingsFilter": {
+        "type": "object",
+        "properties": {
+          "takeCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "skipCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ids": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "nullable": true
+          },
+          "partners": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "nullable": true
+          },
+          "partnerPaymentMethods": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Tech.Payment.Contracts.Filters.PaymentFilter": {
+        "type": "object",
+        "properties": {
+          "fromDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "toDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "takeCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "skipCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "orderBy": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "fieldNameToOrderBy": {
+            "type": "string",
+            "nullable": true
+          },
+          "ids": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int64"
+            },
+            "nullable": true
+          },
+          "partners": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "nullable": true
+          },
+          "paymentMethods": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "nullable": true
+          },
+          "paymentSystems": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "nullable": true
+          },
+          "currencies": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "clients": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "nullable": true
+          },
+          "types": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Tech.Payment.Contracts.Enums.PaymentRequestType"
+            },
+            "nullable": true
+          },
+          "statuses": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Tech.Payment.Contracts.Enums.PaymentRequestState"
+            },
+            "nullable": true
+          },
+          "processingTypes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Tech.Payment.Contracts.Enums.ProcessingType"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Tech.Payment.Contracts.Filters.PaymentMethodFilter": {
+        "type": "object",
+        "properties": {
+          "takeCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "skipCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ids": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "nullable": true
+          },
+          "partners": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "nullable": true
+          },
+          "paymentSystems": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "nullable": true
+          },
+          "externalMethods": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "paymentMethodTypes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Tech.Payment.Contracts.Enums.PaymentMethodType"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Tech.Payment.Contracts.Filters.PaymentSystemFilter": {
+        "type": "object",
+        "properties": {
+          "takeCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "skipCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ids": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "nullable": true
+          },
+          "partners": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "securitySchemes": {
+      "UserId": {
+        "type": "apiKey",
+        "description": "UserId Authorization header using the UserId scheme. Example: \"UserId: 123\"",
+        "name": "UserId",
+        "in": "header"
+      }
+    }
+  },
+  "security": [
+    {
+      "UserId": [ ]
+    }
+  ]
+}

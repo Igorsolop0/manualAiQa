@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "skills": {
+    "playwright-mcp": {
+      "version": "1.0.0",
+      "installedAt": 1771351278304
+    },
+    "notion": {
+      "version": "1.0.0",
+      "installedAt": 1771356737249
+    },
+    "clawddocs": {
+      "version": "1.2.2",
+      "installedAt": 1771358072851
+    },
+    "prompt-engineering-expert": {
+      "version": "1.0.0",
+      "installedAt": 1771358348852
+    },
+    "reflect-learn": {
+      "version": "2.1.0",
+      "installedAt": 1771358839076
+    },
+    "thinking-partner": {
+      "version": "1.0.0",
+      "installedAt": 1771362622215
+    },
+    "ai-meeting-notes": {
+      "version": "1.0.3",
+      "installedAt": 1771362879748
+    },
+    "linkedin-api": {
+      "version": "1.0.2",
+      "installedAt": 1771397716565
+    }
+  }
+}

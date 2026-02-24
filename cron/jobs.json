@@ -1,0 +1,92 @@
+{
+  "version": 1,
+  "jobs": [
+    {
+      "id": "40d004fa-6219-438a-bf2e-a0dad924a18f",
+      "agentId": "main",
+      "name": "Gmail Check - NextCode",
+      "enabled": true,
+      "createdAtMs": 1771084279927,
+      "updatedAtMs": 1771952478252,
+      "schedule": {
+        "kind": "cron",
+        "expr": "*/30 9-18 * * 1-5",
+        "tz": "Europe/Vienna"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "Read HEARTBEAT.md and check Gmail for new emails. If Jira tickets found, fetch and summarize them. Send notification to Telegram with ticket summary and action needed.",
+        "model": "zai/glm-5"
+      },
+      "delivery": {
+        "mode": "announce"
+      },
+      "state": {
+        "nextRunAtMs": 1771954200000,
+        "lastRunAtMs": 1771952400099,
+        "lastStatus": "ok",
+        "lastDurationMs": 78153,
+        "consecutiveErrors": 0,
+        "lastRunStatus": "ok",
+        "lastDeliveryStatus": "delivered",
+        "lastDelivered": true
+      }
+    },
+    {
+      "id": "3584c66a-abce-4e59-9add-80b664e9aadd",
+      "agentId": "main",
+      "name": "Austria Channels Daily Summary",
+      "enabled": true,
+      "createdAtMs": 1771144483934,
+      "updatedAtMs": 1771869741360,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 19 * * *",
+        "tz": "Europe/Vienna"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "Read /Users/ihorsolopii/.openclaw/workspace/scripts/austria_channels_summary.py and follow the instructions in the 'instructions' field. Use browser automation (profile=openclaw) to:\n\n1. Navigate to each Telegram channel in the CHANNELS list\n2. Take screenshots of recent messages (last 24 hours)\n3. Analyze screenshots with vision model to extract:\n   - IT/QA job posts\n   - RWR/permits/insurance discussions\n   - Apartment/rental/mortgage topics\n   - Events and community news\n   - Life hacks and tips\n4. Create a structured summary\n5. Send the summary to Telegram (action=send, to=282986529, channel=telegram)\n\nFocus only on PRIORITY_TOPICS. Skip casual chat and jokes."
+      },
+      "delivery": {
+        "mode": "announce"
+      },
+      "state": {
+        "nextRunAtMs": 1771956000000,
+        "lastRunAtMs": 1771869600118,
+        "lastStatus": "ok",
+        "lastDurationMs": 141242,
+        "consecutiveErrors": 0,
+        "lastRunStatus": "ok",
+        "lastDelivered": true,
+        "lastDeliveryStatus": "delivered"
+      }
+    },
+    {
+      "id": "be670aac-f0af-462d-bc09-56cfc12ca0e4",
+      "name": "Austria Weekly Check",
+      "description": "Щотижнева перевірка офіційних джерел Австрії для українців",
+      "enabled": true,
+      "createdAtMs": 1771938179147,
+      "updatedAtMs": 1771939487502,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 9 * * 1",
+        "tz": "Europe/Vienna"
+      },
+      "sessionTarget": "main",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "systemEvent",
+        "text": "Перевір Австрію: проаналізуй офіційні джерела (міграція, податки, сім'я, новини). \n\nФормат звіту:\n1. Детальний опис кожної зміни (не коротко!)\n2. Що саме змінилося, для кого актуально\n3. ЯКЩО потребує дій — чітко написати що робити: подати заявку, написати імейл, звернутися до установи, дедлайн\n4. Прямі посилання на джерела\n\nОнови Notion сторінку Austria. Повідом в Telegram детальний звіт. Якщо немає нового — напиши що не знайдено."
+      },
+      "state": {
+        "nextRunAtMs": 1772438400000
+      }
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+# USER.md - About Ihor
+
+- **Name:** Ihor
+- **What to call them:** Ihor
+- **Pronouns:** he/him
+- **Timezone:** Europe/Vienna (GMT+1)
+- **Location:** Vienna, Austria
+
+## Context
+
+**Work:**
+- Senior QA Engineer, 10+ years exp
+- Main job: Sdui (German EdTech startup, automation QA)
+- Second job: NextCode (Ukrainian igaming company) iGaming, online casino
+- Goal: Financial stability for family and parents
+
+**Life:**
+- Married, young son
+- Mental state: High-functioning anxiety / mild panic — resilient but often tired
+- Operates on high efficiency, needs help managing ENERGY not just TIME
+
+**Interests:**
+- Tech: AI Agents (building his own Cline + Playwright MCP + GLM 5), Playwright, Python/JS, Seeker phone, Solana, Politics news
+- Crypto: Long-term investing + short-term trends (zero time to monitor manually)
+- Life: Skiing, Volleyball, Reading (Atomic Habits, Stoicism), Hiking in mountains
+
+**Current Project:**
+- "My New Habits": 100+ day journey based on "Atomic Habits" and "The Mountain Is You"
+- Focus: Digital detox, better sleep, consistent physical activity, quality time with son
+
+## Operational Preferences (How I work)
+
+- **Coding Style:** Senior level. Clean code, meaningful variable names, robust error handling. No boilerplate explanations unless I ask.
+- **Learning Style:** Give me the "Why" (concept) in one sentence, then the "How" (implementation).
+- **Crypto Strategy:** Solana-focused. Interests: Jup/LSTs, memecoin trends (only top-tier), airdrop farming automation. No "get rich quick" schemes.
+- **Conflict Management:** If I'm overworking (late night queries), gently suggest finishing and starting fresh tomorrow.
+
+## Success Metrics for AI
+
+- **Time Saved:** Did this response save me 15+ mins of manual work?
+- **Profit Potential:** Does this insight help me identify a gap for a micro-SaaS or a crypto trade?
+- **Mental Clarity:** Did this response reduce my cognitive load or add to it?
+
+## Communication Rules (CRITICAL)
+
+1. **Tone:** Professional, concise, empathetic but rational. NO corporate fluff.
+2. **NO NAGGING:** Do not remind about "self-improvement" or "productivity" unless explicitly asked.
+3. **Tech questions:** Give the solution (code/script), not just suggestions.
+4. **Life questions:** Act as a wise partner who understands his fatigue.
+5. **Language:** Ukrainian (preferred) or English (for code/tech).
+
+## My Role
+
+- Save time (automation, summaries)
+- Help make money (crypto insights, product ideas)
+- Help stay sane (remind to rest, not just work)
