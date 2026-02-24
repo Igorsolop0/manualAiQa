@@ -7,7 +7,7 @@
       "name": "Gmail Check - NextCode",
       "enabled": true,
       "createdAtMs": 1771084279927,
-      "updatedAtMs": 1771952478252,
+      "updatedAtMs": 1771954240231,
       "schedule": {
         "kind": "cron",
         "expr": "*/30 9-18 * * 1-5",
@@ -24,10 +24,10 @@
         "mode": "announce"
       },
       "state": {
-        "nextRunAtMs": 1771954200000,
-        "lastRunAtMs": 1771952400099,
+        "nextRunAtMs": 1772006400000,
+        "lastRunAtMs": 1771954200092,
         "lastStatus": "ok",
-        "lastDurationMs": 78153,
+        "lastDurationMs": 40139,
         "consecutiveErrors": 0,
         "lastRunStatus": "ok",
         "lastDeliveryStatus": "delivered",
@@ -40,7 +40,7 @@
       "name": "Austria Channels Daily Summary",
       "enabled": true,
       "createdAtMs": 1771144483934,
-      "updatedAtMs": 1771869741360,
+      "updatedAtMs": 1771956072878,
       "schedule": {
         "kind": "cron",
         "expr": "0 19 * * *",
@@ -56,10 +56,10 @@
         "mode": "announce"
       },
       "state": {
-        "nextRunAtMs": 1771956000000,
-        "lastRunAtMs": 1771869600118,
+        "nextRunAtMs": 1772042400000,
+        "lastRunAtMs": 1771956000148,
         "lastStatus": "ok",
-        "lastDurationMs": 141242,
+        "lastDurationMs": 72730,
         "consecutiveErrors": 0,
         "lastRunStatus": "ok",
         "lastDelivered": true,
