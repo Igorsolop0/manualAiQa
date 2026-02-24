@@ -1,0 +1,41 @@
+# =======================================================
+# OpenClaw Safe Backup .gitignore
+# =======================================================
+
+# 1. 🛑 СЕКРЕТИ ТА КОНФІГИ З ПАРОЛЯМИ (КРИТИЧНО)
+openclaw.json
+*.json.bak*
+.env
+credentials/
+*.key
+*.pem
+*_token
+auth-profiles.json
+agents/*/agent/auth-profiles.json
+workspace/.jira_token
+workspace/.gmail_seen_ids.json
+workspace/.testrail_token
+
+# 2. 🗑 ЛОГИ, КЕШІ, ТИМЧАСОВІ ФАЙЛИ ТА ЧЕРГИ
+logs/
+sessions/
+agents/*/sessions/
+delivery-queue/
+completions/
+update-check.json
+*.log
+*.tmp
+.DS_Store
+
+# 3. 💾 БАЗИ ДАНИХ ТА ВЕЛИКІ ДАНІ (ОПЦІОНАЛЬНО)
+media/
+browser/
+canvas/
+memory/
+data/*.db
+*.sqlite
+
+# 4. СПЕЦИФІЧНІ ДЕРЕВА (Наприклад, identity)
+identity/
+devices/
+telegram/
