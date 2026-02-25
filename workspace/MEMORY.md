@@ -12,6 +12,11 @@
 - Jira tickets detected and summarized automatically
 - Notifications sent to Telegram
 
+**⚠️ Vacation Mode:**
+- NextCode vacation: 2026-02-25 to 2026-03-02 (return Monday 2026-03-03)
+- Do NOT send Jira ticket notifications during vacation
+- Resume normal checks on 2026-03-03
+
 **Credentials Location:**
 - App Password: `/Users/ihorsolopii/.openclaw/workspace/.gmail_config`
 - Seen IDs: `/Users/ihorsolopii/.openclaw/workspace/.gmail_seen_ids.json`

@@ -1,11 +1,22 @@
 # Heartbeat Tasks
 
+## ⚠️ Vacation Mode (2026-02-25 to 2026-03-02)
+**NextCode vacation active** — skip Jira ticket notifications.
+
+Gmail checks still run, but DO NOT process or send Jira alerts.
+
+Resume normal monitoring on **Monday, 2026-03-03**.
+
+---
+
 ## Gmail Check
 Check for new emails and notify if important:
 
 ```bash
 python3 /Users/ihorsolopii/.openclaw/workspace/scripts/gmail_checker.py
 ```
+
+**VACATION MODE (2026-02-25 to 2026-03-02): Skip Jira processing**
 
 If output contains `NEW_EMAILS_COUNT:`, parse emails and process:
 

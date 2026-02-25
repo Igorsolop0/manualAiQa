@@ -2,7 +2,7 @@
 
 **Purpose:** Document corrections, better approaches, and key learnings to avoid repeating mistakes.
 
-**Updated:** 2026-02-23
+**Updated:** 2026-02-24
 
 ---
 
@@ -314,6 +314,79 @@ curl 'https://wallet.dev.sofon.one/5/api/v1/balance/59107/USD'
 
 ---
 
+## 🎯 Section 10: PandaSen Ticket Testing System (Trial: 2026-02-24 to 2026-03-10)
+
+**Date:** 2026-02-24  
+**Status:** 🧪 **TRIAL PERIOD** — Testing this system for next 2 weeks  
+**Purpose:** Automated testing pipeline for tickets assigned to PandaSen (Ihor) with human-in-the-loop review
+
+### 🏗️ System Architecture
+
+**Components:**
+1. **Detector** → Jira webhook/Gmail parser for new PandaSen assignments
+2. **Classifier** → Analyzes ticket type: `[FE]`, `[BE]`, `[API]`, `[Bug]`, `[QA]`
+3. **Test Generator** → Creates test plan (automated + manual cases)
+4. **[NEW] Ihor Review Step** → Detailed report for approval before execution
+5. **Environment Health Check** → Verifies site/API availability before testing
+6. **Test Executor (Dual Mode)**:
+   - **A. Playwright as "hands"** → Interactive testing (Ihor sees screenshots/results)
+   - **B. Automated tests** → Regression/smoke tests (fully autonomous)
+7. **TestRail Integration** → Adds manual test cases to TestRail
+8. **Reporter** → Updates Jira with results, attaches artifacts
+
+### 🔄 Workflow (Human-in-the-Loop)
+```
+1. Detection → New ticket assigned to PandaSen
+2. Classification → Ticket type analysis
+3. Test Generator → Create test plan
+4. ⭐ Ihor Review → Detailed report + approval required
+5. Environment Check → Verify site/API availability
+6. Execution:
+   ├── Playwright as "hands" (interactive)
+   └── Automated tests (regression)
+7. TestRail Population → Add manual test cases
+8. Reporting → Jira update + artifact attachment
+```
+
+### 🎯 Test Distribution Logic
+
+| Criteria | Automate (Playwright) | Add to TestRail (Manual) |
+|----------|----------------------|--------------------------|
+| **Frequency** | Often (>1/day) | Rare (once per sprint) |
+| **Stability** | Stable UI/API | Frequently changing/new features |
+| **Complexity** | Simple, deterministic | Complex, requires human judgment |
+| **Example** | "Slider appears on page" | "Matches Figma design exactly" |
+
+### 🚀 Trigger Mechanism
+
+**How to activate this system:**
+- **Explicit command:** "протестуй тікет", "PandaSen workflow", "тестувальний пайплайн"
+- **Heartbeat auto-detection:** When Gmail checker finds new PandaSen assignments
+- **Manual trigger:** Mention ticket ID with testing context
+
+**Ihor Review Report includes:**
+- Ticket details (status, dependencies, priority)
+- Test coverage plan (automated + manual)
+- Environment health check results
+- Required test data (player, balance, etc.)
+- Test environment URLs + accessibility status
+
+### 📋 Success Metrics (Trial Period)
+- ✅ Reduced manual testing time by 30%+
+- ✅ All PandaSen tickets get consistent test coverage
+- ✅ TestRail stays updated with manual test cases
+- ✅ Ihor maintains control via review step
+- ✅ Environment issues caught before testing begins
+
+### ⚠️ Trial Period Rules (2026-02-24 to 2026-03-10)
+1. **Always generate Ihor Review report** before any test execution
+2. **Wait for explicit approval** ("Go", "Запускай", "Схвалюю")
+3. **Use Playwright as "hands"** for interactive testing during review
+4. **Follow test distribution logic** (auto vs manual)
+5. **Update this section** with learnings from trial period
+
+---
+
 ## 📊 Summary of Key Principles
 
 1. **Source of Truth:** BO Prod data > Documentation
@@ -323,6 +396,7 @@ curl 'https://wallet.dev.sofon.one/5/api/v1/balance/59107/USD'
 5. **Ask:** If uncertain, ask instead of assuming
 6. **Learn:** Record corrections immediately
 7. **Monitor:** Watch for systematic failures (cron jobs, API issues)
+8. **Control:** Human-in-the-loop for PandaSen ticket testing (Trial Period)
 
 ---
 
@@ -340,5 +414,6 @@ curl 'https://wallet.dev.sofon.one/5/api/v1/balance/59107/USD'
 | 2026-02-23 | BonusTypeId Mapping | 5 |
 | 2026-02-23 | Ask Before Assuming | 6 |
 | 2026-02-24 | Wallet Service API | 9 |
+| 2026-02-24 | PandaSen Ticket Testing System (Trial) | 10 |
 | 2026-02-23 | Cron Job Failure Monitoring | 7 |
 | 2026-02-14 | Gmail + Jira Integration | 8 |
