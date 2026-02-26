@@ -314,7 +314,78 @@ curl 'https://wallet.dev.sofon.one/5/api/v1/balance/59107/USD'
 
 ---
 
-## 🎯 Section 10: PandaSen Ticket Testing System (Trial: 2026-02-24 to 2026-03-10)
+## 🎯 Section 10: Page Object Model — Composition vs Duplication
+
+### Learning: Use Composition, Not Duplication
+
+**Date:** 2026-02-26  
+**Context:** Creating LobbyPage.ts with Recent Top Wins widget  
+**Mistake:** Duplicated all RecentTopWinsWidget locators and methods in LobbyPage.ts  
+**Correction:** Ihor pointed out to use composition instead: `public readonly recentWins = new RecentTopWinsWidget(page);`
+
+**What I did WRONG:**
+```typescript
+// Duplicated ~50 lines of code
+readonly recentTopWinsWidget: Locator;
+readonly recentTopWinsNextBtn: Locator;
+readonly recentTopWinsPrevBtn: Locator;
+
+async nextRecentWinsSlide(): Promise<void> {
+  await this.recentTopWinsNextBtn.click();
+}
+
+async prevRecentWinsSlide(): Promise<void> {
+  await this.recentTopWinsPrevBtn.click();
+}
+
+async isRecentTopWinsWidgetVisible(): Promise<boolean> {
+  return await this.recentTopWinsWidget.isVisible();
+}
+```
+
+**What I should have done (CORRECT):**
+```typescript
+// One line - composition!
+import { RecentTopWinsWidget } from '../../components/widgets/RecentTopWinsWidget';
+
+export class LobbyPage extends BasePage {
+  public readonly recentWins = new RecentTopWinsWidget(page);
+
+  // Now tests can access all widget methods:
+  // await lobbyPage.recentWins.clickNext();
+  // await lobbyPage.recentWins.assertIsVisible();
+  // const count = await lobbyPage.recentWins.getWinCardsCount();
+}
+```
+
+**Key Benefits of Composition:**
+- ✅ **DRY principle**: No duplicate code
+- ✅ **Single Source of Truth**: Widget logic lives in one place
+- ✅ **Maintainability**: Bug fixes in widget apply everywhere
+- ✅ **Discoverability**: All widget methods accessible via IntelliSense
+- ✅ **Testability**: Widget can be tested independently
+
+**Anti-Patterns to Avoid:**
+1. ❌ Copying widget locators into page objects
+2. ❌ Recreating widget methods in pages (clickNext, clickPrevious, etc.)
+3. ❌ Wrapping widget methods without adding value
+4. ❌ Not checking if widget/component already exists
+
+**When to use composition:**
+- **Widgets**: Sliders, carousels, cards, forms
+- **Components**: Headers, footers, sidebars, modals
+- **Reusable elements**: Tables, lists, grids
+
+**When Page Objects should have direct locators:**
+- Page-specific unique elements (e.g., main page container)
+- Page-level orchestration (combining multiple widgets)
+- Navigation between pages
+
+**Applied to:** All Playwright Page Objects going forward
+
+---
+
+## 🎯 Section 11: PandaSen Ticket Testing System (Trial: 2026-02-24 to 2026-03-10)
 
 **Date:** 2026-02-24  
 **Status:** 🧪 **TRIAL PERIOD** — Testing this system for next 2 weeks  
@@ -414,6 +485,7 @@ curl 'https://wallet.dev.sofon.one/5/api/v1/balance/59107/USD'
 | 2026-02-23 | BonusTypeId Mapping | 5 |
 | 2026-02-23 | Ask Before Assuming | 6 |
 | 2026-02-24 | Wallet Service API | 9 |
-| 2026-02-24 | PandaSen Ticket Testing System (Trial) | 10 |
+| 2026-02-24 | PandaSen Ticket Testing System (Trial) | 11 |
 | 2026-02-23 | Cron Job Failure Monitoring | 7 |
 | 2026-02-14 | Gmail + Jira Integration | 8 |
+| 2026-02-26 | POM: Use Composition, Not Duplication | 10 |

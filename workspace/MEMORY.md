@@ -321,6 +321,18 @@ CreateDebitCorrection  → CREDITS (додає гроші) ✅
 
 ---
 
+## UI Knowledge Base (AI Page Object Model)
+
+**Location:** `/Users/ihorsolopii/.openclaw/workspace/ui-knowledge/minebit/`
+
+**Purpose:** 
+Long-term memory for UI selectors. To avoid parsing the whole DOM every time and breaking tests when UI changes:
+1. **Always check this directory first** before creating Playwright scripts or doing interactive testing (e.g. `bonuses-page.json`).
+2. If a selector doesn't work during a task, fix it via snapshot analysis and **IMMEDIATELY update the JSON file** with the new selector so it's remembered for next time.
+3. Keep logic descriptions (animations, wait states) in the `known_behaviors` key.
+
+---
+
 ## Playwright Framework Architecture
 
 **File:** `/Users/ihorsolopii/.openclaw/workspace/MINEBIT_PLAYWRIGHT_ARCHITECTURE.md`
@@ -437,6 +449,57 @@ npm run check       # Both
 
 **Mobile Devices:**
 - Pixel 7, iPhone 13/14, iPad Pro ✅
+
+---
+
+## 🧵 Slack Threading System for Jira Tickets
+
+**Status:** ✅ Active
+
+**Setup Date:** 2026-02-26
+
+**How it works:**
+- When a new Jira ticket arrives in `#qa-testing` channel, system automatically saves its `thread_ts` (Timestamp) to `/Users/ihorsolopii/.openclaw/workspace/jira_threads.json`
+- This enables threaded conversations where all ticket-related updates stay in one place
+
+**🔴 IRON RULE — Mandatory Threading:**
+
+When Ihor asks you to analyze or test a specific ticket (e.g., CT-757), you MUST:
+
+1. **Read the threads file:**
+   ```bash
+   cat /Users/ihorsolopii/.openclaw/workspace/jira_threads.json
+   ```
+
+2. **Find the `ts` for the requested ticket** (e.g., `"CT-757": "1772119587.021079"`)
+
+3. **Send ALL communications in the thread:**
+   - Test reports
+   - Analysis results
+   - Screenshots
+   - Suggestions
+
+4. **Use the Slack wrapper script:**
+   ```bash
+   python3 /Users/ihorsolopii/.openclaw/workspace/scripts/slack_message_helper.py \
+     --channel C0AH10XDKM2 \
+     --text "Your message here" \
+     --thread_ts "TICKET_TS_FROM_JSON"
+   ```
+
+**Why this matters:**
+- Keeps the `#qa-testing` channel clean
+- All ticket history in one continuous thread
+- Easy to track conversation per ticket
+- Follows the USER.md Rule #8
+
+**Example workflow:**
+```
+Ihor: "Analyze CT-757"
+→ You: Read jira_threads.json → find CT-757 ts → "1772119587.021079"
+→ You: Send analysis via slack_message_helper.py with --thread_ts "1772119587.021079"
+→ Result: All CT-757 discussion in one thread
+```
 
 ---
 

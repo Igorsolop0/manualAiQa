@@ -1,0 +1,22 @@
+{
+    "page_name": "Bonuses",
+    "url_pattern": "/bonuses",
+    "last_updated": "2026-02-26",
+    "elements": {
+        "daily_quests_slider": {
+            "selector": ".daily-quests-slider",
+            "description": "Слайдер, який з'являється у верхній частині екрану. Містить картки квестів.",
+            "fallback_selectors": [
+                "xpath=//div[contains(@class, 'quests-container')]"
+            ]
+        },
+        "quest_card_first": {
+            "selector": ".daily-quests-slider .quest-card:nth-child(1)",
+            "description": "Перша картка в слайдері. При кліку відкриває модалку опису квесту."
+        }
+    },
+    "known_behaviors": [
+        "Після кліку на quest_card_first треба почекати ~500мс поки закінчиться анімація появи модалки.",
+        "Необхідно закривати модальне вікно перед свайпом."
+    ]
+}

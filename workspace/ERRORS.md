@@ -179,6 +179,67 @@ After ANY session:
 
 ---
 
+## ❌ Error #9: Hardcoded Text Navigation Lists as Page Object Variables
+
+**Date:** 2026-02-26
+**Context:** Creating LobbyPage.ts for MineBit casino
+**What I did:** Created 15+ hardcoded variables for game categories (gamesCategorySlots, gamesCategoryHot, gamesCategoryNew, etc.) using `button:has-text("...")` selectors
+**Why it was wrong:**
+1. **Flaky locators**: Text-based selectors break when UI text changes (capitalization, wording, translations)
+2. **Unmaintainable**: Adding new categories requires updating multiple places in code
+3. **Violates DRY**: Repeated pattern for each category instead of one flexible method
+4. **Not following Playwright best practices**: Should use `getByRole('button', { name: /.../i })` for accessibility-based stable locators
+
+**Impact:**
+- Had to create 15+ locator variables instead of 1 method
+- Tests would break if any category name changes
+- Violates DRY principle
+
+**How to avoid:**
+- Use parameterized methods: `navigateToCategory(categoryName: string)`
+- Use `page.getByRole('button', { name: new RegExp(categoryName, 'i') })` for flexible matching
+- Case-insensitive regex allows for variations in text
+- Never hardcode navigation lists as individual variables
+
+**Corrected:** Replaced 15+ category variables with single `navigateToCategory(categoryName: string)` method using `getByRole()`
+
+---
+
+## ❌ Error #10: Duplicate Widget Locators Instead of Composition
+
+**Date:** 2026-02-26
+**Context:** Creating LobbyPage.ts with Recent Top Wins widget
+**What I did:** Duplicated all RecentTopWinsWidget locators and methods in LobbyPage.ts (widgetContainer, nextButton, previousButton, nextRecentWinsSlide, prevRecentWinsSlide, isRecentTopWinsWidgetVisible)
+**Why it was wrong:**
+1. **Violates DRY**: RecentTopWinsWidget.ts already exists with full implementation
+2. **Inconsistent state**: Two separate implementations can diverge over time
+3. **Maintenance nightmare**: Bug fixes in one place need to be replicated in another
+4. **Not following Composition pattern**: POM should compose widgets, not duplicate them
+
+**Impact:**
+- ~50 lines of duplicate code
+- Two places to maintain instead of one
+- Inconsistent behavior if widgets diverge
+
+**How to avoid:**
+- Check if widget/component already exists before creating new locators
+- Use composition: `public readonly recentWins = new RecentTopWinsWidget(page);`
+- Delegate all widget-specific functionality to the widget class
+- Page Objects should only contain page-level orchestration
+
+**Corrected:** Removed all duplicate RecentTopWinsWidget code from LobbyPage, added composition with `public readonly recentWins = new RecentTopWinsWidget(page);`
+
+---
+
+## 📊 Error Statistics (2026-02-26)
+
+| Error Type | Count | Severity |
+|------------|-------|----------|
+| Hardcoded navigation lists | 1 | High |
+| Duplicate widget code | 1 | High |
+
+---
+
 ## 🔄 Update Log
 
 | Date | Error ID | Description | Corrected |
@@ -191,3 +252,5 @@ After ANY session:
 | 2026-02-23 | #6 | Short tests | ✅ Yes |
 | 2026-02-23 | #7 | TestRail format | ✅ Yes |
 | 2026-02-23 | #8 | Cron failures | ✅ Yes |
+| 2026-02-26 | #9 | Hardcoded navigation | ✅ Yes |
+| 2026-02-26 | #10 | Duplicate widgets | ✅ Yes |

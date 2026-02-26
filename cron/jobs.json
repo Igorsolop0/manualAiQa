@@ -7,7 +7,7 @@
       "name": "Gmail Check - NextCode",
       "enabled": true,
       "createdAtMs": 1771084279927,
-      "updatedAtMs": 1772040625005,
+      "updatedAtMs": 1772127024616,
       "schedule": {
         "kind": "cron",
         "expr": "*/30 9-18 * * 1-5",
@@ -17,17 +17,17 @@
       "wakeMode": "now",
       "payload": {
         "kind": "agentTurn",
-        "message": "Read HEARTBEAT.md and check Gmail for new emails. If Jira tickets found, fetch and summarize them. Send notification to Telegram with ticket summary and action needed.",
+        "message": "Run python3 /Users/ihorsolopii/.openclaw/workspace/scripts/gmail_slack_notifier.py to check Gmail and send notifications to Slack channel C0AH7CRFQES.",
         "model": "zai/glm-5"
       },
       "delivery": {
         "mode": "announce"
       },
       "state": {
-        "nextRunAtMs": 1772092800000,
-        "lastRunAtMs": 1772040600152,
+        "nextRunAtMs": 1772179200000,
+        "lastRunAtMs": 1772127000033,
         "lastStatus": "ok",
-        "lastDurationMs": 24853,
+        "lastDurationMs": 24583,
         "consecutiveErrors": 0,
         "lastRunStatus": "ok",
         "lastDeliveryStatus": "delivered",
@@ -40,7 +40,7 @@
       "name": "Austria Channels Daily Summary",
       "enabled": true,
       "createdAtMs": 1771144483934,
-      "updatedAtMs": 1771956072878,
+      "updatedAtMs": 1772128870097,
       "schedule": {
         "kind": "cron",
         "expr": "0 19 * * *",
@@ -56,10 +56,10 @@
         "mode": "announce"
       },
       "state": {
-        "nextRunAtMs": 1772128800000,
-        "lastRunAtMs": 1771956000148,
+        "nextRunAtMs": 1772215200000,
+        "lastRunAtMs": 1772128800058,
         "lastStatus": "ok",
-        "lastDurationMs": 72730,
+        "lastDurationMs": 70039,
         "consecutiveErrors": 0,
         "lastRunStatus": "ok",
         "lastDelivered": true,

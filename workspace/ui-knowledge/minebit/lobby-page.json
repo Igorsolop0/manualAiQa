@@ -1,0 +1,160 @@
+{
+  "page_name": "Lobby",
+  "url_pattern": "/",
+  "last_updated": "2026-02-26",
+  "elements": {
+    "login_btn": {
+      "selector": "button:has-text(\"Log In\")",
+      "description": "Login button in header. Opens login modal."
+    },
+    "sign_up_btn": {
+      "selector": "button:has-text(\"Sign Up\")",
+      "description": "Sign up button in header. Opens registration flow."
+    },
+    "menu_toggle": {
+      "selector": "[data-testid=\"QWN0aW9uQnV0dG9uLW9wZW5TaWRlYmFy\"]",
+      "description": "Menu toggle button (hamburger) - opens sidebar navigation panel."
+    },
+    "language_switcher": {
+      "selector": "button:has-text(\"EN\")",
+      "description": "Language switcher dropdown in header."
+    },
+    "sidebar": {
+      "selector": "[data-testid=\"c2lkZWJhcg==\"]",
+      "description": "Sidebar navigation panel (slide-out menu). Contains game categories, promotions, providers."
+    },
+    "games_category_bonuses": {
+      "selector": "button:has-text(\"Bonuses\")",
+      "description": "Games category - Bonuses/Promotions"
+    },
+    "games_category_slots": {
+      "selector": "button:has-text(\"Slots\")",
+      "description": "Games category - Slots"
+    },
+    "games_category_hot": {
+      "selector": "button:has-text(\"Hot Games\")",
+      "description": "Games category - Hot Games"
+    },
+    "games_category_new": {
+      "selector": "button:has-text(\"New Games\")",
+      "description": "Games category - New Games"
+    },
+    "games_category_instant": {
+      "selector": "button:has-text(\"Instant\")",
+      "description": "Games category - Instant Games"
+    },
+    "games_category_live": {
+      "selector": "button:has-text(\"Live Casino\")",
+      "description": "Games category - Live Casino"
+    },
+    "games_category_blackjack": {
+      "selector": "button:has-text(\"Blackjack\")",
+      "description": "Games category - Blackjack"
+    },
+    "games_category_roulette": {
+      "selector": "button:has-text(\"Roulette\")",
+      "description": "Games category - Roulette"
+    },
+    "games_category_game_shows": {
+      "selector": "button:has-text(\"Game Shows\")",
+      "description": "Games category - Game Shows"
+    },
+    "games_category_jackpots": {
+      "selector": "button:has-text(\"Jackpots\")",
+      "description": "Games category - Jackpots"
+    },
+    "games_category_drops_wins": {
+      "selector": "button:has-text(\"Drops & Wins\")",
+      "description": "Games category - Drops & Wins"
+    },
+    "games_category_providers": {
+      "selector": "button:has-text(\"Providers\")",
+      "description": "Games category - Providers filter"
+    },
+    "games_category_themes": {
+      "selector": "button:has-text(\"Themes\")",
+      "description": "Games category - Themes filter"
+    },
+    "games_grid": {
+      "selector": "[data-organism=\"ComponentSliderGamesSlider\"]",
+      "description": "Main games grid/carousel container. Horizontal slider with game cards."
+    },
+    "game_card": {
+      "selector": "[data-organism=\"GamePreview\"]",
+      "description": "Single game card. Contains game image, title, Play/Demo buttons."
+    },
+    "game_card_first": {
+      "selector": "[data-organism=\"GamePreview\"] >> nth=0",
+      "description": "First game card in grid (useful for testing)"
+    },
+    "game_play_btn": {
+      "selector": "button[data-testid=\"QWN0aW9uQnV0dG9uLWFub255bW91c1BsYXlSZWFs\"]",
+      "description": "Play button on game card (real money play for guests)"
+    },
+    "game_demo_btn": {
+      "selector": "button[data-testid=\"QWN0aW9uQnV0dG9uLXBsYXlEZW1v\"]",
+      "description": "Demo button on game card (free play mode)"
+    },
+    "search_input": {
+      "selector": "#up_search",
+      "description": "Games search input field in header"
+    },
+    "hero_banner": {
+      "selector": "[data-organism=\"HeroBanner\"]",
+      "description": "Hero banner/carousel section with promotions (if present)"
+    },
+    "recent_top_wins_widget": {
+      "selector": "[data-organism=\"ComponentSliderRecentWinnersSlider\"]",
+      "description": "Widget 'Recent Top Wins'. Contains slider with last winners and amounts."
+    },
+    "recent_top_wins_next_btn": {
+      "selector": "[data-organism=\"ComponentSliderRecentWinnersSlider\"] button:has([data-testid=\"ArrowForwardIosIcon\"])",
+      "description": "Next button in Recent Top Wins slider"
+    },
+    "recent_top_wins_prev_btn": {
+      "selector": "[data-organism=\"ComponentSliderRecentWinnersSlider\"] button:has([data-testid=\"ArrowBackIosIcon\"])",
+      "description": "Previous button in Recent Top Wins slider"
+    },
+    "recent_top_wins_first_card": {
+      "selector": "[data-organism=\"ComponentSliderRecentWinnersSlider\"] .swiper-slide >> nth=0",
+      "description": "First card in Recent Top Wins slider"
+    },
+    "footer": {
+      "selector": "footer",
+      "description": "Footer section with links, license info, social media"
+    },
+    "footer_terms_link": {
+      "selector": "footer a:has-text(\"Terms\")",
+      "description": "Terms & Conditions link"
+    },
+    "footer_privacy_link": {
+      "selector": "footer a:has-text(\"Privacy\")",
+      "description": "Privacy Policy link"
+    }
+  },
+  "known_behaviors": [
+    "Uses Base64-encoded data-testid values (decoded: ActionButton-openLink, ActionButton-playDemo, ActionButton-anonymousPlayReal, etc.)",
+    "Uses data-organism attribute for component identification (e.g., ComponentSliderGamesSlider, ComponentSliderRecentWinnersSlider, GamePreview)",
+    "Sidebar is closed by default - opens via menu_toggle button",
+    "Games grid uses horizontal slider (ComponentSliderGamesSlider) - may need to scroll horizontally to see all games",
+    "Recent Top Winners widget uses swiper.js - has Next/Previous navigation buttons",
+    "Game cards have two buttons: Play (real money) and Demo (free play) - visible for guest users",
+    "Search input (#up_search) filters games in real-time",
+    "Page renders with dynamic content - may need waitForSelector or waitForTimeout for stability",
+    "Multiple game categories available in sidebar - clicking category updates games grid"
+  ],
+  "notes": {
+    "base64_testids": {
+      "ActionButton-openLink": "QWN0aW9uQnV0dG9uLW9wZW5MaW5r",
+      "ActionButton-openSidebar": "QWN0aW9uQnV0dG9uLW9wZW5TaWRlYmFy",
+      "ActionButton-playDemo": "QWN0aW9uQnV0dG9uLXBsYXlEZW1v",
+      "ActionButton-anonymousPlayReal": "QWN0aW9uQnV0dG9uLWFub255bW91c1BsYXlSZWFs",
+      "sidebar": "c2lkZWJhcg=="
+    },
+    "data_organisms": [
+      "ComponentSliderGamesSlider",
+      "ComponentSliderRecentWinnersSlider",
+      "GamePreview"
+    ]
+  }
+}
