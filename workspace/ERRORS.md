@@ -240,6 +240,32 @@ After ANY session:
 
 ---
 
+## ❌ Error #11: Hardcoded Quest Tab Text Variables in Page Object
+
+**Date:** 2026-02-27
+**Context:** Refactoring QuestsPage.ts for MineBit quests page
+**What I did:** In original QuestsPage.ts, created hardcoded variables for quest tabs: `availableTab = page.locator('#missions_available_btn');`, `completedTab = page.locator('#missions_completed_btn');`, etc.
+**Why it was wrong:**
+1. **Flaky locators**: ID-based selectors break when UI changes or IDs are dynamic
+2. **Not flexible**: Cannot handle text variations (capitalization, translations, wording changes)
+3. **Violates DRY**: 4+ variables for similar functionality instead of 1 parameterized method
+4. **Not following Playwright best practices**: Should use `getByRole('button', { name: /.../i })` for accessibility-based stable locators
+
+**Impact:**
+- Tests would break if tab IDs change
+- Cannot handle different text variations
+- Hard to add new tabs without modifying Page Object
+
+**How to avoid:**
+- Use parameterized methods: `navigateToQuestTab(tabName: string)`
+- Use `page.getByRole('button', { name: new RegExp(tabName, 'i') })` for flexible matching
+- Case-insensitive regex allows for variations in text
+- Never hardcode navigation lists as individual variables in Page Object properties
+
+**Corrected:** Replaced 4+ tab variables with single `navigateToQuestTab(tabName: string)` method using `getByRole()`
+
+---
+
 ## 🔄 Update Log
 
 | Date | Error ID | Description | Corrected |
@@ -254,3 +280,4 @@ After ANY session:
 | 2026-02-23 | #8 | Cron failures | ✅ Yes |
 | 2026-02-26 | #9 | Hardcoded navigation | ✅ Yes |
 | 2026-02-26 | #10 | Duplicate widgets | ✅ Yes |
+| 2026-02-27 | #11 | Hardcoded quest tabs | ✅ Yes |

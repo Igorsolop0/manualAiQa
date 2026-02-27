@@ -7,7 +7,7 @@
       "name": "Gmail Check - NextCode",
       "enabled": true,
       "createdAtMs": 1771084279927,
-      "updatedAtMs": 1772127024616,
+      "updatedAtMs": 1772213478174,
       "schedule": {
         "kind": "cron",
         "expr": "*/30 9-18 * * 1-5",
@@ -17,21 +17,21 @@
       "wakeMode": "now",
       "payload": {
         "kind": "agentTurn",
-        "message": "Run python3 /Users/ihorsolopii/.openclaw/workspace/scripts/gmail_slack_notifier.py to check Gmail and send notifications to Slack channel C0AH7CRFQES.",
+        "message": "Run python3 /Users/ihorsolopii/.openclaw/workspace/projects/nextcode/scripts/gmail_slack_notifier.py to check Gmail and send notifications to Slack channel C0AH7CRFQES.",
         "model": "zai/glm-5"
       },
       "delivery": {
         "mode": "announce"
       },
       "state": {
-        "nextRunAtMs": 1772179200000,
-        "lastRunAtMs": 1772127000033,
-        "lastStatus": "ok",
-        "lastDurationMs": 24583,
-        "consecutiveErrors": 0,
-        "lastRunStatus": "ok",
-        "lastDeliveryStatus": "delivered",
-        "lastDelivered": true
+        "nextRunAtMs": 1772438400000,
+        "lastRunAtMs": 1772213400108,
+        "lastStatus": "error",
+        "lastDurationMs": 78066,
+        "consecutiveErrors": 1,
+        "lastRunStatus": "error",
+        "lastDeliveryStatus": "unknown",
+        "lastError": "cron announce delivery failed"
       }
     },
     {
@@ -40,7 +40,7 @@
       "name": "Austria Channels Daily Summary",
       "enabled": true,
       "createdAtMs": 1771144483934,
-      "updatedAtMs": 1772128870097,
+      "updatedAtMs": 1772215701450,
       "schedule": {
         "kind": "cron",
         "expr": "0 19 * * *",
@@ -50,20 +50,20 @@
       "wakeMode": "now",
       "payload": {
         "kind": "agentTurn",
-        "message": "Read /Users/ihorsolopii/.openclaw/workspace/scripts/austria_channels_summary.py and follow the instructions in the 'instructions' field. Use browser automation (profile=openclaw) to:\n\n1. Navigate to each Telegram channel in the CHANNELS list\n2. Take screenshots of recent messages (last 24 hours)\n3. Analyze screenshots with vision model to extract:\n   - IT/QA job posts\n   - RWR/permits/insurance discussions\n   - Apartment/rental/mortgage topics\n   - Events and community news\n   - Life hacks and tips\n4. Create a structured summary\n5. Send the summary to Telegram (action=send, to=282986529, channel=telegram)\n\nFocus only on PRIORITY_TOPICS. Skip casual chat and jokes."
+        "message": "Read /Users/ihorsolopii/.openclaw/workspace/core/scripts/austria_channels_summary.py and follow the instructions in the 'instructions' field. Use browser automation (profile=openclaw) to:\n\n1. Navigate to each Telegram channel in the CHANNELS list\n2. Take screenshots of recent messages (last 24 hours)\n3. Analyze screenshots with vision model to extract:\n   - IT/QA job posts\n   - RWR/permits/insurance discussions\n   - Apartment/rental/mortgage topics\n   - Events and community news\n   - Life hacks and tips\n4. Create a structured summary\n5. Send the summary to Telegram (action=send, to=282986529, channel=telegram)\n\nFocus only on PRIORITY_TOPICS. Skip casual chat and jokes."
       },
       "delivery": {
         "mode": "announce"
       },
       "state": {
-        "nextRunAtMs": 1772215200000,
-        "lastRunAtMs": 1772128800058,
-        "lastStatus": "ok",
-        "lastDurationMs": 70039,
-        "consecutiveErrors": 0,
-        "lastRunStatus": "ok",
-        "lastDelivered": true,
-        "lastDeliveryStatus": "delivered"
+        "nextRunAtMs": 1772301600000,
+        "lastRunAtMs": 1772215200105,
+        "lastStatus": "error",
+        "lastDurationMs": 501345,
+        "consecutiveErrors": 1,
+        "lastRunStatus": "error",
+        "lastDeliveryStatus": "unknown",
+        "lastError": "cron announce delivery failed"
       }
     },
     {

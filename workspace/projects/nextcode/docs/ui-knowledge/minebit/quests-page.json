@@ -1,0 +1,148 @@
+{
+  "navigation": {
+    "header": {
+      "selector": "header.MuiAppBar-root",
+      "description": "Main navigation header with logo and menu"
+    },
+    "sidebar_toggle": {
+      "selector": "[data-testid=\"QWN0aW9uQnV0dG9uLW9wZW5TaWRlYmFy\"]",
+      "description": "Sidebar toggle button - opens/closes navigation sidebar"
+    },
+    "footer": {
+      "selector": "footer",
+      "description": "Footer with links and legal information"
+    }
+  },
+  "quest_sections": {
+    "main_content": {
+      "selector": "main",
+      "description": "Main content area containing all quests"
+    },
+    "personal_quests_section": {
+      "selector": "div:has-text('Personal Quests')",
+      "description": "Personal quests section with description and join button"
+    },
+    "daily_quests_section": {
+      "selector": "div:has-text('Daily Quests')",
+      "description": "Daily quests section with tasks and rewards"
+    },
+    "weekly_quests_section": {
+      "selector": "div:has-text('Weekly Quests')",
+      "description": "Weekly quests section with recurring tasks"
+    },
+    "vip_quests_section": {
+      "selector": "div:has-text('VIP Quests')",
+      "description": "VIP-exclusive quests section"
+    },
+    "promo_quests_section": {
+      "selector": "div:has-text('Promo Quests')",
+      "description": "Promotional quests section"
+    },
+    "quests_section": {
+      "selector": "div:has-text('Quests')",
+      "description": "General quests section"
+    }
+  },
+  "quest_tabs": {
+    "available_tab": {
+      "selector": "button:has-text('Available')",
+      "description": "Tab showing available quests to complete"
+    },
+    "completed_tab": {
+      "selector": "button:has-text('Completed')",
+      "description": "Tab showing completed quests"
+    },
+    "locked_tab": {
+      "selector": "button:has-text('Locked')",
+      "description": "Tab showing locked quests"
+    },
+    "all_tab": {
+      "selector": "button:has-text('All')",
+      "description": "Tab showing all quests"
+    }
+  },
+  "quest_cards": {
+    "quest_card": {
+      "selector": "div[class*='quest'], div[class*='Quest']",
+      "description": "Individual quest card container"
+    },
+    "quest_title": {
+      "selector": "div:has-text(/^Daily Quests$|^Weekly Quests$|^Quests$/)",
+      "description": "Quest section title"
+    },
+    "quest_description": {
+      "selector": "div:has-text('Complete')",
+      "description": "Quest task description"
+    },
+    "quest_reward": {
+      "selector": "div:has-text('Reward:')",
+      "description": "Quest reward information"
+    }
+  },
+  "progress_bars": {
+    "linear_progress": {
+      "selector": "[role='progressbar']",
+      "description": "Linear progress bar showing quest completion"
+    },
+    "progress_label": {
+      "selector": ".mission-label, .inProgress-label",
+      "description": "Progress label showing current progress (e.g., '0 / 20')"
+    }
+  },
+  "action_buttons": {
+    "join_now_button": {
+      "selector": "button:has-text('Join Now')",
+      "description": "Button to join the quests system (for guests)"
+    },
+    "view_all_button": {
+      "selector": "button:has-text('View All')",
+      "description": "Button to view all quests in a category"
+    },
+    "log_in_button": {
+      "selector": "button:has-text('Log In')",
+      "description": "Login button in header"
+    },
+    "sign_up_button": {
+      "selector": "button:has-text('Sign Up')",
+      "description": "Sign up button in header"
+    },
+    "claim_reward_button": {
+      "selector": "button:has-text(/^\\$|exp$/)",
+      "description": "Button to claim quest reward (shows amount)"
+    }
+  },
+  "faq_section": {
+    "faq_container": {
+      "selector": "div:has-text('What is a Personal Quest?')",
+      "description": "FAQ section with questions and answers"
+    },
+    "faq_question": {
+      "selector": "div[class*='rpybyc']",
+      "description": "Individual FAQ question/answer pair"
+    }
+  },
+  "common_selectors": {
+    "mui_button": {
+      "selector": ".MuiButton-root",
+      "description": "Material-UI button component"
+    },
+    "mui_grid": {
+      "selector": ".MuiGrid-root",
+      "description": "Material-UI grid container"
+    },
+    "sidebar_container": {
+      "selector": "[data-testid='UHJpbWFyeU5hdmlnYXRpb24tc2lkZWJhci10b29sYmFyLWljb25z']",
+      "description": "Primary navigation sidebar with toolbar icons"
+    }
+  },
+  "known_behaviors": [
+    "Quests organized in sections (Personal, Daily, Weekly, VIP, Promo)",
+    "Tabs filter quests by status: Available, Completed, Locked, All",
+    "Progress bars show completion status (aria-valuenow/aria-valuemax)",
+    "Reward buttons display amounts (USD or exp points)",
+    "Guest users see 'Join Now' button, authenticated users see quest list",
+    "Material-UI components used throughout (MuiButton, MuiGrid, MuiLinearProgress)",
+    "Lazy loading - quest cards load dynamically",
+    "Mission labels show progress (e.g., '0 / 20' for spins requirement)"
+  ]
+}

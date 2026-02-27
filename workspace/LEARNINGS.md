@@ -385,7 +385,86 @@ export class LobbyPage extends BasePage {
 
 ---
 
-## 🎯 Section 11: PandaSen Ticket Testing System (Trial: 2026-02-24 to 2026-03-10)
+## 🎯 Section 11: Page Object Model — Parameterized Navigation Methods
+
+### Learning: Use Parameterized Methods Instead of Hardcoded Text Variables
+
+**Date:** 2026-02-27  
+**Context:** Refactoring QuestsPage.ts for quests page navigation  
+**Mistake:** Original QuestsPage.ts had hardcoded variables for quest tabs: `availableTab = page.locator('#missions_available_btn');`, `completedTab = page.locator('#missions_completed_btn');`, etc.  
+**Correction:** Created parameterized method `navigateToQuestTab(tabName: string)` using `getByRole()` with regex
+
+**What I did WRONG:**
+```typescript
+// Anti-pattern: Hardcoded text variables
+readonly availableTab: Locator;
+readonly completedTab: Locator;
+readonly lockedTab: Locator;
+readonly allTab: Locator;
+
+constructor(page: any) {
+  super(page);
+  this.availableTab = page.locator('#missions_available_btn');
+  this.completedTab = page.locator('#missions_completed_btn');
+  this.lockedTab = page.locator('#missions_locked_btn');
+  this.allTab = page.locator('.mission-tabs-container')
+    .getByRole('button', { name: 'All', exact: true });
+}
+
+async switchToTab(tab: 'available' | 'completed' | 'locked' | 'all'): Promise<void> {
+  const tabMap = {
+    available: this.availableTab,
+    completed: this.completedTab,
+    locked: this.lockedTab,
+    all: this.allTab,
+  };
+  await tabMap[tab].click();
+}
+```
+
+**What I should have done (CORRECT):**
+```typescript
+// Best practice: Parameterized method with flexible matching
+async navigateToQuestTab(tabName: string): Promise<void> {
+  const tabButton = this.page.getByRole('button', {
+    name: new RegExp(tabName, 'i')  // Case-insensitive regex
+  });
+  await tabButton.click();
+  
+  // Wait for tab to become active (has selected class)
+  await expect(tabButton).toHaveClass(/selected/);
+}
+```
+
+**Key Benefits of Parameterized Methods:**
+- ✅ **Flexibility**: Handles text variations (capitalization, translations)
+- ✅ **Maintainability**: One method instead of N variables
+- ✅ **Extensibility**: Easy to add new tabs without modifying Page Object
+- ✅ **Stability**: Uses accessibility-based `getByRole()` instead of fragile selectors
+- ✅ **DRY**: No duplicate code for similar functionality
+
+**Anti-Patterns to Avoid:**
+1. ❌ Hardcoding text-based selectors as Page Object properties
+2. ❌ Using IDs that may change (e.g., `#missions_available_btn`)
+3. ❌ Creating separate variables for each navigation item
+4. ❌ Not using accessibility-first locators (`getByRole`, `getByLabel`)
+
+**When to use parameterized methods:**
+- **Navigation tabs**: Quest tabs, category tabs, filter tabs
+- **Menu items**: Sidebar navigation, dropdown options
+- **Category lists**: Game categories, bonus types, sections
+- **Any repeated pattern**: Where elements differ only by text content
+
+**When Page Objects should have direct locators:**
+- Unique page elements (e.g., main content container)
+- Elements with stable data attributes (`data-testid`, `data-organism`)
+- Elements that need specific wait conditions or complex interactions
+
+**Applied to:** QuestsPage.ts refactoring - replaced 4+ hardcoded tab variables with single `navigateToQuestTab()` method
+
+---
+
+## 🎯 Section 12: PandaSen Ticket Testing System (Trial: 2026-02-24 to 2026-03-10)
 
 **Date:** 2026-02-24  
 **Status:** 🧪 **TRIAL PERIOD** — Testing this system for next 2 weeks  
@@ -485,7 +564,8 @@ export class LobbyPage extends BasePage {
 | 2026-02-23 | BonusTypeId Mapping | 5 |
 | 2026-02-23 | Ask Before Assuming | 6 |
 | 2026-02-24 | Wallet Service API | 9 |
-| 2026-02-24 | PandaSen Ticket Testing System (Trial) | 11 |
+| 2026-02-24 | PandaSen Ticket Testing System (Trial) | 12 |
 | 2026-02-23 | Cron Job Failure Monitoring | 7 |
 | 2026-02-14 | Gmail + Jira Integration | 8 |
 | 2026-02-26 | POM: Use Composition, Not Duplication | 10 |
+| 2026-02-27 | POM: Parameterized Navigation Methods | 11 |

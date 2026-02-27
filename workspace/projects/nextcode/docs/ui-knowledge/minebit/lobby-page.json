@@ -1,0 +1,151 @@
+{
+  "navigation_buttons": {
+    "logo": {
+      "selector": "[data-testid=\"bG9nbw==\"]",
+      "description": "Головне лого/кнопка бренду - повертає на головну сторінку"
+    },
+    "sidebar_toggle": {
+      "selector": "[data-sidebar-button]",
+      "description": "Кнопка перемикання бічної панелі (sidebar) - відкриває/закриває навігацію"
+    }
+  },
+  "sidebar_navigation": {
+    "sidebar_container": {
+      "selector": "[data-testid=\"c2lkZWJhcg==\"]",
+      "description": "Контейнер головної бічної панелі з елементами навігації"
+    },
+    "sidebar_nav": {
+      "selector": "[data-testid=\"UHJpbWFyeU5hdmlnYXRpb24tc2lkZWJhci1uYXY=\"]",
+      "description": "Головне меню навігації в бічній панелі"
+    },
+    "sidebar_toolbar_icons": {
+      "selector": "[data-testid=\"UHJpbWFyeU5hdmlnYXRpb24tc2lkZWJhci10b29sYmFyLWljb25z\"]",
+      "description": "Іконки тулбару в бічній панелі (швидкий доступ)"
+    },
+    "sidebar_collapse_button": {
+      "selector": "[data-testid=\"arrow-left\"]",
+      "description": "Кнопка згортання бічної панелі (видима, коли панель розгорнуто)"
+    },
+    "sidebar_expand_button": {
+      "selector": "[data-testid=\"arrow-right\"]",
+      "description": "Кнопка розгортання бічної панелі (видима, коли панель згорнуто)"
+    }
+  },
+  "main_sections": {
+    "header": {
+      "selector": "header",
+      "description": "Фіксований хедер (шапка) з лого, навігацією та діями користувача"
+    },
+    "main_content": {
+      "selector": "main",
+      "description": "Основна область контенту з іграми та акціями"
+    },
+    "game_preview": {
+      "selector": "[data-testid=\"R2FtZVByZXZpZXc=\"]",
+      "description": "Картка/компонент прев'ю гри"
+    },
+    "hero_section": {
+      "selector": "section[class*=\"hero\"], section[class*=\"banner\"], section[class*=\"slider\"]",
+      "description": "Hero-секція (головний банер) з акціями та популярними іграми"
+    }
+  },
+  "footer": {
+    "footer_container": {
+      "selector": "footer, [role=\"contentinfo\"]",
+      "description": "Контейнер футера (підвалу) з посиланнями та юридичною інформацією"
+    },
+    "language_switcher": {
+      "selector": "[data-testid=\"bGFuZ3VhZ2Utc3dpdGNoZXI=\"]",
+      "description": "Випадаючий список перемикача мов"
+    },
+    "license_link": {
+      "selector": "footer a[href*=\"license\"], footer a[href*=\"licensing\"]",
+      "description": "Посилання на інформацію про ліцензінг"
+    },
+    "rules_link": {
+      "selector": "footer a[href*=\"rules\"], footer a[href*=\"terms\"]",
+      "description": "Посилання на правила та умови надання послуг (Terms of Service)"
+    },
+    "privacy_policy": {
+      "selector": "footer a[href*=\"privacy\"]",
+      "description": "Посилання на політику конфіденційності"
+    },
+    "responsible_gambling": {
+      "selector": "footer a[href*=\"responsible\"], footer a[href*=\"gambling\"]",
+      "description": "Посилання на інформацію про відповідальну гру"
+    }
+  },
+  "game_elements": {
+    "game_card": {
+      "selector": "[data-testid=\"R2FtZVByZXZpZXc=\"]",
+      "description": "Окрема картка прев'ю гри із зображенням, назвою та кнопкою Play"
+    },
+    "play_button": {
+      "selector": "[data-style-btn=\"type1\"], button[type=\"submit\"], .play-button",
+      "description": "Кнопка Play для початку гри (головна дія на ігрових картках)"
+    },
+    "game_categories": {
+      "selector": "nav[class*=\"categories\"], .game-categories, [role=\"tablist\"]",
+      "description": "Фільтри категорій ігор (слоти, настільні ігри, live казино тощо)"
+    }
+  },
+  "auth_elements": {
+    "login_button": {
+      "selector": "button[class*=\"login\"], a[href*=\"login\"]",
+      "description": "Кнопка Login/Register (відкриває модальне вікно входу)"
+    },
+    "user_menu": {
+      "selector": "[class*=\"user-menu\"], [class*=\"profile\"], .user-dropdown",
+      "description": "Меню акаунта користувача (видиме після авторизації)"
+    },
+    "balance_display": {
+      "selector": "[class*=\"balance\"], [class*=\"wallet\"]",
+      "description": "Відображення балансу/гаманця користувача"
+    }
+  },
+  "buttons": {
+    "action_button": {
+      "selector": "[data-testid=\"QWN0aW9uQnV0dG9uLW9wZW5MaW5r\"]",
+      "description": "Кнопка дії, що відкриває посилання"
+    },
+    "configurable_button": {
+      "selector": "[data-testid=\"Q29uZmlndXJhYmxlQnV0dG9uLXN0YXJ0SWNvbg==\"]",
+      "description": "Кнопка, що налаштовується, з іконкою"
+    },
+    "close_button": {
+      "selector": "[data-style-btn=\"close\"], button[aria-label*=\"close\"], [data-testid=\"RHluYW1pY0NvbXBvbmVudHNNb2RhbC1jbG9zZS1idXR0b24=\"]",
+      "description": "Кнопка Close для закриття модальних і діалогових вікон"
+    }
+  },
+  "search": {
+    "search_button": {
+      "selector": "button[aria-label*=\"search\"], [class*=\"search-button\"]",
+      "description": "Кнопка пошуку (відкриває модальне вікно пошуку)"
+    },
+    "search_input": {
+      "selector": "input[type=\"search\"], [data-modal-type=\"search\"] input",
+      "description": "Поле вводу пошуку (у модальному вікні пошуку)"
+    }
+  },
+  "known_behaviors": [
+    "Виявлено Sticky header - хедер має фіксовану позицію вгорі сторінки",
+    "Стан бічної панелі впливає на відступи основного контенту (клас sidebar-state-open на body)",
+    "Адаптивність (Mobile responsive) - висота хедера змінюється від 60px (mobile) до 84px (desktop)",
+    "Клієнтський рендеринг - Next.js SPA, що завантажує контент динамічно",
+    "Lazy loading - зображення та компоненти можуть завантажуватися асинхронно",
+    "Використання CSS-змінних для теми (--color-tangerine, --color-indigo-blue тощо)",
+    "Модальна система для логіну, пошуку та інших інтерактивних елементів"
+  ],
+  "css_selectors": {
+    "sidebar_closed_state": "body:not(.sidebar-state-open)",
+    "sidebar_open_state": "body.sidebar-state-open",
+    "mobile_breakpoint": "@media (max-width: 900px)",
+    "desktop_breakpoint": "@media (min-width: 1200px)"
+  },
+  "notes": {
+    "generated_from": "Початковий HTML-аналіз https://minebit-casino.prod.sofon.one/",
+    "generation_date": "2026-02-27",
+    "limitations": "Базується лише на статичному HTML - контент, що рендериться через JavaScript, не був захоплений. Для повного мапінгу потрібна повна автоматизація браузера.",
+    "recommendation": "Використовуйте Playwright/Puppeteer із повним завантаженням сторінки, щоб захопити всі динамічні елементи та фактичну відрендерену DOM-структуру"
+  }
+}

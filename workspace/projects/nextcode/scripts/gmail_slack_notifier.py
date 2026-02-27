@@ -51,7 +51,7 @@ def format_slack_notification(email):
                 "type": "header",
                 "text": {
                     "type": "plain_text",
-                    "text": str(header_text)[0:150] if len(str(header_text)) > 150 else str(header_text),
+                    "text": header_text[:150],  # type: ignore
                     "emoji": True
                 }
             },

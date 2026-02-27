@@ -209,6 +209,16 @@ Think of it like a human reviewing their journal and updating their mental model
 
 The goal: Be helpful without being annoying. Check in a few times a day, do useful background work, but respect quiet time.
 
+## 📁 Project Structure (Core vs Projects)
+
+When working on different projects or for different companies, we separate personal/system files from project-specific files:
+
+- **Root `/workspace/`**: Home for core agent configuration (`AGENTS.md`, `MEMORY.md`, `SOUL.md`, etc.).
+- **`projects/<project-name>/`**: Dedicated folder for each specific project (e.g., `nextcode`, `lorypten`).
+  - ALWAYS read `projects/<project-name>/PROJECT.md` first when switching context to a new project.
+  - Project directories contain their own `docs/`, `scripts/`, `test-plans/`, and specific API configs.
+- Do not mix project workflows/knowledge into global memory unless they represent universal learnings.
+
 ## Make It Yours
 
 This is a starting point. Add your own conventions, style, and rules as you figure out what works.

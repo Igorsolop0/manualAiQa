@@ -9,11 +9,11 @@ Resume normal monitoring on **Monday, 2026-03-03**.
 
 ---
 
-## Gmail Check
+## Gmail Check (NextCode)
 Check for new emails and notify if important:
 
 ```bash
-python3 /Users/ihorsolopii/.openclaw/workspace/scripts/gmail_checker.py
+python3 /Users/ihorsolopii/.openclaw/workspace/projects/nextcode/scripts/gmail_checker.py
 ```
 
 **VACATION MODE (2026-02-25 to 2026-03-02): Skip Jira processing**
@@ -24,7 +24,7 @@ If output contains `NEW_EMAILS_COUNT:`, parse emails and process:
 1. Extract ticket ID (e.g., CT-727)
 2. Fetch ticket details using Jira API:
    ```bash
-   python3 /Users/ihorsolopii/.openclaw/workspace/scripts/jira_fetch.py CT-727
+   python3 /Users/ihorsolopii/.openclaw/workspace/projects/nextcode/scripts/jira_fetch.py CT-727
    ```
 3. Summarize: status, priority, last comment, action needed
 4. Send notification to Telegram (action=send, to=282986529, channel=telegram)
