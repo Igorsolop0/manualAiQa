@@ -1,148 +1,150 @@
 {
-  "navigation": {
-    "header": {
-      "selector": "header.MuiAppBar-root",
-      "description": "Main navigation header with logo and menu"
+  "navigation_buttons": {
+    "logo": {
+      "selector": "[data-testid=\"bG9nbw==\"]",
+      "description": "Main logo/brand button - returns to home page"
     },
     "sidebar_toggle": {
-      "selector": "[data-testid=\"QWN0aW9uQnV0dG9uLW9wZW5TaWRlYmFy\"]",
+      "selector": "[data-sidebar-button]",
       "description": "Sidebar toggle button - opens/closes navigation sidebar"
-    },
-    "footer": {
-      "selector": "footer",
-      "description": "Footer with links and legal information"
     }
   },
-  "quest_sections": {
-    "main_content": {
-      "selector": "main",
-      "description": "Main content area containing all quests"
+  "sidebar_navigation": {
+    "sidebar_container": {
+      "selector": "[data-testid=\"c2lkZWJhcg==\"]",
+      "description": "Main sidebar container with navigation items"
+    },
+    "sidebar_nav": {
+      "selector": "[data-testid=\"UHJpbWFyeU5hdmlnYXRpb24tc2lkZWJhci1uYXY=\"]",
+      "description": "Primary navigation menu in sidebar"
+    }
+  },
+  "main_sections": {
+    "quests_header": {
+      "selector": "h1:has-text('Quests'), h2:has-text('Quests')",
+      "description": "Page header with 'Quests' title"
     },
     "personal_quests_section": {
-      "selector": "div:has-text('Personal Quests')",
-      "description": "Personal quests section with description and join button"
+      "selector": "h2:has-text('Personal Quests'), h3:has-text('Personal Quests')",
+      "description": "Section for personalized quests (shows 'Join now' for new players)"
     },
     "daily_quests_section": {
-      "selector": "div:has-text('Daily Quests')",
-      "description": "Daily quests section with tasks and rewards"
+      "selector": "h2:has-text('Daily Quests'), h3:has-text('Daily Quests')",
+      "description": "Section containing daily quest challenges"
     },
     "weekly_quests_section": {
-      "selector": "div:has-text('Weekly Quests')",
-      "description": "Weekly quests section with recurring tasks"
+      "selector": "h2:has-text('Weekly Quests'), h3:has-text('Weekly Quests')",
+      "description": "Section containing weekly quest challenges"
     },
     "vip_quests_section": {
-      "selector": "div:has-text('VIP Quests')",
-      "description": "VIP-exclusive quests section"
+      "selector": "h2:has-text('VIP Quests'), h3:has-text('VIP Quests')",
+      "description": "Section for VIP-exclusive quests (shows count)"
     },
     "promo_quests_section": {
-      "selector": "div:has-text('Promo Quests')",
-      "description": "Promotional quests section"
+      "selector": "h2:has-text('Promo Quests'), h3:has-text('Promo Quests')",
+      "description": "Section for promotional quests (shows count)"
     },
-    "quests_section": {
-      "selector": "div:has-text('Quests')",
-      "description": "General quests section"
+    "faq_section": {
+      "selector": "h2:has-text('FAQ'), h3:has-text('FAQ'), section:has-text('Frequently Asked Questions')",
+      "description": "FAQ section with questions about quests system"
     }
   },
-  "quest_tabs": {
+  "navigation_tabs": {
     "available_tab": {
       "selector": "button:has-text('Available')",
-      "description": "Tab showing available quests to complete"
+      "description": "Navigation tab for available/active quests"
     },
     "completed_tab": {
       "selector": "button:has-text('Completed')",
-      "description": "Tab showing completed quests"
+      "description": "Navigation tab for completed quests"
     },
     "locked_tab": {
       "selector": "button:has-text('Locked')",
-      "description": "Tab showing locked quests"
+      "description": "Navigation tab for locked quests"
     },
     "all_tab": {
       "selector": "button:has-text('All')",
-      "description": "Tab showing all quests"
+      "description": "Navigation tab to show all quests"
     }
   },
-  "quest_cards": {
+  "quest_elements": {
     "quest_card": {
-      "selector": "div[class*='quest'], div[class*='Quest']",
-      "description": "Individual quest card container"
+      "selector": "[class*='quest-card'], [class*='QuestCard'], article:has(img):has(h2)",
+      "description": "Individual quest card container with image and details"
+    },
+    "quest_image": {
+      "selector": "[class*='quest-card'] img, [class*='QuestCard'] img",
+      "description": "Quest image/icon on the card"
     },
     "quest_title": {
-      "selector": "div:has-text(/^Daily Quests$|^Weekly Quests$|^Quests$/)",
-      "description": "Quest section title"
+      "selector": "[class*='quest-card'] h2, [class*='quest-card'] h3",
+      "description": "Quest title/name"
     },
     "quest_description": {
-      "selector": "div:has-text('Complete')",
-      "description": "Quest task description"
+      "selector": "[class*='quest-card'] p:has-text(/exp|reward|complete/i)",
+      "description": "Quest description text"
     },
     "quest_reward": {
-      "selector": "div:has-text('Reward:')",
-      "description": "Quest reward information"
+      "selector": "text=/\\d+ exp/i, [class*='reward']",
+      "description": "Quest reward information (e.g., '30 exp', '50 exp')"
     }
   },
   "progress_bars": {
-    "linear_progress": {
-      "selector": "[role='progressbar']",
-      "description": "Linear progress bar showing quest completion"
+    "progress_bar": {
+      "selector": "[role='progressbar'], .progress-bar, [class*='ProgressBar']",
+      "description": "Quest progress bar showing completion status"
     },
-    "progress_label": {
-      "selector": ".mission-label, .inProgress-label",
-      "description": "Progress label showing current progress (e.g., '0 / 20')"
+    "progress_text": {
+      "selector": "text=/\\d+\\s*\\/\\s*\\d+/",
+      "description": "Progress text (e.g., '0 / 15', '5 / 100')"
+    },
+    "progress_percentage": {
+      "selector": "text=/\\d+%/",
+      "description": "Progress percentage text"
     }
   },
-  "action_buttons": {
-    "join_now_button": {
-      "selector": "button:has-text('Join Now')",
-      "description": "Button to join the quests system (for guests)"
+  "reward_buttons": {
+    "claim_button": {
+      "selector": "button:has-text('Claim')",
+      "description": "Button to claim quest reward (when quest is completed)"
+    },
+    "view_button": {
+      "selector": "button:has-text('View')",
+      "description": "Button to view quest details/rewards (e.g., 'View 30 exp')"
+    },
+    "join_button": {
+      "selector": "button:has-text('Join now'), button:has-text('Join Now')",
+      "description": "Button to join Personal Quests system (for new players)"
     },
     "view_all_button": {
       "selector": "button:has-text('View All')",
-      "description": "Button to view all quests in a category"
-    },
-    "log_in_button": {
-      "selector": "button:has-text('Log In')",
-      "description": "Login button in header"
-    },
-    "sign_up_button": {
-      "selector": "button:has-text('Sign Up')",
-      "description": "Sign up button in header"
-    },
-    "claim_reward_button": {
-      "selector": "button:has-text(/^\\$|exp$/)",
-      "description": "Button to claim quest reward (shows amount)"
+      "description": "Button to view all available quests"
     }
   },
   "faq_section": {
     "faq_container": {
-      "selector": "div:has-text('What is a Personal Quest?')",
-      "description": "FAQ section with questions and answers"
+      "selector": "section:has-text('FAQ'), div:has-text('FAQ'), [class*='faq']",
+      "description": "FAQ section container"
     },
     "faq_question": {
-      "selector": "div[class*='rpybyc']",
-      "description": "Individual FAQ question/answer pair"
-    }
-  },
-  "common_selectors": {
-    "mui_button": {
-      "selector": ".MuiButton-root",
-      "description": "Material-UI button component"
+      "selector": "button:has-text('?'), [class*='faq-question'], [class*='accordion']",
+      "description": "FAQ question (clickable accordion)"
     },
-    "mui_grid": {
-      "selector": ".MuiGrid-root",
-      "description": "Material-UI grid container"
-    },
-    "sidebar_container": {
-      "selector": "[data-testid='UHJpbWFyeU5hdmlnYXRpb24tc2lkZWJhci10b29sYmFyLWljb25z']",
-      "description": "Primary navigation sidebar with toolbar icons"
+    "faq_answer": {
+      "selector": "[class*='faq-answer'], [class*='accordion-panel']",
+      "description": "FAQ answer (expanded content)"
     }
   },
   "known_behaviors": [
-    "Quests organized in sections (Personal, Daily, Weekly, VIP, Promo)",
-    "Tabs filter quests by status: Available, Completed, Locked, All",
-    "Progress bars show completion status (aria-valuenow/aria-valuemax)",
-    "Reward buttons display amounts (USD or exp points)",
-    "Guest users see 'Join Now' button, authenticated users see quest list",
-    "Material-UI components used throughout (MuiButton, MuiGrid, MuiLinearProgress)",
-    "Lazy loading - quest cards load dynamically",
-    "Mission labels show progress (e.g., '0 / 20' for spins requirement)"
+    "Sticky header detected - fixed position at top",
+    "Material-UI framework - dynamic rendering with lazy loading",
+    "Lazy loading - 150+ images with loading='lazy' attribute",
+    "Iframes detected - 4 iframes (Smartico widgets, Google Sign-in)",
+    "Quest sections visibility depends on player level - new players see Personal/Daily/Weekly only",
+    "Navigation tabs (Available/Completed/Locked/All) filter quest list dynamically",
+    "Progress bars start at 0% for new players until actions are completed",
+    "Quest cards may show different states: available, in progress, completed, locked",
+    "FAQ section uses accordion pattern - questions expand/collapse on click",
+    "Personal Quests section shows 'Join now' for players not enrolled in quest system"
   ]
 }

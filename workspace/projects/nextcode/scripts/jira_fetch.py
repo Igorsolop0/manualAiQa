@@ -10,7 +10,7 @@ def fetch_ticket(ticket_id):
     """Fetch Jira ticket details."""
     try:
         # Read API token
-        with open("/Users/ihorsolopii/.openclaw/workspace/.jira_token") as f:
+        with open("/Users/ihorsolopii/.openclaw/workspace/projects/nextcode/.jira_token") as f:
             token = f.read().strip()
         
         # Set environment

@@ -36,3 +36,30 @@ If output contains `NEW_EMAILS_COUNT:`, parse emails and process:
 
 ## Frequency
 Check every 30 minutes during work hours (9:00-18:00 CET, Mon-Fri).
+
+---
+
+## ConfAdapt Technology Monitor (Weekly)
+Monitor developments in multi-token prediction / ConfAdapt research.
+
+**Schedule:** Every Monday at 10:00 AM (or during Monday heartbeat)
+
+**Check if:** Today is Monday AND last check was >6 days ago
+
+**Script:**
+```bash
+python3 /Users/ihorsolopii/.openclaw/workspace/scripts/confadapt_monitor.py
+```
+
+**State file:** `memory/confadapt_state.json`
+**Log file:** `memory/confadapt_log.md`
+
+**When changes detected:**
+1. Read the report from script output
+2. Send summary to Telegram (to=282986529, channel=telegram)
+3. Update state file automatically
+
+**Manual check anytime:**
+```bash
+python3 /Users/ihorsolopii/.openclaw/workspace/scripts/confadapt_monitor.py
+```

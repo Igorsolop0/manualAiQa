@@ -40,7 +40,7 @@
       "name": "Austria Channels Daily Summary",
       "enabled": true,
       "createdAtMs": 1771144483934,
-      "updatedAtMs": 1772215701450,
+      "updatedAtMs": 1772302177459,
       "schedule": {
         "kind": "cron",
         "expr": "0 19 * * *",
@@ -56,14 +56,14 @@
         "mode": "announce"
       },
       "state": {
-        "nextRunAtMs": 1772301600000,
-        "lastRunAtMs": 1772215200105,
-        "lastStatus": "error",
-        "lastDurationMs": 501345,
-        "consecutiveErrors": 1,
-        "lastRunStatus": "error",
-        "lastDeliveryStatus": "unknown",
-        "lastError": "cron announce delivery failed"
+        "nextRunAtMs": 1772388000000,
+        "lastRunAtMs": 1772301600075,
+        "lastStatus": "ok",
+        "lastDurationMs": 577384,
+        "consecutiveErrors": 0,
+        "lastRunStatus": "ok",
+        "lastDeliveryStatus": "delivered",
+        "lastDelivered": true
       }
     },
     {
