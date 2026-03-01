@@ -1,16 +1,15 @@
 {
-  "last_summary": "2026-02-16T19:00:00+01:00",
+  "last_summary": "2026-03-01T19:00:00+01:00",
   "last_messages": [
     {
       "channel": "Авточат Українці в Австрії",
-      "topics": ["IDP", "air_quality", "polish_license_exchange", "evacuator_services", "car_battery"],
-      "date": "2026-02-16"
+      "topics": ["driver_license_app", "military_reserve", "car_inspection", "police_checks", "DPF_service", "transport_service", "political_news"],
+      "date": "2026-03-01"
     },
     {
       "channel": "Австрія IT",
-      "topics": [],
-      "date": "2026-02-16",
-      "note": "No new messages in last 24 hours"
+      "topics": ["taxes", "residence_time", "jobs", "RWR_group"],
+      "date": "2026-03-01"
     }
   ]
 }

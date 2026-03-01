@@ -63,3 +63,25 @@ python3 /Users/ihorsolopii/.openclaw/workspace/scripts/confadapt_monitor.py
 ```bash
 python3 /Users/ihorsolopii/.openclaw/workspace/scripts/confadapt_monitor.py
 ```
+
+---
+
+## QA Workflow Check (Jira → TestRail)
+**Trigger:** Check Jira for tickets: status = "Ready for Testing" AND assignee = Ihor Solopii
+
+**Script:** Use Jira API via jira_poller.py
+```bash
+python3 /Users/ihorsolopii/.openclaw/workspace/projects/nextcode/scripts/jira_poller.py
+```
+
+**VACATION MODE NOTE:** During vacation (2026-02-25 to 2026-03-02), skip triggering workflow even if tickets found.
+
+**If new ticket found:** Trigger QA Automation Workflow v2
+
+**Workflow Gates Monitoring:**
+- If workflow is at Review Gate (STEP 3.5): remind Ihor if no response > 2h
+- If workflow stuck > 10 min on any step: alert Ihor
+
+**Frequency:** Check every 30 minutes during work hours (9:00-18:00 CET, Mon-Fri)
+
+**Workflow Location:** `/Users/ihorsolopii/.openclaw/workspace/projects/nextcode/workflows/QA_AUTOMATION_WORKFLOW_V2.md`
