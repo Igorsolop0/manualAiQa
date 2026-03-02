@@ -1,11 +1,9 @@
 # Heartbeat Tasks
 
-## ⚠️ Vacation Mode (2026-02-25 to 2026-03-02)
-**NextCode vacation active** — skip Jira ticket notifications.
+## ✅ Vacation Mode завершено (2026-02-25 to 2026-03-02)
+**Нормальний режим роботи відновлено** — Jira ticket notifications активовано.
 
-Gmail checks still run, but DO NOT process or send Jira alerts.
-
-Resume normal monitoring on **Monday, 2026-03-03**.
+Gmail checks + Jira processing працюють повноцінно.
 
 ---
 
@@ -16,7 +14,7 @@ Check for new emails and notify if important:
 python3 /Users/ihorsolopii/.openclaw/workspace/projects/nextcode/scripts/gmail_checker.py
 ```
 
-**VACATION MODE (2026-02-25 to 2026-03-02): Skip Jira processing**
+**NORMAL MODE: Jira processing активовано**
 
 If output contains `NEW_EMAILS_COUNT:`, parse emails and process:
 
@@ -67,14 +65,14 @@ python3 /Users/ihorsolopii/.openclaw/workspace/scripts/confadapt_monitor.py
 ---
 
 ## QA Workflow Check (Jira → TestRail)
-**Trigger:** Check Jira for tickets: status = "Ready for Testing" AND assignee = Ihor Solopii
+**Trigger:** Check Jira for tickets: status = "Ready for Testing" AND assignee = Ihor Solopii (Panda Sensei)
 
 **Script:** Use Jira API via jira_poller.py
 ```bash
 python3 /Users/ihorsolopii/.openclaw/workspace/projects/nextcode/scripts/jira_poller.py
 ```
 
-**VACATION MODE NOTE:** During vacation (2026-02-25 to 2026-03-02), skip triggering workflow even if tickets found.
+**NORMAL MODE:** Workflow triggering активовано.
 
 **If new ticket found:** Trigger QA Automation Workflow v2
 

@@ -1,0 +1,138 @@
+{
+  "total_sections": 24,
+  "total_cases": 186,
+  "gaps": [
+    {
+      "area": "payments",
+      "reason": "Low test coverage (4 cases) for payments",
+      "recommendations": [
+        "Add more test cases for payments functionality",
+        "Consider adding automated tests for critical payments flows"
+      ]
+    },
+    {
+      "area": "api_testing",
+      "reason": "Only 1 API-focused test cases found",
+      "recommendations": [
+        "Add API test cases for critical endpoints (Website API, BackOffice API)",
+        "Test authentication flows via API",
+        "Test error responses and edge cases for APIs"
+      ]
+    }
+  ],
+  "recommendations": [
+    "API: Test Website API authentication flow",
+    "API: Test BackOffice API bonus creation",
+    "API: Test Wallet API balance operations",
+    "API: Test GraphQL registration mutation",
+    "API: Test error handling for invalid API requests",
+    "Game: Test game launch with different providers (Pragmatic, Evolution, etc.)",
+    "Game: Test demo mode functionality",
+    "Game: Test game search and filtering",
+    "Security: Test session timeout and re-authentication",
+    "Security: Test XSS and injection vulnerabilities on forms",
+    "Performance: Test page load times for game lobby",
+    "Localization: Test language switching functionality",
+    "Compliance: Test responsible gambling features",
+    "KYC: Test document upload and verification flow",
+    "Notifications: Test in-game notifications and alerts"
+  ],
+  "section_summary": {
+    "6211": {
+      "name": "General",
+      "case_count": 0
+    },
+    "6212": {
+      "name": "Loyalty",
+      "case_count": 4
+    },
+    "6213": {
+      "name": "Promotions",
+      "case_count": 8
+    },
+    "6214": {
+      "name": "Tournaments",
+      "case_count": 5
+    },
+    "6215": {
+      "name": "Personal quests",
+      "case_count": 3
+    },
+    "6216": {
+      "name": "Bonuses",
+      "case_count": 32
+    },
+    "6478": {
+      "name": "Regular Bonuses Section",
+      "case_count": 22
+    },
+    "7031": {
+      "name": "Special Bonuses",
+      "case_count": 19
+    },
+    "6217": {
+      "name": "2FA - Two Factor Authentication",
+      "case_count": 10
+    },
+    "6839": {
+      "name": "Authentication",
+      "case_count": 13
+    },
+    "6840": {
+      "name": "Profile & Account",
+      "case_count": 5
+    },
+    "6841": {
+      "name": "Payments",
+      "case_count": 2
+    },
+    "6842": {
+      "name": "KYC/Verification",
+      "case_count": 4
+    },
+    "6843": {
+      "name": "Games",
+      "case_count": 5
+    },
+    "6844": {
+      "name": "Search & Filters",
+      "case_count": 6
+    },
+    "6845": {
+      "name": "Mobile UI",
+      "case_count": 2
+    },
+    "6824": {
+      "name": "Recent Top Wins Widget",
+      "case_count": 3
+    },
+    "6834": {
+      "name": "Footer",
+      "case_count": 6
+    },
+    "6835": {
+      "name": "Sidebar Navigation",
+      "case_count": 7
+    },
+    "6836": {
+      "name": "Wallet Modal",
+      "case_count": 7
+    },
+    "6837": {
+      "name": "Favorites Page",
+      "case_count": 6
+    },
+    "7082": {
+      "name": "Sidebar - deposit streak and Buttons",
+      "case_count": 4
+    },
+    "7086": {
+      "name": "Tradesmarter",
+      "case_count": 9
+    },
+    "7087": {
+      "name": "Bonus tag",
+      "case_count": 4
+    }
+  }
+}

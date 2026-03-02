@@ -7,7 +7,7 @@
       "name": "Gmail Check - NextCode",
       "enabled": true,
       "createdAtMs": 1771084279927,
-      "updatedAtMs": 1772213478174,
+      "updatedAtMs": 1772472881584,
       "schedule": {
         "kind": "cron",
         "expr": "*/30 9-18 * * 1-5",
@@ -24,14 +24,14 @@
         "mode": "announce"
       },
       "state": {
-        "nextRunAtMs": 1772438400000,
-        "lastRunAtMs": 1772213400108,
-        "lastStatus": "error",
-        "lastDurationMs": 78066,
-        "consecutiveErrors": 1,
-        "lastRunStatus": "error",
-        "lastDeliveryStatus": "unknown",
-        "lastError": "cron announce delivery failed"
+        "nextRunAtMs": 1772524800000,
+        "lastRunAtMs": 1772472600151,
+        "lastStatus": "ok",
+        "lastDurationMs": 281433,
+        "consecutiveErrors": 0,
+        "lastRunStatus": "ok",
+        "lastDeliveryStatus": "not-delivered",
+        "lastDelivered": false
       }
     },
     {
@@ -56,7 +56,7 @@
         "mode": "announce"
       },
       "state": {
-        "nextRunAtMs": 1772474400000,
+        "nextRunAtMs": 1772560800000,
         "lastRunAtMs": 1772388000047,
         "lastStatus": "ok",
         "lastDurationMs": 403689,
@@ -72,7 +72,7 @@
       "description": "Щотижнева перевірка офіційних джерел Австрії для українців",
       "enabled": true,
       "createdAtMs": 1771938179147,
-      "updatedAtMs": 1771939487502,
+      "updatedAtMs": 1772439037540,
       "schedule": {
         "kind": "cron",
         "expr": "0 9 * * 1",
@@ -85,7 +85,14 @@
         "text": "Перевір Австрію: проаналізуй офіційні джерела (міграція, податки, сім'я, новини). \n\nФормат звіту:\n1. Детальний опис кожної зміни (не коротко!)\n2. Що саме змінилося, для кого актуально\n3. ЯКЩО потребує дій — чітко написати що робити: подати заявку, написати імейл, звернутися до установи, дедлайн\n4. Прямі посилання на джерела\n\nОнови Notion сторінку Austria. Повідом в Telegram детальний звіт. Якщо немає нового — напиши що не знайдено."
       },
       "state": {
-        "nextRunAtMs": 1772438400000
+        "nextRunAtMs": 1773043200000,
+        "lastRunAtMs": 1772438437522,
+        "lastRunStatus": "error",
+        "lastStatus": "error",
+        "lastDurationMs": 600018,
+        "lastError": "cron: job execution timed out",
+        "lastDeliveryStatus": "not-requested",
+        "consecutiveErrors": 1
       }
     }
   ]

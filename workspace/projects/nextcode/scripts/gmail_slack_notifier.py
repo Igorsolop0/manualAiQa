@@ -166,32 +166,99 @@ def save_jira_thread(ticket, ts):
         json.dump(threads, f, indent=2)
 
 
+def format_status_message(has_new_emails, email_count=0):
+    """Format status message for Slack when no new emails."""
+    from datetime import datetime
+    
+    now = datetime.now().strftime("%Y-%m-%d %H:%M")
+    status_emoji = "📬" if has_new_emails else "✅"
+    status_text = "нове повідомлення" if has_new_emails else "немає нових листів"
+    
+    blocks = [
+        {
+            "type": "header",
+            "text": {
+                "type": "plain_text",
+                "text": f"{status_emoji} Gmail Check Status",
+                "emoji": True
+            }
+        },
+        {
+            "type": "divider"
+        },
+        {
+            "type": "section",
+            "text": {
+                "type": "mrkdwn",
+                "text": f"*Час перевірки:* {now}\n*Статус:* {status_text}\n*Режим:* нормальна робота (vacation mode вимкнено)"
+            }
+        },
+        {
+            "type": "context",
+            "elements": [
+                {
+                    "type": "mrkdwn",
+                    "text": f"🤖 _Наступна автоматична перевірка о 30 хвилин._"
+                }
+            ]
+        }
+    ]
+    
+    if has_new_emails and email_count > 0:
+        blocks.append({
+            "type": "section",
+            "text": {
+                "type": "mrkdwn",
+                "text": f"📊 *Знайдено нових листів:* {email_count}"
+            }
+        })
+    
+    return json.dumps(blocks)
+
+
 if __name__ == "__main__":
     # Run email checker
+    script_dir = os.path.dirname(__file__)
+    gmail_checker_path = os.path.join(script_dir, "gmail_checker.py")
     result = subprocess.run(
-        ["python3", "/Users/ihorsolopii/.openclaw/workspace/scripts/gmail_checker.py"],
+        ["python3", gmail_checker_path],
         capture_output=True,
         text=True
     )
 
     output = result.stdout.strip()
 
-    if "NO_NEW_EMAILS" in output:
-        print("HEARTBEAT_OK")
-        sys.exit(0)
-
     if "ERROR:" in output:
         print(f"❌ Gmail check error: {output}")
         sys.exit(1)
 
-    # Parse emails
-    emails = parse_email_output(output)
+    # Determine if there are new emails
+    has_new_emails = "NO_NEW_EMAILS" not in output
+    email_count = 0
+    emails = []
 
-    if not emails:
+    if has_new_emails:
+        # Parse emails
+        emails = parse_email_output(output)
+        email_count = len(emails)
+        # If parsing failed or empty, treat as no new emails
+        if email_count == 0:
+            has_new_emails = False
+
+    # Send status message to Slack (#gmail channel)
+    status_message = format_status_message(has_new_emails, email_count)
+    ts = send_to_slack(status_message, SLACK_CHANNEL_GMAIL)
+    if ts:
+        print(f"✅ Status sent to Slack (#gmail)")
+    else:
+        print(f"❌ Failed to send status to Slack")
+
+    # If no new emails, exit with HEARTBEAT_OK
+    if not has_new_emails:
         print("HEARTBEAT_OK")
         sys.exit(0)
 
-    # Send notifications to Slack
+    # Send detailed notifications for each email
     for email in emails:
         notification = format_slack_notification(email)
         is_jira = email.get('is_jira') == 'True'
