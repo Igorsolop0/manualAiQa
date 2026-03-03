@@ -2,6 +2,7 @@
   "providers": {
     "zai": {
       "baseUrl": "https://api.z.ai/api/paas/v4",
+      "apiKey": "1749788e8c1c4e8882599013e82a6492.QOVpdZ3ii7Qk5lo5",
       "api": "openai-completions",
       "models": [
         {
@@ -90,8 +91,7 @@
           "maxTokens": 8192,
           "api": "openai-completions"
         }
-      ],
-      "apiKey": "1749788e8c1c4e8882599013e82a6492.QOVpdZ3ii7Qk5lo5"
+      ]
     },
     "deepseek": {
       "baseUrl": "https://api.deepseek.com",
@@ -117,7 +117,41 @@
         },
         {
           "id": "deepseek-reasoner",
-          "name": "DeepSeek Reasoner",
+          "name": "DeepSeek Reasoner (R1)",
+          "reasoning": true,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 128000,
+          "maxTokens": 8192,
+          "api": "openai-completions"
+        },
+        {
+          "id": "deepseek-v3.2",
+          "name": "DeepSeek V3.2",
+          "reasoning": true,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 128000,
+          "maxTokens": 8192,
+          "api": "openai-completions"
+        },
+        {
+          "id": "deepseek-v3.2-speciale",
+          "name": "DeepSeek V3.2 Speciale",
           "reasoning": true,
           "input": [
             "text"

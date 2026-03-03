@@ -1,0 +1,144 @@
+{
+  "success": false,
+  "env": "prod",
+  "player": {
+    "clientId": 1179890,
+    "email": "test-1772555337542@nextcode.tech",
+    "password": "Qweasd123!"
+  },
+  "test_config": {
+    "deposit_amount": 30.0,
+    "iterations": 10,
+    "currency": "USD",
+    "payment_method_id": 19,
+    "bonus_checkpoints": [
+      2,
+      4,
+      8,
+      10
+    ]
+  },
+  "initial_bonus_count": 0,
+  "final_bonus_count": 0,
+  "iterations": [
+    {
+      "iteration": 1,
+      "deposit_amount": 30.0,
+      "deposit_success": true,
+      "bonus_count": 0,
+      "new_bonuses": [],
+      "log_line": "[Iteration 1] Deposit: 30.0 USD | API Status: Success | UI Bonus Card: Not Found | Bonus Name: None",
+      "checkpoint": false,
+      "timestamp": "2026-03-03T18:29:54.562844"
+    },
+    {
+      "iteration": 2,
+      "deposit_amount": 30.0,
+      "deposit_success": true,
+      "bonus_count": 0,
+      "new_bonuses": [],
+      "log_line": "[Iteration 2] Deposit: 30.0 USD | API Status: Success | UI Bonus Card: Not Found | Bonus Name: None",
+      "checkpoint": true,
+      "timestamp": "2026-03-03T18:30:02.476149"
+    },
+    {
+      "iteration": 3,
+      "deposit_amount": 30.0,
+      "deposit_success": true,
+      "bonus_count": 0,
+      "new_bonuses": [],
+      "log_line": "[Iteration 3] Deposit: 30.0 USD | API Status: Success | UI Bonus Card: Not Found | Bonus Name: None",
+      "checkpoint": false,
+      "timestamp": "2026-03-03T18:30:05.517496"
+    },
+    {
+      "iteration": 4,
+      "deposit_amount": 30.0,
+      "deposit_success": true,
+      "bonus_count": 0,
+      "new_bonuses": [],
+      "log_line": "[Iteration 4] Deposit: 30.0 USD | API Status: Success | UI Bonus Card: Not Found | Bonus Name: None",
+      "checkpoint": true,
+      "timestamp": "2026-03-03T18:30:11.441748"
+    },
+    {
+      "iteration": 5,
+      "deposit_amount": 30.0,
+      "deposit_success": true,
+      "bonus_count": 0,
+      "new_bonuses": [],
+      "log_line": "[Iteration 5] Deposit: 30.0 USD | API Status: Success | UI Bonus Card: Not Found | Bonus Name: None",
+      "checkpoint": false,
+      "timestamp": "2026-03-03T18:30:14.650386"
+    },
+    {
+      "iteration": 6,
+      "deposit_amount": 30.0,
+      "deposit_success": true,
+      "bonus_count": 0,
+      "new_bonuses": [],
+      "log_line": "[Iteration 6] Deposit: 30.0 USD | API Status: Success | UI Bonus Card: Not Found | Bonus Name: None",
+      "checkpoint": false,
+      "timestamp": "2026-03-03T18:30:17.696654"
+    },
+    {
+      "iteration": 7,
+      "deposit_amount": 30.0,
+      "deposit_success": true,
+      "bonus_count": 0,
+      "new_bonuses": [],
+      "log_line": "[Iteration 7] Deposit: 30.0 USD | API Status: Success | UI Bonus Card: Not Found | Bonus Name: None",
+      "checkpoint": false,
+      "timestamp": "2026-03-03T18:30:20.595581"
+    },
+    {
+      "iteration": 8,
+      "deposit_amount": 30.0,
+      "deposit_success": true,
+      "bonus_count": 0,
+      "new_bonuses": [],
+      "log_line": "[Iteration 8] Deposit: 30.0 USD | API Status: Success | UI Bonus Card: Not Found | Bonus Name: None",
+      "checkpoint": true,
+      "timestamp": "2026-03-03T18:30:26.927630"
+    },
+    {
+      "iteration": 9,
+      "deposit_amount": 30.0,
+      "deposit_success": true,
+      "bonus_count": 0,
+      "new_bonuses": [],
+      "log_line": "[Iteration 9] Deposit: 30.0 USD | API Status: Success | UI Bonus Card: Not Found | Bonus Name: None",
+      "checkpoint": false,
+      "timestamp": "2026-03-03T18:30:29.816411"
+    },
+    {
+      "iteration": 10,
+      "deposit_amount": 30.0,
+      "deposit_success": true,
+      "bonus_count": 0,
+      "new_bonuses": [],
+      "log_line": "[Iteration 10] Deposit: 30.0 USD | API Status: Success | UI Bonus Card: Not Found | Bonus Name: None",
+      "checkpoint": true,
+      "timestamp": "2026-03-03T18:30:36.306418"
+    }
+  ],
+  "discrepancies": [
+    "Iteration 2: Expected bonus but none appeared",
+    "Iteration 4: Expected bonus but none appeared",
+    "Iteration 8: Expected bonus but none appeared",
+    "Iteration 10: Expected bonus but none appeared",
+    "Iteration 2: Deposit successful but no bonus appeared (API/UI mismatch)",
+    "Iteration 4: Deposit successful but no bonus appeared (API/UI mismatch)",
+    "Iteration 8: Deposit successful but no bonus appeared (API/UI mismatch)",
+    "Iteration 10: Deposit successful but no bonus appeared (API/UI mismatch)"
+  ],
+  "summary": {
+    "total_deposits": 10,
+    "successful_deposits": 10,
+    "total_new_bonuses": 0,
+    "expected_bonuses": 4,
+    "deposit_success_rate": "10/10",
+    "bonus_success_rate": "0/4"
+  },
+  "timestamp": "2026-03-03T18:30:36.469265"
+}

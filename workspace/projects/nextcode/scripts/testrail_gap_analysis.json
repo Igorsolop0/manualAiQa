@@ -1,6 +1,6 @@
 {
   "total_sections": 24,
-  "total_cases": 186,
+  "total_cases": 216,
   "gaps": [
     {
       "area": "payments",
@@ -60,7 +60,7 @@
     },
     "6216": {
       "name": "Bonuses",
-      "case_count": 32
+      "case_count": 37
     },
     "6478": {
       "name": "Regular Bonuses Section",
@@ -80,7 +80,7 @@
     },
     "6840": {
       "name": "Profile & Account",
-      "case_count": 5
+      "case_count": 11
     },
     "6841": {
       "name": "Payments",
@@ -92,7 +92,7 @@
     },
     "6843": {
       "name": "Games",
-      "case_count": 5
+      "case_count": 24
     },
     "6844": {
       "name": "Search & Filters",

@@ -1,0 +1,55 @@
+{
+  "env": "qa",
+  "client_id": 3563276,
+  "amount": 15.0,
+  "currency": "USD",
+  "payment_method_id": 104,
+  "success": true,
+  "balance_before": {
+    "Balances": {
+      "Unused": 25.0
+    },
+    "AvailableMain": 25.0,
+    "AvailableBonus": 0.0,
+    "Currency": "USD",
+    "SportBonus": 0.0
+  },
+  "deposit_creation": {
+    "TransactionId": "test_p1d414gzlsv8ukj",
+    "OperationType": 17,
+    "AlreadyProcessed": false,
+    "Error": 0,
+    "CurrentBalances": {
+      "Balances": {
+        "Unused": 40.0
+      },
+      "AvailableMain": 40.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "RateAmounts": {
+      "Unused": 15.0
+    },
+    "Amount": 15.0,
+    "PartnerId": 5,
+    "ChildTransactions": [],
+    "RateUnusedTurnover": 0.0,
+    "RateBonusTurnover": 0.0,
+    "Context": {
+      "reason": "Test deposit via script - client 3563276"
+    },
+    "IsError": false
+  },
+  "deposit_method": "wallet_correction",
+  "balance_after": {
+    "Balances": {
+      "Unused": 40.0
+    },
+    "AvailableMain": 40.0,
+    "AvailableBonus": 0.0,
+    "Currency": "USD",
+    "SportBonus": 0.0
+  },
+  "balance_difference": 15.0
+}

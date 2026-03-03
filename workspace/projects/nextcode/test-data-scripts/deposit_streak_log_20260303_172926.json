@@ -1,0 +1,107 @@
+{
+  "success": true,
+  "env": "prod",
+  "player": {
+    "clientId": 1179890,
+    "email": "test-1772555337542@nextcode.tech",
+    "password": "Qweasd123!"
+  },
+  "test_config": {
+    "deposit_amount": 30.0,
+    "iterations": 10,
+    "currency": "USD"
+  },
+  "initial_bonus_count": 0,
+  "final_bonus_count": 0,
+  "iterations": [
+    {
+      "iteration": 1,
+      "deposit_amount": 30.0,
+      "deposit_success": true,
+      "bonus_count": 0,
+      "new_bonuses": [],
+      "timestamp": "2026-03-03T17:28:59.062752"
+    },
+    {
+      "iteration": 2,
+      "deposit_amount": 30.0,
+      "deposit_success": true,
+      "bonus_count": 0,
+      "new_bonuses": [],
+      "timestamp": "2026-03-03T17:29:02.949616"
+    },
+    {
+      "iteration": 3,
+      "deposit_amount": 30.0,
+      "deposit_success": true,
+      "bonus_count": 0,
+      "new_bonuses": [],
+      "timestamp": "2026-03-03T17:29:05.883220"
+    },
+    {
+      "iteration": 4,
+      "deposit_amount": 30.0,
+      "deposit_success": true,
+      "bonus_count": 0,
+      "new_bonuses": [],
+      "timestamp": "2026-03-03T17:29:08.812560"
+    },
+    {
+      "iteration": 5,
+      "deposit_amount": 30.0,
+      "deposit_success": true,
+      "bonus_count": 0,
+      "new_bonuses": [],
+      "timestamp": "2026-03-03T17:29:11.921401"
+    },
+    {
+      "iteration": 6,
+      "deposit_amount": 30.0,
+      "deposit_success": true,
+      "bonus_count": 0,
+      "new_bonuses": [],
+      "timestamp": "2026-03-03T17:29:14.929777"
+    },
+    {
+      "iteration": 7,
+      "deposit_amount": 30.0,
+      "deposit_success": true,
+      "bonus_count": 0,
+      "new_bonuses": [],
+      "timestamp": "2026-03-03T17:29:17.836198"
+    },
+    {
+      "iteration": 8,
+      "deposit_amount": 30.0,
+      "deposit_success": true,
+      "bonus_count": 0,
+      "new_bonuses": [],
+      "timestamp": "2026-03-03T17:29:20.737701"
+    },
+    {
+      "iteration": 9,
+      "deposit_amount": 30.0,
+      "deposit_success": true,
+      "bonus_count": 0,
+      "new_bonuses": [],
+      "timestamp": "2026-03-03T17:29:23.702176"
+    },
+    {
+      "iteration": 10,
+      "deposit_amount": 30.0,
+      "deposit_success": true,
+      "bonus_count": 0,
+      "new_bonuses": [],
+      "timestamp": "2026-03-03T17:29:26.646707"
+    }
+  ],
+  "discrepancies": [],
+  "summary": {
+    "total_deposits": 10,
+    "successful_deposits": 10,
+    "total_new_bonuses": 0,
+    "deposit_success_rate": "10/10",
+    "bonus_creation_rate": "0/10"
+  },
+  "timestamp": "2026-03-03T17:29:26.774613"
+}

@@ -1,0 +1,4667 @@
+[
+  {
+    "type": "player",
+    "action": "create",
+    "env": "qa",
+    "email": "test-1772541979395@nextcode.tech",
+    "password": "Qweasd123!",
+    "userName": "user1772541979122",
+    "registration_method": "website",
+    "clientId": 3563255,
+    "sessionToken": "9b63a2838c07421bb0f133a73dffccc6",
+    "state": "Active",
+    "balance_setup_error": "400 Client Error: Bad Request for url: https://wallet.qa.sofon.one/5/api/v1/transaction/correction/debit",
+    "actual_balance": {
+      "Balances": {},
+      "AvailableMain": 0.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "created_at": "2026-03-03T13:46:20.160802"
+  },
+  {
+    "type": "balance",
+    "action": "set",
+    "env": "qa",
+    "client_id": 3563255,
+    "amount": 5.0,
+    "currency": "USD",
+    "method": "wallet",
+    "success": true,
+    "wallet_result": {
+      "TransactionId": "test_8r7ucpl6jdxi2qb",
+      "OperationType": 17,
+      "AlreadyProcessed": false,
+      "Error": 0,
+      "CurrentBalances": {
+        "Balances": {
+          "Unused": 15.0
+        },
+        "AvailableMain": 15.0,
+        "AvailableBonus": 0.0,
+        "Currency": "USD",
+        "SportBonus": 0.0
+      },
+      "RateAmounts": {
+        "Unused": 5.0
+      },
+      "Amount": 5.0,
+      "PartnerId": 5,
+      "ChildTransactions": [],
+      "RateUnusedTurnover": 0.0,
+      "RateBonusTurnover": 0.0,
+      "Context": {
+        "reason": "Test balance setup via script"
+      },
+      "IsError": false
+    },
+    "verified_balance": {
+      "Balances": {
+        "Unused": 15.0
+      },
+      "AvailableMain": 15.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "created_at": "2026-03-03T13:56:00.607643"
+  },
+  {
+    "type": "player",
+    "action": "create",
+    "env": "prod",
+    "email": "test-testprod1772542631431@nextcode.tech",
+    "password": "Qweasd123!",
+    "userName": "user1772542631156",
+    "registration_method": "website",
+    "clientId": 1179820,
+    "sessionToken": "a40191716e0440189c78150ff6b85bc4",
+    "state": "Active",
+    "balance_setup": true,
+    "balance_amount": 0.01,
+    "balance_currency": "USD",
+    "actual_balance": {
+      "Balances": {
+        "Unused": 0.01
+      },
+      "AvailableMain": 0.01,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "created_at": "2026-03-03T13:57:12.439350"
+  },
+  {
+    "type": "player",
+    "action": "create",
+    "env": "qa",
+    "email": "test-1772542748460@nextcode.tech",
+    "password": "Qweasd123!",
+    "userName": "user1772542748977",
+    "registration_method": "website",
+    "website_api": "https://websitewebapi.qa.sofon.one",
+    "partner_id": 5,
+    "clientId": 3563256,
+    "sessionToken": "f1047159b83d477e9d95d6a6f09796e7",
+    "state": "Active",
+    "actual_balance": {
+      "Balances": {},
+      "AvailableMain": 0.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "created_at": "2026-03-03T13:59:09.236829"
+  },
+  {
+    "type": "player",
+    "action": "create",
+    "env": "qa",
+    "email": "test-1772542911945@nextcode.tech",
+    "password": "Qweasd123!",
+    "userName": "user1772542911141",
+    "registration_method": "website",
+    "website_api": "https://websitewebapi.qa.sofon.one",
+    "partner_id": 5,
+    "clientId": 3563257,
+    "sessionToken": "56be59190b194bd18f7cb2e89130ca6f",
+    "state": "Active",
+    "actual_balance": {
+      "Balances": {},
+      "AvailableMain": 0.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "created_at": "2026-03-03T14:01:52.524089"
+  },
+  {
+    "type": "player",
+    "action": "create",
+    "env": "qa",
+    "email": "test-ct9991772544874535@nextcode.tech",
+    "password": "Qweasd123!",
+    "userName": "user1772544874602",
+    "registration_method": "website",
+    "website_api": "https://websitewebapi.qa.sofon.one",
+    "partner_id": 5,
+    "clientId": 3563259,
+    "sessionToken": "e15283bbc60a41e6a4ff9f7ea71d0105",
+    "state": "Active",
+    "balance_setup": true,
+    "balance_amount": 10.0,
+    "balance_currency": "USD",
+    "actual_balance": {
+      "Balances": {
+        "Unused": 10.0
+      },
+      "AvailableMain": 10.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "created_at": "2026-03-03T14:34:37.508249"
+  },
+  {
+    "type": "player",
+    "action": "create",
+    "env": "qa",
+    "email": "test-1772544901341@nextcode.tech",
+    "password": "Qweasd123!",
+    "userName": "user1772544901693",
+    "registration_method": "website",
+    "website_api": "https://websitewebapi.qa.sofon.one",
+    "partner_id": 5,
+    "clientId": 3563261,
+    "sessionToken": "9f0dd75823894c00801a21eba5f29cf2",
+    "state": "Active",
+    "balance_setup": true,
+    "balance_amount": 0.0,
+    "balance_currency": "USD",
+    "actual_balance": {
+      "Balances": {
+        "Unused": 0.0
+      },
+      "AvailableMain": 0.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "created_at": "2026-03-03T14:35:02.095080"
+  },
+  {
+    "type": "player",
+    "action": "create",
+    "env": "qa",
+    "email": "test-1772544916604@nextcode.tech",
+    "password": "Qweasd123!",
+    "userName": "user1772544916971",
+    "registration_method": "website",
+    "website_api": "https://websitewebapi.qa.sofon.one",
+    "partner_id": 5,
+    "clientId": 3563262,
+    "sessionToken": "cc4bb05349364d3b88f2f6a60069631e",
+    "state": "Active",
+    "balance_setup": true,
+    "balance_amount": 0.0,
+    "balance_currency": "USD",
+    "actual_balance": {
+      "Balances": {
+        "Unused": 0.0
+      },
+      "AvailableMain": 0.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "created_at": "2026-03-03T14:35:17.541493"
+  },
+  {
+    "type": "player",
+    "action": "create",
+    "env": "qa",
+    "email": "test-1772545022078@nextcode.tech",
+    "password": "Qweasd123!",
+    "userName": "user1772545022883",
+    "registration_method": "website",
+    "website_api": "https://websitewebapi.qa.sofon.one",
+    "partner_id": 5,
+    "clientId": 3563263,
+    "sessionToken": "13b294a8b2fd4ae0bb2d20129919aa90",
+    "state": "Active",
+    "balance_setup": true,
+    "balance_amount": 50.0,
+    "balance_currency": "USD",
+    "actual_balance": {
+      "Balances": {
+        "Unused": 50.0
+      },
+      "AvailableMain": 50.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "created_at": "2026-03-03T14:37:02.814013"
+  },
+  {
+    "type": "player",
+    "action": "create",
+    "env": "qa",
+    "email": "test-1772545053190@nextcode.tech",
+    "password": "Qweasd123!",
+    "userName": "user1772545053602",
+    "registration_method": "website",
+    "website_api": "https://websitewebapi.qa.sofon.one",
+    "partner_id": 5,
+    "clientId": 3563264,
+    "sessionToken": "1f9d8588878c425588cff3f192e1f13b",
+    "state": "Active",
+    "balance_setup": true,
+    "balance_amount": 50.0,
+    "balance_currency": "USD",
+    "actual_balance": {
+      "Balances": {
+        "Unused": 50.0
+      },
+      "AvailableMain": 50.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "created_at": "2026-03-03T14:37:33.834654"
+  },
+  {
+    "type": "player",
+    "action": "create",
+    "env": "qa",
+    "email": "test-1772545226939@nextcode.tech",
+    "password": "Qweasd123!",
+    "userName": "user1772545226251",
+    "registration_method": "website",
+    "website_api": "https://websitewebapi.qa.sofon.one",
+    "partner_id": 5,
+    "clientId": 3563265,
+    "sessionToken": "c449169f9ae84e40b68fbcd17bbb0f8c",
+    "state": "Active",
+    "balance_setup": true,
+    "balance_amount": 50.0,
+    "balance_currency": "USD",
+    "actual_balance": {
+      "Balances": {
+        "Unused": 50.0
+      },
+      "AvailableMain": 50.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "created_at": "2026-03-03T14:40:28.100833"
+  },
+  {
+    "type": "balance",
+    "action": "set",
+    "env": "qa",
+    "client_id": 3563265,
+    "amount": 25.0,
+    "currency": "USD",
+    "method": "wallet",
+    "success": true,
+    "wallet_result": {
+      "TransactionId": "test_72plllk9z1w08la",
+      "OperationType": 17,
+      "AlreadyProcessed": false,
+      "Error": 0,
+      "CurrentBalances": {
+        "Balances": {
+          "Unused": 75.0
+        },
+        "AvailableMain": 75.0,
+        "AvailableBonus": 0.0,
+        "Currency": "USD",
+        "SportBonus": 0.0
+      },
+      "RateAmounts": {
+        "Unused": 25.0
+      },
+      "Amount": 25.0,
+      "PartnerId": 5,
+      "ChildTransactions": [],
+      "RateUnusedTurnover": 0.0,
+      "RateBonusTurnover": 0.0,
+      "Context": {
+        "reason": "Test balance setup via script"
+      },
+      "IsError": false
+    },
+    "verified_balance": {
+      "Balances": {
+        "Unused": 75.0
+      },
+      "AvailableMain": 75.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "created_at": "2026-03-03T14:40:28.516101"
+  },
+  {
+    "type": "player",
+    "action": "create",
+    "env": "qa",
+    "email": "test-1772545238610@nextcode.tech",
+    "password": "Qweasd123!",
+    "userName": "user1772545238400",
+    "registration_method": "website",
+    "website_api": "https://websitewebapi.qa.sofon.one",
+    "partner_id": 5,
+    "clientId": 3563266,
+    "sessionToken": "c3ff66685e554c468373312fcd5f4235",
+    "state": "Active",
+    "balance_setup": true,
+    "balance_amount": 0.0,
+    "balance_currency": "USD",
+    "actual_balance": {
+      "Balances": {
+        "Unused": 0.0
+      },
+      "AvailableMain": 0.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "created_at": "2026-03-03T14:40:39.214581"
+  },
+  {
+    "type": "player",
+    "action": "create",
+    "env": "qa",
+    "email": "test-ct9991772545238610@nextcode.tech",
+    "password": "Qweasd123!",
+    "userName": "user1772545238602",
+    "registration_method": "website",
+    "website_api": "https://websitewebapi.qa.sofon.one",
+    "partner_id": 5,
+    "clientId": 3563267,
+    "sessionToken": "8f4760910d984e24afa2f427f5fc5bea",
+    "state": "Active",
+    "balance_setup": true,
+    "balance_amount": 10.0,
+    "balance_currency": "USD",
+    "actual_balance": {
+      "Balances": {
+        "Unused": 10.0
+      },
+      "AvailableMain": 10.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "created_at": "2026-03-03T14:40:39.535607"
+  },
+  {
+    "type": "player",
+    "action": "create",
+    "env": "qa",
+    "email": "test-1772545286939@nextcode.tech",
+    "password": "Qweasd123!",
+    "userName": "user1772545286201",
+    "registration_method": "website",
+    "website_api": "https://websitewebapi.qa.sofon.one",
+    "partner_id": 5,
+    "clientId": 3563268,
+    "sessionToken": "a52242c4e84040ea8562c959f7cff9fc",
+    "state": "Active",
+    "balance_setup": true,
+    "balance_amount": 50.0,
+    "balance_currency": "USD",
+    "actual_balance": {
+      "Balances": {
+        "Unused": 50.0
+      },
+      "AvailableMain": 50.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "created_at": "2026-03-03T14:41:28.549351"
+  },
+  {
+    "type": "balance",
+    "action": "set",
+    "env": "qa",
+    "client_id": 3563268,
+    "amount": 25.0,
+    "currency": "USD",
+    "method": "wallet",
+    "success": true,
+    "wallet_result": {
+      "TransactionId": "test_820li9h5lpcs8o5",
+      "OperationType": 17,
+      "AlreadyProcessed": false,
+      "Error": 0,
+      "CurrentBalances": {
+        "Balances": {
+          "Unused": 75.0
+        },
+        "AvailableMain": 75.0,
+        "AvailableBonus": 0.0,
+        "Currency": "USD",
+        "SportBonus": 0.0
+      },
+      "RateAmounts": {
+        "Unused": 25.0
+      },
+      "Amount": 25.0,
+      "PartnerId": 5,
+      "ChildTransactions": [],
+      "RateUnusedTurnover": 0.0,
+      "RateBonusTurnover": 0.0,
+      "Context": {
+        "reason": "Test balance setup via script"
+      },
+      "IsError": false
+    },
+    "verified_balance": {
+      "Balances": {
+        "Unused": 75.0
+      },
+      "AvailableMain": 75.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "created_at": "2026-03-03T14:41:28.974349"
+  },
+  {
+    "type": "player",
+    "action": "create",
+    "env": "qa",
+    "email": "test-1772545289139@nextcode.tech",
+    "password": "Qweasd123!",
+    "userName": "user1772545289115",
+    "registration_method": "website",
+    "website_api": "https://websitewebapi.qa.sofon.one",
+    "partner_id": 5,
+    "clientId": 3563269,
+    "sessionToken": "c11f5406f56549a398a1a1e7e2eb15b6",
+    "state": "Active",
+    "balance_setup": true,
+    "balance_amount": 0.0,
+    "balance_currency": "USD",
+    "actual_balance": {
+      "Balances": {
+        "Unused": 0.0
+      },
+      "AvailableMain": 0.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "created_at": "2026-03-03T14:41:29.746589"
+  },
+  {
+    "type": "player",
+    "action": "create",
+    "env": "qa",
+    "email": "test-ct9991772545289908@nextcode.tech",
+    "password": "Qweasd123!",
+    "userName": "user1772545289854",
+    "registration_method": "website",
+    "website_api": "https://websitewebapi.qa.sofon.one",
+    "partner_id": 5,
+    "clientId": 3563270,
+    "sessionToken": "21ef3440b5d0450fa2458fca1d4d1cce",
+    "state": "Active",
+    "balance_setup": true,
+    "balance_amount": 10.0,
+    "balance_currency": "USD",
+    "actual_balance": {
+      "Balances": {
+        "Unused": 10.0
+      },
+      "AvailableMain": 10.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "created_at": "2026-03-03T14:41:30.485105"
+  },
+  {
+    "type": "deposit",
+    "action": "create_flow",
+    "env": "qa",
+    "client_id": 3563268,
+    "amount": 10.0,
+    "currency": "USD",
+    "payment_method_id": 104,
+    "success": true,
+    "balance_before": {
+      "Balances": {
+        "Unused": 75.0
+      },
+      "AvailableMain": 75.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "deposit_creation": {
+      "ResponseCode": "Success",
+      "Description": null,
+      "InterruptionCode": null,
+      "ResponseObject": {
+        "PaymentUrl": null
+      },
+      "TraceId": "17a2ec150a63697fd4850981ebee35df"
+    },
+    "balance_after": {
+      "Balances": {
+        "Unused": 75.0
+      },
+      "AvailableMain": 75.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "balance_difference": 0.0,
+    "created_at": "2026-03-03T15:31:47.293797"
+  },
+  {
+    "type": "deposit",
+    "action": "create_flow",
+    "env": "qa",
+    "client_id": 3563268,
+    "amount": 10.0,
+    "currency": "USD",
+    "payment_method_id": 97,
+    "success": true,
+    "balance_before": {
+      "Balances": {
+        "Unused": 75.0
+      },
+      "AvailableMain": 75.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "deposit_creation": {
+      "ResponseCode": "Success",
+      "Description": null,
+      "InterruptionCode": null,
+      "ResponseObject": {
+        "PaymentUrl": null
+      },
+      "TraceId": "5dc373a8ae7915fbd8d166469a39cce6"
+    },
+    "balance_after": {
+      "Balances": {
+        "Unused": 75.0
+      },
+      "AvailableMain": 75.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "balance_difference": 0.0,
+    "created_at": "2026-03-03T15:32:37.289043"
+  },
+  {
+    "type": "deposit",
+    "action": "create_flow",
+    "env": "qa",
+    "client_id": 3563268,
+    "amount": 10.0,
+    "currency": "USD",
+    "payment_method_id": 104,
+    "success": true,
+    "balance_before": {
+      "Balances": {
+        "Unused": 75.0
+      },
+      "AvailableMain": 75.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "deposit_creation": {
+      "TransactionId": "test_ta0n2551v5j7w2d",
+      "OperationType": 17,
+      "AlreadyProcessed": false,
+      "Error": 0,
+      "CurrentBalances": {
+        "Balances": {
+          "Unused": 85.0
+        },
+        "AvailableMain": 85.0,
+        "AvailableBonus": 0.0,
+        "Currency": "USD",
+        "SportBonus": 0.0
+      },
+      "RateAmounts": {
+        "Unused": 10.0
+      },
+      "Amount": 10.0,
+      "PartnerId": 5,
+      "ChildTransactions": [],
+      "RateUnusedTurnover": 0.0,
+      "RateBonusTurnover": 0.0,
+      "Context": {
+        "reason": "Test deposit via script - client 3563268"
+      },
+      "IsError": false
+    },
+    "deposit_method": "wallet_correction",
+    "balance_after": {
+      "Balances": {
+        "Unused": 85.0
+      },
+      "AvailableMain": 85.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "balance_difference": 10.0,
+    "created_at": "2026-03-03T15:35:25.954919"
+  },
+  {
+    "type": "deposit",
+    "action": "create_flow",
+    "env": "qa",
+    "client_id": 3563268,
+    "amount": 5.0,
+    "currency": "USD",
+    "payment_method_id": 104,
+    "success": true,
+    "balance_before": {
+      "Balances": {
+        "Unused": 85.0
+      },
+      "AvailableMain": 85.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "deposit_creation": {
+      "TransactionId": "test_1el1fz54jpmzgi0",
+      "OperationType": 17,
+      "AlreadyProcessed": false,
+      "Error": 0,
+      "CurrentBalances": {
+        "Balances": {
+          "Unused": 90.0
+        },
+        "AvailableMain": 90.0,
+        "AvailableBonus": 0.0,
+        "Currency": "USD",
+        "SportBonus": 0.0
+      },
+      "RateAmounts": {
+        "Unused": 5.0
+      },
+      "Amount": 5.0,
+      "PartnerId": 5,
+      "ChildTransactions": [],
+      "RateUnusedTurnover": 0.0,
+      "RateBonusTurnover": 0.0,
+      "Context": {
+        "reason": "Test deposit via script - client 3563268"
+      },
+      "IsError": false
+    },
+    "deposit_method": "wallet_correction",
+    "balance_after": {
+      "Balances": {
+        "Unused": 90.0
+      },
+      "AvailableMain": 90.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "balance_difference": 5.0,
+    "created_at": "2026-03-03T15:41:46.335647"
+  },
+  {
+    "type": "player",
+    "action": "create",
+    "env": "qa",
+    "email": "test-1772550672741@nextcode.tech",
+    "password": "Qweasd123!",
+    "userName": "user1772550672600",
+    "registration_method": "website",
+    "website_api": "https://websitewebapi.qa.sofon.one",
+    "partner_id": 5,
+    "clientId": 3563273,
+    "sessionToken": "c351e82090c949709bd499a8598dd198",
+    "state": "Active",
+    "balance_setup": true,
+    "balance_amount": 50.0,
+    "balance_currency": "USD",
+    "actual_balance": {
+      "Balances": {
+        "Unused": 50.0
+      },
+      "AvailableMain": 50.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "created_at": "2026-03-03T16:11:14.831761"
+  },
+  {
+    "type": "balance",
+    "action": "set",
+    "env": "qa",
+    "client_id": 3563273,
+    "amount": 25.0,
+    "currency": "USD",
+    "method": "wallet",
+    "success": true,
+    "wallet_result": {
+      "TransactionId": "test_wzimtnk9acmfkdj",
+      "OperationType": 17,
+      "AlreadyProcessed": false,
+      "Error": 0,
+      "CurrentBalances": {
+        "Balances": {
+          "Unused": 75.0
+        },
+        "AvailableMain": 75.0,
+        "AvailableBonus": 0.0,
+        "Currency": "USD",
+        "SportBonus": 0.0
+      },
+      "RateAmounts": {
+        "Unused": 25.0
+      },
+      "Amount": 25.0,
+      "PartnerId": 5,
+      "ChildTransactions": [],
+      "RateUnusedTurnover": 0.0,
+      "RateBonusTurnover": 0.0,
+      "Context": {
+        "reason": "Test balance setup via script"
+      },
+      "IsError": false
+    },
+    "verified_balance": {
+      "Balances": {
+        "Unused": 75.0
+      },
+      "AvailableMain": 75.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "created_at": "2026-03-03T16:11:15.403091"
+  },
+  {
+    "type": "player",
+    "action": "create",
+    "env": "qa",
+    "email": "test-1772550675579@nextcode.tech",
+    "password": "Qweasd123!",
+    "userName": "user1772550675682",
+    "registration_method": "website",
+    "website_api": "https://websitewebapi.qa.sofon.one",
+    "partner_id": 5,
+    "clientId": 3563274,
+    "sessionToken": "6f98bb9a818f49afb4083aaaf93db1e8",
+    "state": "Active",
+    "balance_setup": true,
+    "balance_amount": 0.0,
+    "balance_currency": "USD",
+    "actual_balance": {
+      "Balances": {
+        "Unused": 0.0
+      },
+      "AvailableMain": 0.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "created_at": "2026-03-03T16:11:16.468470"
+  },
+  {
+    "type": "player",
+    "action": "create",
+    "env": "qa",
+    "email": "test-ct9991772550676638@nextcode.tech",
+    "password": "Qweasd123!",
+    "userName": "user1772550676222",
+    "registration_method": "website",
+    "website_api": "https://websitewebapi.qa.sofon.one",
+    "partner_id": 5,
+    "clientId": 3563275,
+    "sessionToken": "86a3e270b0e54e8790e5a1d590f72d47",
+    "state": "Active",
+    "balance_setup": true,
+    "balance_amount": 10.0,
+    "balance_currency": "USD",
+    "actual_balance": {
+      "Balances": {
+        "Unused": 10.0
+      },
+      "AvailableMain": 10.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "created_at": "2026-03-03T16:11:17.767651"
+  },
+  {
+    "type": "player",
+    "action": "create",
+    "env": "qa",
+    "email": "test-1772550677943@nextcode.tech",
+    "password": "Qweasd123!",
+    "userName": "user1772550677563",
+    "registration_method": "website",
+    "website_api": "https://websitewebapi.qa.sofon.one",
+    "partner_id": 5,
+    "clientId": 3563276,
+    "sessionToken": "8c50662a508c446aa47705ba76cdf5ea",
+    "state": "Active",
+    "balance_setup": true,
+    "balance_amount": 10.0,
+    "balance_currency": "USD",
+    "actual_balance": {
+      "Balances": {
+        "Unused": 10.0
+      },
+      "AvailableMain": 10.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "created_at": "2026-03-03T16:11:18.747025"
+  },
+  {
+    "type": "deposit",
+    "action": "create_flow",
+    "env": "qa",
+    "client_id": 3563276,
+    "amount": 15.0,
+    "currency": "USD",
+    "payment_method_id": 104,
+    "success": true,
+    "balance_before": {
+      "Balances": {
+        "Unused": 10.0
+      },
+      "AvailableMain": 10.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "deposit_creation": {
+      "TransactionId": "test_79t0zxq2hvswmhx",
+      "OperationType": 17,
+      "AlreadyProcessed": false,
+      "Error": 0,
+      "CurrentBalances": {
+        "Balances": {
+          "Unused": 25.0
+        },
+        "AvailableMain": 25.0,
+        "AvailableBonus": 0.0,
+        "Currency": "USD",
+        "SportBonus": 0.0
+      },
+      "RateAmounts": {
+        "Unused": 15.0
+      },
+      "Amount": 15.0,
+      "PartnerId": 5,
+      "ChildTransactions": [],
+      "RateUnusedTurnover": 0.0,
+      "RateBonusTurnover": 0.0,
+      "Context": {
+        "reason": "Test deposit via script - client 3563276"
+      },
+      "IsError": false
+    },
+    "deposit_method": "wallet_correction",
+    "balance_after": {
+      "Balances": {
+        "Unused": 25.0
+      },
+      "AvailableMain": 25.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "balance_difference": 15.0,
+    "created_at": "2026-03-03T16:11:19.614340"
+  },
+  {
+    "type": "deposit",
+    "action": "create_flow",
+    "env": "qa",
+    "client_id": 3563276,
+    "amount": 15.0,
+    "currency": "USD",
+    "payment_method_id": 104,
+    "success": true,
+    "balance_before": {
+      "Balances": {
+        "Unused": 25.0
+      },
+      "AvailableMain": 25.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "deposit_creation": {
+      "TransactionId": "test_p1d414gzlsv8ukj",
+      "OperationType": 17,
+      "AlreadyProcessed": false,
+      "Error": 0,
+      "CurrentBalances": {
+        "Balances": {
+          "Unused": 40.0
+        },
+        "AvailableMain": 40.0,
+        "AvailableBonus": 0.0,
+        "Currency": "USD",
+        "SportBonus": 0.0
+      },
+      "RateAmounts": {
+        "Unused": 15.0
+      },
+      "Amount": 15.0,
+      "PartnerId": 5,
+      "ChildTransactions": [],
+      "RateUnusedTurnover": 0.0,
+      "RateBonusTurnover": 0.0,
+      "Context": {
+        "reason": "Test deposit via script - client 3563276"
+      },
+      "IsError": false
+    },
+    "deposit_method": "wallet_correction",
+    "balance_after": {
+      "Balances": {
+        "Unused": 40.0
+      },
+      "AvailableMain": 40.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "balance_difference": 15.0,
+    "created_at": "2026-03-03T16:11:35.535847"
+  },
+  {
+    "type": "deposit",
+    "action": "create_flow",
+    "env": "qa",
+    "client_id": 3563276,
+    "amount": 5.0,
+    "currency": "USD",
+    "payment_method_id": 104,
+    "success": true,
+    "balance_before": {
+      "Balances": {
+        "Unused": 40.0
+      },
+      "AvailableMain": 40.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "deposit_creation": {
+      "TransactionId": "test_o34ih8glvi63w9e",
+      "OperationType": 17,
+      "AlreadyProcessed": false,
+      "Error": 0,
+      "CurrentBalances": {
+        "Balances": {
+          "Unused": 45.0
+        },
+        "AvailableMain": 45.0,
+        "AvailableBonus": 0.0,
+        "Currency": "USD",
+        "SportBonus": 0.0
+      },
+      "RateAmounts": {
+        "Unused": 5.0
+      },
+      "Amount": 5.0,
+      "PartnerId": 5,
+      "ChildTransactions": [],
+      "RateUnusedTurnover": 0.0,
+      "RateBonusTurnover": 0.0,
+      "Context": {
+        "reason": "Test deposit via script - client 3563276"
+      },
+      "IsError": false
+    },
+    "deposit_method": "wallet_correction",
+    "balance_after": {
+      "Balances": {
+        "Unused": 45.0
+      },
+      "AvailableMain": 45.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "balance_difference": 5.0,
+    "created_at": "2026-03-03T16:12:54.723482"
+  },
+  {
+    "type": "player",
+    "action": "create",
+    "env": "qa",
+    "email": "test-1772550791791@nextcode.tech",
+    "password": "Qweasd123!",
+    "userName": "user1772550791175",
+    "registration_method": "website",
+    "website_api": "https://websitewebapi.qa.sofon.one",
+    "partner_id": 5,
+    "clientId": 3563277,
+    "sessionToken": "179d06efa62045fb9b3ed7c947295953",
+    "state": "Active",
+    "balance_setup": true,
+    "balance_amount": 10.0,
+    "balance_currency": "USD",
+    "actual_balance": {
+      "Balances": {
+        "Unused": 10.0
+      },
+      "AvailableMain": 10.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "created_at": "2026-03-03T16:13:13.048445"
+  },
+  {
+    "type": "deposit",
+    "action": "create_flow",
+    "env": "qa",
+    "client_id": 3563277,
+    "amount": 15.0,
+    "currency": "USD",
+    "payment_method_id": 104,
+    "success": true,
+    "balance_before": {
+      "Balances": {
+        "Unused": 10.0
+      },
+      "AvailableMain": 10.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "deposit_creation": {
+      "TransactionId": "test_8l89bagq5vz22s6",
+      "OperationType": 17,
+      "AlreadyProcessed": false,
+      "Error": 0,
+      "CurrentBalances": {
+        "Balances": {
+          "Unused": 25.0
+        },
+        "AvailableMain": 25.0,
+        "AvailableBonus": 0.0,
+        "Currency": "USD",
+        "SportBonus": 0.0
+      },
+      "RateAmounts": {
+        "Unused": 15.0
+      },
+      "Amount": 15.0,
+      "PartnerId": 5,
+      "ChildTransactions": [],
+      "RateUnusedTurnover": 0.0,
+      "RateBonusTurnover": 0.0,
+      "Context": {
+        "reason": "Test deposit via script - client 3563277"
+      },
+      "IsError": false
+    },
+    "deposit_method": "wallet_correction",
+    "balance_after": {
+      "Balances": {
+        "Unused": 25.0
+      },
+      "AvailableMain": 25.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "balance_difference": 15.0,
+    "created_at": "2026-03-03T16:13:13.764085"
+  },
+  {
+    "type": "player",
+    "action": "create",
+    "env": "qa",
+    "email": "test-1772550812836@nextcode.tech",
+    "password": "Qweasd123!",
+    "userName": "user1772550812472",
+    "registration_method": "website",
+    "website_api": "https://websitewebapi.qa.sofon.one",
+    "partner_id": 5,
+    "clientId": 3563278,
+    "sessionToken": "72601ae792704e009d11e580275d68d6",
+    "state": "Active",
+    "balance_setup": true,
+    "balance_amount": 50.0,
+    "balance_currency": "USD",
+    "actual_balance": {
+      "Balances": {
+        "Unused": 50.0
+      },
+      "AvailableMain": 50.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "created_at": "2026-03-03T16:13:33.618140"
+  },
+  {
+    "type": "balance",
+    "action": "set",
+    "env": "qa",
+    "client_id": 3563278,
+    "amount": 25.0,
+    "currency": "USD",
+    "method": "wallet",
+    "success": true,
+    "wallet_result": {
+      "TransactionId": "test_h6136qh5if4qzs1",
+      "OperationType": 17,
+      "AlreadyProcessed": false,
+      "Error": 0,
+      "CurrentBalances": {
+        "Balances": {
+          "Unused": 75.0
+        },
+        "AvailableMain": 75.0,
+        "AvailableBonus": 0.0,
+        "Currency": "USD",
+        "SportBonus": 0.0
+      },
+      "RateAmounts": {
+        "Unused": 25.0
+      },
+      "Amount": 25.0,
+      "PartnerId": 5,
+      "ChildTransactions": [],
+      "RateUnusedTurnover": 0.0,
+      "RateBonusTurnover": 0.0,
+      "Context": {
+        "reason": "Test balance setup via script"
+      },
+      "IsError": false
+    },
+    "verified_balance": {
+      "Balances": {
+        "Unused": 75.0
+      },
+      "AvailableMain": 75.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "created_at": "2026-03-03T16:13:34.071056"
+  },
+  {
+    "type": "player",
+    "action": "create",
+    "env": "qa",
+    "email": "test-1772550814239@nextcode.tech",
+    "password": "Qweasd123!",
+    "userName": "user1772550814358",
+    "registration_method": "website",
+    "website_api": "https://websitewebapi.qa.sofon.one",
+    "partner_id": 5,
+    "clientId": 3563279,
+    "sessionToken": "38dc983d12f5479da105af381a89e0d9",
+    "state": "Active",
+    "balance_setup": true,
+    "balance_amount": 0.0,
+    "balance_currency": "USD",
+    "actual_balance": {
+      "Balances": {
+        "Unused": 0.0
+      },
+      "AvailableMain": 0.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "created_at": "2026-03-03T16:13:34.958806"
+  },
+  {
+    "type": "player",
+    "action": "create",
+    "env": "qa",
+    "email": "test-ct9991772550815121@nextcode.tech",
+    "password": "Qweasd123!",
+    "userName": "user1772550815804",
+    "registration_method": "website",
+    "website_api": "https://websitewebapi.qa.sofon.one",
+    "partner_id": 5,
+    "clientId": 3563280,
+    "sessionToken": "ecf2bdcce91e427c84f2dd543580a209",
+    "state": "Active",
+    "balance_setup": true,
+    "balance_amount": 10.0,
+    "balance_currency": "USD",
+    "actual_balance": {
+      "Balances": {
+        "Unused": 10.0
+      },
+      "AvailableMain": 10.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "created_at": "2026-03-03T16:13:35.859832"
+  },
+  {
+    "type": "player",
+    "action": "create",
+    "env": "qa",
+    "email": "test-1772550816019@nextcode.tech",
+    "password": "Qweasd123!",
+    "userName": "user1772550816559",
+    "registration_method": "website",
+    "website_api": "https://websitewebapi.qa.sofon.one",
+    "partner_id": 5,
+    "clientId": 3563281,
+    "sessionToken": "aad5b31b77294b32b2f2644b7c6d89c2",
+    "state": "Active",
+    "balance_setup": true,
+    "balance_amount": 10.0,
+    "balance_currency": "USD",
+    "actual_balance": {
+      "Balances": {
+        "Unused": 10.0
+      },
+      "AvailableMain": 10.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "created_at": "2026-03-03T16:13:36.673459"
+  },
+  {
+    "type": "deposit",
+    "action": "create_flow",
+    "env": "qa",
+    "client_id": 3563281,
+    "amount": 15.0,
+    "currency": "USD",
+    "payment_method_id": 104,
+    "success": true,
+    "balance_before": {
+      "Balances": {
+        "Unused": 10.0
+      },
+      "AvailableMain": 10.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "deposit_creation": {
+      "TransactionId": "test_uccssmky8zyxl7g",
+      "OperationType": 17,
+      "AlreadyProcessed": false,
+      "Error": 0,
+      "CurrentBalances": {
+        "Balances": {
+          "Unused": 25.0
+        },
+        "AvailableMain": 25.0,
+        "AvailableBonus": 0.0,
+        "Currency": "USD",
+        "SportBonus": 0.0
+      },
+      "RateAmounts": {
+        "Unused": 15.0
+      },
+      "Amount": 15.0,
+      "PartnerId": 5,
+      "ChildTransactions": [],
+      "RateUnusedTurnover": 0.0,
+      "RateBonusTurnover": 0.0,
+      "Context": {
+        "reason": "Test deposit via script - client 3563281"
+      },
+      "IsError": false
+    },
+    "deposit_method": "wallet_correction",
+    "balance_after": {
+      "Balances": {
+        "Unused": 25.0
+      },
+      "AvailableMain": 25.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "balance_difference": 15.0,
+    "created_at": "2026-03-03T16:13:37.351774"
+  },
+  {
+    "type": "player",
+    "action": "create",
+    "env": "qa",
+    "email": "test-1772553282037@nextcode.tech",
+    "password": "Qweasd123!",
+    "userName": "user1772553282735",
+    "registration_method": "website",
+    "website_api": "https://websitewebapi.qa.sofon.one",
+    "partner_id": 5,
+    "clientId": 3563283,
+    "sessionToken": "cdbc35c1e73f4d5b981609b6a7282ca0",
+    "state": "Active",
+    "actual_balance": {
+      "Balances": {},
+      "AvailableMain": 0.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "created_at": "2026-03-03T16:54:42.782988"
+  },
+  {
+    "type": "deposit",
+    "action": "create_flow",
+    "env": "qa",
+    "client_id": 3563283,
+    "amount": 30.0,
+    "currency": "USD",
+    "payment_method_id": 104,
+    "success": true,
+    "balance_before": {
+      "Balances": {},
+      "AvailableMain": 0.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "deposit_creation": {
+      "TransactionId": "test_58dwz2i5agkbdgh",
+      "OperationType": 17,
+      "AlreadyProcessed": false,
+      "Error": 0,
+      "CurrentBalances": {
+        "Balances": {
+          "Unused": 30.0
+        },
+        "AvailableMain": 30.0,
+        "AvailableBonus": 0.0,
+        "Currency": "USD",
+        "SportBonus": 0.0
+      },
+      "RateAmounts": {
+        "Unused": 30.0
+      },
+      "Amount": 30.0,
+      "PartnerId": 5,
+      "ChildTransactions": [],
+      "RateUnusedTurnover": 0.0,
+      "RateBonusTurnover": 0.0,
+      "Context": {
+        "reason": "Test deposit via script - client 3563283"
+      },
+      "IsError": false
+    },
+    "deposit_method": "wallet_correction",
+    "balance_after": {
+      "Balances": {
+        "Unused": 30.0
+      },
+      "AvailableMain": 30.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "balance_difference": 30.0,
+    "created_at": "2026-03-03T16:55:12.056475"
+  },
+  {
+    "type": "player",
+    "action": "create",
+    "env": "qa",
+    "email": "test-1772553370848@nextcode.tech",
+    "password": "Qweasd123!",
+    "userName": "user1772553370514",
+    "registration_method": "website",
+    "website_api": "https://websitewebapi.qa.sofon.one",
+    "partner_id": 5,
+    "clientId": 3563284,
+    "sessionToken": "4b5b79d226444b1487b65426fa0b1216",
+    "state": "Active",
+    "actual_balance": {
+      "Balances": {},
+      "AvailableMain": 0.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "created_at": "2026-03-03T16:56:11.454568"
+  },
+  {
+    "type": "player",
+    "action": "create",
+    "env": "qa",
+    "email": "test-1772553441839@nextcode.tech",
+    "password": "Qweasd123!",
+    "userName": "user1772553441351",
+    "registration_method": "website",
+    "website_api": "https://websitewebapi.qa.sofon.one",
+    "partner_id": 5,
+    "clientId": 3563285,
+    "sessionToken": "50acadaf59c64f49bb715d5e484d230d",
+    "state": "Active",
+    "actual_balance": {
+      "Balances": {},
+      "AvailableMain": 0.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "created_at": "2026-03-03T16:57:22.368181"
+  },
+  {
+    "type": "deposit",
+    "action": "create_flow",
+    "env": "qa",
+    "client_id": 3563285,
+    "amount": 30.0,
+    "currency": "USD",
+    "payment_method_id": 104,
+    "success": true,
+    "balance_before": {
+      "Balances": {},
+      "AvailableMain": 0.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "deposit_creation": {
+      "TransactionId": "test_4ks0hh670u8pbvl",
+      "OperationType": 17,
+      "AlreadyProcessed": false,
+      "Error": 0,
+      "CurrentBalances": {
+        "Balances": {
+          "Unused": 30.0
+        },
+        "AvailableMain": 30.0,
+        "AvailableBonus": 0.0,
+        "Currency": "USD",
+        "SportBonus": 0.0
+      },
+      "RateAmounts": {
+        "Unused": 30.0
+      },
+      "Amount": 30.0,
+      "PartnerId": 5,
+      "ChildTransactions": [],
+      "RateUnusedTurnover": 0.0,
+      "RateBonusTurnover": 0.0,
+      "Context": {
+        "reason": "Test deposit via script - client 3563285"
+      },
+      "IsError": false
+    },
+    "deposit_method": "wallet_correction",
+    "balance_after": {
+      "Balances": {
+        "Unused": 30.0
+      },
+      "AvailableMain": 30.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "balance_difference": 30.0,
+    "created_at": "2026-03-03T16:57:23.192001"
+  },
+  {
+    "type": "deposit_streak_test",
+    "action": "full_cycle",
+    "success": true,
+    "env": "qa",
+    "player": {
+      "clientId": 3563285,
+      "email": "test-1772553441839@nextcode.tech",
+      "password": "Qweasd123!"
+    },
+    "test_config": {
+      "deposit_amount": 30.0,
+      "iterations": 1,
+      "currency": "USD"
+    },
+    "initial_bonus_count": 0,
+    "final_bonus_count": 0,
+    "iterations": [
+      {
+        "iteration": 1,
+        "deposit_amount": 30.0,
+        "deposit_success": true,
+        "bonus_count": 0,
+        "new_bonuses": [],
+        "timestamp": "2026-03-03T16:57:23.313400"
+      }
+    ],
+    "discrepancies": [],
+    "summary": {
+      "total_deposits": 1,
+      "successful_deposits": 1,
+      "total_new_bonuses": 0,
+      "deposit_success_rate": "1/1",
+      "bonus_creation_rate": "0/1"
+    },
+    "timestamp": "2026-03-03T16:57:23.447012",
+    "created_at": "2026-03-03T16:57:23.448245"
+  },
+  {
+    "type": "player",
+    "action": "create",
+    "env": "qa",
+    "email": "test-1772553491553@nextcode.tech",
+    "password": "Qweasd123!",
+    "userName": "user1772553491314",
+    "registration_method": "website",
+    "website_api": "https://websitewebapi.qa.sofon.one",
+    "partner_id": 5,
+    "clientId": 3563286,
+    "sessionToken": "f3af976f1c814ca081804901afe0371e",
+    "state": "Active",
+    "actual_balance": {
+      "Balances": {},
+      "AvailableMain": 0.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "created_at": "2026-03-03T16:58:12.221601"
+  },
+  {
+    "type": "deposit",
+    "action": "create_flow",
+    "env": "qa",
+    "client_id": 3563286,
+    "amount": 30.0,
+    "currency": "USD",
+    "payment_method_id": 104,
+    "success": true,
+    "balance_before": {
+      "Balances": {},
+      "AvailableMain": 0.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "deposit_creation": {
+      "TransactionId": "test_5yefahr4rr869kg",
+      "OperationType": 17,
+      "AlreadyProcessed": false,
+      "Error": 0,
+      "CurrentBalances": {
+        "Balances": {
+          "Unused": 30.0
+        },
+        "AvailableMain": 30.0,
+        "AvailableBonus": 0.0,
+        "Currency": "USD",
+        "SportBonus": 0.0
+      },
+      "RateAmounts": {
+        "Unused": 30.0
+      },
+      "Amount": 30.0,
+      "PartnerId": 5,
+      "ChildTransactions": [],
+      "RateUnusedTurnover": 0.0,
+      "RateBonusTurnover": 0.0,
+      "Context": {
+        "reason": "Test deposit via script - client 3563286"
+      },
+      "IsError": false
+    },
+    "deposit_method": "wallet_correction",
+    "balance_after": {
+      "Balances": {
+        "Unused": 30.0
+      },
+      "AvailableMain": 30.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "balance_difference": 30.0,
+    "created_at": "2026-03-03T16:58:13.059000"
+  },
+  {
+    "type": "deposit",
+    "action": "create_flow",
+    "env": "qa",
+    "client_id": 3563286,
+    "amount": 30.0,
+    "currency": "USD",
+    "payment_method_id": 104,
+    "success": true,
+    "balance_before": {
+      "Balances": {
+        "Unused": 30.0
+      },
+      "AvailableMain": 30.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "deposit_creation": {
+      "TransactionId": "test_fmnmgh66x4e5rcr",
+      "OperationType": 17,
+      "AlreadyProcessed": false,
+      "Error": 0,
+      "CurrentBalances": {
+        "Balances": {
+          "Unused": 60.0
+        },
+        "AvailableMain": 60.0,
+        "AvailableBonus": 0.0,
+        "Currency": "USD",
+        "SportBonus": 0.0
+      },
+      "RateAmounts": {
+        "Unused": 30.0
+      },
+      "Amount": 30.0,
+      "PartnerId": 5,
+      "ChildTransactions": [],
+      "RateUnusedTurnover": 0.0,
+      "RateBonusTurnover": 0.0,
+      "Context": {
+        "reason": "Test deposit via script - client 3563286"
+      },
+      "IsError": false
+    },
+    "deposit_method": "wallet_correction",
+    "balance_after": {
+      "Balances": {
+        "Unused": 60.0
+      },
+      "AvailableMain": 60.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "balance_difference": 30.0,
+    "created_at": "2026-03-03T16:58:15.979888"
+  },
+  {
+    "type": "deposit",
+    "action": "create_flow",
+    "env": "qa",
+    "client_id": 3563286,
+    "amount": 30.0,
+    "currency": "USD",
+    "payment_method_id": 104,
+    "success": true,
+    "balance_before": {
+      "Balances": {
+        "Unused": 60.0
+      },
+      "AvailableMain": 60.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "deposit_creation": {
+      "TransactionId": "test_aykxifd5ft2g4g3",
+      "OperationType": 17,
+      "AlreadyProcessed": false,
+      "Error": 0,
+      "CurrentBalances": {
+        "Balances": {
+          "Unused": 90.0
+        },
+        "AvailableMain": 90.0,
+        "AvailableBonus": 0.0,
+        "Currency": "USD",
+        "SportBonus": 0.0
+      },
+      "RateAmounts": {
+        "Unused": 30.0
+      },
+      "Amount": 30.0,
+      "PartnerId": 5,
+      "ChildTransactions": [],
+      "RateUnusedTurnover": 0.0,
+      "RateBonusTurnover": 0.0,
+      "Context": {
+        "reason": "Test deposit via script - client 3563286"
+      },
+      "IsError": false
+    },
+    "deposit_method": "wallet_correction",
+    "balance_after": {
+      "Balances": {
+        "Unused": 90.0
+      },
+      "AvailableMain": 90.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "balance_difference": 30.0,
+    "created_at": "2026-03-03T16:58:19.043287"
+  },
+  {
+    "type": "deposit_streak_test",
+    "action": "full_cycle",
+    "success": true,
+    "env": "qa",
+    "player": {
+      "clientId": 3563286,
+      "email": "test-1772553491553@nextcode.tech",
+      "password": "Qweasd123!"
+    },
+    "test_config": {
+      "deposit_amount": 30.0,
+      "iterations": 3,
+      "currency": "USD"
+    },
+    "initial_bonus_count": 0,
+    "final_bonus_count": 0,
+    "iterations": [
+      {
+        "iteration": 1,
+        "deposit_amount": 30.0,
+        "deposit_success": true,
+        "bonus_count": 0,
+        "new_bonuses": [],
+        "timestamp": "2026-03-03T16:58:13.209830"
+      },
+      {
+        "iteration": 2,
+        "deposit_amount": 30.0,
+        "deposit_success": true,
+        "bonus_count": 0,
+        "new_bonuses": [],
+        "timestamp": "2026-03-03T16:58:16.136938"
+      },
+      {
+        "iteration": 3,
+        "deposit_amount": 30.0,
+        "deposit_success": true,
+        "bonus_count": 0,
+        "new_bonuses": [],
+        "timestamp": "2026-03-03T16:58:19.240520"
+      }
+    ],
+    "discrepancies": [],
+    "summary": {
+      "total_deposits": 3,
+      "successful_deposits": 3,
+      "total_new_bonuses": 0,
+      "deposit_success_rate": "3/3",
+      "bonus_creation_rate": "0/3"
+    },
+    "timestamp": "2026-03-03T16:58:19.388344",
+    "created_at": "2026-03-03T16:58:19.391596"
+  },
+  {
+    "type": "player",
+    "action": "create",
+    "env": "qa",
+    "email": "test-1772553562614@nextcode.tech",
+    "password": "Qweasd123!",
+    "userName": "user1772553562220",
+    "registration_method": "website",
+    "website_api": "https://websitewebapi.qa.sofon.one",
+    "partner_id": 5,
+    "clientId": 3563287,
+    "sessionToken": "f567ed74d39844a0aa0e142bedfd6b2d",
+    "state": "Active",
+    "actual_balance": {
+      "Balances": {},
+      "AvailableMain": 0.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "created_at": "2026-03-03T16:59:23.172655"
+  },
+  {
+    "type": "deposit",
+    "action": "create_flow",
+    "env": "qa",
+    "client_id": 3563287,
+    "amount": 30.0,
+    "currency": "USD",
+    "payment_method_id": 104,
+    "success": true,
+    "balance_before": {
+      "Balances": {},
+      "AvailableMain": 0.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "deposit_creation": {
+      "TransactionId": "test_7dql0hzu5ggyjnf",
+      "OperationType": 17,
+      "AlreadyProcessed": false,
+      "Error": 0,
+      "CurrentBalances": {
+        "Balances": {
+          "Unused": 30.0
+        },
+        "AvailableMain": 30.0,
+        "AvailableBonus": 0.0,
+        "Currency": "USD",
+        "SportBonus": 0.0
+      },
+      "RateAmounts": {
+        "Unused": 30.0
+      },
+      "Amount": 30.0,
+      "PartnerId": 5,
+      "ChildTransactions": [],
+      "RateUnusedTurnover": 0.0,
+      "RateBonusTurnover": 0.0,
+      "Context": {
+        "reason": "Test deposit via script - client 3563287"
+      },
+      "IsError": false
+    },
+    "deposit_method": "wallet_correction",
+    "balance_after": {
+      "Balances": {
+        "Unused": 30.0
+      },
+      "AvailableMain": 30.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "balance_difference": 30.0,
+    "created_at": "2026-03-03T16:59:24.163132"
+  },
+  {
+    "type": "deposit",
+    "action": "create_flow",
+    "env": "qa",
+    "client_id": 3563287,
+    "amount": 30.0,
+    "currency": "USD",
+    "payment_method_id": 104,
+    "success": true,
+    "balance_before": {
+      "Balances": {
+        "Unused": 30.0
+      },
+      "AvailableMain": 30.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "deposit_creation": {
+      "TransactionId": "test_f6d8yniutteop1b",
+      "OperationType": 17,
+      "AlreadyProcessed": false,
+      "Error": 0,
+      "CurrentBalances": {
+        "Balances": {
+          "Unused": 60.0
+        },
+        "AvailableMain": 60.0,
+        "AvailableBonus": 0.0,
+        "Currency": "USD",
+        "SportBonus": 0.0
+      },
+      "RateAmounts": {
+        "Unused": 30.0
+      },
+      "Amount": 30.0,
+      "PartnerId": 5,
+      "ChildTransactions": [],
+      "RateUnusedTurnover": 0.0,
+      "RateBonusTurnover": 0.0,
+      "Context": {
+        "reason": "Test deposit via script - client 3563287"
+      },
+      "IsError": false
+    },
+    "deposit_method": "wallet_correction",
+    "balance_after": {
+      "Balances": {
+        "Unused": 60.0
+      },
+      "AvailableMain": 60.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "balance_difference": 30.0,
+    "created_at": "2026-03-03T16:59:27.121337"
+  },
+  {
+    "type": "deposit",
+    "action": "create_flow",
+    "env": "qa",
+    "client_id": 3563287,
+    "amount": 30.0,
+    "currency": "USD",
+    "payment_method_id": 104,
+    "success": true,
+    "balance_before": {
+      "Balances": {
+        "Unused": 60.0
+      },
+      "AvailableMain": 60.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "deposit_creation": {
+      "TransactionId": "test_54szovnwicvnvsy",
+      "OperationType": 17,
+      "AlreadyProcessed": false,
+      "Error": 0,
+      "CurrentBalances": {
+        "Balances": {
+          "Unused": 90.0
+        },
+        "AvailableMain": 90.0,
+        "AvailableBonus": 0.0,
+        "Currency": "USD",
+        "SportBonus": 0.0
+      },
+      "RateAmounts": {
+        "Unused": 30.0
+      },
+      "Amount": 30.0,
+      "PartnerId": 5,
+      "ChildTransactions": [],
+      "RateUnusedTurnover": 0.0,
+      "RateBonusTurnover": 0.0,
+      "Context": {
+        "reason": "Test deposit via script - client 3563287"
+      },
+      "IsError": false
+    },
+    "deposit_method": "wallet_correction",
+    "balance_after": {
+      "Balances": {
+        "Unused": 90.0
+      },
+      "AvailableMain": 90.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "balance_difference": 30.0,
+    "created_at": "2026-03-03T16:59:30.029345"
+  },
+  {
+    "type": "deposit_streak_test",
+    "action": "full_cycle",
+    "success": true,
+    "env": "qa",
+    "player": {
+      "clientId": 3563287,
+      "email": "test-1772553562614@nextcode.tech",
+      "password": "Qweasd123!"
+    },
+    "test_config": {
+      "deposit_amount": 30.0,
+      "iterations": 3,
+      "currency": "USD"
+    },
+    "initial_bonus_count": 0,
+    "final_bonus_count": 0,
+    "iterations": [
+      {
+        "iteration": 1,
+        "deposit_amount": 30.0,
+        "deposit_success": true,
+        "bonus_count": 0,
+        "new_bonuses": [],
+        "timestamp": "2026-03-03T16:59:24.355673"
+      },
+      {
+        "iteration": 2,
+        "deposit_amount": 30.0,
+        "deposit_success": true,
+        "bonus_count": 0,
+        "new_bonuses": [],
+        "timestamp": "2026-03-03T16:59:27.339585"
+      },
+      {
+        "iteration": 3,
+        "deposit_amount": 30.0,
+        "deposit_success": true,
+        "bonus_count": 0,
+        "new_bonuses": [],
+        "timestamp": "2026-03-03T16:59:30.198458"
+      }
+    ],
+    "discrepancies": [],
+    "summary": {
+      "total_deposits": 3,
+      "successful_deposits": 3,
+      "total_new_bonuses": 0,
+      "deposit_success_rate": "3/3",
+      "bonus_creation_rate": "0/3"
+    },
+    "timestamp": "2026-03-03T16:59:30.315601",
+    "created_at": "2026-03-03T16:59:30.319311"
+  },
+  {
+    "type": "player",
+    "action": "create",
+    "env": "qa",
+    "email": "test-1772553703801@nextcode.tech",
+    "password": "Qweasd123!",
+    "userName": "user1772553703677",
+    "registration_method": "website",
+    "website_api": "https://websitewebapi.qa.sofon.one",
+    "partner_id": 5,
+    "clientId": 3563288,
+    "sessionToken": "791f3e87b09c4a1aa35ddd7571a63c73",
+    "state": "Active",
+    "actual_balance": {
+      "Balances": {},
+      "AvailableMain": 0.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "created_at": "2026-03-03T17:01:44.430581"
+  },
+  {
+    "type": "deposit",
+    "action": "create_flow",
+    "env": "qa",
+    "client_id": 3563288,
+    "amount": 30.0,
+    "currency": "USD",
+    "payment_method_id": 104,
+    "success": true,
+    "balance_before": {
+      "Balances": {},
+      "AvailableMain": 0.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "deposit_creation": {
+      "TransactionId": "test_q1nlvnby500k2k8",
+      "OperationType": 17,
+      "AlreadyProcessed": false,
+      "Error": 0,
+      "CurrentBalances": {
+        "Balances": {
+          "Unused": 30.0
+        },
+        "AvailableMain": 30.0,
+        "AvailableBonus": 0.0,
+        "Currency": "USD",
+        "SportBonus": 0.0
+      },
+      "RateAmounts": {
+        "Unused": 30.0
+      },
+      "Amount": 30.0,
+      "PartnerId": 5,
+      "ChildTransactions": [],
+      "RateUnusedTurnover": 0.0,
+      "RateBonusTurnover": 0.0,
+      "Context": {
+        "reason": "Test deposit via script - client 3563288"
+      },
+      "IsError": false
+    },
+    "deposit_method": "wallet_correction",
+    "balance_after": {
+      "Balances": {
+        "Unused": 30.0
+      },
+      "AvailableMain": 30.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "balance_difference": 30.0,
+    "created_at": "2026-03-03T17:01:46.536373"
+  },
+  {
+    "type": "deposit",
+    "action": "create_flow",
+    "env": "qa",
+    "client_id": 3563288,
+    "amount": 30.0,
+    "currency": "USD",
+    "payment_method_id": 104,
+    "success": true,
+    "balance_before": {
+      "Balances": {
+        "Unused": 30.0
+      },
+      "AvailableMain": 30.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "deposit_creation": {
+      "TransactionId": "test_5nzxq4g6hfze5uo",
+      "OperationType": 17,
+      "AlreadyProcessed": false,
+      "Error": 0,
+      "CurrentBalances": {
+        "Balances": {
+          "Unused": 60.0
+        },
+        "AvailableMain": 60.0,
+        "AvailableBonus": 0.0,
+        "Currency": "USD",
+        "SportBonus": 0.0
+      },
+      "RateAmounts": {
+        "Unused": 30.0
+      },
+      "Amount": 30.0,
+      "PartnerId": 5,
+      "ChildTransactions": [],
+      "RateUnusedTurnover": 0.0,
+      "RateBonusTurnover": 0.0,
+      "Context": {
+        "reason": "Test deposit via script - client 3563288"
+      },
+      "IsError": false
+    },
+    "deposit_method": "wallet_correction",
+    "balance_after": {
+      "Balances": {
+        "Unused": 60.0
+      },
+      "AvailableMain": 60.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "balance_difference": 30.0,
+    "created_at": "2026-03-03T17:01:49.463802"
+  },
+  {
+    "type": "deposit",
+    "action": "create_flow",
+    "env": "qa",
+    "client_id": 3563288,
+    "amount": 30.0,
+    "currency": "USD",
+    "payment_method_id": 104,
+    "success": true,
+    "balance_before": {
+      "Balances": {
+        "Unused": 60.0
+      },
+      "AvailableMain": 60.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "deposit_creation": {
+      "TransactionId": "test_sefxggkk6b3eica",
+      "OperationType": 17,
+      "AlreadyProcessed": false,
+      "Error": 0,
+      "CurrentBalances": {
+        "Balances": {
+          "Unused": 90.0
+        },
+        "AvailableMain": 90.0,
+        "AvailableBonus": 0.0,
+        "Currency": "USD",
+        "SportBonus": 0.0
+      },
+      "RateAmounts": {
+        "Unused": 30.0
+      },
+      "Amount": 30.0,
+      "PartnerId": 5,
+      "ChildTransactions": [],
+      "RateUnusedTurnover": 0.0,
+      "RateBonusTurnover": 0.0,
+      "Context": {
+        "reason": "Test deposit via script - client 3563288"
+      },
+      "IsError": false
+    },
+    "deposit_method": "wallet_correction",
+    "balance_after": {
+      "Balances": {
+        "Unused": 90.0
+      },
+      "AvailableMain": 90.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "balance_difference": 30.0,
+    "created_at": "2026-03-03T17:01:52.259150"
+  },
+  {
+    "type": "deposit_streak_test",
+    "action": "full_cycle",
+    "success": true,
+    "env": "qa",
+    "player": {
+      "clientId": 3563288,
+      "email": "test-1772553703801@nextcode.tech",
+      "password": "Qweasd123!"
+    },
+    "test_config": {
+      "deposit_amount": 30.0,
+      "iterations": 3,
+      "currency": "USD"
+    },
+    "initial_bonus_count": 0,
+    "final_bonus_count": 0,
+    "iterations": [
+      {
+        "iteration": 1,
+        "deposit_amount": 30.0,
+        "deposit_success": true,
+        "bonus_count": 0,
+        "new_bonuses": [],
+        "timestamp": "2026-03-03T17:01:46.680386"
+      },
+      {
+        "iteration": 2,
+        "deposit_amount": 30.0,
+        "deposit_success": true,
+        "bonus_count": 0,
+        "new_bonuses": [],
+        "timestamp": "2026-03-03T17:01:49.601172"
+      },
+      {
+        "iteration": 3,
+        "deposit_amount": 30.0,
+        "deposit_success": true,
+        "bonus_count": 0,
+        "new_bonuses": [],
+        "timestamp": "2026-03-03T17:01:52.400186"
+      }
+    ],
+    "discrepancies": [],
+    "summary": {
+      "total_deposits": 3,
+      "successful_deposits": 3,
+      "total_new_bonuses": 0,
+      "deposit_success_rate": "3/3",
+      "bonus_creation_rate": "0/3"
+    },
+    "timestamp": "2026-03-03T17:01:52.506500",
+    "created_at": "2026-03-03T17:01:52.510837"
+  },
+  {
+    "type": "player",
+    "action": "create",
+    "env": "qa",
+    "email": "test-1772553940697@nextcode.tech",
+    "password": "Qweasd123!",
+    "userName": "user1772553940179",
+    "registration_method": "website",
+    "website_api": "https://websitewebapi.qa.sofon.one",
+    "partner_id": 5,
+    "clientId": 3563289,
+    "sessionToken": "26660278bb0742fa87cd89112cc5244d",
+    "state": "Active",
+    "actual_balance": {
+      "Balances": {},
+      "AvailableMain": 0.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "created_at": "2026-03-03T17:05:41.301029"
+  },
+  {
+    "type": "deposit",
+    "action": "create_flow",
+    "env": "qa",
+    "client_id": 3563289,
+    "amount": 30.0,
+    "currency": "USD",
+    "payment_method_id": 104,
+    "success": true,
+    "balance_before": {
+      "Balances": {},
+      "AvailableMain": 0.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "deposit_creation": {
+      "TransactionId": "test_xn12j4gawvs5zs9",
+      "OperationType": 17,
+      "AlreadyProcessed": false,
+      "Error": 0,
+      "CurrentBalances": {
+        "Balances": {
+          "Unused": 30.0
+        },
+        "AvailableMain": 30.0,
+        "AvailableBonus": 0.0,
+        "Currency": "USD",
+        "SportBonus": 0.0
+      },
+      "RateAmounts": {
+        "Unused": 30.0
+      },
+      "Amount": 30.0,
+      "PartnerId": 5,
+      "ChildTransactions": [],
+      "RateUnusedTurnover": 0.0,
+      "RateBonusTurnover": 0.0,
+      "Context": {
+        "reason": "Test deposit via script - client 3563289"
+      },
+      "IsError": false
+    },
+    "deposit_method": "wallet_correction",
+    "balance_after": {
+      "Balances": {
+        "Unused": 30.0
+      },
+      "AvailableMain": 30.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "balance_difference": 30.0,
+    "created_at": "2026-03-03T17:05:42.082141"
+  },
+  {
+    "type": "deposit",
+    "action": "create_flow",
+    "env": "qa",
+    "client_id": 3563289,
+    "amount": 30.0,
+    "currency": "USD",
+    "payment_method_id": 104,
+    "success": true,
+    "balance_before": {
+      "Balances": {
+        "Unused": 30.0
+      },
+      "AvailableMain": 30.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "deposit_creation": {
+      "TransactionId": "test_1l5bi8yhvoydbz4",
+      "OperationType": 17,
+      "AlreadyProcessed": false,
+      "Error": 0,
+      "CurrentBalances": {
+        "Balances": {
+          "Unused": 60.0
+        },
+        "AvailableMain": 60.0,
+        "AvailableBonus": 0.0,
+        "Currency": "USD",
+        "SportBonus": 0.0
+      },
+      "RateAmounts": {
+        "Unused": 30.0
+      },
+      "Amount": 30.0,
+      "PartnerId": 5,
+      "ChildTransactions": [],
+      "RateUnusedTurnover": 0.0,
+      "RateBonusTurnover": 0.0,
+      "Context": {
+        "reason": "Test deposit via script - client 3563289"
+      },
+      "IsError": false
+    },
+    "deposit_method": "wallet_correction",
+    "balance_after": {
+      "Balances": {
+        "Unused": 60.0
+      },
+      "AvailableMain": 60.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "balance_difference": 30.0,
+    "created_at": "2026-03-03T17:05:44.957410"
+  },
+  {
+    "type": "deposit",
+    "action": "create_flow",
+    "env": "qa",
+    "client_id": 3563289,
+    "amount": 30.0,
+    "currency": "USD",
+    "payment_method_id": 104,
+    "success": true,
+    "balance_before": {
+      "Balances": {
+        "Unused": 60.0
+      },
+      "AvailableMain": 60.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "deposit_creation": {
+      "TransactionId": "test_8jv9n5guy3i9yra",
+      "OperationType": 17,
+      "AlreadyProcessed": false,
+      "Error": 0,
+      "CurrentBalances": {
+        "Balances": {
+          "Unused": 90.0
+        },
+        "AvailableMain": 90.0,
+        "AvailableBonus": 0.0,
+        "Currency": "USD",
+        "SportBonus": 0.0
+      },
+      "RateAmounts": {
+        "Unused": 30.0
+      },
+      "Amount": 30.0,
+      "PartnerId": 5,
+      "ChildTransactions": [],
+      "RateUnusedTurnover": 0.0,
+      "RateBonusTurnover": 0.0,
+      "Context": {
+        "reason": "Test deposit via script - client 3563289"
+      },
+      "IsError": false
+    },
+    "deposit_method": "wallet_correction",
+    "balance_after": {
+      "Balances": {
+        "Unused": 90.0
+      },
+      "AvailableMain": 90.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "balance_difference": 30.0,
+    "created_at": "2026-03-03T17:05:47.741196"
+  },
+  {
+    "type": "deposit_streak_test",
+    "action": "full_cycle",
+    "success": true,
+    "env": "qa",
+    "player": {
+      "clientId": 3563289,
+      "email": "test-1772553940697@nextcode.tech",
+      "password": "Qweasd123!"
+    },
+    "test_config": {
+      "deposit_amount": 30.0,
+      "iterations": 3,
+      "currency": "USD"
+    },
+    "initial_bonus_count": 0,
+    "final_bonus_count": 0,
+    "iterations": [
+      {
+        "iteration": 1,
+        "deposit_amount": 30.0,
+        "deposit_success": true,
+        "bonus_count": 0,
+        "new_bonuses": [],
+        "timestamp": "2026-03-03T17:05:42.222141"
+      },
+      {
+        "iteration": 2,
+        "deposit_amount": 30.0,
+        "deposit_success": true,
+        "bonus_count": 0,
+        "new_bonuses": [],
+        "timestamp": "2026-03-03T17:05:45.096714"
+      },
+      {
+        "iteration": 3,
+        "deposit_amount": 30.0,
+        "deposit_success": true,
+        "bonus_count": 0,
+        "new_bonuses": [],
+        "timestamp": "2026-03-03T17:05:47.861519"
+      }
+    ],
+    "discrepancies": [],
+    "summary": {
+      "total_deposits": 3,
+      "successful_deposits": 3,
+      "total_new_bonuses": 0,
+      "deposit_success_rate": "3/3",
+      "bonus_creation_rate": "0/3"
+    },
+    "timestamp": "2026-03-03T17:05:47.966485",
+    "created_at": "2026-03-03T17:05:47.969147"
+  },
+  {
+    "type": "player",
+    "action": "create",
+    "env": "qa",
+    "email": "test-1772554173753@nextcode.tech",
+    "password": "Qweasd123!",
+    "userName": "user1772554173355",
+    "registration_method": "website",
+    "website_api": "https://websitewebapi.qa.sofon.one",
+    "partner_id": 5,
+    "clientId": 3563290,
+    "sessionToken": "8630d8f13f4949c1bd03cc9798d74486",
+    "state": "Active",
+    "balance_setup": true,
+    "balance_amount": 0.0,
+    "balance_currency": "USD",
+    "actual_balance": {
+      "Balances": {
+        "Unused": 0.0
+      },
+      "AvailableMain": 0.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "created_at": "2026-03-03T17:09:35.380277"
+  },
+  {
+    "type": "deposit",
+    "action": "create_flow",
+    "env": "qa",
+    "client_id": 3563290,
+    "amount": 30.0,
+    "currency": "USD",
+    "payment_method_id": 104,
+    "success": true,
+    "balance_before": {
+      "Balances": {
+        "Unused": 0.0
+      },
+      "AvailableMain": 0.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "deposit_creation": {
+      "TransactionId": "test_l39seodswdqyohp",
+      "OperationType": 17,
+      "AlreadyProcessed": false,
+      "Error": 0,
+      "CurrentBalances": {
+        "Balances": {
+          "Unused": 30.0
+        },
+        "AvailableMain": 30.0,
+        "AvailableBonus": 0.0,
+        "Currency": "USD",
+        "SportBonus": 0.0
+      },
+      "RateAmounts": {
+        "Unused": 30.0
+      },
+      "Amount": 30.0,
+      "PartnerId": 5,
+      "ChildTransactions": [],
+      "RateUnusedTurnover": 0.0,
+      "RateBonusTurnover": 0.0,
+      "Context": {
+        "reason": "Test deposit via script - client 3563290"
+      },
+      "IsError": false
+    },
+    "deposit_method": "wallet_correction",
+    "balance_after": {
+      "Balances": {
+        "Unused": 30.0
+      },
+      "AvailableMain": 30.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "balance_difference": 30.0,
+    "created_at": "2026-03-03T17:09:36.160853"
+  },
+  {
+    "type": "deposit",
+    "action": "create_flow",
+    "env": "qa",
+    "client_id": 3563290,
+    "amount": 30.0,
+    "currency": "USD",
+    "payment_method_id": 104,
+    "success": true,
+    "balance_before": {
+      "Balances": {
+        "Unused": 30.0
+      },
+      "AvailableMain": 30.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "deposit_creation": {
+      "TransactionId": "test_kz7yq6dqr83eo98",
+      "OperationType": 17,
+      "AlreadyProcessed": false,
+      "Error": 0,
+      "CurrentBalances": {
+        "Balances": {
+          "Unused": 60.0
+        },
+        "AvailableMain": 60.0,
+        "AvailableBonus": 0.0,
+        "Currency": "USD",
+        "SportBonus": 0.0
+      },
+      "RateAmounts": {
+        "Unused": 30.0
+      },
+      "Amount": 30.0,
+      "PartnerId": 5,
+      "ChildTransactions": [],
+      "RateUnusedTurnover": 0.0,
+      "RateBonusTurnover": 0.0,
+      "Context": {
+        "reason": "Test deposit via script - client 3563290"
+      },
+      "IsError": false
+    },
+    "deposit_method": "wallet_correction",
+    "balance_after": {
+      "Balances": {
+        "Unused": 60.0
+      },
+      "AvailableMain": 60.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "balance_difference": 30.0,
+    "created_at": "2026-03-03T17:09:39.960236"
+  },
+  {
+    "type": "deposit",
+    "action": "create_flow",
+    "env": "qa",
+    "client_id": 3563290,
+    "amount": 30.0,
+    "currency": "USD",
+    "payment_method_id": 104,
+    "success": true,
+    "balance_before": {
+      "Balances": {
+        "Unused": 60.0
+      },
+      "AvailableMain": 60.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "deposit_creation": {
+      "TransactionId": "test_68k42rynmisfat4",
+      "OperationType": 17,
+      "AlreadyProcessed": false,
+      "Error": 0,
+      "CurrentBalances": {
+        "Balances": {
+          "Unused": 90.0
+        },
+        "AvailableMain": 90.0,
+        "AvailableBonus": 0.0,
+        "Currency": "USD",
+        "SportBonus": 0.0
+      },
+      "RateAmounts": {
+        "Unused": 30.0
+      },
+      "Amount": 30.0,
+      "PartnerId": 5,
+      "ChildTransactions": [],
+      "RateUnusedTurnover": 0.0,
+      "RateBonusTurnover": 0.0,
+      "Context": {
+        "reason": "Test deposit via script - client 3563290"
+      },
+      "IsError": false
+    },
+    "deposit_method": "wallet_correction",
+    "balance_after": {
+      "Balances": {
+        "Unused": 90.0
+      },
+      "AvailableMain": 90.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "balance_difference": 30.0,
+    "created_at": "2026-03-03T17:09:45.037997"
+  },
+  {
+    "type": "deposit",
+    "action": "create_flow",
+    "env": "qa",
+    "client_id": 3563290,
+    "amount": 30.0,
+    "currency": "USD",
+    "payment_method_id": 104,
+    "success": true,
+    "balance_before": {
+      "Balances": {
+        "Unused": 90.0
+      },
+      "AvailableMain": 90.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "deposit_creation": {
+      "TransactionId": "test_gj91yb3lot91qdn",
+      "OperationType": 17,
+      "AlreadyProcessed": false,
+      "Error": 0,
+      "CurrentBalances": {
+        "Balances": {
+          "Unused": 120.0
+        },
+        "AvailableMain": 120.0,
+        "AvailableBonus": 0.0,
+        "Currency": "USD",
+        "SportBonus": 0.0
+      },
+      "RateAmounts": {
+        "Unused": 30.0
+      },
+      "Amount": 30.0,
+      "PartnerId": 5,
+      "ChildTransactions": [],
+      "RateUnusedTurnover": 0.0,
+      "RateBonusTurnover": 0.0,
+      "Context": {
+        "reason": "Test deposit via script - client 3563290"
+      },
+      "IsError": false
+    },
+    "deposit_method": "wallet_correction",
+    "balance_after": {
+      "Balances": {
+        "Unused": 120.0
+      },
+      "AvailableMain": 120.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "balance_difference": 30.0,
+    "created_at": "2026-03-03T17:09:48.838623"
+  },
+  {
+    "type": "deposit",
+    "action": "create_flow",
+    "env": "qa",
+    "client_id": 3563290,
+    "amount": 30.0,
+    "currency": "USD",
+    "payment_method_id": 104,
+    "success": true,
+    "balance_before": {
+      "Balances": {
+        "Unused": 120.0
+      },
+      "AvailableMain": 120.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "deposit_creation": {
+      "TransactionId": "test_m3byal1eeo87nuc",
+      "OperationType": 17,
+      "AlreadyProcessed": false,
+      "Error": 0,
+      "CurrentBalances": {
+        "Balances": {
+          "Unused": 150.0
+        },
+        "AvailableMain": 150.0,
+        "AvailableBonus": 0.0,
+        "Currency": "USD",
+        "SportBonus": 0.0
+      },
+      "RateAmounts": {
+        "Unused": 30.0
+      },
+      "Amount": 30.0,
+      "PartnerId": 5,
+      "ChildTransactions": [],
+      "RateUnusedTurnover": 0.0,
+      "RateBonusTurnover": 0.0,
+      "Context": {
+        "reason": "Test deposit via script - client 3563290"
+      },
+      "IsError": false
+    },
+    "deposit_method": "wallet_correction",
+    "balance_after": {
+      "Balances": {
+        "Unused": 150.0
+      },
+      "AvailableMain": 150.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "balance_difference": 30.0,
+    "created_at": "2026-03-03T17:09:52.581005"
+  },
+  {
+    "type": "deposit",
+    "action": "create_flow",
+    "env": "qa",
+    "client_id": 3563290,
+    "amount": 30.0,
+    "currency": "USD",
+    "payment_method_id": 104,
+    "success": true,
+    "balance_before": {
+      "Balances": {
+        "Unused": 150.0
+      },
+      "AvailableMain": 150.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "deposit_creation": {
+      "TransactionId": "test_7b954mfqzfbf1bh",
+      "OperationType": 17,
+      "AlreadyProcessed": false,
+      "Error": 0,
+      "CurrentBalances": {
+        "Balances": {
+          "Unused": 180.0
+        },
+        "AvailableMain": 180.0,
+        "AvailableBonus": 0.0,
+        "Currency": "USD",
+        "SportBonus": 0.0
+      },
+      "RateAmounts": {
+        "Unused": 30.0
+      },
+      "Amount": 30.0,
+      "PartnerId": 5,
+      "ChildTransactions": [],
+      "RateUnusedTurnover": 0.0,
+      "RateBonusTurnover": 0.0,
+      "Context": {
+        "reason": "Test deposit via script - client 3563290"
+      },
+      "IsError": false
+    },
+    "deposit_method": "wallet_correction",
+    "balance_after": {
+      "Balances": {
+        "Unused": 180.0
+      },
+      "AvailableMain": 180.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "balance_difference": 30.0,
+    "created_at": "2026-03-03T17:09:56.831502"
+  },
+  {
+    "type": "deposit",
+    "action": "create_flow",
+    "env": "qa",
+    "client_id": 3563290,
+    "amount": 30.0,
+    "currency": "USD",
+    "payment_method_id": 104,
+    "success": true,
+    "balance_before": {
+      "Balances": {
+        "Unused": 180.0
+      },
+      "AvailableMain": 180.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "deposit_creation": {
+      "TransactionId": "test_c3imy4f0gd1k533",
+      "OperationType": 17,
+      "AlreadyProcessed": false,
+      "Error": 0,
+      "CurrentBalances": {
+        "Balances": {
+          "Unused": 210.0
+        },
+        "AvailableMain": 210.0,
+        "AvailableBonus": 0.0,
+        "Currency": "USD",
+        "SportBonus": 0.0
+      },
+      "RateAmounts": {
+        "Unused": 30.0
+      },
+      "Amount": 30.0,
+      "PartnerId": 5,
+      "ChildTransactions": [],
+      "RateUnusedTurnover": 0.0,
+      "RateBonusTurnover": 0.0,
+      "Context": {
+        "reason": "Test deposit via script - client 3563290"
+      },
+      "IsError": false
+    },
+    "deposit_method": "wallet_correction",
+    "balance_after": {
+      "Balances": {
+        "Unused": 210.0
+      },
+      "AvailableMain": 210.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "balance_difference": 30.0,
+    "created_at": "2026-03-03T17:10:00.872085"
+  },
+  {
+    "type": "player",
+    "action": "create",
+    "env": "prod",
+    "email": "test-testdepositstreak1772555021293@nextcode.tech",
+    "password": "Qweasd123!",
+    "userName": "user1772555021629",
+    "registration_method": "website",
+    "website_api": "https://websitewebapi.prod.sofon.one",
+    "partner_id": 5,
+    "clientId": 1179885,
+    "sessionToken": "902758b89b424c3ba45e51e496cff1a7",
+    "state": "Active",
+    "balance_setup": true,
+    "balance_amount": 0.0,
+    "balance_currency": "USD",
+    "actual_balance": {
+      "Balances": {
+        "Unused": 0.0
+      },
+      "AvailableMain": 0.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "created_at": "2026-03-03T17:23:42.123776"
+  },
+  {
+    "type": "player",
+    "action": "create",
+    "env": "prod",
+    "email": "test-testdepositstreak1772555035892@nextcode.tech",
+    "password": "Qweasd123!",
+    "userName": "user1772555035809",
+    "registration_method": "website",
+    "website_api": "https://websitewebapi.prod.sofon.one",
+    "partner_id": 5,
+    "clientId": 1179886,
+    "sessionToken": "6a3c64a02470441387e7fd1a512318f2",
+    "state": "Active",
+    "balance_setup": true,
+    "balance_amount": 0.0,
+    "balance_currency": "USD",
+    "actual_balance": {
+      "Balances": {
+        "Unused": 0.0
+      },
+      "AvailableMain": 0.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "created_at": "2026-03-03T17:23:56.649673"
+  },
+  {
+    "type": "player",
+    "action": "create",
+    "env": "prod",
+    "email": "test-1772555073710@nextcode.tech",
+    "password": "Qweasd123!",
+    "userName": "user1772555073977",
+    "registration_method": "website",
+    "website_api": "https://websitewebapi.prod.sofon.one",
+    "partner_id": 5,
+    "clientId": 1179887,
+    "sessionToken": "85e5802fece24bb6b8c70a1f1db87a2f",
+    "state": "Active",
+    "actual_balance": {
+      "Balances": {},
+      "AvailableMain": 0.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "created_at": "2026-03-03T17:24:34.311018"
+  },
+  {
+    "type": "deposit",
+    "action": "create_flow",
+    "env": "prod",
+    "client_id": 1179887,
+    "amount": 30.0,
+    "currency": "USD",
+    "payment_method_id": 104,
+    "success": true,
+    "balance_before": {
+      "Balances": {},
+      "AvailableMain": 0.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "deposit_creation": {
+      "TransactionId": "test_yfxbwzu2xdwu3px",
+      "OperationType": 17,
+      "AlreadyProcessed": false,
+      "Error": 0,
+      "CurrentBalances": {
+        "Balances": {
+          "Unused": 30.0
+        },
+        "AvailableMain": 30.0,
+        "AvailableBonus": 0.0,
+        "Currency": "USD",
+        "SportBonus": 0.0
+      },
+      "RateAmounts": {
+        "Unused": 30.0
+      },
+      "Amount": 30.0,
+      "PartnerId": 5,
+      "ChildTransactions": [],
+      "RateUnusedTurnover": 0.0,
+      "RateBonusTurnover": 0.0,
+      "Context": {
+        "reason": "Test deposit via script - client 1179887"
+      },
+      "IsError": false
+    },
+    "deposit_method": "wallet_correction",
+    "balance_after": {
+      "Balances": {
+        "Unused": 30.0
+      },
+      "AvailableMain": 30.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "balance_difference": 30.0,
+    "created_at": "2026-03-03T17:24:35.236098"
+  },
+  {
+    "type": "deposit_streak_test",
+    "action": "full_cycle",
+    "success": true,
+    "env": "prod",
+    "player": {
+      "clientId": 1179887,
+      "email": "test-1772555073710@nextcode.tech",
+      "password": "Qweasd123!"
+    },
+    "test_config": {
+      "deposit_amount": 30.0,
+      "iterations": 1,
+      "currency": "USD"
+    },
+    "initial_bonus_count": 0,
+    "final_bonus_count": 0,
+    "iterations": [
+      {
+        "iteration": 1,
+        "deposit_amount": 30.0,
+        "deposit_success": true,
+        "bonus_count": 0,
+        "new_bonuses": [],
+        "timestamp": "2026-03-03T17:24:35.388354"
+      }
+    ],
+    "discrepancies": [],
+    "summary": {
+      "total_deposits": 1,
+      "successful_deposits": 1,
+      "total_new_bonuses": 0,
+      "deposit_success_rate": "1/1",
+      "bonus_creation_rate": "0/1"
+    },
+    "timestamp": "2026-03-03T17:24:35.501781",
+    "created_at": "2026-03-03T17:24:35.508514"
+  },
+  {
+    "type": "player",
+    "action": "create",
+    "env": "prod",
+    "email": "test-1772555308769@nextcode.tech",
+    "password": "Qweasd123!",
+    "userName": "user1772555308401",
+    "registration_method": "website",
+    "website_api": "https://websitewebapi.prod.sofon.one",
+    "partner_id": 5,
+    "clientId": 1179889,
+    "sessionToken": "2424b8d24e85411baa5ce74f5eae2525",
+    "state": "Active",
+    "actual_balance": {
+      "Balances": {},
+      "AvailableMain": 0.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "created_at": "2026-03-03T17:28:29.295288"
+  },
+  {
+    "type": "deposit",
+    "action": "create_flow",
+    "env": "prod",
+    "client_id": 1179889,
+    "amount": 30.0,
+    "currency": "USD",
+    "payment_method_id": 104,
+    "success": true,
+    "balance_before": {
+      "Balances": {},
+      "AvailableMain": 0.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "deposit_creation": {
+      "TransactionId": "test_0ziyt9pp7sz3rp6",
+      "OperationType": 17,
+      "AlreadyProcessed": false,
+      "Error": 0,
+      "CurrentBalances": {
+        "Balances": {
+          "Unused": 30.0
+        },
+        "AvailableMain": 30.0,
+        "AvailableBonus": 0.0,
+        "Currency": "USD",
+        "SportBonus": 0.0
+      },
+      "RateAmounts": {
+        "Unused": 30.0
+      },
+      "Amount": 30.0,
+      "PartnerId": 5,
+      "ChildTransactions": [],
+      "RateUnusedTurnover": 0.0,
+      "RateBonusTurnover": 0.0,
+      "Context": {
+        "reason": "Test deposit via script - client 1179889"
+      },
+      "IsError": false
+    },
+    "deposit_method": "wallet_correction",
+    "balance_after": {
+      "Balances": {
+        "Unused": 30.0
+      },
+      "AvailableMain": 30.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "balance_difference": 30.0,
+    "created_at": "2026-03-03T17:28:30.201923"
+  },
+  {
+    "type": "deposit",
+    "action": "create_flow",
+    "env": "prod",
+    "client_id": 1179889,
+    "amount": 30.0,
+    "currency": "USD",
+    "payment_method_id": 104,
+    "success": true,
+    "balance_before": {
+      "Balances": {
+        "Unused": 30.0
+      },
+      "AvailableMain": 30.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "deposit_creation": {
+      "TransactionId": "test_ceoxno7i01cq6bj",
+      "OperationType": 17,
+      "AlreadyProcessed": false,
+      "Error": 0,
+      "CurrentBalances": {
+        "Balances": {
+          "Unused": 60.0
+        },
+        "AvailableMain": 60.0,
+        "AvailableBonus": 0.0,
+        "Currency": "USD",
+        "SportBonus": 0.0
+      },
+      "RateAmounts": {
+        "Unused": 30.0
+      },
+      "Amount": 30.0,
+      "PartnerId": 5,
+      "ChildTransactions": [],
+      "RateUnusedTurnover": 0.0,
+      "RateBonusTurnover": 0.0,
+      "Context": {
+        "reason": "Test deposit via script - client 1179889"
+      },
+      "IsError": false
+    },
+    "deposit_method": "wallet_correction",
+    "balance_after": {
+      "Balances": {
+        "Unused": 60.0
+      },
+      "AvailableMain": 60.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "balance_difference": 30.0,
+    "created_at": "2026-03-03T17:28:33.141338"
+  },
+  {
+    "type": "deposit",
+    "action": "create_flow",
+    "env": "prod",
+    "client_id": 1179889,
+    "amount": 30.0,
+    "currency": "USD",
+    "payment_method_id": 104,
+    "success": true,
+    "balance_before": {
+      "Balances": {
+        "Unused": 60.0
+      },
+      "AvailableMain": 60.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "deposit_creation": {
+      "TransactionId": "test_hov1inq6a97vjve",
+      "OperationType": 17,
+      "AlreadyProcessed": false,
+      "Error": 0,
+      "CurrentBalances": {
+        "Balances": {
+          "Unused": 90.0
+        },
+        "AvailableMain": 90.0,
+        "AvailableBonus": 0.0,
+        "Currency": "USD",
+        "SportBonus": 0.0
+      },
+      "RateAmounts": {
+        "Unused": 30.0
+      },
+      "Amount": 30.0,
+      "PartnerId": 5,
+      "ChildTransactions": [],
+      "RateUnusedTurnover": 0.0,
+      "RateBonusTurnover": 0.0,
+      "Context": {
+        "reason": "Test deposit via script - client 1179889"
+      },
+      "IsError": false
+    },
+    "deposit_method": "wallet_correction",
+    "balance_after": {
+      "Balances": {
+        "Unused": 90.0
+      },
+      "AvailableMain": 90.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "balance_difference": 30.0,
+    "created_at": "2026-03-03T17:28:36.079299"
+  },
+  {
+    "type": "deposit_streak_test",
+    "action": "full_cycle",
+    "success": true,
+    "env": "prod",
+    "player": {
+      "clientId": 1179889,
+      "email": "test-1772555308769@nextcode.tech",
+      "password": "Qweasd123!"
+    },
+    "test_config": {
+      "deposit_amount": 30.0,
+      "iterations": 3,
+      "currency": "USD"
+    },
+    "initial_bonus_count": 0,
+    "final_bonus_count": 0,
+    "iterations": [
+      {
+        "iteration": 1,
+        "deposit_amount": 30.0,
+        "deposit_success": true,
+        "bonus_count": 0,
+        "new_bonuses": [],
+        "timestamp": "2026-03-03T17:28:30.360358"
+      },
+      {
+        "iteration": 2,
+        "deposit_amount": 30.0,
+        "deposit_success": true,
+        "bonus_count": 0,
+        "new_bonuses": [],
+        "timestamp": "2026-03-03T17:28:33.319334"
+      },
+      {
+        "iteration": 3,
+        "deposit_amount": 30.0,
+        "deposit_success": true,
+        "bonus_count": 0,
+        "new_bonuses": [],
+        "timestamp": "2026-03-03T17:28:36.267373"
+      }
+    ],
+    "discrepancies": [],
+    "summary": {
+      "total_deposits": 3,
+      "successful_deposits": 3,
+      "total_new_bonuses": 0,
+      "deposit_success_rate": "3/3",
+      "bonus_creation_rate": "0/3"
+    },
+    "timestamp": "2026-03-03T17:28:36.394540",
+    "created_at": "2026-03-03T17:28:36.399414"
+  },
+  {
+    "type": "player",
+    "action": "create",
+    "env": "prod",
+    "email": "test-1772555337542@nextcode.tech",
+    "password": "Qweasd123!",
+    "userName": "user1772555337874",
+    "registration_method": "website",
+    "website_api": "https://websitewebapi.prod.sofon.one",
+    "partner_id": 5,
+    "clientId": 1179890,
+    "sessionToken": "7a93cd46e1144cf3866d53c9e96404d1",
+    "state": "Active",
+    "actual_balance": {
+      "Balances": {},
+      "AvailableMain": 0.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "created_at": "2026-03-03T17:28:58.067160"
+  },
+  {
+    "type": "deposit",
+    "action": "create_flow",
+    "env": "prod",
+    "client_id": 1179890,
+    "amount": 30.0,
+    "currency": "USD",
+    "payment_method_id": 104,
+    "success": true,
+    "balance_before": {
+      "Balances": {},
+      "AvailableMain": 0.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "deposit_creation": {
+      "TransactionId": "test_70pg88dreh10r42",
+      "OperationType": 17,
+      "AlreadyProcessed": false,
+      "Error": 0,
+      "CurrentBalances": {
+        "Balances": {
+          "Unused": 30.0
+        },
+        "AvailableMain": 30.0,
+        "AvailableBonus": 0.0,
+        "Currency": "USD",
+        "SportBonus": 0.0
+      },
+      "RateAmounts": {
+        "Unused": 30.0
+      },
+      "Amount": 30.0,
+      "PartnerId": 5,
+      "ChildTransactions": [],
+      "RateUnusedTurnover": 0.0,
+      "RateBonusTurnover": 0.0,
+      "Context": {
+        "reason": "Test deposit via script - client 1179890"
+      },
+      "IsError": false
+    },
+    "deposit_method": "wallet_correction",
+    "balance_after": {
+      "Balances": {
+        "Unused": 30.0
+      },
+      "AvailableMain": 30.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "balance_difference": 30.0,
+    "created_at": "2026-03-03T17:28:58.895746"
+  },
+  {
+    "type": "deposit",
+    "action": "create_flow",
+    "env": "prod",
+    "client_id": 1179890,
+    "amount": 30.0,
+    "currency": "USD",
+    "payment_method_id": 104,
+    "success": true,
+    "balance_before": {
+      "Balances": {
+        "Unused": 30.0
+      },
+      "AvailableMain": 30.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "deposit_creation": {
+      "TransactionId": "test_o9ajktejil2rl3t",
+      "OperationType": 17,
+      "AlreadyProcessed": false,
+      "Error": 0,
+      "CurrentBalances": {
+        "Balances": {
+          "Unused": 60.0
+        },
+        "AvailableMain": 60.0,
+        "AvailableBonus": 0.0,
+        "Currency": "USD",
+        "SportBonus": 0.0
+      },
+      "RateAmounts": {
+        "Unused": 30.0
+      },
+      "Amount": 30.0,
+      "PartnerId": 5,
+      "ChildTransactions": [],
+      "RateUnusedTurnover": 0.0,
+      "RateBonusTurnover": 0.0,
+      "Context": {
+        "reason": "Test deposit via script - client 1179890"
+      },
+      "IsError": false
+    },
+    "deposit_method": "wallet_correction",
+    "balance_after": {
+      "Balances": {
+        "Unused": 60.0
+      },
+      "AvailableMain": 60.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "balance_difference": 30.0,
+    "created_at": "2026-03-03T17:29:02.771858"
+  },
+  {
+    "type": "deposit",
+    "action": "create_flow",
+    "env": "prod",
+    "client_id": 1179890,
+    "amount": 30.0,
+    "currency": "USD",
+    "payment_method_id": 104,
+    "success": true,
+    "balance_before": {
+      "Balances": {
+        "Unused": 60.0
+      },
+      "AvailableMain": 60.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "deposit_creation": {
+      "TransactionId": "test_zbd1wlwow4f2ex0",
+      "OperationType": 17,
+      "AlreadyProcessed": false,
+      "Error": 0,
+      "CurrentBalances": {
+        "Balances": {
+          "Unused": 90.0
+        },
+        "AvailableMain": 90.0,
+        "AvailableBonus": 0.0,
+        "Currency": "USD",
+        "SportBonus": 0.0
+      },
+      "RateAmounts": {
+        "Unused": 30.0
+      },
+      "Amount": 30.0,
+      "PartnerId": 5,
+      "ChildTransactions": [],
+      "RateUnusedTurnover": 0.0,
+      "RateBonusTurnover": 0.0,
+      "Context": {
+        "reason": "Test deposit via script - client 1179890"
+      },
+      "IsError": false
+    },
+    "deposit_method": "wallet_correction",
+    "balance_after": {
+      "Balances": {
+        "Unused": 90.0
+      },
+      "AvailableMain": 90.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "balance_difference": 30.0,
+    "created_at": "2026-03-03T17:29:05.709379"
+  },
+  {
+    "type": "deposit",
+    "action": "create_flow",
+    "env": "prod",
+    "client_id": 1179890,
+    "amount": 30.0,
+    "currency": "USD",
+    "payment_method_id": 104,
+    "success": true,
+    "balance_before": {
+      "Balances": {
+        "Unused": 90.0
+      },
+      "AvailableMain": 90.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "deposit_creation": {
+      "TransactionId": "test_3kf2kr2klsezr65",
+      "OperationType": 17,
+      "AlreadyProcessed": false,
+      "Error": 0,
+      "CurrentBalances": {
+        "Balances": {
+          "Unused": 120.0
+        },
+        "AvailableMain": 120.0,
+        "AvailableBonus": 0.0,
+        "Currency": "USD",
+        "SportBonus": 0.0
+      },
+      "RateAmounts": {
+        "Unused": 30.0
+      },
+      "Amount": 30.0,
+      "PartnerId": 5,
+      "ChildTransactions": [],
+      "RateUnusedTurnover": 0.0,
+      "RateBonusTurnover": 0.0,
+      "Context": {
+        "reason": "Test deposit via script - client 1179890"
+      },
+      "IsError": false
+    },
+    "deposit_method": "wallet_correction",
+    "balance_after": {
+      "Balances": {
+        "Unused": 120.0
+      },
+      "AvailableMain": 120.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "balance_difference": 30.0,
+    "created_at": "2026-03-03T17:29:08.643196"
+  },
+  {
+    "type": "deposit",
+    "action": "create_flow",
+    "env": "prod",
+    "client_id": 1179890,
+    "amount": 30.0,
+    "currency": "USD",
+    "payment_method_id": 104,
+    "success": true,
+    "balance_before": {
+      "Balances": {
+        "Unused": 120.0
+      },
+      "AvailableMain": 120.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "deposit_creation": {
+      "TransactionId": "test_v2ze7u648tw22l3",
+      "OperationType": 17,
+      "AlreadyProcessed": false,
+      "Error": 0,
+      "CurrentBalances": {
+        "Balances": {
+          "Unused": 150.0
+        },
+        "AvailableMain": 150.0,
+        "AvailableBonus": 0.0,
+        "Currency": "USD",
+        "SportBonus": 0.0
+      },
+      "RateAmounts": {
+        "Unused": 30.0
+      },
+      "Amount": 30.0,
+      "PartnerId": 5,
+      "ChildTransactions": [],
+      "RateUnusedTurnover": 0.0,
+      "RateBonusTurnover": 0.0,
+      "Context": {
+        "reason": "Test deposit via script - client 1179890"
+      },
+      "IsError": false
+    },
+    "deposit_method": "wallet_correction",
+    "balance_after": {
+      "Balances": {
+        "Unused": 150.0
+      },
+      "AvailableMain": 150.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "balance_difference": 30.0,
+    "created_at": "2026-03-03T17:29:11.748047"
+  },
+  {
+    "type": "deposit",
+    "action": "create_flow",
+    "env": "prod",
+    "client_id": 1179890,
+    "amount": 30.0,
+    "currency": "USD",
+    "payment_method_id": 104,
+    "success": true,
+    "balance_before": {
+      "Balances": {
+        "Unused": 150.0
+      },
+      "AvailableMain": 150.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "deposit_creation": {
+      "TransactionId": "test_1p5kzd056xr5dkq",
+      "OperationType": 17,
+      "AlreadyProcessed": false,
+      "Error": 0,
+      "CurrentBalances": {
+        "Balances": {
+          "Unused": 180.0
+        },
+        "AvailableMain": 180.0,
+        "AvailableBonus": 0.0,
+        "Currency": "USD",
+        "SportBonus": 0.0
+      },
+      "RateAmounts": {
+        "Unused": 30.0
+      },
+      "Amount": 30.0,
+      "PartnerId": 5,
+      "ChildTransactions": [],
+      "RateUnusedTurnover": 0.0,
+      "RateBonusTurnover": 0.0,
+      "Context": {
+        "reason": "Test deposit via script - client 1179890"
+      },
+      "IsError": false
+    },
+    "deposit_method": "wallet_correction",
+    "balance_after": {
+      "Balances": {
+        "Unused": 180.0
+      },
+      "AvailableMain": 180.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "balance_difference": 30.0,
+    "created_at": "2026-03-03T17:29:14.731309"
+  },
+  {
+    "type": "deposit",
+    "action": "create_flow",
+    "env": "prod",
+    "client_id": 1179890,
+    "amount": 30.0,
+    "currency": "USD",
+    "payment_method_id": 104,
+    "success": true,
+    "balance_before": {
+      "Balances": {
+        "Unused": 180.0
+      },
+      "AvailableMain": 180.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "deposit_creation": {
+      "TransactionId": "test_xk2y98zb7v0ba11",
+      "OperationType": 17,
+      "AlreadyProcessed": false,
+      "Error": 0,
+      "CurrentBalances": {
+        "Balances": {
+          "Unused": 210.0
+        },
+        "AvailableMain": 210.0,
+        "AvailableBonus": 0.0,
+        "Currency": "USD",
+        "SportBonus": 0.0
+      },
+      "RateAmounts": {
+        "Unused": 30.0
+      },
+      "Amount": 30.0,
+      "PartnerId": 5,
+      "ChildTransactions": [],
+      "RateUnusedTurnover": 0.0,
+      "RateBonusTurnover": 0.0,
+      "Context": {
+        "reason": "Test deposit via script - client 1179890"
+      },
+      "IsError": false
+    },
+    "deposit_method": "wallet_correction",
+    "balance_after": {
+      "Balances": {
+        "Unused": 210.0
+      },
+      "AvailableMain": 210.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "balance_difference": 30.0,
+    "created_at": "2026-03-03T17:29:17.663666"
+  },
+  {
+    "type": "deposit",
+    "action": "create_flow",
+    "env": "prod",
+    "client_id": 1179890,
+    "amount": 30.0,
+    "currency": "USD",
+    "payment_method_id": 104,
+    "success": true,
+    "balance_before": {
+      "Balances": {
+        "Unused": 210.0
+      },
+      "AvailableMain": 210.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "deposit_creation": {
+      "TransactionId": "test_skwsrzootkf7a46",
+      "OperationType": 17,
+      "AlreadyProcessed": false,
+      "Error": 0,
+      "CurrentBalances": {
+        "Balances": {
+          "Unused": 240.0
+        },
+        "AvailableMain": 240.0,
+        "AvailableBonus": 0.0,
+        "Currency": "USD",
+        "SportBonus": 0.0
+      },
+      "RateAmounts": {
+        "Unused": 30.0
+      },
+      "Amount": 30.0,
+      "PartnerId": 5,
+      "ChildTransactions": [],
+      "RateUnusedTurnover": 0.0,
+      "RateBonusTurnover": 0.0,
+      "Context": {
+        "reason": "Test deposit via script - client 1179890"
+      },
+      "IsError": false
+    },
+    "deposit_method": "wallet_correction",
+    "balance_after": {
+      "Balances": {
+        "Unused": 240.0
+      },
+      "AvailableMain": 240.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "balance_difference": 30.0,
+    "created_at": "2026-03-03T17:29:20.561140"
+  },
+  {
+    "type": "deposit",
+    "action": "create_flow",
+    "env": "prod",
+    "client_id": 1179890,
+    "amount": 30.0,
+    "currency": "USD",
+    "payment_method_id": 104,
+    "success": true,
+    "balance_before": {
+      "Balances": {
+        "Unused": 240.0
+      },
+      "AvailableMain": 240.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "deposit_creation": {
+      "TransactionId": "test_eanwfvuo769bg3w",
+      "OperationType": 17,
+      "AlreadyProcessed": false,
+      "Error": 0,
+      "CurrentBalances": {
+        "Balances": {
+          "Unused": 270.0
+        },
+        "AvailableMain": 270.0,
+        "AvailableBonus": 0.0,
+        "Currency": "USD",
+        "SportBonus": 0.0
+      },
+      "RateAmounts": {
+        "Unused": 30.0
+      },
+      "Amount": 30.0,
+      "PartnerId": 5,
+      "ChildTransactions": [],
+      "RateUnusedTurnover": 0.0,
+      "RateBonusTurnover": 0.0,
+      "Context": {
+        "reason": "Test deposit via script - client 1179890"
+      },
+      "IsError": false
+    },
+    "deposit_method": "wallet_correction",
+    "balance_after": {
+      "Balances": {
+        "Unused": 270.0
+      },
+      "AvailableMain": 270.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "balance_difference": 30.0,
+    "created_at": "2026-03-03T17:29:23.523851"
+  },
+  {
+    "type": "deposit",
+    "action": "create_flow",
+    "env": "prod",
+    "client_id": 1179890,
+    "amount": 30.0,
+    "currency": "USD",
+    "payment_method_id": 104,
+    "success": true,
+    "balance_before": {
+      "Balances": {
+        "Unused": 270.0
+      },
+      "AvailableMain": 270.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "deposit_creation": {
+      "TransactionId": "test_gac4yi2wn7gw7u1",
+      "OperationType": 17,
+      "AlreadyProcessed": false,
+      "Error": 0,
+      "CurrentBalances": {
+        "Balances": {
+          "Unused": 300.0
+        },
+        "AvailableMain": 300.0,
+        "AvailableBonus": 0.0,
+        "Currency": "USD",
+        "SportBonus": 0.0
+      },
+      "RateAmounts": {
+        "Unused": 30.0
+      },
+      "Amount": 30.0,
+      "PartnerId": 5,
+      "ChildTransactions": [],
+      "RateUnusedTurnover": 0.0,
+      "RateBonusTurnover": 0.0,
+      "Context": {
+        "reason": "Test deposit via script - client 1179890"
+      },
+      "IsError": false
+    },
+    "deposit_method": "wallet_correction",
+    "balance_after": {
+      "Balances": {
+        "Unused": 300.0
+      },
+      "AvailableMain": 300.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "balance_difference": 30.0,
+    "created_at": "2026-03-03T17:29:26.471743"
+  },
+  {
+    "type": "deposit_streak_test",
+    "action": "full_cycle",
+    "success": true,
+    "env": "prod",
+    "player": {
+      "clientId": 1179890,
+      "email": "test-1772555337542@nextcode.tech",
+      "password": "Qweasd123!"
+    },
+    "test_config": {
+      "deposit_amount": 30.0,
+      "iterations": 10,
+      "currency": "USD"
+    },
+    "initial_bonus_count": 0,
+    "final_bonus_count": 0,
+    "iterations": [
+      {
+        "iteration": 1,
+        "deposit_amount": 30.0,
+        "deposit_success": true,
+        "bonus_count": 0,
+        "new_bonuses": [],
+        "timestamp": "2026-03-03T17:28:59.062752"
+      },
+      {
+        "iteration": 2,
+        "deposit_amount": 30.0,
+        "deposit_success": true,
+        "bonus_count": 0,
+        "new_bonuses": [],
+        "timestamp": "2026-03-03T17:29:02.949616"
+      },
+      {
+        "iteration": 3,
+        "deposit_amount": 30.0,
+        "deposit_success": true,
+        "bonus_count": 0,
+        "new_bonuses": [],
+        "timestamp": "2026-03-03T17:29:05.883220"
+      },
+      {
+        "iteration": 4,
+        "deposit_amount": 30.0,
+        "deposit_success": true,
+        "bonus_count": 0,
+        "new_bonuses": [],
+        "timestamp": "2026-03-03T17:29:08.812560"
+      },
+      {
+        "iteration": 5,
+        "deposit_amount": 30.0,
+        "deposit_success": true,
+        "bonus_count": 0,
+        "new_bonuses": [],
+        "timestamp": "2026-03-03T17:29:11.921401"
+      },
+      {
+        "iteration": 6,
+        "deposit_amount": 30.0,
+        "deposit_success": true,
+        "bonus_count": 0,
+        "new_bonuses": [],
+        "timestamp": "2026-03-03T17:29:14.929777"
+      },
+      {
+        "iteration": 7,
+        "deposit_amount": 30.0,
+        "deposit_success": true,
+        "bonus_count": 0,
+        "new_bonuses": [],
+        "timestamp": "2026-03-03T17:29:17.836198"
+      },
+      {
+        "iteration": 8,
+        "deposit_amount": 30.0,
+        "deposit_success": true,
+        "bonus_count": 0,
+        "new_bonuses": [],
+        "timestamp": "2026-03-03T17:29:20.737701"
+      },
+      {
+        "iteration": 9,
+        "deposit_amount": 30.0,
+        "deposit_success": true,
+        "bonus_count": 0,
+        "new_bonuses": [],
+        "timestamp": "2026-03-03T17:29:23.702176"
+      },
+      {
+        "iteration": 10,
+        "deposit_amount": 30.0,
+        "deposit_success": true,
+        "bonus_count": 0,
+        "new_bonuses": [],
+        "timestamp": "2026-03-03T17:29:26.646707"
+      }
+    ],
+    "discrepancies": [],
+    "summary": {
+      "total_deposits": 10,
+      "successful_deposits": 10,
+      "total_new_bonuses": 0,
+      "deposit_success_rate": "10/10",
+      "bonus_creation_rate": "0/10"
+    },
+    "timestamp": "2026-03-03T17:29:26.774613",
+    "created_at": "2026-03-03T17:29:26.781102"
+  },
+  {
+    "type": "deposit",
+    "action": "create_flow",
+    "env": "prod",
+    "client_id": 1179890,
+    "amount": 30.0,
+    "currency": "USD",
+    "payment_method_id": 19,
+    "success": true,
+    "balance_before": {
+      "Balances": {
+        "Unused": 371.0
+      },
+      "AvailableMain": 371.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "deposit_creation": {
+      "ResponseCode": "Success",
+      "Description": null,
+      "InterruptionCode": null,
+      "ResponseObject": {
+        "PaymentUrl": null
+      },
+      "TraceId": "d32e7713cd9dc0eef4e32bb3ab4de717"
+    },
+    "deposit_method": "backoffice_deposit",
+    "balance_after": {
+      "Balances": {
+        "Unused": 371.0
+      },
+      "AvailableMain": 371.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "balance_difference": 0.0,
+    "created_at": "2026-03-03T18:24:57.750066"
+  },
+  {
+    "type": "deposit",
+    "action": "create_flow",
+    "env": "prod",
+    "client_id": 1179890,
+    "amount": 30.0,
+    "currency": "USD",
+    "payment_method_id": 19,
+    "success": true,
+    "balance_before": {
+      "Balances": {
+        "Unused": 371.0
+      },
+      "AvailableMain": 371.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "deposit_creation": {
+      "ResponseCode": "Success",
+      "Description": null,
+      "InterruptionCode": null,
+      "ResponseObject": {
+        "PaymentUrl": null
+      },
+      "TraceId": "ed5faf00a42022160e8b64265a85650f"
+    },
+    "deposit_method": "backoffice_deposit",
+    "balance_after": {
+      "Balances": {
+        "Unused": 371.0
+      },
+      "AvailableMain": 371.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "balance_difference": 0.0,
+    "created_at": "2026-03-03T18:29:20.645639"
+  },
+  {
+    "type": "deposit",
+    "action": "create_flow",
+    "env": "prod",
+    "client_id": 1179890,
+    "amount": 30.0,
+    "currency": "USD",
+    "payment_method_id": 19,
+    "success": true,
+    "balance_before": {
+      "Balances": {
+        "Unused": 371.0
+      },
+      "AvailableMain": 371.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "deposit_creation": {
+      "ResponseCode": "Success",
+      "Description": null,
+      "InterruptionCode": null,
+      "ResponseObject": {
+        "PaymentUrl": null
+      },
+      "TraceId": "7d111559dd1b63912b798b5c9bea875f"
+    },
+    "deposit_method": "backoffice_deposit",
+    "balance_after": {
+      "Balances": {
+        "Unused": 371.0
+      },
+      "AvailableMain": 371.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "balance_difference": 0.0,
+    "created_at": "2026-03-03T18:29:23.384387"
+  },
+  {
+    "type": "deposit",
+    "action": "create_flow",
+    "env": "prod",
+    "client_id": 1179890,
+    "amount": 30.0,
+    "currency": "USD",
+    "payment_method_id": 19,
+    "success": true,
+    "balance_before": {
+      "Balances": {
+        "Unused": 371.0
+      },
+      "AvailableMain": 371.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "deposit_creation": {
+      "ResponseCode": "Success",
+      "Description": null,
+      "InterruptionCode": null,
+      "ResponseObject": {
+        "PaymentUrl": null
+      },
+      "TraceId": "fb608aaad994774d8591037c86350b3e"
+    },
+    "deposit_method": "backoffice_deposit",
+    "balance_after": {
+      "Balances": {
+        "Unused": 371.0
+      },
+      "AvailableMain": 371.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "balance_difference": 0.0,
+    "created_at": "2026-03-03T18:29:54.516117"
+  },
+  {
+    "type": "deposit",
+    "action": "create_flow",
+    "env": "prod",
+    "client_id": 1179890,
+    "amount": 30.0,
+    "currency": "USD",
+    "payment_method_id": 19,
+    "success": true,
+    "balance_before": {
+      "Balances": {
+        "Unused": 371.0
+      },
+      "AvailableMain": 371.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "deposit_creation": {
+      "ResponseCode": "Success",
+      "Description": null,
+      "InterruptionCode": null,
+      "ResponseObject": {
+        "PaymentUrl": null
+      },
+      "TraceId": "94bc850e89c37992ecc0d64dbc280742"
+    },
+    "deposit_method": "backoffice_deposit",
+    "balance_after": {
+      "Balances": {
+        "Unused": 371.0
+      },
+      "AvailableMain": 371.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "balance_difference": 0.0,
+    "created_at": "2026-03-03T18:29:59.191365"
+  },
+  {
+    "type": "deposit",
+    "action": "create_flow",
+    "env": "prod",
+    "client_id": 1179890,
+    "amount": 30.0,
+    "currency": "USD",
+    "payment_method_id": 19,
+    "success": true,
+    "balance_before": {
+      "Balances": {
+        "Unused": 371.0
+      },
+      "AvailableMain": 371.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "deposit_creation": {
+      "ResponseCode": "Success",
+      "Description": null,
+      "InterruptionCode": null,
+      "ResponseObject": {
+        "PaymentUrl": null
+      },
+      "TraceId": "58a47844b90fa6e4fdda0ec61600a9e8"
+    },
+    "deposit_method": "backoffice_deposit",
+    "balance_after": {
+      "Balances": {
+        "Unused": 371.0
+      },
+      "AvailableMain": 371.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "balance_difference": 0.0,
+    "created_at": "2026-03-03T18:30:05.469116"
+  },
+  {
+    "type": "deposit",
+    "action": "create_flow",
+    "env": "prod",
+    "client_id": 1179890,
+    "amount": 30.0,
+    "currency": "USD",
+    "payment_method_id": 19,
+    "success": true,
+    "balance_before": {
+      "Balances": {
+        "Unused": 371.0
+      },
+      "AvailableMain": 371.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "deposit_creation": {
+      "ResponseCode": "Success",
+      "Description": null,
+      "InterruptionCode": null,
+      "ResponseObject": {
+        "PaymentUrl": null
+      },
+      "TraceId": "f004c67e733a1d3a4d58495ad42d743f"
+    },
+    "deposit_method": "backoffice_deposit",
+    "balance_after": {
+      "Balances": {
+        "Unused": 371.0
+      },
+      "AvailableMain": 371.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "balance_difference": 0.0,
+    "created_at": "2026-03-03T18:30:08.234917"
+  },
+  {
+    "type": "deposit",
+    "action": "create_flow",
+    "env": "prod",
+    "client_id": 1179890,
+    "amount": 30.0,
+    "currency": "USD",
+    "payment_method_id": 19,
+    "success": true,
+    "balance_before": {
+      "Balances": {
+        "Unused": 371.0
+      },
+      "AvailableMain": 371.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "deposit_creation": {
+      "ResponseCode": "Success",
+      "Description": null,
+      "InterruptionCode": null,
+      "ResponseObject": {
+        "PaymentUrl": null
+      },
+      "TraceId": "a4e54d14c03a82bada118a341d54edb8"
+    },
+    "deposit_method": "backoffice_deposit",
+    "balance_after": {
+      "Balances": {
+        "Unused": 371.0
+      },
+      "AvailableMain": 371.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "balance_difference": 0.0,
+    "created_at": "2026-03-03T18:30:14.599028"
+  },
+  {
+    "type": "deposit",
+    "action": "create_flow",
+    "env": "prod",
+    "client_id": 1179890,
+    "amount": 30.0,
+    "currency": "USD",
+    "payment_method_id": 19,
+    "success": true,
+    "balance_before": {
+      "Balances": {
+        "Unused": 371.0
+      },
+      "AvailableMain": 371.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "deposit_creation": {
+      "ResponseCode": "Success",
+      "Description": null,
+      "InterruptionCode": null,
+      "ResponseObject": {
+        "PaymentUrl": null
+      },
+      "TraceId": "d560c6ea83332f327f7085a723714afd"
+    },
+    "deposit_method": "backoffice_deposit",
+    "balance_after": {
+      "Balances": {
+        "Unused": 371.0
+      },
+      "AvailableMain": 371.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "balance_difference": 0.0,
+    "created_at": "2026-03-03T18:30:17.648997"
+  },
+  {
+    "type": "deposit",
+    "action": "create_flow",
+    "env": "prod",
+    "client_id": 1179890,
+    "amount": 30.0,
+    "currency": "USD",
+    "payment_method_id": 19,
+    "success": true,
+    "balance_before": {
+      "Balances": {
+        "Unused": 371.0
+      },
+      "AvailableMain": 371.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "deposit_creation": {
+      "ResponseCode": "Success",
+      "Description": null,
+      "InterruptionCode": null,
+      "ResponseObject": {
+        "PaymentUrl": null
+      },
+      "TraceId": "37e7efa0334e5d31f043ce267c2456ff"
+    },
+    "deposit_method": "backoffice_deposit",
+    "balance_after": {
+      "Balances": {
+        "Unused": 371.0
+      },
+      "AvailableMain": 371.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "balance_difference": 0.0,
+    "created_at": "2026-03-03T18:30:20.548892"
+  },
+  {
+    "type": "deposit",
+    "action": "create_flow",
+    "env": "prod",
+    "client_id": 1179890,
+    "amount": 30.0,
+    "currency": "USD",
+    "payment_method_id": 19,
+    "success": true,
+    "balance_before": {
+      "Balances": {
+        "Unused": 371.0
+      },
+      "AvailableMain": 371.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "deposit_creation": {
+      "ResponseCode": "Success",
+      "Description": null,
+      "InterruptionCode": null,
+      "ResponseObject": {
+        "PaymentUrl": null
+      },
+      "TraceId": "70d5f0173bc852351167859e7ff415c8"
+    },
+    "deposit_method": "backoffice_deposit",
+    "balance_after": {
+      "Balances": {
+        "Unused": 371.0
+      },
+      "AvailableMain": 371.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "balance_difference": 0.0,
+    "created_at": "2026-03-03T18:30:23.670031"
+  },
+  {
+    "type": "deposit",
+    "action": "create_flow",
+    "env": "prod",
+    "client_id": 1179890,
+    "amount": 30.0,
+    "currency": "USD",
+    "payment_method_id": 19,
+    "success": true,
+    "balance_before": {
+      "Balances": {
+        "Unused": 371.0
+      },
+      "AvailableMain": 371.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "deposit_creation": {
+      "ResponseCode": "Success",
+      "Description": null,
+      "InterruptionCode": null,
+      "ResponseObject": {
+        "PaymentUrl": null
+      },
+      "TraceId": "8ad31df2952cc2885989f504d5a44ee3"
+    },
+    "deposit_method": "backoffice_deposit",
+    "balance_after": {
+      "Balances": {
+        "Unused": 371.0
+      },
+      "AvailableMain": 371.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "balance_difference": 0.0,
+    "created_at": "2026-03-03T18:30:29.764528"
+  },
+  {
+    "type": "deposit",
+    "action": "create_flow",
+    "env": "prod",
+    "client_id": 1179890,
+    "amount": 30.0,
+    "currency": "USD",
+    "payment_method_id": 19,
+    "success": true,
+    "balance_before": {
+      "Balances": {
+        "Unused": 371.0
+      },
+      "AvailableMain": 371.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "deposit_creation": {
+      "ResponseCode": "Success",
+      "Description": null,
+      "InterruptionCode": null,
+      "ResponseObject": {
+        "PaymentUrl": null
+      },
+      "TraceId": "1c9ba72d9f7bea34f4ece5c53ed0ad24"
+    },
+    "deposit_method": "backoffice_deposit",
+    "balance_after": {
+      "Balances": {
+        "Unused": 371.0
+      },
+      "AvailableMain": 371.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "balance_difference": 0.0,
+    "created_at": "2026-03-03T18:30:33.007121"
+  },
+  {
+    "type": "player",
+    "action": "create",
+    "env": "prod",
+    "email": "test-1772564318253@nextcode.tech",
+    "password": "Qweasd123!",
+    "userName": "user1772564318877",
+    "registration_method": "website",
+    "website_api": "https://websitewebapi.prod.sofon.one",
+    "partner_id": 5,
+    "clientId": 1179944,
+    "sessionToken": "42631018bb624ffbad148a2e287581f5",
+    "state": "Active",
+    "balance_setup": true,
+    "balance_amount": 0.0,
+    "balance_currency": "USD",
+    "actual_balance": {
+      "Balances": {
+        "Unused": 0.0
+      },
+      "AvailableMain": 0.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "created_at": "2026-03-03T19:58:39.198491"
+  }
+]

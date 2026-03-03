@@ -1,0 +1,35 @@
+{
+  "success": true,
+  "client_id": 1179890,
+  "iterations": 1,
+  "deposit_amount": 30.0,
+  "bonus_checkpoints": [
+    2,
+    4,
+    8,
+    10
+  ],
+  "successful_deposits": 1,
+  "successful_mark_as_paid": 1,
+  "total_new_bonuses": 0,
+  "expected_bonuses": 4,
+  "iteration_logs": [
+    {
+      "iteration": 1,
+      "deposit_success": true,
+      "payment_request_id": 1030943,
+      "mark_as_paid_success": true,
+      "bonuses_found": [],
+      "bonus_names": [],
+      "log_line": "[Iteration 1] Deposit: 30.0 USD | API Status: Success | UI Bonus Card: Not Found | Bonus Name: None",
+      "checkpoint": false,
+      "timestamp": "2026-03-03T19:37:51.642029"
+    }
+  ],
+  "summary": {
+    "deposit_success_rate": "1/1",
+    "mark_as_paid_success_rate": "1/1",
+    "bonus_success_rate": "0/4"
+  },
+  "timestamp": "2026-03-03T19:37:51.642091"
+}

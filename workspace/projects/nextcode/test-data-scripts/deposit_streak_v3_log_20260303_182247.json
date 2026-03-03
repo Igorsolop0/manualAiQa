@@ -1,0 +1,59 @@
+{
+  "success": false,
+  "env": "prod",
+  "player": {
+    "clientId": 1179890,
+    "email": "test-1772555337542@nextcode.tech",
+    "password": "Qweasd123!",
+    "sessionToken": "7a93cd46e1144cf3866d..."
+  },
+  "test_config": {
+    "deposit_amount": 30.0,
+    "iterations": 2,
+    "currency": "USD",
+    "bonus_checkpoints": [
+      2,
+      4,
+      8,
+      10
+    ],
+    "deposit_method": "BackOffice flow (MakeManualRedirectPayment -> MarkAsPaid)"
+  },
+  "initial_bonus_count": 0,
+  "final_bonus_count": 0,
+  "iterations": [
+    {
+      "iteration": 1,
+      "deposit_amount": 30.0,
+      "deposit_success": false,
+      "bonus_count": 0,
+      "new_bonuses": [],
+      "checkpoint": false,
+      "timestamp": "2026-03-03T18:22:41.838327"
+    },
+    {
+      "iteration": 2,
+      "deposit_amount": 30.0,
+      "deposit_success": false,
+      "bonus_count": 0,
+      "new_bonuses": [],
+      "checkpoint": true,
+      "timestamp": "2026-03-03T18:22:47.227583"
+    }
+  ],
+  "discrepancies": [
+    "Iteration 2: Expected bonus but none appeared",
+    "Iteration 4: Missing log entry",
+    "Iteration 8: Missing log entry",
+    "Iteration 10: Missing log entry"
+  ],
+  "summary": {
+    "total_deposits": 2,
+    "successful_deposits": 0,
+    "total_new_bonuses": 0,
+    "expected_bonuses": 4,
+    "deposit_success_rate": "0/2",
+    "bonus_success_rate": "0/4"
+  },
+  "timestamp": "2026-03-03T18:22:47.336780"
+}

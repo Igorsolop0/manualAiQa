@@ -1,2 +1,3 @@
-2026/03/02-11:23:51.533 215a3eb Creating DB /Users/ihorsolopii/.openclaw/workspace/phantom-test/.browser-data/Default/Extension State since it was missing.
-2026/03/02-11:23:51.536 215a3eb Reusing MANIFEST /Users/ihorsolopii/.openclaw/workspace/phantom-test/.browser-data/Default/Extension State/MANIFEST-000001
+2026/03/03-14:04:41.451 119755 Reusing MANIFEST /Users/ihorsolopii/.openclaw/workspace/phantom-test/.browser-data/Default/Extension State/MANIFEST-000001
+2026/03/03-14:04:41.451 119755 Recovering log #3
+2026/03/03-14:04:41.451 119755 Reusing old log /Users/ihorsolopii/.openclaw/workspace/phantom-test/.browser-data/Default/Extension State/000003.log 

@@ -1,0 +1,36 @@
+# API environments for Minebit/NextCode
+# Partner ID for Minebit: 5
+
+environments:
+  dev:
+    website_api: "https://websitewebapi.dev.sofon.one"
+    backoffice_api: "https://adminwebapi.dev.sofon.one"
+    wallet_api: "https://wallet.dev.sofon.one"
+    user_id: 1  # BackOffice UserId for Dev
+    partner_id: 5
+    safety_check: false  # Dev environment - less strict
+    
+  qa:
+    website_api: "https://websitewebapi.qa.sofon.one"
+    backoffice_api: "https://adminwebapi.qa.sofon.one"
+    wallet_api: "https://wallet.qa.sofon.one"
+    user_id: 1  # BackOffice UserId for QA
+    partner_id: 5
+    safety_check: true  # Always confirm before modifications
+    
+  prod:
+    website_api: "https://websitewebapi.prod.sofon.one"
+    backoffice_api: "https://adminwebapi.prod.sofon.one"
+    wallet_api: "https://wallet.prod.sofon.one"
+    user_id: 560  # BackOffice UserId for Prod (Ihor's account)
+    partner_id: 5
+    safety_check: true  # ALWAYS confirm before any modifications
+
+# Common configurations
+common:
+  default_currency: "USD"
+  default_password: "Qweasd123!"
+  test_email_domain: "nextcode.tech"
+  test_email_prefix: "test"
+  default_payment_method_id: 19  # Test payment method
+  default_amount: 100  # Default balance/deposit amount

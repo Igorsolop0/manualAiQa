@@ -1,0 +1,35 @@
+{
+  "success": true,
+  "env": "qa",
+  "player": {
+    "clientId": 3563285,
+    "email": "test-1772553441839@nextcode.tech",
+    "password": "Qweasd123!"
+  },
+  "test_config": {
+    "deposit_amount": 30.0,
+    "iterations": 1,
+    "currency": "USD"
+  },
+  "initial_bonus_count": 0,
+  "final_bonus_count": 0,
+  "iterations": [
+    {
+      "iteration": 1,
+      "deposit_amount": 30.0,
+      "deposit_success": true,
+      "bonus_count": 0,
+      "new_bonuses": [],
+      "timestamp": "2026-03-03T16:57:23.313400"
+    }
+  ],
+  "discrepancies": [],
+  "summary": {
+    "total_deposits": 1,
+    "successful_deposits": 1,
+    "total_new_bonuses": 0,
+    "deposit_success_rate": "1/1",
+    "bonus_creation_rate": "0/1"
+  },
+  "timestamp": "2026-03-03T16:57:23.447012"
+}

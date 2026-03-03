@@ -1,0 +1,44 @@
+{
+  "env": "qa",
+  "client_id": 3563255,
+  "amount": 5.0,
+  "currency": "USD",
+  "method": "wallet",
+  "success": true,
+  "wallet_result": {
+    "TransactionId": "test_8r7ucpl6jdxi2qb",
+    "OperationType": 17,
+    "AlreadyProcessed": false,
+    "Error": 0,
+    "CurrentBalances": {
+      "Balances": {
+        "Unused": 15.0
+      },
+      "AvailableMain": 15.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "RateAmounts": {
+      "Unused": 5.0
+    },
+    "Amount": 5.0,
+    "PartnerId": 5,
+    "ChildTransactions": [],
+    "RateUnusedTurnover": 0.0,
+    "RateBonusTurnover": 0.0,
+    "Context": {
+      "reason": "Test balance setup via script"
+    },
+    "IsError": false
+  },
+  "verified_balance": {
+    "Balances": {
+      "Unused": 15.0
+    },
+    "AvailableMain": 15.0,
+    "AvailableBonus": 0.0,
+    "Currency": "USD",
+    "SportBonus": 0.0
+  }
+}

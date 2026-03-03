@@ -7,7 +7,7 @@
       "name": "Gmail Check - NextCode",
       "enabled": true,
       "createdAtMs": 1771084279927,
-      "updatedAtMs": 1772472881584,
+      "updatedAtMs": 1772559037871,
       "schedule": {
         "kind": "cron",
         "expr": "*/30 9-18 * * 1-5",
@@ -24,14 +24,14 @@
         "mode": "announce"
       },
       "state": {
-        "nextRunAtMs": 1772524800000,
-        "lastRunAtMs": 1772472600151,
+        "nextRunAtMs": 1772611200000,
+        "lastRunAtMs": 1772559000101,
         "lastStatus": "ok",
-        "lastDurationMs": 281433,
+        "lastDurationMs": 37770,
         "consecutiveErrors": 0,
         "lastRunStatus": "ok",
-        "lastDeliveryStatus": "not-delivered",
-        "lastDelivered": false
+        "lastDeliveryStatus": "delivered",
+        "lastDelivered": true
       }
     },
     {
@@ -40,7 +40,7 @@
       "name": "Austria Channels Daily Summary",
       "enabled": true,
       "createdAtMs": 1771144483934,
-      "updatedAtMs": 1772388403736,
+      "updatedAtMs": 1772561400331,
       "schedule": {
         "kind": "cron",
         "expr": "0 19 * * *",
@@ -56,14 +56,14 @@
         "mode": "announce"
       },
       "state": {
-        "nextRunAtMs": 1772560800000,
-        "lastRunAtMs": 1772388000047,
-        "lastStatus": "ok",
-        "lastDurationMs": 403689,
-        "consecutiveErrors": 0,
-        "lastRunStatus": "ok",
-        "lastDeliveryStatus": "delivered",
-        "lastDelivered": true
+        "nextRunAtMs": 1772647200000,
+        "lastRunAtMs": 1772560800038,
+        "lastStatus": "error",
+        "lastDurationMs": 600293,
+        "consecutiveErrors": 1,
+        "lastRunStatus": "error",
+        "lastDeliveryStatus": "unknown",
+        "lastError": "cron: job execution timed out"
       }
     },
     {

@@ -266,6 +266,26 @@ curl 'https://wallet.dev.sofon.one/5/api/v1/balance/59107/USD'
 - QA: 1
 - Dev: 1
 
+### ⚠️ Дві системи авторизації (критично!)
+
+**Відкрито:** 2026-03-03 — Для автоматизації депозитів потрібно розрізняти дві системи:
+
+| Система | URL | Авторизація | Повертає PaymentRequestId? |
+|---------|-----|-------------|----------------------------|
+| **AdminWeb API** | `https://adminwebapi.prod.sofon.one/api/` | `UserId: 560` (заголовок) | ❌ Ні (`{"PaymentUrl": null}`) |
+| **BackOffice UI API** | `https://backoffice.prod.sofon.one/mgw/admin/` | `Bearer` токен (JWT) | ✅ Так (можна викликати `MarkAsPaid`) |
+
+**Ключова відмінність:**
+- `MakeManualRedirectPayment` через **AdminWeb API** створює депозит, але не повертає `PaymentRequestId` → неможливо викликати `MarkAsPaid` → депозит залишається в `InProgress` → **подія депозиту не тригериться** → бонуси не нараховуються.
+- Той самий ендпоїнт через **BackOffice UI API** з Bearer токеном повертає `PaymentRequestId` → можна викликати `MarkAsPaid` → депозит завершується → подія тригериться → **бонуси нараховуються**.
+
+**Повний автоматизований флоу (працює):**
+1. `POST /mgw/admin/api/Client/MakeManualRedirectPayment` (Bearer токен)
+2. `POST /mgw/admin/api/v2/Payment/GetAllWithTotal` (пошук за `clientId`)
+3. `PATCH /mgw/admin/api/v2/Payment/ChangeStatus` (`MarkAsPaid`)
+
+**Скрипт автоматизації:** `deposit_streak_auto.py` (див. дневник 2026-03-03)
+
 ### Стандартний флоу:
 
 **1. Реєстрація/Пошук клієнта**
@@ -301,6 +321,8 @@ curl 'https://wallet.dev.sofon.one/5/api/v1/balance/59107/USD'
 ```
 - Ендпоїнт: PATCH `Payment/ChangeStatus`
 
+**⚠️ Увага:** Цей флоу використовує AdminWeb API (`UserId: 560`). Для тригеру бонусів потрібен **BackOffice UI API** з Bearer токеном (див. розділ "Дві системи авторизації" вище).
+
 ### Правила безпеки:
 - Завжди питаю підтвердження перед змінами
 - Депозити тільки для `IsTest = true`
@@ -318,6 +340,12 @@ CreateDebitCorrection  → CREDITS (додає гроші) ✅
 - `apiClientRegisterClient`
 - `MakeManualRedirectPayment`
 - `Payment/ChangeStatus`
+
+**Для BackOffice UI API (Bearer токен):**
+- `POST /mgw/admin/api/Client/MakeManualRedirectPayment`
+- `POST /mgw/admin/api/v2/Payment/GetAllWithTotal`
+- `PATCH /mgw/admin/api/v2/Payment/ChangeStatus`
+- `GET /mgw/admin/api/v2/Payment/GetById/{id}`
 
 ---
 
@@ -802,3 +830,80 @@ Memory relevant to this ticket:
 2. Розумій структуру запиту (параметри, типи даних)
 3. Можливо протестувати API напряму
 4. Тільки потім переходити до UI — тепер ти знаєш що саме відбувається
+
+---
+
+## 🛠️ Test Data Scripts (Автоматизація підготовки даних)
+
+**Створено:** 2026-03-03
+
+**Локація:** `/Users/ihorsolopii/.openclaw/workspace/projects/nextcode/test-data-scripts/`
+
+**Призначення:** Автоматизована підготовка тестових даних для Minebit/NextCode через API.
+
+### Доступні скрипти
+
+| Скрипт | Функція |
+|--------|---------|
+| `01_create_test_player.py` | Створення тестового гравця (GraphQL/Website API) |
+| `02_set_test_player_balance.py` | Встановлення балансу (Wallet/BackOffice API) |
+| `03_create_deposit_flow.py` | Повний флоу депозиту через BackOffice (**AdminWeb API**, `UserId` auth) |
+| `deposit_streak_auto.py` | Автоматизація Deposit Streak тесту (**BackOffice UI API**, `Bearer` токен) |
+| `04_get_player_info.py` | Отримання інформації про гравця |
+| `05_create_bonus.py` | Створення тестового бонусу |
+| `07_test_data_orchestrator.py` | Оркестратор сценаріїв |
+
+### Сценарії оркестратора
+
+- `player_with_balance` — Гравець з балансом
+- `player_with_bonus` — Гравець з бонусом
+- `deposit_streak` — Гравець з 3 депозитами
+- `high_roller` — Гравець з великим балансом ($1000)
+- `full_setup` — Повне налаштування (balance + deposit + bonus)
+
+### Швидке використання
+
+```bash
+cd /Users/ihorsolopii/.openclaw/workspace/projects/nextcode/test-data-scripts
+
+# Створити гравця з балансом
+python3 scripts/01_create_test_player.py --env qa --balance 100
+
+# Додати баланс
+python3 scripts/02_set_test_player_balance.py 123456 --amount 50 --env qa
+
+# Виконати сценарій
+python3 scripts/07_test_data_orchestrator.py --scenario player_with_balance --env qa
+```
+
+### API Клієнти
+
+- **WebsiteApiClient** — `https://websitewebapi.{env}.sofon.one`
+- **AdminWebApiClient** — `https://adminwebapi.{env}.sofon.one` (`UserId` auth)
+- **BackOfficeUiApiClient** — `https://backoffice.{env}.sofon.one/mgw/admin/` (`Bearer` токен)
+- **WalletApiClient** — `https://wallet.{env}.sofon.one`
+- **GraphQLClient** — `https://minebit-casino.{env}.sofon.one/graphql`
+
+**Примітка:** Для депозитів, що тригерять бонуси, використовуйте **BackOfficeUiApiClient** (Bearer токен). AdminWebApiClient не повертає `PaymentRequestId` для `MarkAsPaid`.
+
+### Важливі правила
+
+1. **Безпека:** Всі скрипти автоматично встановлюють `IsTest = true`
+2. **Wallet API логіка:** `create_debit_correction` → додає гроші ✅
+3. **Deposit flow:** Створити депозит → MarkAsPaid (обов'язково!)
+4. **Prod:** Вимагає підтвердження для всіх дій
+5. **Бонуси:** Wallet corrections **не тригерять** бонуси Deposit Streak. Для тестування бонусів використовуйте BackOffice UI API (`Bearer` токен) з повним флоу (`MakeManualRedirectPayment` → `MarkAsPaid`).
+
+### Інтеграція з Playwright
+
+Скрипти можна використовувати як модулі у Playwright fixtures:
+
+```python
+from create_test_player import create_test_player
+
+@pytest.fixture
+def test_player():
+    return create_test_player(env="qa", setup_balance=True)
+```
+
+**Детальна документація:** `test-data-scripts/README.md`
