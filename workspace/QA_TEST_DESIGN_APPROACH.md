@@ -79,17 +79,14 @@ Unknowns / assumptions needed: ...
 ```
 
 ### 2. Testing types (“салат”)
-- Choose only those testing types that are **realistically relevant** to this feature (don't list all types).
-- Prioritize functional first, then needed non-functional (security, usability, performance, etc.).
-- For each chosen type, write one sentence: what exactly will be tested with this type.
+- Choose only those testing types that are **realistically relevant** to this feature.
+- **CRITICAL FOR MINEBIT:** By default, ONLY use **Functional / BlackBox / E2E** testing (Positive and Negative scenarios). DO NOT generate Security, Performance, or Usability tests for daily tickets unless the user explicitly asks for them.
+- For the chosen functional type(s), write one sentence: what exactly will be tested.
 
 **Output format:**
 ```
 Selected testing types:
-- Functional: ...
-- Security (if applicable): ...
-- Usability (if applicable): ...
-- Other relevant types: ...
+- Functional / BlackBox: ...
 ```
 
 ### 3. Test design techniques (“помідор”)
@@ -137,7 +134,6 @@ Prioritization approach: ...
 Test scenarios:
 1) [Functional, EP+BVA] Valid login with correct email and password → redirect to dashboard.
 2) [Functional, EP] Login with invalid email format → validation error message.
-3) [Security, State Transition] 5 failed login attempts → account locked, no further login possible.
 ...
 ```
 

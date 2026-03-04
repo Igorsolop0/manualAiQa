@@ -745,6 +745,8 @@ Memory relevant to this ticket:
 - Якщо вимоги незрозумілі — явно вказувати, задавати питання
 - Прив'язувати кожен сценарій до вимоги, виду тестування та техніки
 - Застосовувати домен-специфічні адаптації (казино, платежі, Web3)
+- **CRITICAL GUARDRAIL (TEST TYPES):** Ніколи не генерувати Security/Performance/Load/Usability тести для функціональних тікетів, якщо користувач явно цього не попросив.
+- **CRITICAL GUARDRAIL (TESTRAIL):** Перед відправкою або генерацією тест-кейсів для TestRail, **ЗАВЖДИ валідувати** їх за правилами з файлу `TESTRAIL_STANDARDS.md` (Language = English, no Jira IDs in titles, auto-learning dictionary).
 
 ### Адаптації для наших проєктів
 **Minebit/NextCode (казино):**
@@ -907,3 +909,275 @@ def test_player():
 ```
 
 **Детальна документація:** `test-data-scripts/README.md`
+
+---
+
+## ⚠️ Проблема сегментації гравців (критично для тестування бонусів)
+
+**Відкрито:** 2026-03-03
+
+**Проблема:** Гравці з тестовими email потрапляють у тестові сегменти, які можуть блокувати бонуси Deposit Streak.
+
+**Тестові сегменти (виявлено користувачем):**
+- `Segments Static: Icon-edit Dynamic: BP-bonusId-1222-WhenToHide-05/09/2025`
+- `All users Test OQ`
+- `BP-bonusId-1525-WhenToHide-05/09/2025`
+- `BP-bonusId-1223-WhenToHide-05/09/2025`
+- `BP-bonusId-1224-WhenToHide-05/09/2025`
+- `Smartico Segments: Pawn Pioneer`
+- `Complex Segments: Active_user, Multiaccount`
+
+### Блокуючі сегменти (Minebit)
+**Джерело:** Повідомлення від проджект менеджера Danylo (бренд Minebit), 2026-03-04.
+
+Вадим (з команди Minebit) встановлює наступні 4 сегменти як тригери для активації бонусів. Якщо гравець має хоча б один із цих сегментів, активація будь-яких бонусів для нього **блокована**.
+
+| Сегмент | Тип | Призначення |
+|---------|-----|-------------|
+| Multiaccount | Комплексний | Автоматично присвоюється системою |
+| Bonus Hunter | Статичний | Виставляється вручну |
+| Mult | Статичний | Виставляється вручну |
+| Fraud_reg_pass | Комплексний | Автоматично присвоюється системою |
+
+**Сегмент MULTI_BONUS_ALLOWED** — повертає можливість отримувати бонуси (якщо гравець раніше потрапив у блокуючі сегменти). Оновлюється автоматично через час; для термінового оновлення потрібно звернутися до Danylo.
+
+**Сегменти, які НЕ присвоюються автоматично** (не блокують бонуси): ВІП, ПреВІП, Потенційний ВІП.
+
+*Ця інформація критична для створення користувачів на PROD, щоб бонуси працювали правильно.*
+
+### 🛠️ Рішення: менш тестові дані
+
+1. **Оновлено `generate_test_data.py`**:
+   - Email: `demo1772565196491@nextcode.tech` (замість `test-...`)
+   - Username: `demo1772565196719` (замість `user...`)
+   - Пароль: `Qweasd123!` (без змін)
+
+2. **Новий гравець 1179951** (створено 2026-03-03):
+   - Email: `demo1772565196491@nextcode.tech`
+   - Client ID: 1179951
+   - Session token: `ef6140930984437293552d19fae1106f`
+   - **Не позначений як тестовий** (помилка 400 при спробі встановити `IsTest = true`)
+   - Можливо, уникає тестових сегментів
+
+### ⚠️ Поточна блокуюча проблема: Bearer токен протух
+- Bearer токен для BackOffice UI API має термін дії ~3 години
+- Поточний токен (дійсний до 22:46 UTC 2026-03-03) повертає **401 Unauthorized**
+- Без нового Bearer токена неможливо створювати депозити через BackOffice UI API
+
+### 📋 Висновки для тестування Deposit Streak:
+1. **Використовуйте гравців з "demo" email** замість "test-" щоб уникнути тестової сегментації
+2. **Bearer токен потребує оновлення** кожні ~3 години (отримувати через логін BackOffice)
+3. **Перевіряйте сегментацію гравця** перед тестуванням бонусів
+4. **Wallet corrections не тригерять бонуси** — використовуйте лише BackOffice UI API з повним флоу (`MakeManualRedirectPayment` → `MarkAsPaid`)
+
+---
+
+## 🔍 Результати повного тестування Deposit Streak (2026-03-03)
+
+### Автоматизований флоу працює ідеально
+**Скрипт:** `deposit_streak_auto.py` (розташування: `projects/nextcode/test-data-scripts/scripts/`)
+
+**Флоу:**
+1. `POST /mgw/admin/api/Client/MakeManualRedirectPayment` (Bearer токен)
+2. `POST /mgw/admin/api/v2/Payment/GetAllWithTotal` (пошук за `clientId`)
+3. `PATCH /mgw/admin/api/v2/Payment/ChangeStatus` (`MarkAsPaid`)
+
+**Результат:** 10/10 депозитів успішно створено та позначено як оплачені. Технічно флоу працює бездоганно.
+
+### Бонуси не з'являються навіть після успішних депозитів
+**Тестовий гравець:** 1179951 (demo1772565196491@nextcode.tech)
+- **10 депозитів по $30 кожен:** усі успішні
+- **Очікувані бонуси:** 4 (після депозитів 2, 4, 8, 10)
+- **Фактичні бонуси:** 0 (жодного бонусу не з'явилося)
+
+### Можливі причини відсутності бонусів
+1. **Сегментація:** Гравець все ще може потрапляти в тестові сегменти
+2. **Кампанія неактивна:** Deposit Streak може бути неактивований на PROD для нових гравців
+3. **Payment method 19:** Тестовий метод може не тригерити бонуси навіть після `MarkAsPaid`
+4. **Конфігурація бонусу:** Додаткові критерії (мінімальна сума, інтервал тощо)
+
+### Критичні відкриття
+1. **Гравець не позначений як тестовий:** При спробі встановити `IsTest = true` для гравця 1179951 отримано помилку 400. Це може бути **добре** — гравець не потрапляє в тестові сегменти.
+2. **Bearer токен має обмежений термін дії:** ~3 години, потрібно оновлювати через логін BackOffice.
+3. **Технічна автоматизація готова:** Скрипт `deposit_streak_auto.py` може використовуватися для майбутніх тестувань після вирішення проблеми з бонусами.
+
+### Наступні кроки
+1. **Ручна перевірка бонусів** для гравця 1179951 через UI
+2. **Перевірка сегментації** через BackOffice
+3. **Перевірка активності кампанії Deposit Streak** на PROD
+4. **Пошук реального payment method** для USD (не тестового)
+
+### Запропоновані тест-кейси для TestRail
+Підготовлено 10 детальних тест-кейсів, що охоплюють:
+- Основний флоу (2 депозити → бонус → клейм)
+- Регресивний тест (10 депозитів)
+- Негативні тести (Wallet corrections, тестові сегменти)
+- UI validation, API validation, edge cases
+
+**Критичні моменти для тестування:**
+- Авторизація: BackOffice UI API vs AdminWeb API
+- Сегментація гравців
+- Payment method вплив на тригер бонусів
+- Wallet corrections не тригерять бонуси
+
+---
+
+## QA Testing Learnings - Minebit (2026‑03‑04)
+
+### 🧪 CT‑824 Realtime Rakeback – Comprehensive Test Analysis
+
+**Context:** Full smoke‑test and E2E test case design for new Realtime Rakeback feature (epic CRYPTO‑463).
+
+**What We Tested:**
+1. **Player creation & deposit** via BackOffice API (Bearer token flow).
+2. **Real‑money wager** ($100) in game `trade‑smarter‑1000x`.
+3. **30‑minute accrual wait** (cron `*/30 * * * *`).
+4. **Bonus appearance** on `/bonuses` page.
+5. **Claim flow** and balance verification.
+6. **House Edge calculation** validation.
+
+**Key Discoveries:**
+1. **Formula works correctly** – `Rakeback = wager × 0.0025 (0.25% house edge) × 0.1 (10% coefficient)`.
+2. **House Edge configuration error** – Game `trade‑smarter‑1000x` uses 0.278% instead of required 0.25%.
+3. **Funds go to real balance** (Unused balance) – consistent with Regular Bonuses (BonusTypeId: 11).
+4. **No Active Bonuses entry** – claimed amounts credited directly to balance (no wagering).
+5. **Smartico involvement** (IsSmartico: true) – calculation may have slight delays.
+6. **Bearer token expiration** – BackOffice UI API token lasts ~3 hours, requires login refresh.
+
+**Critical Testing Patterns Established:**
+- **API‑first setup** – Create player/deposit via API (minutes) before UI testing.
+- **Burger Methodology** – Structured test design: Memory Check → Feature Container → Testing Types → Techniques → Risk‑Based Approach → Scenarios.
+- **TestRail integration** – Automated case addition via Python script (`testrail_add_realtime_rakeback.py`).
+- **E2E test case structure** – Clear preconditions, steps, expected results, prioritization.
+
+**Scripts & Tools Developed:**
+1. `testrail_add_realtime_rakeback.py` – Add 5 E2E cases to TestRail (Section ID 7091).
+2. `deposit_streak_auto.py` – Automated deposit flow with Bearer token (usable for rakeback).
+3. **Player creation pattern** – GraphQL registration + BackOffice deposit + MarkAsPaid.
+
+**Lessons for Future Minebit Testing:**
+- **Always verify House Edge per game category** – Configuration can differ and cause financial discrepancies.
+- **Bearer token management** – Refresh before automated test suites.
+- **Test player segmentation** – Avoid `demo*`/`test*` emails to prevent test‑segment exclusion.
+- **30‑minute wait problem** – Need test‑only cron (1‑5 min) or mock API endpoint for CI.
+- **BackOffice UI API vs AdminWeb API** – Use UI API (`Bearer` token) for deposits that trigger bonuses (returns `PaymentRequestId`).
+- **Wallet corrections don't trigger bonuses** – Only proper deposit flow (`MakeManualRedirectPayment` → `MarkAsPaid`) works.
+
+**Test Coverage Created:**
+- 5 E2E test cases in TestRail (IDs 30630‑30634).
+- Burger‑based test scenarios for House Edge, VIP split, timers, negative cases.
+- API validation steps for balance, bonus eligibility, accrual timing.
+
+**Next Time Similar Task:**
+1. Ask developer about test‑only cron interval or mock endpoint.
+2. Verify House Edge configuration for target game before testing.
+3. Use fresh Bearer token (login via BackOffice).
+4. Create player with non‑test email pattern.
+5. Run basic happy‑path, then expand to edge cases.
+
+---
+
+## Daily Standup Monitoring
+
+**Правило:** Щодня перевіряти транскрипти дейлі-мітингів за сьогодні та попередні два дні. Вилучати ключову інформацію щодо готовності тікетів до тестування або нюансів у тестуванні. Зберігати цю інформацію для майбутнього дизайну тест-кейсів або тестування тікетів.
+
+**Процес:**
+1. **Отримання транскрипту:** Користувач надає транскрипт дейлі (текст).
+2. **Аналіз:** Визначити ключові теми, статуси тікетів, проблеми, плани.
+3. **Збереження:**
+   - Зберегти самарі у файл `projects/nextcode/meeting-notes/YYYY-MM-DD-daily-summary.md`
+   - Опублікувати самарі у Slack канал `#general`
+   - Оновити MEMORY.md з важливою довгостроковою інформацією (наприклад, блокуючі проблеми, зміни в процесах)
+4. **Оновлення статусів тікетів:** Витягнути інформацію про тікети, які будуть готові до тестування, та додати їх до списку моніторингу.
+
+**Важливі елементи для вилучення:**
+- Тікети, які розробники закінчили або готові до тестування
+- Проблеми, що виникають під час тестування (наприклад, сегментація гравців, конфігурація бонусів)
+- Плани на спринт (хто що робить, оцінки)
+- Технічні нюанси (наприклад, Bearer токен протухає через 3 години)
+
+**Частота:** Щодня (під час робочих годин) або при отриманні транскрипту.
+
+**Посилання:**
+- Папка з щоденними нотатками: `projects/nextcode/meeting-notes/`
+- Slack канал: `#general` (C0AHRLH1Y3S)
+
+---
+
+## CT-622 Metamask FE Integration (Crypto Wallet Auth)
+
+**Status:** Testing (as of 2026-03-04)
+**Assignee:** Panda Sensei (Ihor)
+**Blockers:** CRYPTO-485 (BE) in Development, PR‑2870 (Tested)
+**Depends:** CT‑621 (Ready for Release)
+
+**Description:** Add Metamask as registration & login method on desktop + mobile. Frontend SDK (wagmi+viem or ethers), UI button in Strapi, conditional popup for missing extension, loader during auth, follow BC Games flow.
+
+**Key Requirements:**
+- Desktop with extension installed → click opens extension
+- Desktop without extension → popup with download link / QR code for mobile
+- Mobile with app installed → prompt to open app
+- Loader on button during auth process
+- Integration with BE API (SIWE flow)
+
+**Testing Results (2026-03-04):**
+- ✅ **Desktop + extension:** Works – click opens extension, sign message, successful login, loader shows
+- ❌ **Desktop − extension:** Errors – popup appears with download link & QR code, but backend API calls fail:
+  - GET 502 (Bad Gateway)
+  - GET 500 (Internal Server Error)  
+  - POST 500 (Internal Server Error)
+  - TypeError: Cannot read properties of null (reading '0')
+- **Error context:** Zone.js Angular errors in `XMLHttpRequest.addEventListener:load getClient@ ngOnInit@`
+
+**Root Cause Hypothesis:** Backend endpoints for Metamask auth (SIWE flow) not fully deployed to DEV yet (CRYPTO‑485 still in Development). Frontend calls failing due to missing/unavailable API routes.
+
+**Next Steps:**
+1. Confirm CRYPTO‑485 deployment status
+2. Inspect network requests to identify failing endpoints
+3. Verify CORS configuration
+4. Check backend logs for 502/500 errors
+5. Mark CT‑622 as **Blocked by CRYPTO‑485** until BE endpoints return 200
+
+**Test Coverage Needed:**
+- Extension detection logic
+- Popup UI & QR code generation
+- Mobile deep‑link flow
+- Error handling for missing backend
+- Cross‑browser compatibility (Chrome, Firefox, Safari)
+- Security validation (SIWE signature, nonce, replay attack prevention)
+
+**Burger Methodology Analysis:** Completed – see Slack thread for full structured test design.
+
+**BackOffice User Details Issue (2026‑03‑04):**
+- **Problem:** After successful Metamask registration, tester cannot view user details in BackOffice UI – receives an error.
+- **Possible causes:** Missing fields for crypto‑wallet users (email, phone), UI not handling new registration type, expired Bearer token, backend API issue.
+- **Diagnostic steps:** Check API endpoint `GetClientById` via AdminWeb API (UserId auth) and BackOffice UI API (Bearer token). Compare response structure with traditional email‑registered users.
+- **Status:** Awaiting details (error message, client ID) from tester.
+
+**Password/Email & Segmentation Questions (2026‑03‑04):**
+- **Tester questions:** Can Metamask‑registered users set password? Add email? Will segmentation work?
+- **Analysis from ticket:** No explicit requirements for password/email in CT‑622; SIWE auth uses wallet address identification.
+- **Likely behavior:** Crypto‑wallet users may have **no password/email** in current implementation; segmentation based on email may not work.
+- **Segmentation alternatives:** May need to use wallet address or registration type for segmentation.
+- **Testing focus:** Primary goal is Metamask auth flow (extension, popup, mobile deep‑link). Password/email/segmentation may be out of scope for this ticket.
+- **Next steps:** Check personal cabinet for email/password addition; fetch user data via API; consult tech research doc or developer for clarification.
+
+**API Analysis for Client 59153 (2026‑03‑04):**
+- **Client ID:** 59153 (Metamask‑registered user on DEV)
+- **Session token:** `ed31ecae754546bfb0707565fb2f03f2` (provided by tester)
+- **Findings:**
+  1. AdminWeb API → 404 Not Found (endpoint may be wrong or user doesn't exist in AdminWeb system).
+  2. Wallet API → 503 Service Temporarily Unavailable (Wallet service on DEV appears down).
+  3. BackOffice API via script → `'NoneType' object has no attribute 'get'` (likely expired Bearer token or authentication issue).
+  4. Website API → 401 Unauthorized (session token not valid for this endpoint).
+  5. GraphQL → `Cannot return null for non‑nullable field Query.player` (user not found with given parameters).
+- **Observations:** DEV environment has API availability issues. Session token works for site authentication but not for all API endpoints.
+- **Recommendation:** Tester should check **WebsiteWeb API Swagger (DEV)** → endpoint `GET /api/v3/Client/GetClientById` with `id=59153` and appropriate headers to see if email/phone fields are present.
+
+**TestRail E2E Test Cases for CT‑622 (2026‑03‑04):**
+- **Status:** ✅ Added 12 test cases via script `testrail_add_metamask_integration.py`
+- **Section:** "Metamask Integration" (ID 7213) under "Authentication" (ID 6839)
+- **TestRail URL:** https://nexttcode.testrail.io/index.php?/suites/view/631&group_by=cases:section_id&group_id=7213
+- **Cases:** Desktop+extension, Desktop−extension, Mobile+app, Mobile−app, Signature rejection, Multiple accounts, Network switching, Session persistence, Cross‑browser, Responsive UI, Loader states, BE integration
+- **Security test case:** Not added due to priority_id error (low priority)
+- **Next:** Tester can execute tests; mark CT‑622 as Blocked by CRYPTO‑485 for missing‑extension flow

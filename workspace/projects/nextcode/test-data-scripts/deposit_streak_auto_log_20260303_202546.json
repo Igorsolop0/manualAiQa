@@ -1,0 +1,134 @@
+{
+  "success": true,
+  "client_id": 1179951,
+  "iterations": 10,
+  "deposit_amount": 30.0,
+  "bonus_checkpoints": [
+    2,
+    4,
+    8,
+    10
+  ],
+  "successful_deposits": 10,
+  "successful_mark_as_paid": 10,
+  "total_new_bonuses": 0,
+  "expected_bonuses": 4,
+  "iteration_logs": [
+    {
+      "iteration": 1,
+      "deposit_success": true,
+      "payment_request_id": 1030978,
+      "mark_as_paid_success": true,
+      "bonuses_found": [],
+      "bonus_names": [],
+      "log_line": "[Iteration 1] Deposit: 30.0 USD | API Status: Success | UI Bonus Card: Not Found | Bonus Name: None",
+      "checkpoint": false,
+      "timestamp": "2026-03-03T20:25:02.488713"
+    },
+    {
+      "iteration": 2,
+      "deposit_success": true,
+      "payment_request_id": 1030979,
+      "mark_as_paid_success": true,
+      "bonuses_found": [],
+      "bonus_names": [],
+      "log_line": "[Iteration 2] Deposit: 30.0 USD | API Status: Success | UI Bonus Card: Not Found | Bonus Name: None",
+      "checkpoint": true,
+      "timestamp": "2026-03-03T20:25:07.204111"
+    },
+    {
+      "iteration": 3,
+      "deposit_success": true,
+      "payment_request_id": 1030980,
+      "mark_as_paid_success": true,
+      "bonuses_found": [],
+      "bonus_names": [],
+      "log_line": "[Iteration 3] Deposit: 30.0 USD | API Status: Success | UI Bonus Card: Not Found | Bonus Name: None",
+      "checkpoint": false,
+      "timestamp": "2026-03-03T20:25:12.175418"
+    },
+    {
+      "iteration": 4,
+      "deposit_success": true,
+      "payment_request_id": 1030981,
+      "mark_as_paid_success": true,
+      "bonuses_found": [],
+      "bonus_names": [],
+      "log_line": "[Iteration 4] Deposit: 30.0 USD | API Status: Success | UI Bonus Card: Not Found | Bonus Name: None",
+      "checkpoint": true,
+      "timestamp": "2026-03-03T20:25:17.446784"
+    },
+    {
+      "iteration": 5,
+      "deposit_success": true,
+      "payment_request_id": 1030982,
+      "mark_as_paid_success": true,
+      "bonuses_found": [],
+      "bonus_names": [],
+      "log_line": "[Iteration 5] Deposit: 30.0 USD | API Status: Success | UI Bonus Card: Not Found | Bonus Name: None",
+      "checkpoint": false,
+      "timestamp": "2026-03-03T20:25:22.343534"
+    },
+    {
+      "iteration": 6,
+      "deposit_success": true,
+      "payment_request_id": 1030983,
+      "mark_as_paid_success": true,
+      "bonuses_found": [],
+      "bonus_names": [],
+      "log_line": "[Iteration 6] Deposit: 30.0 USD | API Status: Success | UI Bonus Card: Not Found | Bonus Name: None",
+      "checkpoint": false,
+      "timestamp": "2026-03-03T20:25:27.280205"
+    },
+    {
+      "iteration": 7,
+      "deposit_success": true,
+      "payment_request_id": 1030984,
+      "mark_as_paid_success": true,
+      "bonuses_found": [],
+      "bonus_names": [],
+      "log_line": "[Iteration 7] Deposit: 30.0 USD | API Status: Success | UI Bonus Card: Not Found | Bonus Name: None",
+      "checkpoint": false,
+      "timestamp": "2026-03-03T20:25:32.182863"
+    },
+    {
+      "iteration": 8,
+      "deposit_success": true,
+      "payment_request_id": 1030986,
+      "mark_as_paid_success": true,
+      "bonuses_found": [],
+      "bonus_names": [],
+      "log_line": "[Iteration 8] Deposit: 30.0 USD | API Status: Success | UI Bonus Card: Not Found | Bonus Name: None",
+      "checkpoint": true,
+      "timestamp": "2026-03-03T20:25:36.927596"
+    },
+    {
+      "iteration": 9,
+      "deposit_success": true,
+      "payment_request_id": 1030987,
+      "mark_as_paid_success": true,
+      "bonuses_found": [],
+      "bonus_names": [],
+      "log_line": "[Iteration 9] Deposit: 30.0 USD | API Status: Success | UI Bonus Card: Not Found | Bonus Name: None",
+      "checkpoint": false,
+      "timestamp": "2026-03-03T20:25:41.740665"
+    },
+    {
+      "iteration": 10,
+      "deposit_success": true,
+      "payment_request_id": 1030988,
+      "mark_as_paid_success": true,
+      "bonuses_found": [],
+      "bonus_names": [],
+      "log_line": "[Iteration 10] Deposit: 30.0 USD | API Status: Success | UI Bonus Card: Not Found | Bonus Name: None",
+      "checkpoint": true,
+      "timestamp": "2026-03-03T20:25:46.519215"
+    }
+  ],
+  "summary": {
+    "deposit_success_rate": "10/10",
+    "mark_as_paid_success_rate": "10/10",
+    "bonus_success_rate": "0/4"
+  },
+  "timestamp": "2026-03-03T20:25:46.520548"
+}

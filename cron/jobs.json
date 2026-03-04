@@ -7,7 +7,7 @@
       "name": "Gmail Check - NextCode",
       "enabled": true,
       "createdAtMs": 1771084279927,
-      "updatedAtMs": 1772559037871,
+      "updatedAtMs": 1772645442363,
       "schedule": {
         "kind": "cron",
         "expr": "*/30 9-18 * * 1-5",
@@ -24,10 +24,10 @@
         "mode": "announce"
       },
       "state": {
-        "nextRunAtMs": 1772611200000,
-        "lastRunAtMs": 1772559000101,
+        "nextRunAtMs": 1772697600000,
+        "lastRunAtMs": 1772645400398,
         "lastStatus": "ok",
-        "lastDurationMs": 37770,
+        "lastDurationMs": 41965,
         "consecutiveErrors": 0,
         "lastRunStatus": "ok",
         "lastDeliveryStatus": "delivered",
@@ -56,14 +56,13 @@
         "mode": "announce"
       },
       "state": {
-        "nextRunAtMs": 1772647200000,
+        "nextRunAtMs": 1772733600000,
         "lastRunAtMs": 1772560800038,
         "lastStatus": "error",
         "lastDurationMs": 600293,
         "consecutiveErrors": 1,
         "lastRunStatus": "error",
-        "lastDeliveryStatus": "unknown",
-        "lastError": "cron: job execution timed out"
+        "lastDeliveryStatus": "unknown"
       }
     },
     {
@@ -93,6 +92,33 @@
         "lastError": "cron: job execution timed out",
         "lastDeliveryStatus": "not-requested",
         "consecutiveErrors": 1
+      }
+    },
+    {
+      "id": "e5c1d4b2-8a9f-4321-b8f9-c1d2e3f4a5b6",
+      "agentId": "main",
+      "name": "Daily Agent Self-Review",
+      "description": "Щоденний аналіз власних дій та розмов для покращення роботи",
+      "enabled": true,
+      "createdAtMs": 1772640000000,
+      "updatedAtMs": 1772640000000,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 23 * * *",
+        "tz": "Europe/Vienna"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "Виконай щоденний self-review. Прочитай /Users/ihorsolopii/.openclaw/workspace/MEMORY.md та останні оновлення в /Users/ihorsolopii/.openclaw/workspace/LEARNINGS.md. Також проаналізуй наші останні розмови.\n\nПроаналізуй нашу взаємодію об'єктивно та критично. Зверни увагу на мої правила з USER.md (особливо: чи зекономив ти мені час та чи зменшив cognitive load).\n\nНапиши звіт у Slack канал #gmail (C0AH7CRFQES) у такому форматі:\n**1. Що було добре:** Які твої відповіді чи дії сьогодні були найбільш ефективними?\n**2. Що можна було б зробити краще:** Де ти припустився помилок, був занадто багатослівним або відхилився від правил? Які твої слабкі місця проявилися?\n**3. Як Ігор може пояснювати краще:** Якого контексту або деталей тобі не вистачало в моїх запитах? Як я можу формулювати задачі ефективніше?\n**4. Action Items для агента:** 1-2 конкретні ідеї, які ти сам імплементуєш завтра для покращення своєї роботи.\n\nБудь лаконічним, професійним. Уникай 'корпоративної води'."
+      },
+      "delivery": {
+        "mode": "announce"
+      },
+      "state": {
+        "consecutiveErrors": 0,
+        "nextRunAtMs": 1772661600000
       }
     }
   ]

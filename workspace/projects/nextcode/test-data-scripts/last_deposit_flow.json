@@ -1,15 +1,15 @@
 {
-  "env": "prod",
-  "client_id": 1179890,
-  "amount": 30.0,
+  "env": "qa",
+  "client_id": 3563293,
+  "amount": 300.0,
   "currency": "USD",
-  "payment_method_id": 19,
+  "payment_method_id": 104,
   "success": true,
   "balance_before": {
     "Balances": {
-      "Unused": 371.0
+      "Unused": 300.0
     },
-    "AvailableMain": 371.0,
+    "AvailableMain": 300.0,
     "AvailableBonus": 0.0,
     "Currency": "USD",
     "SportBonus": 0.0
@@ -21,14 +21,14 @@
     "ResponseObject": {
       "PaymentUrl": null
     },
-    "TraceId": "d32e7713cd9dc0eef4e32bb3ab4de717"
+    "TraceId": "b7344ab4de6ef04c09e3a1aebe75a94d"
   },
   "deposit_method": "backoffice_deposit",
   "balance_after": {
     "Balances": {
-      "Unused": 371.0
+      "Unused": 300.0
     },
-    "AvailableMain": 371.0,
+    "AvailableMain": 300.0,
     "AvailableBonus": 0.0,
     "Currency": "USD",
     "SportBonus": 0.0

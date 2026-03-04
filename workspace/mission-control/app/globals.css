@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background-start: #08080a;
+  --background-end: #0f0f12;
+  --foreground-start: #f3f4f6;
+  --foreground-end: #9ca3af;
+}
+
+body {
+  color: var(--foreground-start);
+  background: linear-gradient(
+      to bottom,
+      transparent 50%,
+      rgba(8, 8, 10, 0.5)
+    )
+    var(--background-start);
+  font-family: "Inter", system-ui, -apple-system, sans-serif;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}

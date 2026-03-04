@@ -1,0 +1,55 @@
+{
+  "section_id": 7213,
+  "section_name": "Metamask Integration",
+  "cases_added": 12,
+  "cases": [
+    {
+      "title": "Metamask Integration \u2013 Desktop with extension installed",
+      "id": 30948
+    },
+    {
+      "title": "Metamask Integration \u2013 Desktop without extension (popup flow)",
+      "id": 30949
+    },
+    {
+      "title": "Metamask Integration \u2013 Mobile with app installed (deep-link flow)",
+      "id": 30950
+    },
+    {
+      "title": "Metamask Integration \u2013 Mobile without app (fallback flow)",
+      "id": 30951
+    },
+    {
+      "title": "Metamask Integration \u2013 Signature rejection",
+      "id": 30952
+    },
+    {
+      "title": "Metamask Integration \u2013 Multiple accounts selection",
+      "id": 30953
+    },
+    {
+      "title": "Metamask Integration \u2013 Network switching during auth",
+      "id": 30954
+    },
+    {
+      "title": "Metamask Integration \u2013 Session persistence",
+      "id": 30955
+    },
+    {
+      "title": "Metamask Integration \u2013 Cross-browser compatibility",
+      "id": 30956
+    },
+    {
+      "title": "Metamask Integration \u2013 Responsive UI",
+      "id": 30957
+    },
+    {
+      "title": "Metamask Integration \u2013 Loader states",
+      "id": 30958
+    },
+    {
+      "title": "Metamask Integration \u2013 BE API integration (nonce, signature, JWT)",
+      "id": 30959
+    }
+  ]
+}

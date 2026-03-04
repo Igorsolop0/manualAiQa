@@ -13,25 +13,25 @@ from datetime import datetime
 from pathlib import Path
 
 
-def generate_email(ticket_id: str = None, prefix: str = "test") -> str:
+def generate_email(ticket_id: str = None, prefix: str = "demo") -> str:
     """
     Generate a test email address.
     
     Args:
         ticket_id: Optional Jira ticket ID (e.g., "CT-727")
-        prefix: Email prefix (default: "test")
+        prefix: Email prefix (default: "demo")
         
     Returns:
-        Email address like test-CT-7271741035000@nextcode.tech
+        Email address like demo1741035000@nextcode.tech
     """
     timestamp = int(time.time() * 1000)
     
     if ticket_id:
         # Clean ticket ID (remove spaces, special chars)
         clean_ticket = ticket_id.replace("-", "").replace(" ", "").upper()
-        email = f"{prefix}-{clean_ticket}{timestamp}@nextcode.tech"
+        email = f"{prefix}{clean_ticket}{timestamp}@nextcode.tech"
     else:
-        email = f"{prefix}-{timestamp}@nextcode.tech"
+        email = f"{prefix}{timestamp}@nextcode.tech"
     
     return email.lower()
 
@@ -132,7 +132,7 @@ def generate_client_data(ticket_id: str = None) -> dict:
         "firstName": random.choice(first_names),
         "lastName": random.choice(last_names),
         "email": generate_email(ticket_id),
-        "userName": f"user{timestamp}{random.randint(100, 999)}",
+        "userName": f"demo{timestamp}{random.randint(100, 999)}",
         "password": generate_password(),
         "currencyId": "USD",
         "countryCode": country["code"],

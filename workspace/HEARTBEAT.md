@@ -83,3 +83,71 @@ python3 /Users/ihorsolopii/.openclaw/workspace/projects/nextcode/scripts/jira_po
 **Frequency:** Check every 30 minutes during work hours (9:00-18:00 CET, Mon-Fri)
 
 **Workflow Location:** `/Users/ihorsolopii/.openclaw/workspace/projects/nextcode/workflows/QA_AUTOMATION_WORKFLOW_V2.md`
+
+---
+
+## ✅ Завершено: Test Data Scripts (2026-03-04)
+
+**Виконано:**
+
+1. **Скрипти 04‑05** ✅ (існують):
+   - `04_get_player_info.py` — отримання інформації про гравця
+   - `05_create_bonus.py` — створення тестових бонусів
+
+2. **Оркестратор сценаріїв** ✅ (`07_test_data_orchestrator.py`):
+   - `player_with_balance` — гравець з балансом
+   - `deposit_streak` — гравець з 3 депозитами (20, 30, 50 USD)
+   - `high_roller` — гравець з великим балансом ($1000+)
+   - `player_with_bonus` — гравець з бонусом
+   - `full_setup` — повний налаштування (баланс + депозити + бонус)
+
+3. **Інтеграція в реальні тести Minebit** ✅:
+   - Фікстура `test-data.fixture.ts` створена
+   - 6 тестів використовують автоматичну підготовку даних:
+     * `bonus/eligible-bonuses.spec.ts`
+     * `fixture-test.spec.ts`
+     * `player/balance.spec.ts`
+     * `deposit-streak.spec.ts`
+
+4. **Автоматичний пошук payment method** ✅ (`06_payment_methods.py`):
+   - Скрипт для переліку доступних payment methods для кожної валюти
+
+**Використання:**
+```bash
+# Оркестратор — створення сценаріїв
+cd /Users/ihorsolopii/.openclaw/workspace/projects/nextcode/test-data-scripts
+python3 scripts/07_test_data_orchestrator.py --scenario deposit_streak --env qa
+
+# Список сценаріїв
+python3 scripts/07_test_data_orchestrator.py --list
+```
+
+**У Playwright тестах:**
+```typescript
+import { test } from '../../src/fixtures/test-data.fixture';
+
+test('my test', async ({ createTestPlayer, depositToPlayer }) => {
+  const player = await createTestPlayer({ env: 'qa', balance: 100 });
+  await depositToPlayer(player.clientId, 30);
+});
+```
+
+---
+
+## ⚠️ Нагадування про рахунок (НЕ АКТУАЛЬНЕ, ВИДАЛИТИ)
+
+**Запит користувача:** "Давай ти завтра нагадаєш подивитися на цей рахунок десь о десятій ранку"
+
+**Що робити:**
+1. О 10:00 CET (або під час найближчого heartbeat після 10:00) нагадати користувачеві перевірити рахунок
+2. Якщо користувач не уточнив, який саме рахунок — запитати уточнення
+3. Можливі варіанти:
+   - Баланс AI-сервісу (vision model `zai/glm-4.5v` мав insufficient balance)
+   - Фінансовий рахунок (крипто, банківський)
+   - Рахунок у системі Minebit/NextCode
+   - Інший рахунок
+
+**Формат нагадування:** 
+"🔔 Нагадування: потрібно перевірити рахунок. Будь ласка, уточни, який саме рахунок ти мав на увазі?"
+
+**Після уточнення:** Додати конкретну перевірку до heartbeat або виконати негайно.

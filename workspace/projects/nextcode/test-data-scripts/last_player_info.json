@@ -1,0 +1,10 @@
+{
+  "env": "dev",
+  "client_id": 59153,
+  "timestamp": "2026-03-04T14:41:51.488956",
+  "backoffice_error": "'NoneType' object has no attribute 'get'",
+  "wallet_error": "503 Server Error: Service Temporarily Unavailable for url: https://wallet.dev.sofon.one/5/api/v1/balance/59153/USD",
+  "transactions_error": "503 Server Error: Service Temporarily Unavailable for url: https://wallet.dev.sofon.one/5/api/v1/transaction/list/client/59153?limit=5",
+  "bonuses_error": "Expecting value: line 1 column 1 (char 0)",
+  "website_bonuses_error": "401 Client Error: Unauthorized for url: https://websitewebapi.dev.sofon.one/5/api/v3/Bonus/GetActiveBonuses"
+}

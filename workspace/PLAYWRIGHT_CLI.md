@@ -118,3 +118,12 @@ Use playwright-cli when you need to:
 - Automate repetitive browser tasks
 - Debug web issues
 - Record browser sessions
+
+## 🕵️ Interactive Exploratory Testing (Crucial for Agents)
+
+**CRITICAL INSTRUCTION:** When the user asks for "Exploratory testing" or asks you to "explore" a feature:
+1. **DO NOT** just write static test scenarios or automation code.
+2. **INSTANTLY** execute `playwright-cli open <URL> --browser=chromium` in the terminal. Always use Chromium to save time unless requested otherwise.
+3. Use `playwright-cli snapshot`, `playwright-cli screenshot`, or `video-frames` to actually "see" the UI.
+4. Interact with the page step-by-step (`click`, `fill`, etc.) in a loop, acting like a real QA engineer.
+5. Report your findings based on the *actual* UI state you observe, not assumptions.
