@@ -7,11 +7,10 @@
       "name": "Gmail Check - NextCode",
       "enabled": true,
       "createdAtMs": 1771084279927,
-      "updatedAtMs": 1772645442363,
+      "updatedAtMs": 1772733630270,
       "schedule": {
         "kind": "cron",
-        "expr": "*/30 9-18 * * 1-5",
-        "tz": "Europe/Vienna"
+        "expr": "0 8-19 * * 1-5"
       },
       "sessionTarget": "isolated",
       "wakeMode": "now",
@@ -24,10 +23,10 @@
         "mode": "announce"
       },
       "state": {
-        "nextRunAtMs": 1772697600000,
-        "lastRunAtMs": 1772645400398,
+        "nextRunAtMs": 1772780400000,
+        "lastRunAtMs": 1772733600089,
         "lastStatus": "ok",
-        "lastDurationMs": 41965,
+        "lastDurationMs": 30181,
         "consecutiveErrors": 0,
         "lastRunStatus": "ok",
         "lastDeliveryStatus": "delivered",
@@ -40,7 +39,7 @@
       "name": "Austria Channels Daily Summary",
       "enabled": true,
       "createdAtMs": 1771144483934,
-      "updatedAtMs": 1772561400331,
+      "updatedAtMs": 1772733704986,
       "schedule": {
         "kind": "cron",
         "expr": "0 19 * * *",
@@ -56,13 +55,14 @@
         "mode": "announce"
       },
       "state": {
-        "nextRunAtMs": 1772733600000,
-        "lastRunAtMs": 1772560800038,
-        "lastStatus": "error",
-        "lastDurationMs": 600293,
-        "consecutiveErrors": 1,
-        "lastRunStatus": "error",
-        "lastDeliveryStatus": "unknown"
+        "nextRunAtMs": 1772820000000,
+        "lastRunAtMs": 1772733630270,
+        "lastStatus": "ok",
+        "lastDurationMs": 74716,
+        "consecutiveErrors": 0,
+        "lastRunStatus": "ok",
+        "lastDeliveryStatus": "delivered",
+        "lastDelivered": true
       }
     },
     {
@@ -101,7 +101,7 @@
       "description": "Щоденний аналіз власних дій та розмов для покращення роботи",
       "enabled": true,
       "createdAtMs": 1772640000000,
-      "updatedAtMs": 1772640000000,
+      "updatedAtMs": 1772661728250,
       "schedule": {
         "kind": "cron",
         "expr": "0 23 * * *",
@@ -118,7 +118,13 @@
       },
       "state": {
         "consecutiveErrors": 0,
-        "nextRunAtMs": 1772661600000
+        "nextRunAtMs": 1772748000000,
+        "lastRunAtMs": 1772661600118,
+        "lastRunStatus": "ok",
+        "lastStatus": "ok",
+        "lastDurationMs": 128132,
+        "lastDelivered": true,
+        "lastDeliveryStatus": "delivered"
       }
     }
   ]

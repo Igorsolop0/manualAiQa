@@ -36,37 +36,38 @@ def get_emails(limit=10, unread_only=True):
         # Connect to Gmail
         mail = imaplib.IMAP4_SSL(IMAP_SERVER, IMAP_PORT)
         mail.login(EMAIL, APP_PASSWORD)
-        
-        # Select inbox
-        mail.select("INBOX")
-        
+
+        # Select inbox (readonly=True prevents auto-Seen flags)
+        mail.select("INBOX", readonly=True)
+
         # Search for emails
         if unread_only:
-            status, messages = mail.search(None, "UNSEEN")
+            status, messages = mail.search(None, "(UNSEEN)")
         else:
-            status, messages = mail.search(None, "ALL")
-        
+            status, messages = mail.search(None, "(ALL)")
+
         email_ids = messages[0].split()
-        
+
         if not email_ids:
             print("📭 No unread emails found.")
             return []
-        
+
         # Get latest emails (reverse order)
         email_ids = email_ids[-limit:][::-1]
-        
+
         emails = []
         for email_id in email_ids:
-            status, msg_data = mail.fetch(email_id, "(RFC822)")
+            # Use PEEK to fetch without marking as read
+            status, msg_data = mail.fetch(email_id, "(BODY.PEEK[])")
             for response_part in msg_data:
                 if isinstance(response_part, tuple):
                     msg = email.message_from_bytes(response_part[1])
-                    
+
                     # Parse email
                     subject = decode_str(msg["Subject"])
                     sender = decode_str(msg["From"])
                     date_str = msg["Date"]
-                    
+
                     # Get email body
                     body = ""
                     if msg.is_multipart():
@@ -83,7 +84,7 @@ def get_emails(limit=10, unread_only=True):
                             body = msg.get_payload(decode=True).decode("utf-8", errors="ignore")
                         except:
                             pass
-                    
+
                     emails.append({
                         "id": email_id.decode(),
                         "from": sender,
@@ -91,12 +92,12 @@ def get_emails(limit=10, unread_only=True):
                         "date": date_str,
                         "body": body  # Full body
                     })
-        
+
         mail.close()
         mail.logout()
-        
+
         return emails
-        
+
     except Exception as e:
         print(f"❌ Error: {e}")
         return []
@@ -105,9 +106,9 @@ def get_emails(limit=10, unread_only=True):
 if __name__ == "__main__":
     print(f"📧 Checking Gmail for {EMAIL}...")
     print("=" * 60)
-    
+
     emails = get_emails(limit=10, unread_only=False)
-    
+
     for i, em in enumerate(emails, 1):
         print(f"\n{'='*60}")
         print(f"[{i}] 📨 {em['subject']}")
@@ -118,5 +119,5 @@ if __name__ == "__main__":
         print("BODY:")
         print(f"{'─'*60}")
         print(em['body'])
-    
+
     print(f"\n✅ Total unread: {len(emails)}")

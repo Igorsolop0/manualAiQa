@@ -59,27 +59,46 @@ def check_new_emails():
     try:
         mail = imaplib.IMAP4_SSL(IMAP_SERVER, IMAP_PORT)
         mail.login(EMAIL, APP_PASSWORD)
-        mail.select("INBOX")
-        
-        # Search for UNSEEN emails (IMAP handles read/unread status)
-        status, messages = mail.search(None, "UNSEEN")
+        mail.select("INBOX", readonly=True)  # IMPORTANT: readonly=True prevents auto-Seen flags
+
+        # Load previously seen Message-IDs
+        seen_ids = load_seen_ids()
+
+        # Search for emails from last 24 hours (more reliable than UNSEEN)
+        from datetime import datetime, timedelta
+        date_str = (datetime.now() - timedelta(days=1)).strftime("%d-%b-%Y")
+        status, messages = mail.search(None, f"(SINCE {date_str})")
         email_ids = messages[0].split()
-        
+
         if not email_ids:
             print("NO_NEW_EMAILS")
+            mail.close()
+            mail.logout()
             return []
-        
+
         emails = []
-        for email_id in email_ids[-10:]:  # Check last 10 unseen emails
-            status, msg_data = mail.fetch(email_id, "(RFC822)")
+        new_seen_ids = []
+
+        for email_id in email_ids[-50:]:  # Check last 50 emails from last 24h
+            # Use PEEK to fetch without marking as read
+            status, msg_data = mail.fetch(email_id, "(BODY.PEEK[])")
             for response_part in msg_data:
                 if isinstance(response_part, tuple):
                     msg = email.message_from_bytes(response_part[1])
-                    
+
+                    # Get Message-ID header (unique identifier)
+                    message_id = msg.get("Message-ID", "")
+                    if not message_id:
+                        continue
+
+                    # Skip if already processed
+                    if message_id in seen_ids:
+                        continue
+
                     subject = decode_str(msg["Subject"])
                     sender = decode_str(msg["From"])
                     date_str = msg["Date"]
-                    
+
                     # Get body
                     body = ""
                     if msg.is_multipart():
@@ -95,37 +114,33 @@ def check_new_emails():
                             body = msg.get_payload(decode=True).decode("utf-8", errors="ignore")
                         except:
                             pass
-                    
+
                     # Extract Jira ticket if present
                     jira_ticket = extract_jira_ticket(subject) or extract_jira_ticket(body)
-                    
+
                     emails.append({
                         "id": email_id.decode(),
                         "from": sender,
                         "subject": subject,
                         "date": date_str,
-                        "body": body[:1000],
+                        "body": body,  # Full body now
                         "jira_ticket": jira_ticket,
-                        "is_jira": "jira@next-t-code.atlassian.net" in sender.lower()
+                        "is_jira": "jira@next-t-code.atlassian.net" in sender.lower(),
+                        "message_id": message_id
                     })
-        
+
+                    new_seen_ids.append(message_id)
+
         mail.close()
         mail.logout()
-        
-        # Mark processed emails as seen (read)
-        try:
-            mail = imaplib.IMAP4_SSL(IMAP_SERVER, IMAP_PORT)
-            mail.login(EMAIL, APP_PASSWORD)
-            mail.select("INBOX")
-            for email_id in [e["id"] for e in emails]:
-                mail.store(email_id, "+FLAGS", "\\Seen")
-            mail.close()
-            mail.logout()
-        except:
-            pass  # Don't fail if marking as read fails
-        
+
+        # Update seen IDs file with newly processed emails
+        if new_seen_ids:
+            seen_ids.update(new_seen_ids)
+            save_seen_ids(seen_ids)
+
         return emails
-        
+
     except Exception as e:
         print(f"ERROR: {e}")
         return []
@@ -138,23 +153,23 @@ if __name__ == "__main__":
         try:
             mail = imaplib.IMAP4_SSL(IMAP_SERVER, IMAP_PORT)
             mail.login(EMAIL, APP_PASSWORD)
-            mail.select("INBOX")
-            
+            mail.select("INBOX", readonly=False)
+
             status, messages = mail.search(None, "ALL")
             email_ids = [eid.decode() for eid in messages[0].split()]
-            
+
             save_seen_ids(set(email_ids))
             print(f"INITIALIZED with {len(email_ids)} emails marked as seen")
-            
+
             mail.close()
             mail.logout()
         except Exception as e:
             print(f"INIT_ERROR: {e}")
         sys.exit(0)
-    
+
     # Normal check mode
     emails = check_new_emails()
-    
+
     if emails:
         print(f"NEW_EMAILS_COUNT:{len(emails)}")
         for em in emails:
@@ -167,5 +182,3 @@ if __name__ == "__main__":
             print(f"JIRA_TICKET:{em['jira_ticket'] or 'NONE'}")
             print(f"BODY:{em['body'][:500]}")
             print(f"---EMAIL_END---")
-    else:
-        print("NO_NEW_EMAILS")

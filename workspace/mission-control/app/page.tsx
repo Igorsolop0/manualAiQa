@@ -4,12 +4,15 @@ import { useEffect, useState } from "react";
 import Sidebar from "@/components/Sidebar";
 import MissionCard from "@/components/MissionCard";
 import HeartbeatTasks from "@/components/HeartbeatTasks";
-import MemoryViewer from "@/components/MemoryViewer";
+import EnhancedMemoryViewer from "@/components/EnhancedMemoryViewer";
 import DailyNotes from "@/components/DailyNotes";
 import SearchBar from "@/components/SearchBar";
+import TaskBoard from "@/components/TaskBoard";
+import ActivityFeed from "@/components/ActivityFeed";
+import Calendar from "@/components/Calendar";
 import { readMemory, readHeartbeat } from "@/lib/file-reader";
 
-type TabType = "missions" | "heartbeat" | "memory" | "daily";
+type TabType = "missions" | "tasks" | "calendar" | "heartbeat" | "memory" | "daily";
 
 export default function MissionControl() {
   const [activeTab, setActiveTab] = useState<TabType>("missions");
@@ -126,6 +129,22 @@ export default function MissionControl() {
                   ))}
                 </div>
               )}
+            </div>
+          )}
+
+          {activeTab === "calendar" && <Calendar />}
+
+          {activeTab === "tasks" && (
+            <div className="flex gap-6 h-[calc(100vh-8rem)]">
+              {/* Activity Feed - Left Column */}
+              <div className="w-80 flex-shrink-0">
+                <ActivityFeed />
+              </div>
+
+              {/* Task Board - Right Column */}
+              <div className="flex-1">
+                <TaskBoard />
+              </div>
             </div>
           )}
 

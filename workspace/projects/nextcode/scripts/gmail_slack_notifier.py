@@ -105,7 +105,7 @@ def format_slack_notification(email):
             "type": "section",
             "text": {
                 "type": "mrkdwn",
-                "text": f"📝 *Preview:*\n```{email.get('body', '')[:500]}```"
+                "text": f"📝 *Preview:*\n```{email.get('body', '')[:1000]}```"
             }
         }
     ]
@@ -198,7 +198,7 @@ def format_status_message(has_new_emails, email_count=0):
             "elements": [
                 {
                     "type": "mrkdwn",
-                    "text": f"🤖 _Наступна автоматична перевірка о 30 хвилин._"
+                    "text": f"🤖 _Наступна автоматична перевірка через годину._"
                 }
             ]
         }

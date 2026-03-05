@@ -9,6 +9,8 @@ interface SidebarProps {
 
 const tabs: { id: TabType; label: string; icon: string }[] = [
   { id: "missions", label: "Missions", icon: "🚀" },
+  { id: "tasks", label: "Tasks", icon: "📋" },
+  { id: "calendar", label: "Calendar", icon: "📅" },
   { id: "heartbeat", label: "Heartbeat", icon: "💓" },
   { id: "memory", label: "Memory", icon: "🧠" },
   { id: "daily", label: "Daily", icon: "📝" },

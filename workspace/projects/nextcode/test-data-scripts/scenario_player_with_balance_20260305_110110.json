@@ -1,0 +1,15 @@
+{
+  "scenario": "player_with_balance",
+  "env": "qa",
+  "ticket_id": null,
+  "timestamp": "2026-03-05T11:01:10.293494",
+  "steps": [
+    {
+      "step": 1,
+      "action": "create_player",
+      "success": false,
+      "error": "400 Client Error: Bad Request for url: https://minebit-casino.qa.sofon.one/graphql"
+    }
+  ],
+  "success": false
+}
