@@ -7,7 +7,7 @@
       "name": "Gmail Check - NextCode",
       "enabled": true,
       "createdAtMs": 1771084279927,
-      "updatedAtMs": 1772733630270,
+      "updatedAtMs": 1772820040081,
       "schedule": {
         "kind": "cron",
         "expr": "0 8-19 * * 1-5"
@@ -17,91 +17,30 @@
       "payload": {
         "kind": "agentTurn",
         "message": "Run python3 /Users/ihorsolopii/.openclaw/workspace/projects/nextcode/scripts/gmail_slack_notifier.py to check Gmail and send notifications to Slack channel C0AH7CRFQES.",
-        "model": "zai/glm-5"
+        "model": "zai-coding/glm-4.7"
       },
       "delivery": {
         "mode": "announce"
       },
       "state": {
-        "nextRunAtMs": 1772780400000,
-        "lastRunAtMs": 1772733600089,
+        "nextRunAtMs": 1773039600000,
+        "lastRunAtMs": 1772820000088,
         "lastStatus": "ok",
-        "lastDurationMs": 30181,
+        "lastDurationMs": 39993,
         "consecutiveErrors": 0,
         "lastRunStatus": "ok",
         "lastDeliveryStatus": "delivered",
         "lastDelivered": true
-      }
-    },
-    {
-      "id": "3584c66a-abce-4e59-9add-80b664e9aadd",
-      "agentId": "main",
-      "name": "Austria Channels Daily Summary",
-      "enabled": true,
-      "createdAtMs": 1771144483934,
-      "updatedAtMs": 1772733704986,
-      "schedule": {
-        "kind": "cron",
-        "expr": "0 19 * * *",
-        "tz": "Europe/Vienna"
-      },
-      "sessionTarget": "isolated",
-      "wakeMode": "now",
-      "payload": {
-        "kind": "agentTurn",
-        "message": "Read /Users/ihorsolopii/.openclaw/workspace/core/scripts/austria_channels_summary.py and follow the instructions in the 'instructions' field. Use browser automation (profile=openclaw) to:\n\n1. Navigate to each Telegram channel in the CHANNELS list\n2. Take screenshots of recent messages (last 24 hours)\n3. Analyze screenshots with vision model to extract:\n   - IT/QA job posts\n   - RWR/permits/insurance discussions\n   - Apartment/rental/mortgage topics\n   - Events and community news\n   - Life hacks and tips\n4. Create a structured summary\n5. Send the summary to Telegram (action=send, to=282986529, channel=telegram)\n\nFocus only on PRIORITY_TOPICS. Skip casual chat and jokes."
-      },
-      "delivery": {
-        "mode": "announce"
-      },
-      "state": {
-        "nextRunAtMs": 1772820000000,
-        "lastRunAtMs": 1772733630270,
-        "lastStatus": "ok",
-        "lastDurationMs": 74716,
-        "consecutiveErrors": 0,
-        "lastRunStatus": "ok",
-        "lastDeliveryStatus": "delivered",
-        "lastDelivered": true
-      }
-    },
-    {
-      "id": "be670aac-f0af-462d-bc09-56cfc12ca0e4",
-      "name": "Austria Weekly Check",
-      "description": "Щотижнева перевірка офіційних джерел Австрії для українців",
-      "enabled": true,
-      "createdAtMs": 1771938179147,
-      "updatedAtMs": 1772439037540,
-      "schedule": {
-        "kind": "cron",
-        "expr": "0 9 * * 1",
-        "tz": "Europe/Vienna"
-      },
-      "sessionTarget": "main",
-      "wakeMode": "now",
-      "payload": {
-        "kind": "systemEvent",
-        "text": "Перевір Австрію: проаналізуй офіційні джерела (міграція, податки, сім'я, новини). \n\nФормат звіту:\n1. Детальний опис кожної зміни (не коротко!)\n2. Що саме змінилося, для кого актуально\n3. ЯКЩО потребує дій — чітко написати що робити: подати заявку, написати імейл, звернутися до установи, дедлайн\n4. Прямі посилання на джерела\n\nОнови Notion сторінку Austria. Повідом в Telegram детальний звіт. Якщо немає нового — напиши що не знайдено."
-      },
-      "state": {
-        "nextRunAtMs": 1773043200000,
-        "lastRunAtMs": 1772438437522,
-        "lastRunStatus": "error",
-        "lastStatus": "error",
-        "lastDurationMs": 600018,
-        "lastError": "cron: job execution timed out",
-        "lastDeliveryStatus": "not-requested",
-        "consecutiveErrors": 1
       }
     },
     {
       "id": "e5c1d4b2-8a9f-4321-b8f9-c1d2e3f4a5b6",
       "agentId": "main",
-      "name": "Daily Agent Self-Review",
-      "description": "Щоденний аналіз власних дій та розмов для покращення роботи",
+      "name": "Nexus Daily Self-Review + Benchmark",
+      "description": "Щоденний аналіз дій, розмов та model performance для покращення роботи",
       "enabled": true,
       "createdAtMs": 1772640000000,
-      "updatedAtMs": 1772661728250,
+      "updatedAtMs": 1772748071626,
       "schedule": {
         "kind": "cron",
         "expr": "0 23 * * *",
@@ -111,20 +50,81 @@
       "wakeMode": "now",
       "payload": {
         "kind": "agentTurn",
-        "message": "Виконай щоденний self-review. Прочитай /Users/ihorsolopii/.openclaw/workspace/MEMORY.md та останні оновлення в /Users/ihorsolopii/.openclaw/workspace/LEARNINGS.md. Також проаналізуй наші останні розмови.\n\nПроаналізуй нашу взаємодію об'єктивно та критично. Зверни увагу на мої правила з USER.md (особливо: чи зекономив ти мені час та чи зменшив cognitive load).\n\nНапиши звіт у Slack канал #gmail (C0AH7CRFQES) у такому форматі:\n**1. Що було добре:** Які твої відповіді чи дії сьогодні були найбільш ефективними?\n**2. Що можна було б зробити краще:** Де ти припустився помилок, був занадто багатослівним або відхилився від правил? Які твої слабкі місця проявилися?\n**3. Як Ігор може пояснювати краще:** Якого контексту або деталей тобі не вистачало в моїх запитах? Як я можу формулювати задачі ефективніше?\n**4. Action Items для агента:** 1-2 конкретні ідеї, які ти сам імплементуєш завтра для покращення своєї роботи.\n\nБудь лаконічним, професійним. Уникай 'корпоративної води'."
+        "message": "Виконай щоденний self-review. Прочитай /Users/ihorsolopii/.openclaw/workspace/MEMORY.md та останні оновлення в /Users/ihorsolopii/.openclaw/workspace/LEARNINGS.md. Також проаналізуй наші останні розмови.\n\nПроаналізуй нашу взаємодію об'єктивно та критично. Зверни увагу на мої правила з USER.md (особливо: чи зекономив ти мені час та чи зменшив cognitive load).\n\nНапиши звіт у Slack канал #gmail (C0AH7CRFQES) у такому форматі:\n**1. Що було добре:** Які твої відповіді чи дії сьогодні були найбільш ефективними?\n**2. Що можна було б зробити краще:** Де ти припустився помилок, був занадто багатослівним або відхилився від правил? Які твої слабкі місця проявилися?\n**3. Як Ігор може пояснювати краще:** Якого контексту або деталей тобі не вистачало в моїх запитах? Як я можу формулювати задачі ефективніше?\n**4. Action Items для агента:** 1-2 конкретні ідеї, які ти сам імплементуєш завтра для покращення своєї роботи.\n**5. Model Performance (щоп'ятниці):** Прочитай /Users/ihorsolopii/.openclaw/workspace/MODEL_BENCHMARK.md. Якщо сьогодні п'ятниця — оціни якість поточної моделі за тиждень: tasks completed, latency impression, quality 1-5, corrections needed, hallucinations. Запиши в Weekly Reports секцію MODEL_BENCHMARK.md.\n\nБудь лаконічним, професійним. Уникай 'корпоративної води'."
       },
       "delivery": {
         "mode": "announce"
       },
       "state": {
         "consecutiveErrors": 0,
-        "nextRunAtMs": 1772748000000,
-        "lastRunAtMs": 1772661600118,
+        "nextRunAtMs": 1772834400000,
+        "lastRunAtMs": 1772748000031,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 128132,
+        "lastDurationMs": 71595,
         "lastDelivered": true,
         "lastDeliveryStatus": "delivered"
+      }
+    },
+    {
+      "id": "jira-monitor-hourly",
+      "agentId": "jira-watcher",
+      "name": "Jira Watcher Hourly Sync",
+      "description": "Checks Jira for tickets ready for testing and triggers Nexus",
+      "enabled": true,
+      "createdAtMs": 1772640000000,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 * * * *",
+        "tz": "Europe/Vienna",
+        "staggerMs": 300000
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "Check Jira for any tickets in PandaSen project that moved to 'Ready for Testing' or 'On Production' state. If found, fully parse their description, linked requirements, and send a summary to Nexus Orchestrator. If none found, reply 'No updates'.",
+        "model": "zai/glm-4.7-flashx"
+      },
+      "delivery": {
+        "mode": "announce"
+      },
+      "state": {
+        "nextRunAtMs": 1772824270513,
+        "lastRunAtMs": 1772820552837,
+        "lastRunStatus": "error",
+        "lastStatus": "error",
+        "lastDurationMs": 117676,
+        "lastDeliveryStatus": "unknown",
+        "consecutiveErrors": 7,
+        "lastError": "Channel is required when multiple channels are configured: telegram, slack Set delivery.channel explicitly or use a main session with a previous channel."
+      },
+      "updatedAtMs": 1772820670513
+    },
+    {
+      "id": "api-docs-daily",
+      "agentId": "api-docs-agent",
+      "name": "API Docs Daily Sync",
+      "description": "Daily check for new/updated Swagger definitions",
+      "enabled": true,
+      "createdAtMs": 1772640000000,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 9 * * 1-5",
+        "tz": "Europe/Vienna"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "Check the shared swagger directory for any newly pulled definitions. Parse them and extract testing plans for the QA Agent if any new endpoints were added or modified.",
+        "model": "zai-coding/glm-4.7"
+      },
+      "delivery": {
+        "mode": "announce"
+      },
+      "state": {
+        "nextRunAtMs": 1773043200000
       }
     }
   ]

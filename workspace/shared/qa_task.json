@@ -1,0 +1,15 @@
+{
+  "task": "Test UI selectors",
+  "selectors": {
+    "burgerMenuIcon": "[data-testid=\"burger-menu-icon\"]",
+    "googlePlayButton": "[data-testid=\"google-play-button\"]"
+  },
+  "website": "https://minebit-casino.prod.sofon.one",
+  "actions": [
+    "Click on burger menu icon",
+    "Click on Google Play button",
+    "Take screenshots",
+    "Generate test report"
+  ],
+  "reportDestination": "#qa-testing"
+}

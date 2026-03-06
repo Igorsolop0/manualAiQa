@@ -1,0 +1,12 @@
+Test UI selectors on Minebit Casino website:
+
+- Burger menu icon: [data-testid="burger-menu-icon"]
+- Google Play button: [data-testid="google-play-button"]
+
+Perform actions:
+1. Click on burger menu icon
+2. Click on Google Play button
+3. Take screenshots
+4. Generate test report
+
+Send report to #qa-testing channel.

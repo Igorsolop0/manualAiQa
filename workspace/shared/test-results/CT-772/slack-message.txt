@@ -1,0 +1,49 @@
+📝 **Ready to copy → Jira CT-772:**
+
+---
+
+Tested on QA, devices: MacBook Air (Desktop Chrome), browsers: Chrome. VPN: no.
+
+⚠️ **Critical Issues Found:**
+
+**Page Availability:**
+- ✅ /bonuses-new - loads successfully (status 200)
+- ✅ /bonuses - loads successfully (status 200)
+
+**Login Issues:**
+- ⚠️ Login form not fully functional - only 1 email input found, 0 password inputs
+- ❌ Cannot test authenticated view - login flow broken
+- ⚠️ Login button exists but login form elements missing
+
+**Testing Constraints:**
+- ❌ Cannot test Regular Bonuses - Timer Badge UI (requires authenticated player)
+- ❌ Cannot test Special Bonuses - Empty State Banner (requires authenticated player)
+- ❌ Cannot test Locales with authenticated view
+- ❌ Cannot test Responsive layout with authenticated view
+
+**Pages Tested:**
+- https://minebit-casino.qa.sofon.one/bonuses-new
+- https://minebit-casino.qa.sofon.one/bonuses
+
+📸 Evidence saved at: ~/.openclaw/workspace/shared/test-results/CT-772/
+Files: 
+- test1_bonuses-new_page.png (5.6 KB) - /bonuses-new page
+- test2_bonuses_page.png (500 KB) - /bonuses page  
+- test3_after_login_click.png (302 KB) - After clicking login button
+
+---
+
+**Priority Issues (P0 - Blocker):**
+1. 🚨 Login form not loading properly - email and password inputs not visible
+2. 🚨 Cannot authenticate test user - blocks all bonus page testing
+
+**Recommendations:**
+1. Investigate login modal behavior on QA environment
+2. Verify login form selectors match current UI implementation
+3. Test login flow manually to identify the issue
+4. Once login is fixed, run full E2E test suite for CT-772
+
+---
+
+**Note:** Test file created at: /Users/ihorsolopii/Documents/minebit-e2e-playwright/tests/e2e/smoke/CT-772-bonuses-comprehensive.spec.ts
+This test covers all required scenarios but cannot execute due to login issues.

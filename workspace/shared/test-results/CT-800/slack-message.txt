@@ -1,0 +1,60 @@
+📝 **Ready to copy → Jira CT-800:**
+
+---
+
+Tested on the QA, devices: MacBook Air (Desktop Chrome), Pixel 7 (Mobile), browsers: Chrome. VPN: no.
+
+⚠️ **Critical Issues Found:**
+
+**1. Page Status:**
+- ✅ Both pages load (status 200)
+- ❌ Multiple 404 errors for missing assets (SVG icons)
+- ❌ Multiple 502 Bad Gateway errors from cms-graphql API
+- ❌ Multiple 400 Bad Request errors for image optimization service
+
+**2. Console Errors: 48 total (Desktop)**
+- 26x 404 Not Found (missing SVG assets: crypto, cart, hot_games, bonuses, casino, etc.)
+- 7x 400 Bad Request (_next/image service)
+- 3x 502 Bad Gateway (cms-graphql API)
+- 1x Network error (GraphQL parsing error - invalid JSON response)
+- 1x GraphQL error (ProductUrl operation failed)
+
+**3. Network Requests Analysis:**
+- Total network errors: 41
+- Server errors (5xx): 3 (all 502 Bad Gateway from cms-graphql)
+- Client errors (4xx): 38 (mostly 404 for missing assets)
+
+**4. Content Loading:**
+- ⚠️ Provider iframe/content NOT found on either page
+- Page content loads, but no game/trading provider element detected
+
+**5. Layout:**
+- ✅ Desktop layout: 1280x720 viewport, no overflow issues
+- ⚠️ Mobile tests timed out (screenshot capture failed)
+
+**URLs Tested:**
+- https://minebit-casino.qa.sofon.one/trade-smarter-options
+- https://minebit-casino.qa.sofon.one/trade-smarter-1000x
+
+📸 Evidence saved at: ~/.openclaw/workspace/shared/test-results/CT-800/
+Files: 
+- desktop_trade-smarter-options_01_full_page.png
+- desktop_trade-smarter-options_03_viewport.png
+- mobile_trade-smarter-1000x_01_full_page.png
+- desktop_trade-smarter-options_results.json
+
+---
+
+**Priority Issues:**
+1. 🚨 cms-graphql API returning 502 Bad Gateway (blocks translations, promotions)
+2. 🚨 Missing SVG assets (26+ files) - affects UI icons
+3. 🚨 No provider content loaded - game/trading iframe not found
+4. 🚨 Mobile tests timing out - possible layout/performance issues
+
+---
+
+**Recommendations:**
+- Fix cms-graphql service (investigate 502 errors)
+- Deploy missing SVG assets to QA
+- Investigate why provider content is not loading
+- Test mobile performance and fix timeout issues

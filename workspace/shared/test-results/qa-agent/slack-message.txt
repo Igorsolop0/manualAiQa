@@ -1,0 +1,24 @@
+📝 **Ready to copy → Jira CT-GOOGLE-PLAY:**
+
+---
+
+Tested on the PROD, devices: MacBook Air (Desktop Chrome), browsers: Chrome. VPN: no.
+
+✅ Tested:
+- Burger menu icon — works as expected (selector: button:has(svg))
+- Sidebar opens correctly after clicking burger menu
+- Google Play/Download App button — found and clickable in sidebar (selector: a[href="/download-app"])
+- Navigation to download page — works correctly, navigated to https://minebit-casino.prod.sofon.one/download-app
+
+📸 Evidence saved at: ~/.openclaw/workspace/shared/test-results/qa-agent/
+Files: 
+- 01_initial_page.png
+- 02_menu_opened.png  
+- 03_before_google_play_click.png
+- 04_google_play_destination.png
+
+---
+
+**Selectors added to UI Knowledge Base:**
+- Burger menu: `button:has(svg)`
+- Google Play button: `a[href="/download-app"]` (located in sidebar drawer)

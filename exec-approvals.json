@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "socket": {
+    "path": "/Users/ihorsolopii/.openclaw/exec-approvals.sock",
+    "token": "sm8mmwlrIrvDVC4A7a2KJGhxOgwwBcmh"
+  },
+  "defaults": {},
+  "agents": {
+    "qa-agent": {
+      "allow": [
+        "npx playwright test",
+        "npx playwright test *",
+        "npx playwright *"
+      ]
+    },
+    "main": {
+      "allow": [
+        "openclaw agent --id *"
+      ]
+    }
+  }
+}

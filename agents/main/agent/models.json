@@ -83,16 +83,16 @@
       "models": [
         {
           "id": "deepseek-chat",
-          "name": "DeepSeek Chat",
-          "reasoning": false,
+          "name": "DeepSeek V3.2",
+          "reasoning": true,
           "input": [
             "text"
           ],
           "cost": {
-            "input": 0,
-            "output": 0,
-            "cacheRead": 0,
-            "cacheWrite": 0
+            "input": 0.28,
+            "output": 0.42,
+            "cacheRead": 0.028,
+            "cacheWrite": 0.28
           },
           "contextWindow": 128000,
           "maxTokens": 8192,

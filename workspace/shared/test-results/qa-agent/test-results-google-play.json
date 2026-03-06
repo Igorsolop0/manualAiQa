@@ -1,0 +1,22 @@
+{
+  "testName": "Google Play Button Flow - Production",
+  "timestamp": "2026-03-06T15:28:14.946Z",
+  "environment": "PROD",
+  "url": "https://minebit-casino.prod.sofon.one/",
+  "burgerMenuSelector": "button:has(svg)",
+  "googlePlaySelector": "a[href=\"/download-app\"]",
+  "googlePlayType": "drawer",
+  "googlePlayHref": "/download-app",
+  "destinationUrl": "https://minebit-casino.prod.sofon.one/download-app",
+  "isGooglePlay": false,
+  "isDownloadPage": true,
+  "isGoogleStore": false,
+  "hasGooglePlayLink": false,
+  "navigationSuccess": true,
+  "screenshots": [
+    "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/qa-agent/01_initial_page.png",
+    "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/qa-agent/02_menu_opened.png",
+    "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/qa-agent/03_before_google_play_click.png",
+    "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/qa-agent/04_google_play_destination.png"
+  ]
+}
