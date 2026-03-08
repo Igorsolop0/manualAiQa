@@ -40,7 +40,7 @@
       "description": "Щоденний аналіз дій, розмов та model performance для покращення роботи",
       "enabled": true,
       "createdAtMs": 1772640000000,
-      "updatedAtMs": 1772834466032,
+      "updatedAtMs": 1772920867742,
       "schedule": {
         "kind": "cron",
         "expr": "0 23 * * *",
@@ -57,11 +57,11 @@
       },
       "state": {
         "consecutiveErrors": 0,
-        "nextRunAtMs": 1772920800000,
-        "lastRunAtMs": 1772834400041,
+        "nextRunAtMs": 1773007200000,
+        "lastRunAtMs": 1772920800068,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 65991,
+        "lastDurationMs": 67674,
         "lastDelivered": true,
         "lastDeliveryStatus": "delivered"
       }
@@ -90,16 +90,16 @@
         "mode": "announce"
       },
       "state": {
-        "nextRunAtMs": 1772911411899,
-        "lastRunAtMs": 1772907761189,
+        "nextRunAtMs": 1772997561894,
+        "lastRunAtMs": 1772993887008,
         "lastRunStatus": "error",
         "lastStatus": "error",
-        "lastDurationMs": 50710,
+        "lastDurationMs": 74886,
         "lastDeliveryStatus": "unknown",
-        "consecutiveErrors": 20,
+        "consecutiveErrors": 43,
         "lastError": "Channel is required when multiple channels are configured: telegram, slack Set delivery.channel explicitly or use a main session with a previous channel."
       },
-      "updatedAtMs": 1772907811899
+      "updatedAtMs": 1772993961894
     },
     {
       "id": "api-docs-daily",

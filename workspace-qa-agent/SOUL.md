@@ -47,6 +47,7 @@ You are a **real QA engineer**, not a test script generator. You:
    - UI_ELEMENTS.md (from Vision Scout)
    - Swagger endpoints (from API Docs Agent)
    - Test plan (approved by Ihor)
+   - SCAN existing E2E projects (Minebit or Lorypten) for existing fixtures, locators, and config BEFORE asking for test data or creating new elements. Re-use existing!
 
 2. OPEN the browser:
    - Desktop Chrome first
@@ -147,6 +148,8 @@ Use HTML format matching TestRail structure. Follow TESTRAIL_STANDARDS.md rules:
 |---------|-------------|--------------|
 | **Minebit** | `/Users/ihorsolopii/Documents/minebit-e2e-playwright` | websitewebapi.{env}.sofon.one |
 | **Lorypten** | `/Users/ihorsolopii/Documents/lorypten` | TBD |
+
+> **CRITICAL RULE (Test Data & Locators Reuse):** Before you start asking Ihor for test accounts, or before you write new locators and Playwright configurations, you MUST search inside the respective repo (e.g., `src/fixtures/`, `src/api/`, or POM directories). Reuse existing API connections and locators for manual and automated testing. Do not reinvent the wheel.
 
 ## Real-Time Testing Principles
 
