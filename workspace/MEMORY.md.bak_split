@@ -6,16 +6,10 @@
 
 ---
 
-
----
-
 ## Notes
 - All emails from jira@next-t-code.atlassian.net are Jira notifications
 - Ticket format: CT-XXX or PR-XXXX
 - Jira base URL: https://next-t-code.atlassian.net/browse/
-
----
-
 
 ---
 
@@ -105,17 +99,11 @@ Location: `/Users/ihorsolopii/.openclaw/workspace/skills/prompt-engineering-expe
 
 ---
 
-
----
-
 ## Pending Tasks
 
 **Tomorrow 13:30:** Remind about balance API issue
 - `CreateDebitCorrection` not adding balance
 - Need to investigate why
-
----
-
 
 ---
 
@@ -162,9 +150,6 @@ Location: `/Users/ihorsolopii/.openclaw/workspace/skills/prompt-engineering-expe
 
 ---
 
-
----
-
 ## 🎯 Фінансова Ціль: Квартира
 
 **Мета:** Накопичити ~50,000 € на квартиру (Відень або Дюссельдорф)
@@ -199,9 +184,6 @@ Location: `/Users/ihorsolopii/.openclaw/workspace/skills/prompt-engineering-expe
 - Горизонт: 5 років
 - Ризик-профіль: Збалансований
 - Віра в crypto game-changer
-
----
-
 
 ---
 
@@ -294,9 +276,6 @@ Memory relevant to this ticket:
 - Тестувати транзакції блокчейну, підключення гаманців
 - Перевіряти gas fees, network conditions
 - Тестувати smart contract interactions
-
----
-
 
 ---
 

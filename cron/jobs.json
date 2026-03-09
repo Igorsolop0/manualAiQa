@@ -7,7 +7,7 @@
       "name": "Gmail Check - NextCode",
       "enabled": true,
       "createdAtMs": 1771084279927,
-      "updatedAtMs": 1772820040081,
+      "updatedAtMs": 1773079327324,
       "schedule": {
         "kind": "cron",
         "expr": "0 8-19 * * 1-5"
@@ -23,14 +23,14 @@
         "mode": "announce"
       },
       "state": {
-        "nextRunAtMs": 1773039600000,
-        "lastRunAtMs": 1772820000088,
+        "nextRunAtMs": 1773126000000,
+        "lastRunAtMs": 1773079315898,
         "lastStatus": "ok",
-        "lastDurationMs": 39993,
+        "lastDurationMs": 11426,
         "consecutiveErrors": 0,
         "lastRunStatus": "ok",
-        "lastDeliveryStatus": "delivered",
-        "lastDelivered": true
+        "lastDeliveryStatus": "not-delivered",
+        "lastDelivered": false
       }
     },
     {
@@ -40,7 +40,7 @@
       "description": "Щоденний аналіз дій, розмов та model performance для покращення роботи",
       "enabled": true,
       "createdAtMs": 1772640000000,
-      "updatedAtMs": 1772920867742,
+      "updatedAtMs": 1773007282602,
       "schedule": {
         "kind": "cron",
         "expr": "0 23 * * *",
@@ -57,11 +57,11 @@
       },
       "state": {
         "consecutiveErrors": 0,
-        "nextRunAtMs": 1773007200000,
-        "lastRunAtMs": 1772920800068,
+        "nextRunAtMs": 1773093600000,
+        "lastRunAtMs": 1773007200071,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 67674,
+        "lastDurationMs": 82531,
         "lastDelivered": true,
         "lastDeliveryStatus": "delivered"
       }
@@ -90,16 +90,16 @@
         "mode": "announce"
       },
       "state": {
-        "nextRunAtMs": 1772997561894,
-        "lastRunAtMs": 1772993887008,
+        "nextRunAtMs": 1773083795966,
+        "lastRunAtMs": 1773080090122,
         "lastRunStatus": "error",
         "lastStatus": "error",
-        "lastDurationMs": 74886,
+        "lastDurationMs": 105844,
         "lastDeliveryStatus": "unknown",
-        "consecutiveErrors": 43,
+        "consecutiveErrors": 66,
         "lastError": "Channel is required when multiple channels are configured: telegram, slack Set delivery.channel explicitly or use a main session with a previous channel."
       },
-      "updatedAtMs": 1772993961894
+      "updatedAtMs": 1773080195966
     },
     {
       "id": "api-docs-daily",
@@ -124,8 +124,16 @@
         "mode": "announce"
       },
       "state": {
-        "nextRunAtMs": 1773043200000
-      }
+        "nextRunAtMs": 1773129600000,
+        "lastRunAtMs": 1773043235791,
+        "lastRunStatus": "error",
+        "lastStatus": "error",
+        "lastDurationMs": 664020,
+        "lastError": "Channel is required when multiple channels are configured: telegram, slack Set delivery.channel explicitly or use a main session with a previous channel.",
+        "lastDeliveryStatus": "unknown",
+        "consecutiveErrors": 1
+      },
+      "updatedAtMs": 1773043899811
     }
   ]
 }

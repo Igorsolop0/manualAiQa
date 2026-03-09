@@ -40,6 +40,10 @@
     "openclaw-backup": {
       "version": "1.0.0",
       "installedAt": 1772747036918
+    },
+    "tavily-search": {
+      "version": "1.0.0",
+      "installedAt": 1773001349184
     }
   }
 }

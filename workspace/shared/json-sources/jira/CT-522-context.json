@@ -1,0 +1,858 @@
+{
+  "key": "CT-522",
+  "url": "https://next-t-code.atlassian.net/browse/CT-522",
+  "summary": "[BE] Linking Social Account Using Existing User Token",
+  "status": "Ready for testing",
+  "priority": "High",
+  "description": {
+    "type": "doc",
+    "version": 1,
+    "content": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Summary:",
+            "marks": [
+              {
+                "type": "strong"
+              }
+            ]
+          },
+          {
+            "type": "hardBreak"
+          },
+          {
+            "type": "text",
+            "text": "Allow users already logged in to link a new social account using their existing auth token."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Description:",
+            "marks": [
+              {
+                "type": "strong"
+              }
+            ]
+          },
+          {
+            "type": "hardBreak"
+          },
+          {
+            "type": "text",
+            "text": "When the user wants to link a new provider (Telegram), frontend initiates the same OAuth flow as normal registration/login, but sends the user\u2019s current token inside the "
+          },
+          {
+            "type": "text",
+            "text": "state",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "."
+          },
+          {
+            "type": "hardBreak"
+          },
+          {
+            "type": "text",
+            "text": "Backend:"
+          }
+        ]
+      },
+      {
+        "type": "bulletList",
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Extracts token from state after callback."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Finds user by token."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Links social provider via "
+                  },
+                  {
+                    "type": "text",
+                    "text": "external_registration_identifiers",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  },
+                  {
+                    "type": "hardBreak"
+                  },
+                  {
+                    "type": "text",
+                    "text": "If user not found (token invalid/expired), fallback to normal registration flow for social login."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Update 08.01 by "
+          },
+          {
+            "type": "mention",
+            "attrs": {
+              "id": "712020:7054c1c6-9a9d-4153-8aa4-f4ed26779735",
+              "text": "@Kevin",
+              "accessLevel": "",
+              "localId": "511a0526-3218-4f35-acd4-f5cb05729493"
+            }
+          },
+          {
+            "type": "text",
+            "text": " "
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Reused existing ExternalIdentities table."
+          },
+          {
+            "type": "hardBreak"
+          },
+          {
+            "type": "text",
+            "text": "If token is expired on invalid - returns error instead of proceeding with registration logic."
+          },
+          {
+            "type": "hardBreak"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Acceptance Criteria:",
+            "marks": [
+              {
+                "type": "strong"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "bulletList",
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Backend accepts token via state parameter during social login."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Existing user matched correctly and social account linked."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "If user not found \u2192 registration logic triggered."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "No duplicate external identifiers allowed."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Conflicts (already linked to another user) handled with error."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "acceptance_criteria": "Found in description (ADF)",
+  "recent_comments": [
+    {
+      "type": "doc",
+      "version": 1,
+      "content": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "mention",
+              "attrs": {
+                "id": "712020:7054c1c6-9a9d-4153-8aa4-f4ed26779735",
+                "text": "@Kevin",
+                "accessLevel": "",
+                "localId": "f4a9d58b-e0d3-4854-a577-5e600d9765be"
+              }
+            },
+            {
+              "type": "text",
+              "text": " \u0437\u0430\u043b\u0438\u0448 \u043a\u043e\u043c\u0435\u043d\u0430\u0440 \u043f\u043e 1 \u0430\u0431\u0437\u0430\u0446\u0443 \u0432\u0456\u0434 "
+            },
+            {
+              "type": "mention",
+              "attrs": {
+                "id": "712020:3d17a257-23ee-46de-a437-3b7a254c8a3b",
+                "text": "@Panda Sensei",
+                "accessLevel": "",
+                "localId": "5894c37f-458e-4160-8949-49b0d020fb69"
+              }
+            },
+            {
+              "type": "text",
+              "text": " "
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "doc",
+      "version": 1,
+      "content": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "mention",
+              "attrs": {
+                "id": "712020:3d17a257-23ee-46de-a437-3b7a254c8a3b",
+                "text": "@Panda Sensei",
+                "accessLevel": "",
+                "localId": "99192d37-14f3-419e-adcf-59394deb2d50"
+              }
+            },
+            {
+              "type": "text",
+              "text": " "
+            },
+            {
+              "type": "hardBreak"
+            },
+            {
+              "type": "hardBreak"
+            },
+            {
+              "type": "text",
+              "text": "Flow 1 \u2014 Successful linking Precondition: user is logged in. Telegram is not linked to any account.",
+              "marks": [
+                {
+                  "type": "strong"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "User clicks Link Telegram."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "User completes Telegram authorization."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "User is redirected back to the website. Result: Telegram is linked to the current user account."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Flow 2 \u2014 Telegram already linked to another user Precondition: this Telegram account is already linked to a different user.",
+              "marks": [
+                {
+                  "type": "strong"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "User clicks Link Telegram."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "User completes Telegram authorization. Result: system returns an error. Telegram is not linked to the current account."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Flow 3 \u2014 Telegram already linked to the same user Precondition: Telegram is already linked to this account.",
+              "marks": [
+                {
+                  "type": "strong"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "User repeats linking flow. Result: no duplicate external identifier is created. Account state remains unchanged."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Flow 4 \u2014 Token expired or invalid Precondition: token sent in state is expired or invalid.",
+              "marks": [
+                {
+                  "type": "strong"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "User completes Telegram authorization. Result: system returns an error. Linking does not occur."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "CORNER CASES",
+              "marks": [
+                {
+                  "type": "strong"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Telegram account is linked to another user between authorization start and callback \u2014 linking must fail with conflict error."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Callback from Telegram is received more than once \u2014 no duplicate external identifier must be created."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "ExternalIdentities table already contains the same provider identifier for the same user \u2014 no duplicate record must be created."
+            },
+            {
+              "type": "hardBreak"
+            },
+            {
+              "type": "hardBreak"
+            },
+            {
+              "type": "mention",
+              "attrs": {
+                "id": "712020:7054c1c6-9a9d-4153-8aa4-f4ed26779735",
+                "text": "@Kevin",
+                "accessLevel": "",
+                "localId": "264fe84d-3ea8-4421-9ea1-810c1ce27837"
+              }
+            },
+            {
+              "type": "text",
+              "text": " approve please"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "doc",
+      "version": 1,
+      "content": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Fix pr:"
+            },
+            {
+              "type": "hardBreak"
+            },
+            {
+              "type": "text",
+              "text": "https://git.dolore.cc/platform/platform-be/-/merge_requests/108",
+              "marks": [
+                {
+                  "type": "link",
+                  "attrs": {
+                    "href": "https://git.dolore.cc/platform/platform-be/-/merge_requests/108"
+                  }
+                }
+              ]
+            }
+          ],
+          "attrs": {
+            "localId": "a08b6f244f7b"
+          }
+        }
+      ]
+    },
+    {
+      "type": "doc",
+      "version": 1,
+      "content": [
+        {
+          "type": "orderedList",
+          "attrs": {
+            "order": 1,
+            "localId": "772e1e649e70"
+          },
+          "content": [
+            {
+              "type": "listItem",
+              "attrs": {
+                "localId": "66d3d8ee4342"
+              },
+              "content": [
+                {
+                  "type": "paragraph",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "Link fix: Added duplicate source type check \u2014 prevents linking same social provider (e.g. Google) twice to one account. "
+                    },
+                    {
+                      "type": "hardBreak"
+                    },
+                    {
+                      "type": "text",
+                      "text": "Returns AlreadyLinked ifclient already has that source type linked.                                                                                                         "
+                    }
+                  ],
+                  "attrs": {
+                    "localId": "c275cbd05798"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "listItem",
+              "attrs": {
+                "localId": "48331a8b3cb9"
+              },
+              "content": [
+                {
+                  "type": "paragraph",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "Unlink fix: Replaced hasPlatformLogin check that relied on ExternalIdentity records (always false for platform accounts since they don't have ExternalIdentity rows) with Client.PasswordHash check via cache."
+                    },
+                    {
+                      "type": "hardBreak"
+                    },
+                    {
+                      "type": "text",
+                      "text": "Now correctly detects whether user has a platform password before allowing unlink of last social account."
+                    }
+                  ],
+                  "attrs": {
+                    "localId": "91aa48486a35"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "  Impact:"
+            }
+          ],
+          "attrs": {
+            "localId": "7a43929a7de9"
+          }
+        },
+        {
+          "type": "bulletList",
+          "content": [
+            {
+              "type": "listItem",
+              "attrs": {
+                "localId": "02b088554583"
+              },
+              "content": [
+                {
+                  "type": "paragraph",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "Link: users can no longer accidentally create duplicate ExternalIdentity records for the same provider"
+                    }
+                  ],
+                  "attrs": {
+                    "localId": "362b30d3a5c1"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "listItem",
+              "attrs": {
+                "localId": "4d665e576047"
+              },
+              "content": [
+                {
+                  "type": "paragraph",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "Unlink: users with platform password can now unlink social accounts (was incorrectly blocked). Users without password and no other social accounts"
+                    },
+                    {
+                      "type": "hardBreak"
+                    },
+                    {
+                      "type": "text",
+                      "text": "are still correctly prevented from unlinking their last login method."
+                    }
+                  ],
+                  "attrs": {
+                    "localId": "a48c5148fbec"
+                  }
+                }
+              ]
+            }
+          ],
+          "attrs": {
+            "localId": "76cbae2d032a"
+          }
+        },
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "  How to test:"
+            }
+          ],
+          "attrs": {
+            "localId": "34e437ae80dc"
+          }
+        },
+        {
+          "type": "bulletList",
+          "content": [
+            {
+              "type": "listItem",
+              "attrs": {
+                "localId": "e4fbbdc99014"
+              },
+              "content": [
+                {
+                  "type": "paragraph",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "Link: Link Google to account \u2192 try linking Google again \u2192 should return \"already linked\", not create duplicate"
+                    }
+                  ],
+                  "attrs": {
+                    "localId": "a1816629cdd5"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "listItem",
+              "attrs": {
+                "localId": "29252d2c42cf"
+              },
+              "content": [
+                {
+                  "type": "paragraph",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "Link: Link Google \u2192 link Telegram \u2192 both should succeed (different source types)"
+                    }
+                  ],
+                  "attrs": {
+                    "localId": "e0215dc1fbb6"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "listItem",
+              "attrs": {
+                "localId": "bb7458892ea2"
+              },
+              "content": [
+                {
+                  "type": "paragraph",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "Unlink: User with password + 1 social account \u2192 unlink social \u2192 should succeed"
+                    }
+                  ],
+                  "attrs": {
+                    "localId": "010b06d01c34"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "listItem",
+              "attrs": {
+                "localId": "890878761803"
+              },
+              "content": [
+                {
+                  "type": "paragraph",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "Unlink: User without password + 1 social account \u2192 unlink \u2192 should be rejected (last login method)"
+                    }
+                  ],
+                  "attrs": {
+                    "localId": "9d1a42e56ead"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "listItem",
+              "attrs": {
+                "localId": "cf24f8f21b16"
+              },
+              "content": [
+                {
+                  "type": "paragraph",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "Unlink: User without password + 2 social accounts \u2192 unlink one \u2192 should succeed"
+                    }
+                  ],
+                  "attrs": {
+                    "localId": "35d5fd0b6fb8"
+                  }
+                }
+              ]
+            }
+          ],
+          "attrs": {
+            "localId": "c7b9ed8b9b96"
+          }
+        }
+      ]
+    },
+    {
+      "type": "doc",
+      "version": 1,
+      "content": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Can be tested in pair with FE part"
+            },
+            {
+              "type": "hardBreak"
+            },
+            {
+              "type": "inlineCard",
+              "attrs": {
+                "url": "https://next-t-code.atlassian.net/browse/CT-750",
+                "localId": "b1e42d8cbfdf"
+              }
+            },
+            {
+              "type": "text",
+              "text": " "
+            },
+            {
+              "type": "hardBreak"
+            },
+            {
+              "type": "inlineCard",
+              "attrs": {
+                "url": "https://next-t-code.atlassian.net/browse/CT-752",
+                "localId": "4533d394c9ec"
+              }
+            },
+            {
+              "type": "text",
+              "text": " "
+            }
+          ],
+          "attrs": {
+            "localId": "855fb99435c1"
+          }
+        }
+      ]
+    }
+  ],
+  "linked_issues": [
+    "implements CRYPTO-450"
+  ],
+  "last_updated": "2026-03-09T08:04:39.843+0000"
+}

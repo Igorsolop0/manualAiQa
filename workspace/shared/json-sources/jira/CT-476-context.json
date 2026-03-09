@@ -1,0 +1,861 @@
+{
+  "key": "CT-476",
+  "url": "https://next-t-code.atlassian.net/browse/CT-476",
+  "summary": "[FE] read and pass cashierstep, cashiersum parameters ",
+  "status": "On Production",
+  "priority": "Normal",
+  "description": {
+    "type": "doc",
+    "version": 1,
+    "content": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Description",
+            "marks": [
+              {
+                "type": "strong"
+              }
+            ]
+          },
+          {
+            "type": "hardBreak"
+          },
+          {
+            "type": "text",
+            "text": "We need to add support for opening the cashier at a predefined step and  prefill the amount field."
+          },
+          {
+            "type": "hardBreak"
+          },
+          {
+            "type": "text",
+            "text": "To enable this, the frontend must read two new parameters:"
+          }
+        ]
+      },
+      {
+        "type": "bulletList",
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "cashierstep",
+                    "marks": [
+                      {
+                        "type": "strong"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": " \u2014 defines which step the cashier should open on"
+                  }
+                ]
+              },
+              {
+                "type": "bulletList",
+                "content": [
+                  {
+                    "type": "listItem",
+                    "content": [
+                      {
+                        "type": "paragraph",
+                        "content": [
+                          {
+                            "type": "text",
+                            "text": "depositcrypto ",
+                            "marks": [
+                              {
+                                "type": "strong"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "listItem",
+                    "content": [
+                      {
+                        "type": "paragraph",
+                        "content": [
+                          {
+                            "type": "text",
+                            "text": "buycrypto ",
+                            "marks": [
+                              {
+                                "type": "strong"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "listItem",
+                    "content": [
+                      {
+                        "type": "paragraph",
+                        "content": [
+                          {
+                            "type": "text",
+                            "text": "withdrawcrypto ",
+                            "marks": [
+                              {
+                                "type": "strong"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "cashiersum",
+                    "marks": [
+                      {
+                        "type": "strong"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": " \u2014 prefilled amount (number)"
+                  }
+                ]
+              },
+              {
+                "type": "bulletList",
+                "content": [
+                  {
+                    "type": "listItem",
+                    "content": [
+                      {
+                        "type": "paragraph",
+                        "content": [
+                          {
+                            "type": "text",
+                            "text": "Applies only to flows that have an amount field (e.g., "
+                          },
+                          {
+                            "type": "text",
+                            "text": "buycrypto",
+                            "marks": [
+                              {
+                                "type": "strong"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "text",
+                            "text": ")"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "listItem",
+                    "content": [
+                      {
+                        "type": "paragraph",
+                        "content": [
+                          {
+                            "type": "text",
+                            "text": "Does "
+                          },
+                          {
+                            "type": "text",
+                            "text": "not",
+                            "marks": [
+                              {
+                                "type": "strong"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "text",
+                            "text": " apply to depositcrypto (no amount field)"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Both parameters (cashier"
+          },
+          {
+            "type": "text",
+            "text": "step",
+            "marks": [
+              {
+                "type": "strong"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and cashier"
+          },
+          {
+            "type": "text",
+            "text": "sum",
+            "marks": [
+              {
+                "type": "strong"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ") must be passed to the backend together with the existing cashier payload."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Optional requirement",
+            "marks": [
+              {
+                "type": "strong"
+              }
+            ]
+          },
+          {
+            "type": "hardBreak"
+          },
+          {
+            "type": "text",
+            "text": "When the cashier is closed, the frontend should clear the values of the two new parameters (cashier"
+          },
+          {
+            "type": "text",
+            "text": "step",
+            "marks": [
+              {
+                "type": "strong"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and cashier"
+          },
+          {
+            "type": "text",
+            "text": "sum",
+            "marks": [
+              {
+                "type": "strong"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": ") so they do not persist between sessions."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Expected result",
+            "marks": [
+              {
+                "type": "strong"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "bulletList",
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Frontend reads the two new parameters from the URL"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "These parameters are included in all relevant backend requests"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Cashier opens on the correct step"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Amount field is prefilled when applicable"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "(Optional) Parameters are cleared on cashier close"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "acceptance_criteria": "Found in description (ADF)",
+  "recent_comments": [
+    {
+      "type": "doc",
+      "version": 1,
+      "content": [
+        {
+          "type": "panel",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Estimate",
+                  "marks": [
+                    {
+                      "type": "strong"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": ": 1d"
+                }
+              ]
+            },
+            {
+              "type": "bulletList",
+              "content": [
+                {
+                  "type": "listItem",
+                  "content": [
+                    {
+                      "type": "paragraph",
+                      "content": [
+                        {
+                          "type": "text",
+                          "text": "Dev: 0.5d"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "listItem",
+                  "content": [
+                    {
+                      "type": "paragraph",
+                      "content": [
+                        {
+                          "type": "text",
+                          "text": "QA: 0.5d"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "attrs": {
+            "panelType": "info"
+          }
+        }
+      ]
+    },
+    {
+      "type": "doc",
+      "version": 1,
+      "content": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The task was moved to hold due to the dev and QA environments not working."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "doc",
+      "version": 1,
+      "content": [
+        {
+          "type": "blockquote",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "The task has been put on hold due to the absence of the required implementation on the PaymentHub side, which prevents proper testing from our end. The task will be resumed once the corresponding PaymentHub functionality is implemented."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "mention",
+              "attrs": {
+                "id": "712020:c123651b-9a89-42b6-89f8-a796fa626b3b",
+                "text": "@Galadriel",
+                "accessLevel": "",
+                "localId": "a33c455a-cfbf-4ee9-8a4a-6137e7730e2e"
+              }
+            },
+            {
+              "type": "text",
+              "text": "  FYI"
+            },
+            {
+              "type": "hardBreak"
+            },
+            {
+              "type": "text",
+              "text": "link to discussion",
+              "marks": [
+                {
+                  "type": "link",
+                  "attrs": {
+                    "href": "https://ds.next-infra.tech/mm/cat-ncd/pl/iuwa6w8xoirotmaogbjrq16d5h"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "doc",
+      "version": 1,
+      "content": [
+        {
+          "type": "panel",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "https://git.dolore.cc/portal/portal/-/merge_requests/154",
+                  "marks": [
+                    {
+                      "type": "link",
+                      "attrs": {
+                        "href": "https://git.dolore.cc/portal/portal/-/merge_requests/154"
+                      }
+                    }
+                  ]
+                }
+              ],
+              "attrs": {
+                "localId": "b610f778b41d"
+              }
+            }
+          ],
+          "attrs": {
+            "panelType": "info",
+            "localId": "63fb285b6b7f"
+          }
+        }
+      ]
+    },
+    {
+      "type": "doc",
+      "version": 1,
+      "content": [
+        {
+          "type": "panel",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Tested on the qa env"
+                }
+              ],
+              "attrs": {
+                "localId": "6aae9c5e12a4"
+              }
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Devices: iPhone 15 Pro Max, MAcBook AIr"
+                }
+              ],
+              "attrs": {
+                "localId": "90d6e5723dd0"
+              }
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Browsers: Safari, Chrome"
+                }
+              ],
+              "attrs": {
+                "localId": "a0225bf0b4bc"
+              }
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Validet scenarios:"
+                }
+              ],
+              "attrs": {
+                "localId": "234e861724c5"
+              }
+            },
+            {
+              "type": "bulletList",
+              "content": [
+                {
+                  "type": "listItem",
+                  "attrs": {
+                    "localId": "e806068950ae"
+                  },
+                  "content": [
+                    {
+                      "type": "paragraph",
+                      "content": [
+                        {
+                          "type": "text",
+                          "text": "cashierstep=depositcrypto",
+                          "marks": [
+                            {
+                              "type": "code"
+                            }
+                          ]
+                        }
+                      ],
+                      "attrs": {
+                        "localId": "234e861724c5"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "listItem",
+                  "attrs": {
+                    "localId": "02912141e02f"
+                  },
+                  "content": [
+                    {
+                      "type": "paragraph",
+                      "content": [
+                        {
+                          "type": "text",
+                          "text": "cashierstep=buycrypto",
+                          "marks": [
+                            {
+                              "type": "code"
+                            }
+                          ]
+                        }
+                      ],
+                      "attrs": {
+                        "localId": "bb92ed0c5435"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "listItem",
+                  "attrs": {
+                    "localId": "5703038a717f"
+                  },
+                  "content": [
+                    {
+                      "type": "paragraph",
+                      "content": [
+                        {
+                          "type": "text",
+                          "text": "cashierstep=buycrypto&cashiersum=100",
+                          "marks": [
+                            {
+                              "type": "code"
+                            }
+                          ]
+                        }
+                      ],
+                      "attrs": {
+                        "localId": "d52b389d9a9b"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "listItem",
+                  "attrs": {
+                    "localId": "040edd9ff97d"
+                  },
+                  "content": [
+                    {
+                      "type": "paragraph",
+                      "content": [
+                        {
+                          "type": "text",
+                          "text": "cashierstep=withdrawcrypto",
+                          "marks": [
+                            {
+                              "type": "code"
+                            }
+                          ]
+                        }
+                      ],
+                      "attrs": {
+                        "localId": "11b1d3b6f776"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "listItem",
+                  "attrs": {
+                    "localId": "e359786cc1db"
+                  },
+                  "content": [
+                    {
+                      "type": "paragraph",
+                      "content": [
+                        {
+                          "type": "text",
+                          "text": "cashierstep=invalid",
+                          "marks": [
+                            {
+                              "type": "code"
+                            }
+                          ]
+                        }
+                      ],
+                      "attrs": {
+                        "localId": "640bbc1f576c"
+                      }
+                    }
+                  ]
+                }
+              ],
+              "attrs": {
+                "localId": "3097ba70e06c"
+              }
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Was checked for unauthorized and authorized users"
+                }
+              ],
+              "attrs": {
+                "localId": "5e6fb1632695"
+              }
+            }
+          ],
+          "attrs": {
+            "panelType": "success",
+            "localId": "f03f367012fd"
+          }
+        },
+        {
+          "type": "mediaSingle",
+          "attrs": {
+            "width": 635,
+            "widthType": "pixel",
+            "localId": "fb28f9f5bbb0",
+            "layout": "align-start"
+          },
+          "content": [
+            {
+              "type": "media",
+              "attrs": {
+                "type": "file",
+                "id": "65ea46fa-bc0c-42a9-b628-4a34209616d4",
+                "alt": "image-20260305-132746.png",
+                "collection": "",
+                "localId": "44415069d753",
+                "height": 1360,
+                "width": 1331
+              }
+            }
+          ]
+        },
+        {
+          "type": "mediaSingle",
+          "attrs": {
+            "width": 607,
+            "widthType": "pixel",
+            "localId": "8876125a05ac",
+            "layout": "align-start"
+          },
+          "content": [
+            {
+              "type": "media",
+              "attrs": {
+                "type": "file",
+                "id": "8aff4bed-8e31-4670-aead-976857fe4ee7",
+                "alt": "Screen Recording 2026-03-05 at 14.20.42.mov",
+                "collection": "",
+                "localId": "7ddb87f8c1e4",
+                "height": 2304,
+                "width": 3598
+              }
+            }
+          ]
+        },
+        {
+          "type": "mediaSingle",
+          "attrs": {
+            "width": 607,
+            "widthType": "pixel",
+            "localId": "2a03ad8aa839",
+            "layout": "align-start"
+          },
+          "content": [
+            {
+              "type": "media",
+              "attrs": {
+                "type": "file",
+                "id": "3c36459e-520c-4d10-a525-61da3b89f31f",
+                "alt": "Screen Recording 2026-03-05 at 14.21.35.mov",
+                "collection": "",
+                "localId": "b38adbd843a5",
+                "height": 2304,
+                "width": 3598
+              }
+            }
+          ]
+        },
+        {
+          "type": "mediaSingle",
+          "attrs": {
+            "width": 607,
+            "widthType": "pixel",
+            "localId": "fe0061724314",
+            "layout": "align-start"
+          },
+          "content": [
+            {
+              "type": "media",
+              "attrs": {
+                "type": "file",
+                "id": "335c1501-d31c-47d2-85d8-906b0f4e8b74",
+                "alt": "Screen Recording 2026-03-05 at 14.20.13.mov",
+                "collection": "",
+                "localId": "19903db3a07f",
+                "height": 2304,
+                "width": 3598
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "linked_issues": [
+    "implements CRYPTO-313",
+    "is blocked by HUB-5522",
+    "is blocked by HUB-8495"
+  ],
+  "last_updated": "2026-03-06T15:10:08.602+0000"
+}

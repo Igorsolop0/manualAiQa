@@ -1,0 +1,992 @@
+{
+  "key": "CT-709",
+  "url": "https://next-t-code.atlassian.net/browse/CT-709",
+  "summary": "[BE] Refactor Login & Registration",
+  "status": "Ready for testing",
+  "priority": "Normal",
+  "description": {
+    "type": "doc",
+    "version": 1,
+    "content": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Summary:",
+            "marks": [
+              {
+                "type": "strong"
+              }
+            ]
+          },
+          {
+            "type": "hardBreak"
+          },
+          {
+            "type": "text",
+            "text": "Refactor existing login and registration logic to use external provider identifiers instead of email/user_id. Implement new table "
+          },
+          {
+            "type": "text",
+            "text": "external_registration_identifiers",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and update all social login flows."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Description:",
+            "marks": [
+              {
+                "type": "strong"
+              }
+            ]
+          },
+          {
+            "type": "hardBreak"
+          },
+          {
+            "type": "text",
+            "text": "Currently, social login (Telegram) is tied to email or to a prefixed user_id. We must introduce a new mechanism that uses external provider IDs as the primary key."
+          },
+          {
+            "type": "hardBreak"
+          },
+          {
+            "type": "text",
+            "text": "Create a new table "
+          },
+          {
+            "type": "text",
+            "text": "external_registration_identifiers",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": " and update login logic to:"
+          }
+        ]
+      },
+      {
+        "type": "bulletList",
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "On social login, read external provider ID."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Check if "
+                  },
+                  {
+                    "type": "text",
+                    "text": "(provider, external_id)",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": " exists in the new table."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "If match \u2192 log in the user."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "If not \u2192 create a record; if needed, create the user (existing registration logic)."
+                  },
+                  {
+                    "type": "hardBreak"
+                  },
+                  {
+                    "type": "text",
+                    "text": "flow logic that fills this table automatically on login (no current data exists \u2192 migration occurs via login)."
+                  },
+                  {
+                    "type": "hardBreak"
+                  },
+                  {
+                    "type": "text",
+                    "text": "For Telegram:"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "We currently store telegram id inside "
+                  },
+                  {
+                    "type": "text",
+                    "text": "user_id",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": " with prefix."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Create migration to parse existing telegram identifiers and fill the new table."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Switch Telegram login to use "
+                  },
+                  {
+                    "type": "text",
+                    "text": "external_registration_identifiers",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Acceptance Criteria:",
+            "marks": [
+              {
+                "type": "strong"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "bulletList",
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "New table "
+                  },
+                  {
+                    "type": "text",
+                    "text": "external_registration_identifiers",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": " created and integrated."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Telegram login flows use external_id as primary lookup."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "On first login, missing entries are created automatically."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Telegram migration successfully fills new table with correct parsed identifiers."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Old login-by-email-for-socials and login-by-prefixed-Telegram-id removed."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "acceptance_criteria": "Found in description (ADF)",
+  "recent_comments": [
+    {
+      "type": "doc",
+      "version": 1,
+      "content": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "EST: dev 1,5d test 3h"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "doc",
+      "version": 1,
+      "content": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Will reuse existing "
+            },
+            {
+              "type": "text",
+              "text": "ExternalIdentity",
+              "marks": [
+                {
+                  "type": "code"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "text": " table"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "hardBreak"
+            },
+            {
+              "type": "text",
+              "text": "For each RegistrationSource will be used it\u2019s own way to determine unique identifier which will be filled in "
+            },
+            {
+              "type": "text",
+              "text": "ExternalId",
+              "marks": [
+                {
+                  "type": "code"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "text": " column (In same way as Microsoft auth works for AWA)"
+            }
+          ]
+        },
+        {
+          "type": "bulletList",
+          "content": [
+            {
+              "type": "listItem",
+              "content": [
+                {
+                  "type": "paragraph",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "TG - "
+                    },
+                    {
+                      "type": "text",
+                      "text": "TG{userData.Id}",
+                      "marks": [
+                        {
+                          "type": "code"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "listItem",
+              "content": [
+                {
+                  "type": "paragraph",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "Google - "
+                    },
+                    {
+                      "type": "text",
+                      "text": "user.Email",
+                      "marks": [
+                        {
+                          "type": "code"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "hardBreak"
+            },
+            {
+              "type": "text",
+              "text": "Partner-Client-ExternalIdentities uniqueness "
+            },
+            {
+              "type": "text",
+              "text": "(client can link same socials in different partners, and same socials can\u2019t be used by other users in same partner) ",
+              "marks": [
+                {
+                  "type": "em"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "text": "will be checked via Client\u2019s table. "
+            },
+            {
+              "type": "hardBreak"
+            },
+            {
+              "type": "text",
+              "text": "Auth mechanism:"
+            }
+          ]
+        },
+        {
+          "type": "orderedList",
+          "attrs": {
+            "order": 1
+          },
+          "content": [
+            {
+              "type": "listItem",
+              "content": [
+                {
+                  "type": "paragraph",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "Determine unique identifier for specified RegistrationSource"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "listItem",
+              "content": [
+                {
+                  "type": "paragraph",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "Find records in "
+                    },
+                    {
+                      "type": "text",
+                      "text": "ExternalIdentity",
+                      "marks": [
+                        {
+                          "type": "code"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "text": " table by "
+                    },
+                    {
+                      "type": "text",
+                      "text": "ExternalId == UniqueIdentifier",
+                      "marks": [
+                        {
+                          "type": "code"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "listItem",
+              "content": [
+                {
+                  "type": "paragraph",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "Filter by "
+                    },
+                    {
+                      "type": "text",
+                      "text": "ExternalIdentity.Client.PartnerId == PartnerId",
+                      "marks": [
+                        {
+                          "type": "code"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "text": ", PartnerId is passed in request body"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "doc",
+      "version": 1,
+      "content": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Update QA estimation on 6h due to scope of work plus 1d for developer"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "doc",
+      "version": 1,
+      "content": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "PR: "
+            },
+            {
+              "type": "hardBreak"
+            },
+            {
+              "type": "text",
+              "text": "https://git.dolore.cc/platform/platform-be/-/merge_requests/103",
+              "marks": [
+                {
+                  "type": "link",
+                  "attrs": {
+                    "href": "https://git.dolore.cc/platform/platform-be/-/merge_requests/103"
+                  }
+                }
+              ]
+            }
+          ],
+          "attrs": {
+            "localId": "59d036f4af29"
+          }
+        }
+      ]
+    },
+    {
+      "type": "doc",
+      "version": 1,
+      "content": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Changes: Refactored OAuth login/registration flow to use ExternalIdentity.ExternalId as the primary identifier instead of email/username lookup. "
+            }
+          ],
+          "attrs": {
+            "localId": "af9eabf19258"
+          }
+        },
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "What was done:                 "
+            }
+          ],
+          "attrs": {
+            "localId": "af9eabf19258"
+          }
+        },
+        {
+          "type": "orderedList",
+          "attrs": {
+            "order": 1,
+            "localId": "28828019c817"
+          },
+          "content": [
+            {
+              "type": "listItem",
+              "attrs": {
+                "localId": "3efa2d5e5c65"
+              },
+              "content": [
+                {
+                  "type": "paragraph",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "BaseOAuthAccountService - Added tiered identity resolution: first looks up user by ExternalId in ExternalIdentity table (stable identifier), falls back to email/username lookup for pre-migration users. Backfills ExternalId on successful login for older accounts.  "
+                    }
+                  ],
+                  "attrs": {
+                    "localId": "af9eabf19258"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "listItem",
+              "attrs": {
+                "localId": "3fe96d4233db"
+              },
+              "content": [
+                {
+                  "type": "paragraph",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": " GoogleAccountService - Uses email as ExternalId. OneTap flows pass externalId through."
+                    }
+                  ],
+                  "attrs": {
+                    "localId": "af9eabf19258"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "listItem",
+              "attrs": {
+                "localId": "3fe96d4233db"
+              },
+              "content": [
+                {
+                  "type": "paragraph",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "TelegramAccountService - Uses TG{telegramUserId} as ExternalId. "
+                    },
+                    {
+                      "type": "hardBreak"
+                    },
+                    {
+                      "type": "text",
+                      "text": "Tier 1: ExternalIdentity lookup \u2192 Tier 2: UserName fallback \u2192 Tier 3: Register. "
+                    }
+                  ],
+                  "attrs": {
+                    "localId": "af9eabf19258"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "listItem",
+              "attrs": {
+                "localId": "c97f1f77f0b2"
+              },
+              "content": [
+                {
+                  "type": "paragraph",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "Backfill migration - Populates ExternalId for existing users:"
+                    }
+                  ],
+                  "attrs": {
+                    "localId": "af9eabf19258"
+                  }
+                },
+                {
+                  "type": "orderedList",
+                  "attrs": {
+                    "order": 1,
+                    "localId": "b6d6930a5ed1"
+                  },
+                  "content": [
+                    {
+                      "type": "listItem",
+                      "attrs": {
+                        "localId": "c97f1f77f0b2"
+                      },
+                      "content": [
+                        {
+                          "type": "paragraph",
+                          "content": [
+                            {
+                              "type": "text",
+                              "text": "Telegram: copies UserName (TG-prefixed) to ExternalId, inserts missing ExternalIdentity rows for orphan clients"
+                            }
+                          ],
+                          "attrs": {
+                            "localId": "af9eabf19258"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "type": "listItem",
+                      "attrs": {
+                        "localId": "c97f1f77f0b2"
+                      },
+                      "content": [
+                        {
+                          "type": "paragraph",
+                          "content": [
+                            {
+                              "type": "text",
+                              "text": "Google: copies lowercased Email to ExternalId"
+                            },
+                            {
+                              "type": "hardBreak"
+                            },
+                            {
+                              "type": "text",
+                              "text": "Adds composite index on (ExternalId, RegistrationSourceId)"
+                            }
+                          ],
+                          "attrs": {
+                            "localId": "af9eabf19258"
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Impact: Login resolves by stable external identifier first, with transparent fallback for pre-migration users."
+            }
+          ],
+          "attrs": {
+            "localId": "25d8d5ac978d"
+          }
+        },
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "How to test:"
+            }
+          ],
+          "attrs": {
+            "localId": "0a600bb94fc1"
+          }
+        },
+        {
+          "type": "bulletList",
+          "content": [
+            {
+              "type": "listItem",
+              "attrs": {
+                "localId": "1b12612e9bcd"
+              },
+              "content": [
+                {
+                  "type": "paragraph",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "Google login: existing user logs in \u2192 verify login succeeds, ExternalId gets backfilled in ExternalIdentity table"
+                    }
+                  ],
+                  "attrs": {
+                    "localId": "9f2eef0539fe"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "listItem",
+              "attrs": {
+                "localId": "6630bcc56113"
+              },
+              "content": [
+                {
+                  "type": "paragraph",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "Google registration: new user registers via Google \u2192 verify ExternalIdentity.ExternalId = email"
+                    }
+                  ],
+                  "attrs": {
+                    "localId": "a0d3507cfc14"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "listItem",
+              "attrs": {
+                "localId": "5fd345166df1"
+              },
+              "content": [
+                {
+                  "type": "paragraph",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "Google email change: user changes email after linking Google \u2192 verify next Google login still works (resolves by ExternalId, not email)"
+                    }
+                  ],
+                  "attrs": {
+                    "localId": "11b535a7f703"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "listItem",
+              "attrs": {
+                "localId": "6fe394205342"
+              },
+              "content": [
+                {
+                  "type": "paragraph",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "Telegram login: existing TG user logs in \u2192 verify login succeeds via ExternalIdentity lookup"
+                    }
+                  ],
+                  "attrs": {
+                    "localId": "9f8c20a32084"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "listItem",
+              "attrs": {
+                "localId": "0698085ac72d"
+              },
+              "content": [
+                {
+                  "type": "paragraph",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "Telegram new user: register via Telegram \u2192 verify ExternalIdentity.ExternalId = TG{id}"
+                    }
+                  ],
+                  "attrs": {
+                    "localId": "35016107c462"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "listItem",
+              "attrs": {
+                "localId": "d32ac7a6ed95"
+              },
+              "content": [
+                {
+                  "type": "paragraph",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "Linking flow: link Google/Telegram to existing account \u2192 verify ExternalId stored correctly (not email)"
+                    }
+                  ],
+                  "attrs": {
+                    "localId": "bc9ecd9a113d"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "listItem",
+              "attrs": {
+                "localId": "b3a475856d0c"
+              },
+              "content": [
+                {
+                  "type": "paragraph",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "Migration verification: after deployment, spot-check DB that ExternalId is populated for existing Google and Telegram users"
+                    }
+                  ],
+                  "attrs": {
+                    "localId": "19123a76260f"
+                  }
+                }
+              ]
+            }
+          ],
+          "attrs": {
+            "localId": "fff0bd108e88"
+          }
+        }
+      ]
+    }
+  ],
+  "linked_issues": [
+    "implements CRYPTO-450",
+    "blocks CT-656"
+  ],
+  "last_updated": "2026-03-09T08:05:00.785+0000"
+}

@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenClaw Architecture & Infrastructure</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-base: #020617;
+            --bg-panel: rgba(15, 23, 42, 0.7);
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            
+            --emerald-bg: rgba(6, 78, 59, 0.85); --emerald-border: #10b981;
+            --amber-bg: rgba(120, 53, 15, 0.85); --amber-border: #f59e0b;
+            --sky-bg: rgba(12, 74, 110, 0.85); --sky-border: #38bdf8;
+            --pink-bg: rgba(131, 24, 67, 0.85); --pink-border: #ec4899;
+            --purple-bg: rgba(76, 29, 149, 0.85); --purple-border: #8b5cf6;
+            --slate-bg: rgba(51, 65, 85, 0.85); --slate-border: #64748b;
+        }
+
+        * { box-sizing: border-box; }
+        body { 
+            margin: 0; 
+            background: radial-gradient(circle at 50% 50%, #0f172a 0%, #020617 100%); 
+            color: var(--text-main); 
+            font-family: 'Outfit', sans-serif; 
+            display: flex; 
+            height: 100vh; 
+            overflow: hidden; 
+        }
+        
+        /* Typography & Sidebar */
+        .sidebar {
+            width: 420px;
+            background: var(--bg-panel);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border-right: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 40px 32px;
+            display: flex;
+            flex-direction: column;
+            z-index: 30;
+            box-shadow: 10px 0 40px rgba(0,0,0,0.6);
+        }
+        .sidebar h1 { 
+            margin-top: 0; font-size: 2rem; font-weight: 800; line-height: 1.1;
+            background: linear-gradient(135deg, #e2e8f0, #94a3b8); 
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; 
+            margin-bottom: 8px;
+        }
+        .subtitle { font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; color: #38bdf8; margin-bottom: 24px; text-transform: uppercase; letter-spacing: 1px;}
+        .sidebar .desc { 
+            font-size: 1.1rem; line-height: 1.6; color: var(--text-muted); 
+            margin-bottom: 24px; flex: 1; overflow-y: auto; padding-right: 8px;
+        }
+        
+        .badges { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
+        .badge { 
+            background: rgba(255, 255, 255, 0.05); color: #e2e8f0; 
+            padding: 4px 12px; border-radius: 6px; font-size: 0.85rem; font-weight: 500; 
+            border: 1px solid rgba(255, 255, 255, 0.1); font-family: 'JetBrains Mono', monospace;
+        }
+        
+        .hint { 
+            margin-top: auto; color: #10b981; font-weight: 500; font-size: 0.95rem; 
+            background: rgba(16, 185, 129, 0.1); padding: 16px; border-radius: 12px;
+            border: 1px solid rgba(16, 185, 129, 0.2); text-align: center;
+        }
+
+        /* Canvas Area */
+        .main-view { flex: 1; position: relative; z-index: 10; overflow: hidden; }
+        #canvas { position: absolute; width: 100%; height: 100%; top: 0; left: 0; }
+        
+        /* Environment Pods (Background regions) */
+        .pod {
+            position: absolute;
+            border: 1px dashed;
+            border-radius: 24px;
+            transform: translate(-50%, -50%);
+            z-index: 5;
+            pointer-events: none;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            padding-top: 16px;
+            transition: opacity 0.4s ease;
+        }
+        .pod-title {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            font-weight: 700;
+            opacity: 0.6;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* SVG & Lines */
+        svg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 8; pointer-events: none; }
+        .conn-path { fill: none; transition: stroke 0.4s ease, stroke-opacity 0.4s ease, stroke-width 0.2s ease; }
+        .conn-label { 
+            font-family: 'Outfit', sans-serif; font-size: 13px; font-weight: 600; 
+            fill: #94a3b8; transition: opacity 0.4s ease, fill 0.4s ease;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+        }
+        
+        /* Dynamic SVG Line Styles */
+        .path-task { stroke: #10b981; stroke-width: 3; stroke-dasharray: 6, 6; animation: flowDash 1.5s linear infinite; }
+        .path-read { stroke: #38bdf8; stroke-width: 2; stroke-dasharray: 4, 4; opacity: 0.7; }
+        .path-rw { stroke: #f59e0b; stroke-width: 2; opacity: 0.8; }
+        .path-delegate { stroke: #8b5cf6; stroke-width: 3; stroke-dasharray: 8, 8; animation: flowDash 2s linear infinite; }
+        .path-sync { stroke: #ec4899; stroke-width: 2; stroke-dasharray: 4, 8; animation: flowDashRev 2s linear infinite; opacity: 0.9; }
+        .path-tool { stroke: #64748b; stroke-width: 2; stroke-dasharray: 2, 2; }
+
+        @keyframes flowDash { to { stroke-dashoffset: -24; } }
+        @keyframes flowDashRev { to { stroke-dashoffset: 24; } }
+
+        /* Nodes */
+        .node {
+            position: absolute; 
+            padding: 14px 20px; 
+            border-radius: 14px; 
+            font-weight: 600; 
+            cursor: pointer; 
+            z-index: 10; 
+            transform: translate(-50%, -50%); 
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            border: 2px solid; 
+            box-shadow: 0 10px 25px rgba(0,0,0,0.4); 
+            text-align: center; 
+            backdrop-filter: blur(8px); 
+            -webkit-backdrop-filter: blur(8px);
+            min-width: 140px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .node.main-agent { border-width: 3px; padding: 18px 24px; min-width: 170px; font-size: 1.1rem; }
+        .node:hover, .node.active-node { transform: translate(-50%, -50%) scale(1.1 - 0.03); z-index: 20; box-shadow: 0 15px 35px rgba(0,0,0,0.6); filter: brightness(1.2); }
+        .node .icon { font-size: 1.6rem; }
+        .node.main-agent .icon { font-size: 2rem; }
+        .node .label { white-space: nowrap; }
+
+        /* Dimming effect for interaction */
+        .view-dimmed .node:not(.highlighted) { opacity: 0.2 !important; filter: grayscale(80%); }
+        .view-dimmed .pod:not(.highlighted-pod) { opacity: 0.1 !important; }
+        .view-dimmed .conn-path:not(.highlighted-path) { stroke-opacity: 0.1 !important; }
+        .view-dimmed .conn-label:not(.highlighted-label) { opacity: 0.1 !important; }
+        
+        /* Highlight styling override */
+        .highlighted-path { stroke-width: 4; stroke-opacity: 1 !important; }
+        .highlighted-label { fill: #f8fafc; font-weight: 800; opacity: 1 !important; }
+
+        /* Color classes */
+        .c-emerald { background: var(--emerald-bg); border-color: var(--emerald-border); }
+        .c-amber { background: var(--amber-bg); border-color: var(--amber-border); }
+        .c-sky { background: var(--sky-bg); border-color: var(--sky-border); }
+        .c-pink { background: var(--pink-bg); border-color: var(--pink-border); }
+        .c-purple { background: var(--purple-bg); border-color: var(--purple-border); }
+        .c-slate { background: var(--slate-bg); border-color: var(--slate-border); }
+    </style>
+</head>
+<body>
+
+    <div class="sidebar">
+        <h1 id="sidebar-title">Global View</h1>
+        <div class="subtitle" id="sidebar-subtitle">Огляд архітектури</div>
+        <div class="badges" id="sidebar-badges">
+            <span class="badge">Інтерактивна схема</span>
+            <span class="badge">Multi-Agent</span>
+        </div>
+        <div class="desc" id="sidebar-desc">
+            Ця візуалізація демонструє повну інфраструктуру агента OpenClaw.<br><br>
+            Головне нововведення — <strong>Ізоляція</strong>.<br>
+            Кожен агент (Nexus, QA, API, Jira) має свій власний:
+            <br>• 📜 <strong>SOUL.md</strong> — локальні правила та персона.
+            <br>• 💾 <strong>MEMORY.md</strong> — локальне сховище стану.<br><br>
+            Наведіть курсор на будь-який елемент (агента, пам'ять чи спільні інструменти), щоб побачити зв'язки та потоки даних!
+        </div>
+        <div class="hint">☝️ Наводьте на вузли, щоб ізолювати зв'язки.</div>
+    </div>
+
+    <div class="main-view" id="main-view">
+        <div id="canvas">
+            <!-- Pods injected via JS -->
+            <svg id="svgCanvas"></svg>
+            <!-- Nodes injected via JS -->
+        </div>
+    </div>
+
+    <script>
+        const dataConfig = {
+            pods: [
+                { id: 'pod_nexus', title: 'Orchestration Infrastructure', top: 22, left: 50, width: 40, height: 26, color: 'rgba(245, 158, 11, 0.05)', borderColor: 'rgba(245, 158, 11, 0.3)' },
+                { id: 'pod_qa', title: 'QA Domain', top: 72, left: 16, width: 28, height: 28, color: 'rgba(139, 92, 246, 0.05)', borderColor: 'rgba(139, 92, 246, 0.3)' },
+                { id: 'pod_api', title: 'API Domain', top: 72, left: 50, width: 28, height: 28, color: 'rgba(139, 92, 246, 0.05)', borderColor: 'rgba(139, 92, 246, 0.3)' },
+                { id: 'pod_jira', title: 'Jira Domain', top: 72, left: 84, width: 28, height: 28, color: 'rgba(139, 92, 246, 0.05)', borderColor: 'rgba(139, 92, 246, 0.3)' },
+                { id: 'pod_tools', title: 'Global Actions & Tools', top: 48, left: 50, width: 60, height: 16, color: 'rgba(100, 116, 139, 0.05)', borderColor: 'rgba(100, 116, 139, 0.3)' }
+            ],
+            nodes: [
+                { id: 'user', icon: '👤', title: 'User / Human', top: 5, left: 50, color: 'emerald', main: true,
+                  pod: null, desc: "Ви — ініціатор. Ви даєте глобальне завдання і затверджуєте критичні кроки, але не втручаєтесь у мікроменеджмент.", tags: ['Ініціатор', 'Директор'] },
+                
+                // Nexus
+                { id: 'nexus', icon: '🧠', title: 'Nexus Agent', top: 22, left: 50, color: 'amber', main: true,
+                  pod: 'pod_nexus', desc: "Головний Оркестратор. Він єдиний бачить 'всю картину', розбиває задачу Користувача і делегує її дочірнім агентам. Збирає загальний звіт.", tags: ['Роутер', 'Менеджер', 'LLM'] },
+                { id: 'nexus_soul', icon: '📜', title: 'Nexus SOUL', top: 16, left: 40, color: 'sky', main: false,
+                  pod: 'pod_nexus', desc: "Глобальні правила маршрутизації. Визначають, як Nexus має спілкуватись з користувачем (tone of voice) та за якими критеріями ділити задачі.", tags: ['Правила', 'Роутінг'] },
+                { id: 'nexus_memory', icon: '💾', title: 'Global MEMORY', top: 16, left: 60, color: 'pink', main: false,
+                  pod: 'pod_nexus', desc: "Спільна база знань проекту. Сюди дочірні агенти 'пушать' фінальні результати своєї роботи, щоб Nexus міг прочитати загальний контекст.", tags: ['Shared State', 'Контекст'] },
+
+                // QA 
+                { id: 'qa', icon: '🧪', title: 'QA Agent', top: 68, left: 16, color: 'purple', main: true,
+                  pod: 'pod_qa', desc: "Пише та запускає код (Playwright E2E тести). Робить всю брудну роботу з написання скриптів. Автономно працює з DOM та браузером.", tags: ['Playwright', 'E2E Code', 'Автономний'] },
+                { id: 'qa_soul', icon: '📜', title: 'QA SOUL', top: 80, left: 10, color: 'sky', main: false,
+                  pod: 'pod_qa', desc: "Правила Resilient Testing. Інструктує QA агента перевикористовувати існуючі фікстури, використовувати Chromium і самостійно вирішувати проблеми з локаторами.", tags: ['Resilient', 'Ізоляція', 'Reusability'] },
+                { id: 'qa_memory', icon: '💾', title: 'QA MEMORY', top: 80, left: 22, color: 'pink', main: false,
+                  pod: 'pod_qa', desc: "Локальна пам'ять тестувальника (26 KB). Зберігає базу знань про Playwright, UI локатори, логіку бонусів та проблеми сегментації гравців.", tags: ['Local State', 'Knowledge'] },
+
+                // API
+                { id: 'api', icon: '⚙️', title: 'API Docs Agent', top: 68, left: 50, color: 'purple', main: true,
+                  pod: 'pod_api', desc: "Працює зі Swagger. Тримає інформацію про сервіси, автентифікацію, дістає дані по існуючим бонусам на проді та відповідає за створення гравця з балансом.", tags: ['Swagger', 'Auth', 'Data Fetching'] },
+                { id: 'api_soul', icon: '📜', title: 'API SOUL', top: 80, left: 44, color: 'sky', main: false,
+                  pod: 'pod_api', desc: "Правила інтерпретації REST API. Інструктує надавати правильні маппінги для API-тестів та генерувати хелпери для QA агента.", tags: ['API Specs', 'Helper'] },
+                { id: 'api_memory', icon: '💾', title: 'API MEMORY', top: 80, left: 56, color: 'pink', main: false,
+                  pod: 'pod_api', desc: "Сховище Swagger шляхів (7.5 KB), Endpoint flows, інформації про гравців та інфраструктуру сервісів.", tags: ['Swagger Paths', 'Context'] },
+
+                // Jira
+                { id: 'jira', icon: '📋', title: 'Jira Agent', top: 68, left: 84, color: 'purple', main: true,
+                  pod: 'pod_jira', desc: "Спеціаліст з таск-трекерів. Спілкується з Jira/Trello по API. Відповідає за перечитування тікету та зміну колонок (To Do -> In Progress -> QA).", tags: ['Agile', 'Sync'] },
+                { id: 'jira_soul', icon: '📜', title: 'Jira SOUL', top: 80, left: 78, color: 'sky', main: false,
+                  pod: 'pod_jira', desc: "Формат репортингу (що саме писати розробникам у коментарі). Дозволені переходи (Transitions) статусів.", tags: ['Workflows', 'Політика'] },
+                { id: 'jira_memory', icon: '💾', title: 'Jira MEMORY', top: 80, left: 90, color: 'pink', main: false,
+                  pod: 'pod_jira', desc: "Кеш інформації про епіки та тікети, щоб не робити зайві API запити. Зберігає ID тікета над яким йде робота.", tags: ['Local State', 'Кеш'] },
+
+                // Tools
+                { id: 'tools_browser', icon: '🌐', title: 'Browser/DOM Control', top: 48, left: 25, color: 'slate', main: false,
+                  pod: 'pod_tools', desc: "Інструменти керування браузером: кліки, парсинг HTML/DOM дерева, створення скріншотів.", tags: ['Tool', 'UI'] },
+                { id: 'tools_fs', icon: '📂', title: 'File System (R/W)', top: 48, left: 50, color: 'slate', main: false,
+                  pod: 'pod_tools', desc: "Інструменти модифікації: читання, повний запис, grep-пошук по проекту, AST навігація.", tags: ['Tool', 'Локальний'] },
+                { id: 'tools_term', icon: '💻', title: 'Bash/Terminal', top: 48, left: 75, color: 'slate', main: false,
+                  pod: 'pod_tools', desc: "Виконання системних команд, запуск npm скриптів, взаємодія з git та сторонніми CLI.", tags: ['Tool', 'Execution'] }
+            ],
+            connections: [
+                // Top Level
+                { from: 'user', to: 'nexus', type: 'task', label: 'Оригінальний Запит' },
+                { from: 'nexus', to: 'user', type: 'rw', label: 'Запит Дозволу/Звіт', curveTargetY: -30 },
+
+                // Nexus Cluster
+                { from: 'nexus', to: 'nexus_soul', type: 'read', label: 'Читає Роутинг' },
+                { from: 'nexus', to: 'nexus_memory', type: 'rw', label: 'Записує План / Читає Статус' },
+
+                // Delegation
+                { from: 'nexus', to: 'qa', type: 'delegate', label: 'Делегує: E2E Тест' },
+                { from: 'nexus', to: 'api', type: 'delegate', label: 'Делегує: Бекенд Фіча' },
+                { from: 'nexus', to: 'jira', type: 'delegate', label: 'Делегує: Валідація Вимог' },
+
+                // Sync Global
+                { from: 'qa_memory', to: 'nexus_memory', type: 'sync', label: 'Sync: QA Логи', curveTargetX: -80, curveTargetY: 40 },
+                { from: 'api_memory', to: 'nexus_memory', type: 'sync', label: 'Sync: API Дані', curveTargetX: 0, curveTargetY: 40 },
+                { from: 'jira_memory', to: 'nexus_memory', type: 'sync', label: 'Sync: Статуси', curveTargetX: 80, curveTargetY: 40 },
+
+                // QA Internal
+                { from: 'qa', to: 'qa_soul', type: 'read', label: 'Читає QA Правила' },
+                { from: 'qa', to: 'qa_memory', type: 'rw', label: 'Зберігає DOM Структуру' },
+                
+                // API Internal
+                { from: 'api', to: 'api_soul', type: 'read', label: 'Читає API Правила' },
+                { from: 'api', to: 'api_memory', type: 'rw', label: 'Зберігає JSON Кеш' },
+
+                // Jira Internal
+                { from: 'jira', to: 'jira_soul', type: 'read', label: 'Читає Jira Rules' },
+                { from: 'jira', to: 'jira_memory', type: 'rw', label: 'Зберігає Workflow' },
+
+                // Tools Usage
+                { from: 'qa', to: 'tools_browser', type: 'tool', label: 'Викликає Браузер' },
+                { from: 'qa', to: 'tools_fs', type: 'tool', label: 'Пише Код/Тести (R/W)' },
+                { from: 'api', to: 'tools_term', type: 'tool', label: 'Get API/CURL Scripts' },
+                { from: 'jira', to: 'tools_term', type: 'tool', label: 'Тягне API ключі' },
+                { from: 'nexus', to: 'tools_fs', type: 'tool', label: 'Робота з проектом' }
+            ]
+        };
+
+        const canvas = document.getElementById('canvas');
+        const svg = document.getElementById('svgCanvas');
+        const mainView = document.getElementById('main-view');
+
+        // Initialize Pods
+        dataConfig.pods.forEach(pod => {
+            const podEl = document.createElement('div');
+            podEl.className = 'pod';
+            podEl.id = pod.id;
+            podEl.style.left = `${pod.left}%`;
+            podEl.style.top = `${pod.top}%`;
+            podEl.style.width = `${pod.width}%`;
+            podEl.style.height = `${pod.height}%`;
+            podEl.style.backgroundColor = pod.color;
+            podEl.style.borderColor = pod.borderColor;
+
+            const title = document.createElement('div');
+            title.className = 'pod-title';
+            title.style.color = pod.borderColor;
+            title.innerText = pod.title;
+            
+            podEl.appendChild(title);
+            canvas.appendChild(podEl);
+        });
+
+        // Initialize Nodes
+        dataConfig.nodes.forEach(n => {
+            const el = document.createElement('div');
+            el.className = `node c-${n.color} ${n.main ? 'main-agent' : ''}`;
+            el.id = n.id;
+            el.style.left = `${n.left}%`;
+            el.style.top = `${n.top}%`;
+
+            el.innerHTML = `
+                <div class="icon">${n.icon}</div>
+                <div class="label">${n.title}</div>
+            `;
+
+            // Hover interactions
+            el.addEventListener('mouseenter', () => handleHover(n.id));
+            el.addEventListener('mouseleave', () => clearHover());
+
+            canvas.appendChild(el);
+        });
+
+        // Window resize handler for SVG redraw
+        window.addEventListener('resize', drawLines);
+
+        function drawLines() {
+            svg.innerHTML = ''; // clear
+            const bounds = canvas.getBoundingClientRect();
+
+            // defs context for path texts
+            const defs = document.createElementNS("http://www.w3.org/2000/svg", "defs");
+            svg.appendChild(defs);
+
+            dataConfig.connections.forEach((conn, index) => {
+                const elFrom = document.getElementById(conn.from);
+                const elTo = document.getElementById(conn.to);
+                if(!elFrom || !elTo) return;
+
+                const b1 = elFrom.getBoundingClientRect();
+                const b2 = elTo.getBoundingClientRect();
+
+                const x1 = b1.left - bounds.left + b1.width / 2;
+                const y1 = b1.top - bounds.top + b1.height / 2;
+                const x2 = b2.left - bounds.left + b2.width / 2;
+                const y2 = b2.top - bounds.top + b2.height / 2;
+
+                const pathId = `path_${conn.from}_${conn.to}_${index}`;
+
+                // Calculate control points for subtle curve
+                let cx = (x1 + x2) / 2;
+                let cy = (y1 + y2) / 2;
+                
+                // Add bend if specified
+                if(conn.curveTargetX) cx += conn.curveTargetX;
+                if(conn.curveTargetY) cy += conn.curveTargetY;
+                
+                // If it's pure vertical/horizontal, add a slight organic curve
+                if (!conn.curveTargetX && !conn.curveTargetY) {
+                    if (Math.abs(x1 - x2) > Math.abs(y1 - y2)) cy -= 20;
+                    else cx += 20;
+                }
+
+                // Ensure path direction is left-to-right for correct text rendering logic
+                let d = `M ${x1} ${y1} Q ${cx} ${cy} ${x2} ${y2}`;
+                let isFlipped = false;
+                if (x1 > x2) {
+                    d = `M ${x2} ${y2} Q ${cx} ${cy} ${x1} ${y1}`;
+                    isFlipped = true;
+                }
+
+                // Draw solid line
+                const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+                path.setAttribute('d', d);
+                path.setAttribute('id', pathId);
+                path.setAttribute('class', `conn-path path-${conn.type}`);
+                path.setAttribute('data-from', conn.from);
+                path.setAttribute('data-to', conn.to);
+                svg.appendChild(path);
+
+                // Add text on path
+                const text = document.createElementNS("http://www.w3.org/2000/svg", "text");
+                text.setAttribute('class', `conn-label`);
+                text.setAttribute('data-from', conn.from);
+                text.setAttribute('data-to', conn.to);
+                text.setAttribute('dy', '-8');
+
+                const textPath = document.createElementNS("http://www.w3.org/2000/svg", "textPath");
+                textPath.setAttribute('href', `#${pathId}`);
+                textPath.setAttribute('startOffset', '50%');
+                textPath.setAttribute('text-anchor', 'middle');
+                textPath.textContent = conn.label;
+
+                // Adjust text rendering if path was flipped drawing leftwards
+                if(isFlipped && conn.type.includes('sync') == false) {
+                   // Optional math to flip text rightway up if necessary
+                }
+
+                text.appendChild(textPath);
+                svg.appendChild(text);
+            });
+        }
+
+        function handleHover(hoveredId) {
+            // Update Sidebar
+            const nodeData = dataConfig.nodes.find(n => n.id === hoveredId);
+            if (nodeData) {
+                document.getElementById('sidebar-title').innerHTML = `${nodeData.icon} ${nodeData.title}`;
+                document.getElementById('sidebar-subtitle').innerText = 'Id: ' + nodeData.id;
+                document.getElementById('sidebar-desc').innerHTML = nodeData.desc;
+                
+                const badgesHtml = nodeData.tags.map(t => `<span class="badge">${t}</span>`).join('');
+                document.getElementById('sidebar-badges').innerHTML = badgesHtml;
+            }
+
+            // Highlighting logic
+            mainView.classList.add('view-dimmed');
+            
+            // Find all connected node IDs
+            const connectedIds = new Set();
+            connectedIds.add(hoveredId);
+            const activePods = new Set();
+            if(nodeData && nodeData.pod) activePods.add(nodeData.pod);
+
+            dataConfig.connections.forEach(conn => {
+                if (conn.from === hoveredId || conn.to === hoveredId) {
+                    connectedIds.add(conn.from);
+                    connectedIds.add(conn.to);
+                    
+                    const fromNode = dataConfig.nodes.find(n => n.id === conn.from);
+                    const toNode = dataConfig.nodes.find(n => n.id === conn.to);
+                    if(fromNode && fromNode.pod) activePods.add(fromNode.pod);
+                    if(toNode && toNode.pod) activePods.add(toNode.pod);
+                }
+            });
+
+            // Highlight Nodes
+            document.querySelectorAll('.node').forEach(el => {
+                if(connectedIds.has(el.id)) el.classList.add('highlighted');
+                else el.classList.remove('highlighted');
+            });
+
+            // Highlight Paths & Texts
+            document.querySelectorAll('.conn-path, .conn-label').forEach(el => {
+                const from = el.getAttribute('data-from');
+                const to = el.getAttribute('data-to');
+                if ((from === hoveredId || to === hoveredId)) {
+                    el.classList.add('highlighted-path');
+                    if (el.tagName === 'text') el.classList.add('highlighted-label');
+                } else {
+                    el.classList.remove('highlighted-path');
+                    el.classList.remove('highlighted-label');
+                }
+            });
+
+            // Highlight Pods
+            document.querySelectorAll('.pod').forEach(el => {
+                if(activePods.has(el.id)) el.classList.add('highlighted-pod');
+                else el.classList.remove('highlighted-pod');
+            });
+
+            document.getElementById(hoveredId).classList.add('active-node');
+        }
+
+        function clearHover() {
+            mainView.classList.remove('view-dimmed');
+            document.querySelectorAll('.highlighted, .active-node').forEach(el => el.classList.remove('highlighted', 'active-node'));
+            document.querySelectorAll('.highlighted-path, .highlighted-label').forEach(el => el.classList.remove('highlighted-path', 'highlighted-label'));
+            document.querySelectorAll('.highlighted-pod').forEach(el => el.classList.remove('highlighted-pod'));
+        }
+
+        // Init drawing
+        setTimeout(drawLines, 150);
+        showDefaultState();
+
+        function showDefaultState() {
+            // Optional: reset sidebar to global overview on leave
+            document.getElementById('sidebar-title').innerText = 'Global View';
+            document.getElementById('sidebar-subtitle').innerText = 'Огляд архітектури';
+            document.getElementById('sidebar-desc').innerHTML = `Ця візуалізація демонструє повну інфраструктуру агента OpenClaw.<br><br>
+                Головне нововведення — <strong>Ізоляція</strong>.<br>
+                Кожен агент (Nexus, QA, API, Jira) має свій власний:
+                <br>• 📜 <strong>SOUL.md</strong> — локальні правила та персона.
+                <br>• 💾 <strong>MEMORY.md</strong> — локальне сховище стану.<br><br>
+                Наведіть курсор на будь-який елемент, щоб побачити зв'язки!`;
+            document.getElementById('sidebar-badges').innerHTML = `
+                <span class="badge">Інтерактивна схема</span>
+                <span class="badge">Multi-Agent</span>
+            `;
+        }
+
+        // Click outside to clear (if mobile)
+        canvas.addEventListener('click', (e) => {
+            if(e.target === canvas || e.target === svg) clearHover();
+        });
+        document.querySelector('.sidebar').addEventListener('mouseenter', () => {
+           clearHover(); showDefaultState();
+        });
+    </script>
+</body>
+</html>

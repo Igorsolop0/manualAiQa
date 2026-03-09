@@ -1,0 +1,319 @@
+{
+  "key": "CT-250",
+  "url": "https://next-t-code.atlassian.net/browse/CT-250",
+  "summary": "Email input field is cleared when clicking \u201cVerify Email\u201d button on user profile page",
+  "status": "On Production",
+  "priority": "High",
+  "description": {
+    "type": "doc",
+    "version": 1,
+    "content": [
+      {
+        "type": "heading",
+        "attrs": {
+          "level": 4
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "Environment:"
+          }
+        ]
+      },
+      {
+        "type": "bulletList",
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Prod: "
+                  },
+                  {
+                    "type": "text",
+                    "text": "https://minebit-casino.prod.cp.nextcode.tech/my-account/profile/info",
+                    "marks": [
+                      {
+                        "type": "link",
+                        "attrs": {
+                          "href": "https://minebit-casino.prod.cp.nextcode.tech/my-account/profile/info"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Pixel 6, iPhone 15 Pro Max, MacBook Air"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Chrome"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "level": 4
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "STR:"
+          }
+        ]
+      },
+      {
+        "type": "orderedList",
+        "attrs": {
+          "order": 1
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Navigate to the user profile page."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Ensure an email address is displayed in the email input field."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Click the \u201cVerify Email\u201d button."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "level": 4
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "AR:"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The email address disappears from the input field after clicking \u201cVerify Email.\u201d"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "https://www.awesomescreenshot.com/video/43851965?key=f9dd47dceff8f27b5aaf5ad1dc8e331a",
+            "marks": [
+              {
+                "type": "link",
+                "attrs": {
+                  "href": "https://www.awesomescreenshot.com/video/43851965?key=f9dd47dceff8f27b5aaf5ad1dc8e331a"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "level": 4
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "ER: "
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "The email address remains in the input field after clicking \u201cVerify Email.\u201d"
+          }
+        ]
+      }
+    ]
+  },
+  "acceptance_criteria": "Found in description (ADF)",
+  "recent_comments": [
+    {
+      "type": "doc",
+      "version": 1,
+      "content": [
+        {
+          "type": "panel",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Tested on the qa env"
+                }
+              ],
+              "attrs": {
+                "localId": "1e227dbb6bb1"
+              }
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Devices: MacBook Air, iPhone 15 Pro Max"
+                }
+              ],
+              "attrs": {
+                "localId": "b3f25ca19632"
+              }
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Browsers: Safari, Chrome"
+                }
+              ],
+              "attrs": {
+                "localId": "7136b63b4d84"
+              }
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Work as expected"
+                }
+              ],
+              "attrs": {
+                "localId": "fbbff3743bcf"
+              }
+            }
+          ],
+          "attrs": {
+            "panelType": "success",
+            "localId": "314d328d7bbd"
+          }
+        },
+        {
+          "type": "mediaSingle",
+          "attrs": {
+            "width": 635,
+            "widthType": "pixel",
+            "localId": "2424c4e6ddf6",
+            "layout": "align-start"
+          },
+          "content": [
+            {
+              "type": "media",
+              "attrs": {
+                "type": "file",
+                "id": "5bfa2f9c-9068-4167-9192-719be32a48f0",
+                "alt": "image-20260305-102544.png",
+                "collection": "",
+                "localId": "7dce34945529",
+                "height": 458,
+                "width": 738
+              }
+            }
+          ]
+        },
+        {
+          "type": "mediaSingle",
+          "attrs": {
+            "width": 620,
+            "widthType": "pixel",
+            "localId": "28c6cea669e9",
+            "layout": "align-start"
+          },
+          "content": [
+            {
+              "type": "media",
+              "attrs": {
+                "type": "file",
+                "id": "e800a0f1-e28f-45e2-8514-e751a4f66a28",
+                "alt": "image-20260305-102604.png",
+                "collection": "",
+                "localId": "83d928a64664",
+                "height": 460,
+                "width": 740
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "linked_issues": [],
+  "last_updated": "2026-03-06T15:10:17.595+0000"
+}

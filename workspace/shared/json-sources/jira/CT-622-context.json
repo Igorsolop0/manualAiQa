@@ -1,0 +1,780 @@
+{
+  "key": "CT-622",
+  "url": "https://next-t-code.atlassian.net/browse/CT-622",
+  "summary": "[FE] Metamask FE integration (mob+desktop)",
+  "status": "On Production",
+  "priority": "Normal",
+  "description": {
+    "type": "doc",
+    "version": 1,
+    "content": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Within the scope of this task it`s needed to integrate the Metamask as registration&authorization method."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Task:"
+          }
+        ]
+      },
+      {
+        "type": "orderedList",
+        "attrs": {
+          "order": 1
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Connect Frontend SDK (wagmi + viem or ethers.js). "
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Add Metamask button to the registration&login form. (Strapi)  "
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "If",
+                    "marks": [
+                      {
+                        "type": "strong"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": " MetaMask extension is not installed"
+                  },
+                  {
+                    "type": "hardBreak"
+                  },
+                  {
+                    "type": "text",
+                    "text": "then",
+                    "marks": [
+                      {
+                        "type": "strong"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": " show popup over registration form (the Metamask integration decision)."
+                  },
+                  {
+                    "type": "hardBreak"
+                  },
+                  {
+                    "type": "text",
+                    "text": "The popup suggests the client to download the Metamask extension. "
+                  },
+                  {
+                    "type": "hardBreak"
+                  }
+                ]
+              },
+              {
+                "type": "mediaSingle",
+                "attrs": {
+                  "width": 626,
+                  "widthType": "pixel",
+                  "layout": "align-start"
+                },
+                "content": [
+                  {
+                    "type": "media",
+                    "attrs": {
+                      "type": "file",
+                      "id": "fce4209d-2f53-43f8-951e-f55186a00982",
+                      "alt": "\u0421\u043d\u0438\u043c\u043e\u043a \u044d\u043a\u0440\u0430\u043d\u0430 2025-11-25 \u0432 15.43.17.png",
+                      "collection": "",
+                      "height": 770,
+                      "width": 804
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "hardBreak"
+                  },
+                  {
+                    "type": "text",
+                    "text": "If ",
+                    "marks": [
+                      {
+                        "type": "strong"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": "the metamask extension is installed"
+                  },
+                  {
+                    "type": "hardBreak"
+                  },
+                  {
+                    "type": "text",
+                    "text": "then",
+                    "marks": [
+                      {
+                        "type": "strong"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": " the login&auth flow happens "
+                  },
+                  {
+                    "type": "hardBreak"
+                  },
+                  {
+                    "type": "text",
+                    "text": "and",
+                    "marks": [
+                      {
+                        "type": "strong"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": " the loader appears on registration&login button "
+                  },
+                  {
+                    "type": "text",
+                    "text": "and",
+                    "marks": [
+                      {
+                        "type": "strong"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "text",
+                    "text": " disables it during the process"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Integrate BE API.  "
+                  },
+                  {
+                    "type": "hardBreak"
+                  },
+                  {
+                    "type": "text",
+                    "text": "Documentation:",
+                    "marks": [
+                      {
+                        "type": "strong"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "hardBreak"
+                  },
+                  {
+                    "type": "text",
+                    "text": "https://next-t-code.atlassian.net/wiki/spaces/CTD/pages/513769484/001.+Crypto-Wallet+Registration+Authorization+OAUTH",
+                    "marks": [
+                      {
+                        "type": "link",
+                        "attrs": {
+                          "href": "https://www.google.com/url?q=https://next-t-code.atlassian.net/wiki/spaces/CTD/pages/513769484/001.%2BCrypto-Wallet%2BRegistration%2BAuthorization%2BOAUTH&sa=D&source=calendar&ust=1767534815825539&usg=AOvVaw0eD6RTHOvayx5QVspeLPDt"
+                        }
+                      },
+                      {
+                        "type": "underline"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "inlineCard",
+                    "attrs": {
+                      "url": "https://docs.metamask.io/wallet/how-to/sign-data/siwe/"
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "text": " "
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Design -"
+                  },
+                  {
+                    "type": "inlineCard",
+                    "attrs": {
+                      "url": "https://www.figma.com/design/qkzG2IGMeL6JEpJSmIEQxE/Minebit?node-id=90-35271&p=f&t=NDTIQb5GThC42UNx-0"
+                    }
+                  },
+                  {
+                    "type": "hardBreak"
+                  },
+                  {
+                    "type": "hardBreak"
+                  },
+                  {
+                    "type": "text",
+                    "text": "Tech note:",
+                    "marks": [
+                      {
+                        "type": "strong"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "hardBreak"
+                  },
+                  {
+                    "type": "text",
+                    "text": "1. Research which SDK should be connected or if SDK is required at all."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "acceptance_criteria": "Found in description (ADF)",
+  "recent_comments": [
+    {
+      "type": "doc",
+      "version": 1,
+      "content": [
+        {
+          "type": "mediaSingle",
+          "attrs": {
+            "width": 667,
+            "widthType": "pixel",
+            "layout": "align-start"
+          },
+          "content": [
+            {
+              "type": "media",
+              "attrs": {
+                "type": "file",
+                "id": "3576a705-b8ff-4e64-b626-865fc12b04ee",
+                "alt": "\u0417\u043d\u0456\u043c\u043e\u043a \u0435\u043a\u0440\u0430\u043d\u0430 2026-01-09 \u043e 14.01.40.png",
+                "collection": "",
+                "height": 415,
+                "width": 667
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "doc",
+      "version": 1,
+      "content": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Tech Notes (15.01.26)",
+              "marks": [
+                {
+                  "type": "strong"
+                }
+              ]
+            },
+            {
+              "type": "hardBreak"
+            },
+            {
+              "type": "text",
+              "text": "As additional technical research for "
+            },
+            {
+              "type": "text",
+              "text": "Crypto wallet authentication and login",
+              "marks": [
+                {
+                  "type": "strong"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "text": " has already been completed by "
+            },
+            {
+              "type": "mention",
+              "attrs": {
+                "id": "712020:9881c551-f4f9-40df-ba5d-5fd4a07eb0e5",
+                "text": "@Grinch",
+                "accessLevel": "",
+                "localId": "210da8c9-010d-4477-9b25-0eed1dc10b63"
+              }
+            },
+            {
+              "type": "text",
+              "text": " , we will proceed with the technical decision described in the analysis."
+            },
+            {
+              "type": "hardBreak"
+            },
+            {
+              "type": "hardBreak"
+            },
+            {
+              "type": "text",
+              "text": "Tech research: "
+            },
+            {
+              "type": "inlineCard",
+              "attrs": {
+                "url": "https://next-t-code.atlassian.net/wiki/spaces/CTD/pages/561184796/Crypto-Wallet+Registration+Authorization"
+              }
+            },
+            {
+              "type": "text",
+              "text": " "
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The implementation should follow the "
+            },
+            {
+              "type": "text",
+              "text": "BC Games flow",
+              "marks": [
+                {
+                  "type": "strong"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "text": ", as outlined in the technical research, to ensure consistent and correct behavior."
+            }
+          ]
+        },
+        {
+          "type": "mediaSingle",
+          "attrs": {
+            "width": 598,
+            "widthType": "pixel",
+            "layout": "align-start"
+          },
+          "content": [
+            {
+              "type": "media",
+              "attrs": {
+                "type": "file",
+                "id": "19525cda-5637-497c-8009-735e629c705b",
+                "alt": "Screen Recording 2026-01-15 at 16.22.10.mov",
+                "collection": "",
+                "height": 2132,
+                "width": 2972
+              }
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "hardBreak"
+            },
+            {
+              "type": "text",
+              "text": "Also the estimated changed:"
+            },
+            {
+              "type": "hardBreak"
+            },
+            {
+              "type": "text",
+              "text": "Current estimates:",
+              "marks": [
+                {
+                  "type": "strong"
+                }
+              ]
+            },
+            {
+              "type": "hardBreak"
+            },
+            {
+              "type": "text",
+              "text": "DEV 1w Test 1d 4h",
+              "marks": [
+                {
+                  "type": "strong"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "doc",
+      "version": 1,
+      "content": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Added 2d for estimation for dev"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "doc",
+      "version": 1,
+      "content": [
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "mention",
+              "attrs": {
+                "id": "712020:3d17a257-23ee-46de-a437-3b7a254c8a3b",
+                "text": "@Panda Sensei",
+                "accessLevel": "",
+                "localId": "3725943d-bf88-4f74-912c-6c9a7d145953"
+              }
+            },
+            {
+              "type": "text",
+              "text": " Can be tested on DEV env"
+            }
+          ],
+          "attrs": {
+            "localId": "8a474a62c662"
+          }
+        },
+        {
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Main cases:"
+            }
+          ],
+          "attrs": {
+            "localId": "9a72df2d5ba5"
+          }
+        },
+        {
+          "type": "orderedList",
+          "attrs": {
+            "order": 1,
+            "localId": "9717411f6dbd"
+          },
+          "content": [
+            {
+              "type": "listItem",
+              "attrs": {
+                "localId": "3bf75f129a1f"
+              },
+              "content": [
+                {
+                  "type": "paragraph",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "Site opened on desktop with MetaMask extension installed \u2014 clicking"
+                    },
+                    {
+                      "type": "hardBreak"
+                    },
+                    {
+                      "type": "text",
+                      "text": "the auth button should open the extension"
+                    }
+                  ],
+                  "attrs": {
+                    "localId": "39c268c89139"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "listItem",
+              "attrs": {
+                "localId": "9b6c4b65be59"
+              },
+              "content": [
+                {
+                  "type": "paragraph",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "Site opened on desktop without the extension \u2014 a popup should appear"
+                    },
+                    {
+                      "type": "hardBreak"
+                    },
+                    {
+                      "type": "text",
+                      "text": "with options to download the extension or scan a QR code to log in"
+                    },
+                    {
+                      "type": "hardBreak"
+                    },
+                    {
+                      "type": "text",
+                      "text": "via mobile app"
+                    }
+                  ],
+                  "attrs": {
+                    "localId": "66b43c69fde7"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "listItem",
+              "attrs": {
+                "localId": "e9d2314d21df"
+              },
+              "content": [
+                {
+                  "type": "paragraph",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "Site opened on mobile \u2014 if the app is installed it should prompt"
+                    },
+                    {
+                      "type": "hardBreak"
+                    },
+                    {
+                      "type": "text",
+                      "text": "to open it"
+                    }
+                  ],
+                  "attrs": {
+                    "localId": "0f4c83e2f527"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "mediaSingle",
+          "attrs": {
+            "width": 647,
+            "widthType": "pixel",
+            "localId": "af62cfa36754",
+            "layout": "align-start"
+          },
+          "content": [
+            {
+              "type": "media",
+              "attrs": {
+                "type": "file",
+                "id": "12bbb2c5-5567-4552-8755-2b3d9dac0e8d",
+                "alt": "Screenshot 2026-03-04 at 13.06.59-20260304-110709.png",
+                "collection": "",
+                "localId": "addf713c1c74",
+                "height": 636,
+                "width": 881
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "doc",
+      "version": 1,
+      "content": [
+        {
+          "type": "panel",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Tested on the dev env"
+                }
+              ],
+              "attrs": {
+                "localId": "98f0732c88f3"
+              }
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Devices: MacBook Air, Pixel 10, iPhone 15 Pro Max"
+                }
+              ],
+              "attrs": {
+                "localId": "2ddd8afbe14c"
+              }
+            },
+            {
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Authorization via MetaMask work as expected"
+                }
+              ],
+              "attrs": {
+                "localId": "b5197f6ab571"
+              }
+            }
+          ],
+          "attrs": {
+            "panelType": "success",
+            "localId": "f331cab98a70"
+          }
+        },
+        {
+          "type": "mediaSingle",
+          "attrs": {
+            "width": 635,
+            "widthType": "pixel",
+            "localId": "784d6dbab148",
+            "layout": "align-start"
+          },
+          "content": [
+            {
+              "type": "media",
+              "attrs": {
+                "type": "file",
+                "id": "254ab958-7835-41f8-904d-ec9cf2e2b104",
+                "alt": "image-20260304-124309.png",
+                "collection": "",
+                "localId": "70d31771ef05",
+                "height": 1331,
+                "width": 2143
+              }
+            }
+          ]
+        },
+        {
+          "type": "mediaSingle",
+          "attrs": {
+            "width": 620,
+            "widthType": "pixel",
+            "localId": "922ff2ec52df",
+            "layout": "align-start"
+          },
+          "content": [
+            {
+              "type": "media",
+              "attrs": {
+                "type": "file",
+                "id": "13b9119a-c7fd-4640-a23e-6a935dcfa0a2",
+                "alt": "image-20260304-124701.png",
+                "collection": "",
+                "localId": "f3baac200bf7",
+                "height": 1363,
+                "width": 1897
+              }
+            }
+          ]
+        },
+        {
+          "type": "mediaSingle",
+          "attrs": {
+            "width": 620,
+            "widthType": "pixel",
+            "localId": "7ce309bc78f5",
+            "layout": "align-start"
+          },
+          "content": [
+            {
+              "type": "media",
+              "attrs": {
+                "type": "file",
+                "id": "8f85f5b7-8b76-4ce1-921d-106d496922bc",
+                "alt": "image-20260304-150729.png",
+                "collection": "",
+                "localId": "bf86781944fb",
+                "height": 405,
+                "width": 1751
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "linked_issues": [
+    "implements CRYPTO-485",
+    "relates to PR-2870"
+  ],
+  "last_updated": "2026-03-06T13:38:49.011+0000"
+}

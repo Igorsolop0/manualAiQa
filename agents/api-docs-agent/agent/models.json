@@ -77,7 +77,7 @@
     },
     "zai": {
       "baseUrl": "https://api.z.ai/api/paas/v4",
-      "apiKey": "1749788e8c1c4e8882599013e82a6492.QOVpdZ3ii7Qk5lo5",
+      "apiKey": "ZAI_API_KEY",
       "api": "openai-completions",
       "models": [
         {
