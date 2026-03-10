@@ -174,6 +174,8 @@ Use HTML format matching TestRail structure. Follow TESTRAIL_STANDARDS.md rules:
 - **API + UI Verification** — If the Test Plan includes UI steps, API validation alone is never enough; you must verify both. If the plan is Backend-only, API verification via curl/Playwright is sufficient.
 - **Token Recovery** — if token expired, log in via UI and extract fresh one
 - **Technical Blockers (Web Search)** — If you encounter an unknown Playwright error or a complex technical block (like stubborn iframes), use your Tavily Search skill to find a solution online. If the solution works, document it in your `MEMORY.md` to never search for it again.
+- **Task-Based Execution** — Nexus will assign you tasks via files in `workspace/shared/tasks/`. Always READ this file completely before acting.
+- **Credentials & Auth** — NEVER try to register a new user via UI blindly, or halt if UI login fails. If auth is required, READ the task-associated credentials JSON from `workspace/shared/credentials/`. You can inject `sessionToken` into localStorage/cookies directly, or use the pre-created `email`/`password` for a fast UI login.
 - **Source of Truth (NO Business Logic Search)** — NEVER google business logic or project-specific info (e.g., "What bonuses exist in Minebit casino?"). The internet does not know this. For business logic, always check the `shared` folder, rely on the Test Plan from Nexus, ask Nexus to sync with Jira Watcher/API Docs Agent, or ask Ihor directly.
 
 ## Resilient Testing Rules (CRITICAL FOR QA ENVIRONMENT)
@@ -183,6 +185,12 @@ The QA environment is often slow and elements may not load immediately. You must
 2. **Increase Timeouts**: QA env can be very slow. For critical actions (login modals, page loads, auth state), use explicit high timeouts, e.g., `await page.locator(selector).waitFor({ state: 'visible', timeout: 15000 })`.
 3. **Wait for Network**: Use `await page.waitForLoadState('networkidle')` and `await page.waitForTimeout(3000)` before attempting to interact with dynamically injected modals like Login.
 4. **Log State**: If an element is missing, take a screenshot of the *current* state and dump `console.log(await page.content())` locally so you can read the DOM and understand *why* it's missing.
+
+## Self-Improvement & Learning (Continuous Feedback)
+
+- **Record Mistakes:** If a script fails unexpectedly, if you struggle to find an element in QA, or if Ihor corrects your approach, you MUST write down what happened.
+- **Where to log:** Append your findings to `~/.openclaw/workspace/shared/DAILY_INSIGHTS.md`.
+- **Format:** Include the context, the exact root cause of the error, and how you will avoid it tomorrow. Nexus will review this nightly.
 
 ## Evidence Handling (Shared Folder standard)
 
@@ -201,3 +209,4 @@ Report the **local file paths** to Nexus (do NOT attempt to upload to Jira or Sl
 - Do NOT upload evidence to Jira — save locally, share path
 - Do NOT start testing without approved Testing Plan from Ihor
 - Always Self-Review before submitting report
+- **Backend Handoff:** If you are asked to test a backend-only ([BE]) ticket, you MUST delegate it to the API Docs Agent. Use your `exec` tool: `openclaw agent --id api-docs-agent --message 'Передаю бекенд тікет. Всі API тестування на тобі: [передай контекст]'`

@@ -1,22 +1,22 @@
 {
   "env": "prod",
-  "email": "demo1772643519424@nextcode.tech",
+  "email": "democt7721773158046436@nextcode.tech",
   "password": "Qweasd123!",
-  "userName": "demo1772643519821",
+  "userName": "demo1773158046865",
   "registration_method": "website",
   "website_api": "https://websitewebapi.prod.sofon.one",
   "partner_id": 5,
-  "clientId": 1181008,
-  "sessionToken": "5a8d569b69de497b8bd8f309d2293d45",
+  "clientId": 1184509,
+  "sessionToken": "ef84b6136b56457b82c3c358376e58a1",
   "state": "Active",
   "balance_setup": true,
-  "balance_amount": 300.0,
+  "balance_amount": 100.0,
   "balance_currency": "USD",
   "actual_balance": {
     "Balances": {
-      "Unused": 300.0
+      "Unused": 100.0
     },
-    "AvailableMain": 300.0,
+    "AvailableMain": 100.0,
     "AvailableBonus": 0.0,
     "Currency": "USD",
     "SportBonus": 0.0

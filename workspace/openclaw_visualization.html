@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OpenClaw Architecture & Infrastructure</title>
+    <title>OpenClaw Architecture v3.4</title>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg-base: #020617;
-            --bg-panel: rgba(15, 23, 42, 0.7);
+            --bg-panel: rgba(15, 23, 42, 0.75);
             --text-main: #f8fafc;
             --text-muted: #94a3b8;
             
@@ -23,7 +23,9 @@
         * { box-sizing: border-box; }
         body { 
             margin: 0; 
-            background: radial-gradient(circle at 50% 50%, #0f172a 0%, #020617 100%); 
+            background: #020617;
+            background-image: radial-gradient(circle at 15% 50%, rgba(245, 158, 11, 0.04), transparent 30%),
+                              radial-gradient(circle at 85% 30%, rgba(139, 92, 246, 0.04), transparent 30%);
             color: var(--text-main); 
             font-family: 'Outfit', sans-serif; 
             display: flex; 
@@ -33,11 +35,11 @@
         
         /* Typography & Sidebar */
         .sidebar {
-            width: 420px;
+            width: 440px;
             background: var(--bg-panel);
             backdrop-filter: blur(24px);
             -webkit-backdrop-filter: blur(24px);
-            border-right: 1px solid rgba(255, 255, 255, 0.08);
+            border-right: 1px solid rgba(255, 255, 255, 0.05);
             padding: 40px 32px;
             display: flex;
             flex-direction: column;
@@ -45,32 +47,33 @@
             box-shadow: 10px 0 40px rgba(0,0,0,0.6);
         }
         .sidebar h1 { 
-            margin-top: 0; font-size: 2rem; font-weight: 800; line-height: 1.1;
+            margin-top: 0; font-size: 2.2rem; font-weight: 800; line-height: 1.1;
             background: linear-gradient(135deg, #e2e8f0, #94a3b8); 
             -webkit-background-clip: text; -webkit-text-fill-color: transparent; 
             margin-bottom: 8px;
         }
         .subtitle { font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; color: #38bdf8; margin-bottom: 24px; text-transform: uppercase; letter-spacing: 1px;}
         .sidebar .desc { 
-            font-size: 1.1rem; line-height: 1.6; color: var(--text-muted); 
-            margin-bottom: 24px; flex: 1; overflow-y: auto; padding-right: 8px;
+            font-size: 1.05rem; line-height: 1.6; color: var(--text-muted); 
+            margin-bottom: 24px; flex: 1; overflow-y: auto; padding-right: 12px;
         }
+        .sidebar .desc strong { color: #f8fafc; }
         
         .badges { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
         .badge { 
             background: rgba(255, 255, 255, 0.05); color: #e2e8f0; 
-            padding: 4px 12px; border-radius: 6px; font-size: 0.85rem; font-weight: 500; 
+            padding: 4px 12px; border-radius: 6px; font-size: 0.8rem; font-weight: 500; 
             border: 1px solid rgba(255, 255, 255, 0.1); font-family: 'JetBrains Mono', monospace;
         }
         
         .hint { 
-            margin-top: auto; color: #10b981; font-weight: 500; font-size: 0.95rem; 
-            background: rgba(16, 185, 129, 0.1); padding: 16px; border-radius: 12px;
-            border: 1px solid rgba(16, 185, 129, 0.2); text-align: center;
+            margin-top: auto; color: #f59e0b; font-weight: 500; font-size: 0.95rem; 
+            background: rgba(245, 158, 11, 0.1); padding: 16px; border-radius: 12px;
+            border: 1px solid rgba(245, 158, 11, 0.2); text-align: center;
         }
 
         /* Canvas Area */
-        .main-view { flex: 1; position: relative; z-index: 10; overflow: hidden; }
+        .main-view { flex: 1; position: relative; z-index: 10; overflow: hidden; background: url('data:image/svg+xml;utf8,<svg width="40" height="40" xmlns="http://www.w3.org/2000/svg"><circle cx="2" cy="2" r="1.5" fill="rgba(255,255,255,0.03)"/></svg>'); }
         #canvas { position: absolute; width: 100%; height: 100%; top: 0; left: 0; }
         
         /* Environment Pods (Background regions) */
@@ -84,16 +87,20 @@
             display: flex;
             align-items: flex-start;
             justify-content: center;
-            padding-top: 16px;
+            padding-top: 20px;
             transition: opacity 0.4s ease;
+            box-shadow: inset 0 0 50px rgba(0,0,0,0.2);
         }
         .pod-title {
             font-family: 'JetBrains Mono', monospace;
-            font-size: 0.9rem;
+            font-size: 1rem;
             font-weight: 700;
-            opacity: 0.6;
+            opacity: 0.8;
             text-transform: uppercase;
             letter-spacing: 2px;
+            background: rgba(0,0,0,0.5);
+            padding: 4px 16px;
+            border-radius: 20px;
         }
 
         /* SVG & Lines */
@@ -106,12 +113,11 @@
         }
         
         /* Dynamic SVG Line Styles */
-        .path-task { stroke: #10b981; stroke-width: 3; stroke-dasharray: 6, 6; animation: flowDash 1.5s linear infinite; }
+        .path-io { stroke: #10b981; stroke-width: 3; stroke-dasharray: 6, 6; animation: flowDash 1.5s linear infinite; }
         .path-read { stroke: #38bdf8; stroke-width: 2; stroke-dasharray: 4, 4; opacity: 0.7; }
-        .path-rw { stroke: #f59e0b; stroke-width: 2; opacity: 0.8; }
-        .path-delegate { stroke: #8b5cf6; stroke-width: 3; stroke-dasharray: 8, 8; animation: flowDash 2s linear infinite; }
-        .path-sync { stroke: #ec4899; stroke-width: 2; stroke-dasharray: 4, 8; animation: flowDashRev 2s linear infinite; opacity: 0.9; }
-        .path-tool { stroke: #64748b; stroke-width: 2; stroke-dasharray: 2, 2; }
+        .path-write { stroke: #f59e0b; stroke-width: 2; opacity: 0.8; }
+        .path-exec { stroke: #8b5cf6; stroke-width: 4; stroke-dasharray: 8, 8; animation: flowDash 1s linear infinite; }
+        .path-data { stroke: #ec4899; stroke-width: 2; stroke-dasharray: 3, 6; animation: flowDashRev 2s linear infinite; opacity: 0.9; }
 
         @keyframes flowDash { to { stroke-dashoffset: -24; } }
         @keyframes flowDashRev { to { stroke-dashoffset: 24; } }
@@ -120,7 +126,7 @@
         .node {
             position: absolute; 
             padding: 14px 20px; 
-            border-radius: 14px; 
+            border-radius: 12px; 
             font-weight: 600; 
             cursor: pointer; 
             z-index: 10; 
@@ -129,28 +135,35 @@
             border: 2px solid; 
             box-shadow: 0 10px 25px rgba(0,0,0,0.4); 
             text-align: center; 
-            backdrop-filter: blur(8px); 
-            -webkit-backdrop-filter: blur(8px);
-            min-width: 140px;
+            backdrop-filter: blur(12px); 
+            -webkit-backdrop-filter: blur(12px);
+            min-width: 150px;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
         }
-        .node.main-agent { border-width: 3px; padding: 18px 24px; min-width: 170px; font-size: 1.1rem; }
-        .node:hover, .node.active-node { transform: translate(-50%, -50%) scale(1.1 - 0.03); z-index: 20; box-shadow: 0 15px 35px rgba(0,0,0,0.6); filter: brightness(1.2); }
+        .node.main-agent { border-width: 3px; padding: 18px 24px; min-width: 190px; font-size: 1.15rem; }
+        .node.db-node { border-radius: 8px; min-width: 160px; font-family: 'JetBrains Mono', monospace; font-size: 0.9rem; }
+        
+        .node:hover, .node.active-node { 
+            transform: translate(-50%, -50%) scale(1.1); 
+            z-index: 20; 
+            box-shadow: 0 15px 40px rgba(0,0,0,0.7); 
+            filter: brightness(1.2); 
+        }
         .node .icon { font-size: 1.6rem; }
-        .node.main-agent .icon { font-size: 2rem; }
+        .node.main-agent .icon { font-size: 2.2rem; }
         .node .label { white-space: nowrap; }
 
         /* Dimming effect for interaction */
-        .view-dimmed .node:not(.highlighted) { opacity: 0.2 !important; filter: grayscale(80%); }
-        .view-dimmed .pod:not(.highlighted-pod) { opacity: 0.1 !important; }
-        .view-dimmed .conn-path:not(.highlighted-path) { stroke-opacity: 0.1 !important; }
-        .view-dimmed .conn-label:not(.highlighted-label) { opacity: 0.1 !important; }
+        .view-dimmed .node:not(.highlighted) { opacity: 0.15 !important; filter: grayscale(90%); }
+        .view-dimmed .pod:not(.highlighted-pod) { opacity: 0.05 !important; }
+        .view-dimmed .conn-path:not(.highlighted-path) { stroke-opacity: 0.05 !important; }
+        .view-dimmed .conn-label:not(.highlighted-label) { opacity: 0.05 !important; }
         
         /* Highlight styling override */
-        .highlighted-path { stroke-width: 4; stroke-opacity: 1 !important; }
-        .highlighted-label { fill: #f8fafc; font-weight: 800; opacity: 1 !important; }
+        .highlighted-path { stroke-width: 4; stroke-opacity: 1 !important; filter: drop-shadow(0 0 4px currentColor); }
+        .highlighted-label { fill: #f8fafc; font-weight: 800; opacity: 1 !important; transform: scale(1.1); transform-origin: center; }
 
         /* Color classes */
         .c-emerald { background: var(--emerald-bg); border-color: var(--emerald-border); }
@@ -164,19 +177,23 @@
 <body>
 
     <div class="sidebar">
-        <h1 id="sidebar-title">Global View</h1>
-        <div class="subtitle" id="sidebar-subtitle">Огляд архітектури</div>
+        <h1 id="sidebar-title">OpenClaw v3.4</h1>
+        <div class="subtitle" id="sidebar-subtitle">Hub & Spoke + Task Delegation</div>
         <div class="badges" id="sidebar-badges">
-            <span class="badge">Інтерактивна схема</span>
+            <span class="badge">Orchestration</span>
             <span class="badge">Multi-Agent</span>
+            <span class="badge">Self-Healing</span>
         </div>
         <div class="desc" id="sidebar-desc">
-            Ця візуалізація демонструє повну інфраструктуру агента OpenClaw.<br><br>
-            Головне нововведення — <strong>Ізоляція</strong>.<br>
-            Кожен агент (Nexus, QA, API, Jira) має свій власний:
-            <br>• 📜 <strong>SOUL.md</strong> — локальні правила та персона.
-            <br>• 💾 <strong>MEMORY.md</strong> — локальне сховище стану.<br><br>
-            Наведіть курсор на будь-який елемент (агента, пам'ять чи спільні інструменти), щоб побачити зв'язки та потоки даних!
+            Оновлена візуалізація архітектури після розв'язання проблем з CT-476.<br><br>
+            <strong>Що змінилося:</strong>
+            <ol style="padding-left: 20px; margin-top: 8px;">
+                <li><strong>Task-Based Delegation</strong>: Nexus більше не кидає інструкції в чат. Він створює `.md` файли задач у <br><code>shared/tasks/</code>.</li>
+                <li><strong>Credential Management</strong>: Nexus генерує тестові акаунти через API і залишає JSON у <code>shared/credentials/</code>. Clawver більше не бореться з UI логіном!</li>
+                <li><strong>Auto-Insights</strong>: Всі помилки та оновлення правил інжектуються в <code>DAILY_INSIGHTS.md</code>, на яких агенти вчаться щоночі.</li>
+            </ol>
+            <br>
+            Наведіть курсор на будь-який елемент, щоб побачити потоки даних!
         </div>
         <div class="hint">☝️ Наводьте на вузли, щоб ізолювати зв'язки.</div>
     </div>
@@ -192,99 +209,102 @@
     <script>
         const dataConfig = {
             pods: [
-                { id: 'pod_nexus', title: 'Orchestration Infrastructure', top: 22, left: 50, width: 40, height: 26, color: 'rgba(245, 158, 11, 0.05)', borderColor: 'rgba(245, 158, 11, 0.3)' },
-                { id: 'pod_qa', title: 'QA Domain', top: 72, left: 16, width: 28, height: 28, color: 'rgba(139, 92, 246, 0.05)', borderColor: 'rgba(139, 92, 246, 0.3)' },
-                { id: 'pod_api', title: 'API Domain', top: 72, left: 50, width: 28, height: 28, color: 'rgba(139, 92, 246, 0.05)', borderColor: 'rgba(139, 92, 246, 0.3)' },
-                { id: 'pod_jira', title: 'Jira Domain', top: 72, left: 84, width: 28, height: 28, color: 'rgba(139, 92, 246, 0.05)', borderColor: 'rgba(139, 92, 246, 0.3)' },
-                { id: 'pod_tools', title: 'Global Actions & Tools', top: 48, left: 50, width: 60, height: 16, color: 'rgba(100, 116, 139, 0.05)', borderColor: 'rgba(100, 116, 139, 0.3)' }
+                { id: 'pod_orch', title: '🧠 Orchestration Layer (Nexus)', top: 22, left: 50, width: 44, height: 28, color: 'rgba(245, 158, 11, 0.04)', borderColor: 'rgba(245, 158, 11, 0.4)' },
+                { id: 'pod_shared', title: '📂 Shared Workspace & State', top: 55, left: 50, width: 85, height: 24, color: 'rgba(236, 72, 153, 0.04)', borderColor: 'rgba(236, 72, 153, 0.4)' },
+                { id: 'pod_spokes', title: '🕷️ Worker Spokes (Isolated Environments)', top: 85, left: 50, width: 90, height: 22, color: 'rgba(139, 92, 246, 0.04)', borderColor: 'rgba(139, 92, 246, 0.4)' }
             ],
             nodes: [
-                { id: 'user', icon: '👤', title: 'User / Human', top: 5, left: 50, color: 'emerald', main: true,
-                  pod: null, desc: "Ви — ініціатор. Ви даєте глобальне завдання і затверджуєте критичні кроки, але не втручаєтесь у мікроменеджмент.", tags: ['Ініціатор', 'Директор'] },
+                /* ORCHESTRATION LAYER */
+                { id: 'user', icon: '👤', title: 'Ihor (Slack/Telegram)', top: 6, left: 50, color: 'emerald', main: true,
+                  pod: null, desc: "Єдина точка входу. Ставить верхньорівневі завдання. Спілкується виключно з Nexus'ом.", tags: ['Human', 'Director'] },
                 
-                // Nexus
-                { id: 'nexus', icon: '🧠', title: 'Nexus Agent', top: 22, left: 50, color: 'amber', main: true,
-                  pod: 'pod_nexus', desc: "Головний Оркестратор. Він єдиний бачить 'всю картину', розбиває задачу Користувача і делегує її дочірнім агентам. Збирає загальний звіт.", tags: ['Роутер', 'Менеджер', 'LLM'] },
-                { id: 'nexus_soul', icon: '📜', title: 'Nexus SOUL', top: 16, left: 40, color: 'sky', main: false,
-                  pod: 'pod_nexus', desc: "Глобальні правила маршрутизації. Визначають, як Nexus має спілкуватись з користувачем (tone of voice) та за якими критеріями ділити задачі.", tags: ['Правила', 'Роутінг'] },
-                { id: 'nexus_memory', icon: '💾', title: 'Global MEMORY', top: 16, left: 60, color: 'pink', main: false,
-                  pod: 'pod_nexus', desc: "Спільна база знань проекту. Сюди дочірні агенти 'пушать' фінальні результати своєї роботи, щоб Nexus міг прочитати загальний контекст.", tags: ['Shared State', 'Контекст'] },
+                { id: 'nexus', icon: '👑', title: 'Nexus (Оркестратор)', top: 22, left: 50, color: 'amber', main: true,
+                  pod: 'pod_orch', desc: "Приймає всі повідомлення від Ihor. Аналізує задачу. Генерує credentials, створює задачу в Task Store і за допомогою `exec` викликає одного з вузлів-виконавців (Spokes).", tags: ['glm-5', 'Router', 'Hub'] },
+                
+                { id: 'nexus_soul', icon: '📜', title: 'SOUL.md', top: 18, left: 36, color: 'sky', main: false,
+                  pod: 'pod_orch', desc: "Правила для Nexus: 'Обов'язковий Handoff, Task-based delegation. Ніякого UI логіну.'", tags: ['Rules', 'System Prompt'] },
+                  
+                { id: 'nexus_scripts', icon: '📟', title: 'auth_helper.py', top: 28, left: 36, color: 'slate', main: false,
+                  pod: 'pod_orch', desc: "Скрипт Nexus'а для автономної генерації гравців через GraphQL API (запускається через exec).", tags: ['Python', 'GraphQL', 'Auth'] },
 
-                // QA 
-                { id: 'qa', icon: '🧪', title: 'QA Agent', top: 68, left: 16, color: 'purple', main: true,
-                  pod: 'pod_qa', desc: "Пише та запускає код (Playwright E2E тести). Робить всю брудну роботу з написання скриптів. Автономно працює з DOM та браузером.", tags: ['Playwright', 'E2E Code', 'Автономний'] },
-                { id: 'qa_soul', icon: '📜', title: 'QA SOUL', top: 80, left: 10, color: 'sky', main: false,
-                  pod: 'pod_qa', desc: "Правила Resilient Testing. Інструктує QA агента перевикористовувати існуючі фікстури, використовувати Chromium і самостійно вирішувати проблеми з локаторами.", tags: ['Resilient', 'Ізоляція', 'Reusability'] },
-                { id: 'qa_memory', icon: '💾', title: 'QA MEMORY', top: 80, left: 22, color: 'pink', main: false,
-                  pod: 'pod_qa', desc: "Локальна пам'ять тестувальника (26 KB). Зберігає базу знань про Playwright, UI локатори, логіку бонусів та проблеми сегментації гравців.", tags: ['Local State', 'Knowledge'] },
+                /* SHARED STATE LAYER (The heart of v3.4) */
+                { id: 'shared_insights', icon: '💡', title: 'DAILY_INSIGHTS.md', top: 48, left: 20, color: 'pink', main: false, db: true,
+                  pod: 'pod_shared', desc: "Файл, куди Ihor/Nexus пишуть помилки агента (напр. 'Ніколи не тестуй на публічному домені!'). Агенти читають це перед початком роботи.", tags: ['Self-Improvement', 'Memory'] },
+                
+                { id: 'shared_tasks', icon: '📋', title: 'tasks/CT-xxx.md', top: 48, left: 40, color: 'pink', main: false, db: true,
+                  pod: 'pod_shared', desc: "Детальний тест план, згенерований Nexus. Містить точні URLs, кроки, та посилання на JSON з credentials.", tags: ['Delegation', 'Protocol'] },
+                
+                { id: 'shared_creds', icon: '🔑', title: 'credentials/CT-xxx.json', top: 48, left: 60, color: 'pink', main: false, db: true,
+                  pod: 'pod_shared', desc: "Свіжо-згенеровані Credentials для конкретної задачі. Зберігає sessionToken, email, password.", tags: ['Auth', 'JSON', 'State'] },
 
-                // API
-                { id: 'api', icon: '⚙️', title: 'API Docs Agent', top: 68, left: 50, color: 'purple', main: true,
-                  pod: 'pod_api', desc: "Працює зі Swagger. Тримає інформацію про сервіси, автентифікацію, дістає дані по існуючим бонусам на проді та відповідає за створення гравця з балансом.", tags: ['Swagger', 'Auth', 'Data Fetching'] },
-                { id: 'api_soul', icon: '📜', title: 'API SOUL', top: 80, left: 44, color: 'sky', main: false,
-                  pod: 'pod_api', desc: "Правила інтерпретації REST API. Інструктує надавати правильні маппінги для API-тестів та генерувати хелпери для QA агента.", tags: ['API Specs', 'Helper'] },
-                { id: 'api_memory', icon: '💾', title: 'API MEMORY', top: 80, left: 56, color: 'pink', main: false,
-                  pod: 'pod_api', desc: "Сховище Swagger шляхів (7.5 KB), Endpoint flows, інформації про гравців та інфраструктуру сервісів.", tags: ['Swagger Paths', 'Context'] },
+                { id: 'shared_results', icon: '📊', title: 'test-results/', top: 48, left: 80, color: 'pink', main: false, db: true,
+                  pod: 'pod_shared', desc: "Папка, куди QA Agent та API Docs Agent 'пушать' скріншоти, video записи E2E та JSON звіти.", tags: ['Artifacts', 'Proof'] },
 
-                // Jira
-                { id: 'jira', icon: '📋', title: 'Jira Agent', top: 68, left: 84, color: 'purple', main: true,
-                  pod: 'pod_jira', desc: "Спеціаліст з таск-трекерів. Спілкується з Jira/Trello по API. Відповідає за перечитування тікету та зміну колонок (To Do -> In Progress -> QA).", tags: ['Agile', 'Sync'] },
-                { id: 'jira_soul', icon: '📜', title: 'Jira SOUL', top: 80, left: 78, color: 'sky', main: false,
-                  pod: 'pod_jira', desc: "Формат репортингу (що саме писати розробникам у коментарі). Дозволені переходи (Transitions) статусів.", tags: ['Workflows', 'Політика'] },
-                { id: 'jira_memory', icon: '💾', title: 'Jira MEMORY', top: 80, left: 90, color: 'pink', main: false,
-                  pod: 'pod_jira', desc: "Кеш інформації про епіки та тікети, щоб не робити зайві API запити. Зберігає ID тікета над яким йде робота.", tags: ['Local State', 'Кеш'] },
-
-                // Tools
-                { id: 'tools_browser', icon: '🌐', title: 'Browser/DOM Control', top: 48, left: 25, color: 'slate', main: false,
-                  pod: 'pod_tools', desc: "Інструменти керування браузером: кліки, парсинг HTML/DOM дерева, створення скріншотів.", tags: ['Tool', 'UI'] },
-                { id: 'tools_fs', icon: '📂', title: 'File System (R/W)', top: 48, left: 50, color: 'slate', main: false,
-                  pod: 'pod_tools', desc: "Інструменти модифікації: читання, повний запис, grep-пошук по проекту, AST навігація.", tags: ['Tool', 'Локальний'] },
-                { id: 'tools_term', icon: '💻', title: 'Bash/Terminal', top: 48, left: 75, color: 'slate', main: false,
-                  pod: 'pod_tools', desc: "Виконання системних команд, запуск npm скриптів, взаємодія з git та сторонніми CLI.", tags: ['Tool', 'Execution'] }
+                /* SPOKES LAYER (Workers) */
+                { id: 'clawver', icon: '🐱', title: 'Clawver (QA Agent)', top: 85, left: 22, color: 'purple', main: true,
+                  pod: 'pod_spokes', desc: "Ізольований браузерний експерт. Нічого не придумує. Читає Task-файл, бере Credentials JSON, інжектить tokens у Playwright і запускає UI тести.", tags: ['Playwright', 'UI', 'Spoke 1'] },
+                  
+                { id: 'cipher', icon: '👾', title: 'Cipher (API Docs Agent)', top: 85, left: 50, color: 'purple', main: true,
+                  pod: 'pod_spokes', desc: "Працює з бекендом. Аналізує Swagger, пише Python скрипти для виконання Backend тест-планів, наданих Nexus.", tags: ['API', 'Swagger', 'Spoke 2'] },
+                  
+                { id: 'jira', icon: '🦉', title: 'Jira Watcher', top: 85, left: 78, color: 'purple', main: true,
+                  pod: 'pod_spokes', desc: "Перевіряє статуси епіків та залишає коментарі по API, коли тестування завершено.", tags: ['Jira REST', 'Sync', 'Spoke 3'] },
             ],
             connections: [
-                // Top Level
-                { from: 'user', to: 'nexus', type: 'task', label: 'Оригінальний Запит' },
-                { from: 'nexus', to: 'user', type: 'rw', label: 'Запит Дозволу/Звіт', curveTargetY: -30 },
+                // Top Level Flow
+                { from: 'user', to: 'nexus', type: 'io', label: '1. Chat / Prompt' },
+                { from: 'nexus', to: 'user', type: 'io', label: 'Result Summary', curveTargetX: -30 },
 
-                // Nexus Cluster
-                { from: 'nexus', to: 'nexus_soul', type: 'read', label: 'Читає Роутинг' },
-                { from: 'nexus', to: 'nexus_memory', type: 'rw', label: 'Записує План / Читає Статус' },
-
-                // Delegation
-                { from: 'nexus', to: 'qa', type: 'delegate', label: 'Делегує: E2E Тест' },
-                { from: 'nexus', to: 'api', type: 'delegate', label: 'Делегує: Бекенд Фіча' },
-                { from: 'nexus', to: 'jira', type: 'delegate', label: 'Делегує: Валідація Вимог' },
-
-                // Sync Global
-                { from: 'qa_memory', to: 'nexus_memory', type: 'sync', label: 'Sync: QA Логи', curveTargetX: -80, curveTargetY: 40 },
-                { from: 'api_memory', to: 'nexus_memory', type: 'sync', label: 'Sync: API Дані', curveTargetX: 0, curveTargetY: 40 },
-                { from: 'jira_memory', to: 'nexus_memory', type: 'sync', label: 'Sync: Статуси', curveTargetX: 80, curveTargetY: 40 },
-
-                // QA Internal
-                { from: 'qa', to: 'qa_soul', type: 'read', label: 'Читає QA Правила' },
-                { from: 'qa', to: 'qa_memory', type: 'rw', label: 'Зберігає DOM Структуру' },
+                // Nexus Setup
+                { from: 'nexus', to: 'nexus_soul', type: 'read', label: 'Read routing rules' },
+                { from: 'nexus', to: 'shared_insights', type: 'read', label: '2. Check Insights (Lessons)' },
+                { from: 'nexus', to: 'nexus_scripts', type: 'exec', label: '3. Run Player Gen' },
+                { from: 'nexus_scripts', to: 'shared_creds', type: 'write', label: 'Save Token JSON' },
                 
-                // API Internal
-                { from: 'api', to: 'api_soul', type: 'read', label: 'Читає API Правила' },
-                { from: 'api', to: 'api_memory', type: 'rw', label: 'Зберігає JSON Кеш' },
+                // Delegation Creation
+                { from: 'nexus', to: 'shared_tasks', type: 'write', label: '4. Write Task.md' },
+                
+                // Active Execution
+                { from: 'nexus', to: 'clawver', type: 'exec', label: '5. exec: openclaw agent qa-agent' },
+                { from: 'nexus', to: 'cipher', type: 'exec', label: 'exec: api-docs-agent' },
+                { from: 'nexus', to: 'jira', type: 'exec', label: 'exec: jira-watcher' },
 
-                // Jira Internal
-                { from: 'jira', to: 'jira_soul', type: 'read', label: 'Читає Jira Rules' },
-                { from: 'jira', to: 'jira_memory', type: 'rw', label: 'Зберігає Workflow' },
+                // Clawver Flow (QA)
+                { from: 'clawver', to: 'shared_tasks', type: 'read', label: '6A. Parse MD' },
+                { from: 'clawver', to: 'shared_creds', type: 'read', label: '6B. Inject Cookies' },
+                { from: 'clawver', to: 'shared_results', type: 'write', label: '7A. Upload Video/JSON' },
 
-                // Tools Usage
-                { from: 'qa', to: 'tools_browser', type: 'tool', label: 'Викликає Браузер' },
-                { from: 'qa', to: 'tools_fs', type: 'tool', label: 'Пише Код/Тести (R/W)' },
-                { from: 'api', to: 'tools_term', type: 'tool', label: 'Get API/CURL Scripts' },
-                { from: 'jira', to: 'tools_term', type: 'tool', label: 'Тягне API ключі' },
-                { from: 'nexus', to: 'tools_fs', type: 'tool', label: 'Робота з проектом' }
+                // Cipher Flow (API)
+                { from: 'cipher', to: 'shared_tasks', type: 'read', label: 'Read Backend Task' },
+                { from: 'cipher', to: 'shared_results', type: 'write', label: 'Upload API Report' },
+
+                // Jira Flow
+                { from: 'jira', to: 'shared_results', type: 'read', label: 'Read JSON Report' },
+                { from: 'jira', to: 'shared_tasks', type: 'read', label: 'Check Ticket ID' },
+                
+                // Sync back to Nexus
+                { from: 'shared_results', to: 'nexus', type: 'data', label: '8. Nexus reads final JSON', curveTargetX: 80, curveTargetY: -20 }
             ]
         };
 
         const canvas = document.getElementById('canvas');
         const svg = document.getElementById('svgCanvas');
         const mainView = document.getElementById('main-view');
+
+        // Init SVG definitions for arrows
+        const defs = document.createElementNS("http://www.w3.org/2000/svg", "defs");
+        defs.innerHTML = `
+            <marker id="arrow-read" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+              <path d="M 0 0 L 10 5 L 0 10 z" fill="#38bdf8" />
+            </marker>
+            <marker id="arrow-write" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+              <path d="M 0 0 L 10 5 L 0 10 z" fill="#f59e0b" />
+            </marker>
+            <marker id="arrow-exec" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+              <path d="M 0 0 L 10 5 L 0 10 z" fill="#8b5cf6" />
+            </marker>
+        `;
+        svg.appendChild(defs);
 
         // Initialize Pods
         dataConfig.pods.forEach(pod => {
@@ -310,7 +330,7 @@
         // Initialize Nodes
         dataConfig.nodes.forEach(n => {
             const el = document.createElement('div');
-            el.className = `node c-${n.color} ${n.main ? 'main-agent' : ''}`;
+            el.className = `node c-${n.color} ${n.main ? 'main-agent' : ''} ${n.db ? 'db-node' : ''}`;
             el.id = n.id;
             el.style.left = `${n.left}%`;
             el.style.top = `${n.top}%`;
@@ -320,23 +340,18 @@
                 <div class="label">${n.title}</div>
             `;
 
-            // Hover interactions
             el.addEventListener('mouseenter', () => handleHover(n.id));
             el.addEventListener('mouseleave', () => clearHover());
 
             canvas.appendChild(el);
         });
 
-        // Window resize handler for SVG redraw
         window.addEventListener('resize', drawLines);
 
         function drawLines() {
-            svg.innerHTML = ''; // clear
+            // Remove old paths and texts
+            document.querySelectorAll('.conn-path, .conn-label').forEach(e => e.remove());
             const bounds = canvas.getBoundingClientRect();
-
-            // defs context for path texts
-            const defs = document.createElementNS("http://www.w3.org/2000/svg", "defs");
-            svg.appendChild(defs);
 
             dataConfig.connections.forEach((conn, index) => {
                 const elFrom = document.getElementById(conn.from);
@@ -353,21 +368,17 @@
 
                 const pathId = `path_${conn.from}_${conn.to}_${index}`;
 
-                // Calculate control points for subtle curve
                 let cx = (x1 + x2) / 2;
                 let cy = (y1 + y2) / 2;
                 
-                // Add bend if specified
                 if(conn.curveTargetX) cx += conn.curveTargetX;
                 if(conn.curveTargetY) cy += conn.curveTargetY;
                 
-                // If it's pure vertical/horizontal, add a slight organic curve
                 if (!conn.curveTargetX && !conn.curveTargetY) {
-                    if (Math.abs(x1 - x2) > Math.abs(y1 - y2)) cy -= 20;
-                    else cx += 20;
+                    if (Math.abs(x1 - x2) > Math.abs(y1 - y2)) cy -= 30; // Stronger aesthetic curve
+                    else cx += 30;
                 }
 
-                // Ensure path direction is left-to-right for correct text rendering logic
                 let d = `M ${x1} ${y1} Q ${cx} ${cy} ${x2} ${y2}`;
                 let isFlipped = false;
                 if (x1 > x2) {
@@ -375,21 +386,24 @@
                     isFlipped = true;
                 }
 
-                // Draw solid line
                 const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
                 path.setAttribute('d', d);
                 path.setAttribute('id', pathId);
                 path.setAttribute('class', `conn-path path-${conn.type}`);
                 path.setAttribute('data-from', conn.from);
                 path.setAttribute('data-to', conn.to);
+                
+                // Add marker arrows based on type
+                if(conn.type === 'exec' || conn.type === 'write') path.setAttribute('marker-end', `url(#arrow-${conn.type})`);
+                if(conn.type === 'read') path.setAttribute('marker-start', `url(#arrow-read)`);
+
                 svg.appendChild(path);
 
-                // Add text on path
                 const text = document.createElementNS("http://www.w3.org/2000/svg", "text");
                 text.setAttribute('class', `conn-label`);
                 text.setAttribute('data-from', conn.from);
                 text.setAttribute('data-to', conn.to);
-                text.setAttribute('dy', '-8');
+                text.setAttribute('dy', '-10'); // Lifted slightly more from path
 
                 const textPath = document.createElementNS("http://www.w3.org/2000/svg", "textPath");
                 textPath.setAttribute('href', `#${pathId}`);
@@ -397,9 +411,8 @@
                 textPath.setAttribute('text-anchor', 'middle');
                 textPath.textContent = conn.label;
 
-                // Adjust text rendering if path was flipped drawing leftwards
-                if(isFlipped && conn.type.includes('sync') == false) {
-                   // Optional math to flip text rightway up if necessary
+                if (isFlipped && ['exec', 'read', 'write'].includes(conn.type)) {
+                     // For complex visual adjustments on specific curves if needed in future
                 }
 
                 text.appendChild(textPath);
@@ -408,21 +421,18 @@
         }
 
         function handleHover(hoveredId) {
-            // Update Sidebar
             const nodeData = dataConfig.nodes.find(n => n.id === hoveredId);
             if (nodeData) {
                 document.getElementById('sidebar-title').innerHTML = `${nodeData.icon} ${nodeData.title}`;
-                document.getElementById('sidebar-subtitle').innerText = 'Id: ' + nodeData.id;
+                document.getElementById('sidebar-subtitle').innerText = 'ID: ' + nodeData.id;
                 document.getElementById('sidebar-desc').innerHTML = nodeData.desc;
                 
                 const badgesHtml = nodeData.tags.map(t => `<span class="badge">${t}</span>`).join('');
                 document.getElementById('sidebar-badges').innerHTML = badgesHtml;
             }
 
-            // Highlighting logic
             mainView.classList.add('view-dimmed');
             
-            // Find all connected node IDs
             const connectedIds = new Set();
             connectedIds.add(hoveredId);
             const activePods = new Set();
@@ -440,17 +450,16 @@
                 }
             });
 
-            // Highlight Nodes
             document.querySelectorAll('.node').forEach(el => {
                 if(connectedIds.has(el.id)) el.classList.add('highlighted');
                 else el.classList.remove('highlighted');
             });
 
-            // Highlight Paths & Texts
             document.querySelectorAll('.conn-path, .conn-label').forEach(el => {
                 const from = el.getAttribute('data-from');
                 const to = el.getAttribute('data-to');
-                if ((from === hoveredId || to === hoveredId)) {
+                // Only highlight OUTGOING active connections for clearer path viewing
+                if (from === hoveredId || to === hoveredId) {
                     el.classList.add('highlighted-path');
                     if (el.tagName === 'text') el.classList.add('highlighted-label');
                 } else {
@@ -459,7 +468,6 @@
                 }
             });
 
-            // Highlight Pods
             document.querySelectorAll('.pod').forEach(el => {
                 if(activePods.has(el.id)) el.classList.add('highlighted-pod');
                 else el.classList.remove('highlighted-pod');
@@ -475,27 +483,30 @@
             document.querySelectorAll('.highlighted-pod').forEach(el => el.classList.remove('highlighted-pod'));
         }
 
-        // Init drawing
-        setTimeout(drawLines, 150);
+        setTimeout(drawLines, 200);
         showDefaultState();
 
         function showDefaultState() {
-            // Optional: reset sidebar to global overview on leave
-            document.getElementById('sidebar-title').innerText = 'Global View';
-            document.getElementById('sidebar-subtitle').innerText = 'Огляд архітектури';
-            document.getElementById('sidebar-desc').innerHTML = `Ця візуалізація демонструє повну інфраструктуру агента OpenClaw.<br><br>
-                Головне нововведення — <strong>Ізоляція</strong>.<br>
-                Кожен агент (Nexus, QA, API, Jira) має свій власний:
-                <br>• 📜 <strong>SOUL.md</strong> — локальні правила та персона.
-                <br>• 💾 <strong>MEMORY.md</strong> — локальне сховище стану.<br><br>
-                Наведіть курсор на будь-який елемент, щоб побачити зв'язки!`;
+            document.getElementById('sidebar-title').innerText = 'OpenClaw v3.4';
+            document.getElementById('sidebar-subtitle').innerText = 'Hub & Spoke + Task Delegation';
+            document.getElementById('sidebar-desc').innerHTML = `
+                Оновлена візуалізація архітектури після розв'язання проблем з CT-476.<br><br>
+                <strong>Що змінилося:</strong>
+                <ol style="padding-left: 20px; margin-top: 8px;">
+                    <li><strong>Task-Based Delegation</strong>: Nexus більше не кидає інструкції в чат. Він створює <code>.md</code> файли задач у <code>shared/tasks/</code>.</li>
+                    <li><strong>Credential Management</strong>: Nexus генерує тестові акаунти через API і залишає JSON у <code>shared/credentials/</code>. Clawver більше не бореться з UI логіном!</li>
+                    <li><strong>Auto-Insights</strong>: Всі помилки інжектуються в <code>DAILY_INSIGHTS.md</code>, на яких агенти вчаться щоночі.</li>
+                </ol>
+                <br>
+                Наведіть курсор на будь-який елемент, щоб побачити потоки даних!
+            `;
             document.getElementById('sidebar-badges').innerHTML = `
-                <span class="badge">Інтерактивна схема</span>
+                <span class="badge">Orchestration</span>
                 <span class="badge">Multi-Agent</span>
+                <span class="badge">Self-Healing</span>
             `;
         }
 
-        // Click outside to clear (if mobile)
         canvas.addEventListener('click', (e) => {
             if(e.target === canvas || e.target === svg) clearHover();
         });

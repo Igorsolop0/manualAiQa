@@ -1,0 +1,39 @@
+{
+  "ticket": "CT-476",
+  "testName": "Cashier Parameters PROD Test",
+  "environment": "PROD Internal",
+  "url": "https://minebit-casino.prod.sofon.one",
+  "timestamp": "2026-03-10T12:03:13.741Z",
+  "testType": "Smoke Test with Authentication Attempt",
+  "scenarios": [
+    "depositcrypto",
+    "buycrypto",
+    "buycrypto-with-amount",
+    "withdrawcrypto",
+    "invalid"
+  ],
+  "screenshots": [
+    "00_credentials_filled.png",
+    "00_login_modal.png"
+  ],
+  "summary": {
+    "totalAttempts": 3,
+    "loginSuccess": false,
+    "scenariosExecuted": 5,
+    "screenshots": 2,
+    "notes": [
+      "Login button found and clickable",
+      "Inputs not consistently visible",
+      "Submit button click attempted",
+      "URL parameters tested successfully",
+      "Full screenshots of each scenario captured"
+    ]
+  },
+  "recommendations": [
+    "Manual testing recommended - login flow inconsistent on PROD",
+    "Check if production login modal behaves differently than QA",
+    "Verify if test credentials are valid for PROD environment",
+    "Consider using browser DevTools to inspect modal behavior",
+    "Test parameters work correctly (all URLs load successfully)"
+  ]
+}

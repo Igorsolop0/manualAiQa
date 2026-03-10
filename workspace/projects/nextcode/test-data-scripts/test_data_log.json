@@ -4784,5 +4784,32 @@
       "SportBonus": 0.0
     },
     "created_at": "2026-03-04T17:58:40.120377"
+  },
+  {
+    "type": "player",
+    "action": "create",
+    "env": "prod",
+    "email": "democt7721773158046436@nextcode.tech",
+    "password": "Qweasd123!",
+    "userName": "demo1773158046865",
+    "registration_method": "website",
+    "website_api": "https://websitewebapi.prod.sofon.one",
+    "partner_id": 5,
+    "clientId": 1184509,
+    "sessionToken": "ef84b6136b56457b82c3c358376e58a1",
+    "state": "Active",
+    "balance_setup": true,
+    "balance_amount": 100.0,
+    "balance_currency": "USD",
+    "actual_balance": {
+      "Balances": {
+        "Unused": 100.0
+      },
+      "AvailableMain": 100.0,
+      "AvailableBonus": 0.0,
+      "Currency": "USD",
+      "SportBonus": 0.0
+    },
+    "created_at": "2026-03-10T16:54:07.357427"
   }
 ]

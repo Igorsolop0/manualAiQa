@@ -1,0 +1,22 @@
+{
+  "ticket": "CT-476",
+  "testName": "Cashier Parameters Auth Test",
+  "environment": "PROD Internal",
+  "url": "https://minebit-casino.prod.sofon.one",
+  "timestamp": "2026-03-10T11:53:16.214Z",
+  "device": "Desktop Chrome",
+  "userType": "Authenticated",
+  "scenarios": [
+    "depositcrypto",
+    "buycrypto",
+    "buycrypto-with-amount",
+    "withdrawcrypto",
+    "invalid"
+  ],
+  "screenshots": [],
+  "summary": {
+    "totalScenarios": 5,
+    "screenshots": 0,
+    "testType": "Smoke Test with Authentication"
+  }
+}

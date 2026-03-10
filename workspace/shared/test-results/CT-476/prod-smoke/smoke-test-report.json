@@ -1,0 +1,34 @@
+{
+  "ticket": "CT-476",
+  "testName": "Cashier Parameters Smoke Test",
+  "environment": "PROD",
+  "url": "https://minebit.com",
+  "timestamp": "2026-03-10T11:31:03.929Z",
+  "devices": [
+    "Desktop Chrome",
+    "Mobile Pixel 7"
+  ],
+  "scenarios": [
+    "depositcrypto",
+    "buycrypto",
+    "buycrypto-with-amount",
+    "withdrawcrypto",
+    "invalid"
+  ],
+  "screenshots": [
+    "desktop_auth_deposit.png",
+    "desktop_guest_buycrypto.png",
+    "desktop_guest_depositcrypto.png",
+    "mobile_guest_buycrypto.png",
+    "mobile_guest_depositcrypto.png",
+    "mobile_responsive_check.png"
+  ],
+  "summary": {
+    "totalScenarios": 5,
+    "devicesTested": 2,
+    "userTypes": [
+      "Guest"
+    ],
+    "totalScreenshots": 6
+  }
+}

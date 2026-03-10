@@ -1,0 +1,65 @@
+{
+  "ticket": "CT-476",
+  "testName": "Cashier Parameters with API-Created Player",
+  "environment": "PROD",
+  "url": "https://minebit-casino.prod.sofon.one",
+  "timestamp": "2026-03-10T13:32:04.027Z",
+  "player": {
+    "id": 1184435,
+    "email": "test-1773149485938@nextcode.tech",
+    "token": "9ec85e41033e4c268ba8..."
+  },
+  "results": [
+    {
+      "scenario": "depositcrypto",
+      "url": "https://minebit-casino.prod.sofon.one/?cashierstep=depositcrypto",
+      "modalCount": 0,
+      "modalVisible": false,
+      "amountValue": null,
+      "hasExpectedContent": true,
+      "screenshot": "scenario_depositcrypto.png"
+    },
+    {
+      "scenario": "buycrypto",
+      "url": "https://minebit-casino.prod.sofon.one/?cashierstep=buycrypto",
+      "modalCount": 0,
+      "modalVisible": false,
+      "amountValue": null,
+      "hasExpectedContent": true,
+      "screenshot": "scenario_buycrypto.png"
+    },
+    {
+      "scenario": "buycrypto-with-amount",
+      "url": "https://minebit-casino.prod.sofon.one/?cashierstep=buycrypto&cashiersum=100",
+      "modalCount": 0,
+      "modalVisible": false,
+      "amountValue": null,
+      "hasExpectedContent": true,
+      "screenshot": "scenario_buycrypto-with-amount.png"
+    },
+    {
+      "scenario": "withdrawcrypto",
+      "url": "https://minebit-casino.prod.sofon.one/?cashierstep=withdrawcrypto",
+      "modalCount": 0,
+      "modalVisible": false,
+      "amountValue": null,
+      "hasExpectedContent": true,
+      "screenshot": "scenario_withdrawcrypto.png"
+    },
+    {
+      "scenario": "invalid",
+      "url": "https://minebit-casino.prod.sofon.one/?cashierstep=invalid",
+      "modalCount": 0,
+      "modalVisible": false,
+      "amountValue": null,
+      "hasExpectedContent": true,
+      "screenshot": "scenario_invalid.png"
+    }
+  ],
+  "summary": {
+    "totalScenarios": 5,
+    "modalsOpened": 0,
+    "bugConfirmed": true,
+    "severity": "P0"
+  }
+}

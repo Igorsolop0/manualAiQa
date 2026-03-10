@@ -1,0 +1,79 @@
+{
+  "ticket": "CT-772",
+  "testName": "Bonuses Page UI - Internal Portal",
+  "environment": "PROD Internal",
+  "timestamp": "2026-03-10T17:19:04.157Z",
+  "locales": [
+    "en",
+    "ru",
+    "de",
+    "es",
+    "fr",
+    "pt"
+  ],
+  "results": {
+    "timer": [
+      {
+        "locale": "en",
+        "hasTimer": true,
+        "timerText": "0",
+        "hasCorrectFormat": false,
+        "hasEndsIn": true,
+        "screenshot": "bonuses-timer-en-internal.png"
+      },
+      {
+        "locale": "ru",
+        "hasTimer": true,
+        "timerText": "0",
+        "hasCorrectFormat": false,
+        "hasEndsIn": false,
+        "screenshot": "bonuses-timer-ru-internal.png"
+      },
+      {
+        "locale": "de",
+        "hasTimer": true,
+        "timerText": "0",
+        "hasCorrectFormat": false,
+        "hasEndsIn": true,
+        "screenshot": "bonuses-timer-de-internal.png"
+      },
+      {
+        "locale": "es",
+        "hasTimer": true,
+        "timerText": "0",
+        "hasCorrectFormat": false,
+        "hasEndsIn": false,
+        "screenshot": "bonuses-timer-es-internal.png"
+      },
+      {
+        "locale": "fr",
+        "hasTimer": true,
+        "timerText": "0",
+        "hasCorrectFormat": false,
+        "hasEndsIn": false,
+        "screenshot": "bonuses-timer-fr-internal.png"
+      },
+      {
+        "locale": "pt",
+        "hasTimer": true,
+        "timerText": "0",
+        "hasCorrectFormat": false,
+        "hasEndsIn": false,
+        "screenshot": "bonuses-timer-pt-internal.png"
+      }
+    ],
+    "emptyState": {
+      "found": false
+    },
+    "mobile": {
+      "hasHorizontalScroll": false
+    }
+  },
+  "summary": {
+    "timerFound": 6,
+    "correctFormat": 0,
+    "hasEndsIn": 2,
+    "totalLocales": 6,
+    "overallStatus": "PASS"
+  }
+}

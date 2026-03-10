@@ -1,0 +1,281 @@
+{
+  "ticket": "CT-709",
+  "title": "[BE] Refactor Login & Registration",
+  "execution_date": "2026-03-10T11:35:00Z",
+  "environment": "dev.sofon.one",
+  "partner_id": 5,
+  "brand": "minebit",
+  "agent": "Cipher (API Docs Agent)",
+  
+  "summary": {
+    "status": "PARTIALLY_BLOCKED",
+    "tests_executed": 2,
+    "tests_passed": 1,
+    "tests_failed": 1,
+    "tests_blocked": 8,
+    "blocker_reason": "OAuth tests require real credentials (Google JWT token, Telegram bot token)"
+  },
+  
+  "preparation": [
+    {
+      "task": "Created Telegram hash generator script",
+      "file": "scripts/generate_telegram_hash.py",
+      "status": "COMPLETED",
+      "notes": "HMAC-SHA256 implementation for Telegram WebApp initData"
+    },
+    {
+      "task": "Created Google JWT mock script",
+      "file": "scripts/mock_google_jwt.js", 
+      "status": "COMPLETED",
+      "notes": "Mock JWT generator (backend requires real Google-signed tokens)"
+    },
+    {
+      "task": "Analyzed Swagger for OAuth endpoints",
+      "endpoints_found": [
+        "/api/v3/GoogleAccount/OneTapAuth",
+        "/api/v3/GoogleAccount/OneTapJwtAuth",
+        "/api/v3/TelegramAccount/HashAuth",
+        "/api/v3/TelegramAccount/HashJwtAuth"
+      ],
+      "status": "COMPLETED"
+    }
+  ],
+  
+  "test_results": [
+    {
+      "test_id": "TC-R001",
+      "name": "Traditional Email/Password Registration",
+      "priority": "P0",
+      "status": "PASS",
+      "environment": "dev",
+      "timestamp": "2026-03-10T10:35:54Z",
+      "request": {
+        "endpoint": "https://websitewebapi.dev.sofon.one/5/api/v3/Client/Register",
+        "method": "POST",
+        "payload": {
+          "partnerId": 5,
+          "email": "ct709-test-1773138954@nextcode.tech",
+          "password": "TestPass123!",
+          "currencyId": "USD",
+          "languageId": "en",
+          "countryCode": "UA",
+          "deviceTypeId": 1
+        }
+      },
+      "response": {
+        "status": 200,
+        "responseCode": "Success",
+        "clientId": 59160,
+        "token": "e5aa83f336a54a05a7472a6aa432d3e9",
+        "userName": "EzvAFszqr2"
+      },
+      "validation": [
+        "✅ HTTP 200 OK",
+        "✅ ResponseCode: Success",
+        "✅ ClientId generated",
+        "✅ Session token returned"
+      ]
+    },
+    {
+      "test_id": "TC-R002",
+      "name": "Traditional Email/Password Login",
+      "priority": "P0",
+      "status": "FAIL",
+      "environment": "dev",
+      "timestamp": "2026-03-10T10:35:56Z",
+      "request": {
+        "endpoint": "https://websitewebapi.dev.sofon.one/5/api/v3/Client/Login",
+        "method": "POST",
+        "payload": {
+          "email": "ct709-test-1773138954@nextcode.tech",
+          "password": "TestPass123!",
+          "partnerId": 5,
+          "deviceType": 1
+        }
+      },
+      "response": {
+        "status": 200,
+        "responseCode": "GeneralException",
+        "description": "Object reference not set to an instance of an object.",
+        "traceId": "02cf66a98218c0806af386e41b050740"
+      },
+      "validation": [
+        "❌ HTTP 200 but ResponseCode: GeneralException",
+        "❌ NullReferenceException - possible backend bug",
+        "⚠️ Registration works, login fails - inconsistent state"
+      ],
+      "impact": "CRITICAL - blocks regression testing"
+    },
+    {
+      "test_id": "TC-G001",
+      "name": "Existing Google User Login",
+      "priority": "P0",
+      "status": "BLOCKED",
+      "reason": "Requires real Google JWT token signed by Google API",
+      "attempted": true,
+      "mock_token_used": true,
+      "api_response": {
+        "status": 200,
+        "responseCode": "Success",
+        "responseObject": null,
+        "notes": "Backend accepted mock token structure but returned null (token validation skipped or silent fail)"
+      },
+      "requirement": "Need: (1) Real Google OAuth credential via browser login, OR (2) Test mode endpoint that accepts mock tokens"
+    },
+    {
+      "test_id": "TC-G002",
+      "name": "New Google User Registration",
+      "priority": "P0",
+      "status": "BLOCKED",
+      "reason": "Same blocker as TC-G001"
+    },
+    {
+      "test_id": "TC-G003",
+      "name": "Google Email Case Insensitivity",
+      "priority": "P1",
+      "status": "BLOCKED",
+      "reason": "Same blocker as TC-G001"
+    },
+    {
+      "test_id": "TC-TG001",
+      "name": "Existing Telegram User Login",
+      "priority": "P0",
+      "status": "BLOCKED",
+      "reason": "Requires Telegram bot token from @BotFather",
+      "requirement": "Need: (1) Bot token, (2) Test Telegram user ID, OR (3) Existing test account credentials"
+    },
+    {
+      "test_id": "TC-TG002",
+      "name": "New Telegram User Registration",
+      "priority": "P0",
+      "status": "BLOCKED",
+      "reason": "Same blocker as TC-TG001"
+    },
+    {
+      "test_id": "TC-BF001",
+      "name": "Pre-Migration Google User Backfill",
+      "priority": "P0",
+      "status": "BLOCKED",
+      "reason": "Requires pre-migration test account + real Google token"
+    },
+    {
+      "test_id": "TC-BF002",
+      "name": "Pre-Migration Telegram User Backfill",
+      "priority": "P0",
+      "status": "BLOCKED",
+      "reason": "Requires pre-migration test account + real Telegram hash"
+    },
+    {
+      "test_id": "TC-U001",
+      "name": "Cross-Partner Registration (Same Google Email)",
+      "priority": "P1",
+      "status": "BLOCKED",
+      "reason": "Requires real Google JWT token"
+    }
+  ],
+  
+  "blockers": [
+    {
+      "id": "BLK-001",
+      "severity": "HIGH",
+      "description": "OAuth tests cannot be executed without real credentials",
+      "affected_tests": ["TC-G001", "TC-G002", "TC-G003", "TC-TG001", "TC-TG002", "TC-BF001", "TC-BF002", "TC-U001"],
+      "root_cause": "Backend validates OAuth tokens against Google/Telegram APIs. Mock tokens are rejected or silently ignored.",
+      "solutions": [
+        "Option 1: Ihor provides real test credentials (Google test account + Telegram bot token)",
+        "Option 2: Backend team adds test mode to accept mock tokens on dev environment",
+        "Option 3: Manual UI testing via browser to capture real OAuth tokens"
+      ],
+      "workaround_available": false
+    },
+    {
+      "id": "BLK-002",
+      "severity": "CRITICAL",
+      "description": "Login endpoint throws NullReferenceException after successful registration",
+      "affected_tests": ["TC-R002"],
+      "root_cause": "Backend bug - possibly related to OAuth refactor breaking traditional auth flow",
+      "recommendation": "Report to backend team immediately - this blocks all regression testing",
+      "workaround_available": false
+    }
+  ],
+  
+  "findings": [
+    {
+      "type": "BUG",
+      "severity": "CRITICAL",
+      "title": "Login fails with NullReferenceException",
+      "description": "After successful registration, login with same credentials throws 'Object reference not set to an instance of an object.'",
+      "endpoint": "/{partnerId}/api/v3/Client/Login",
+      "environment": "dev",
+      "reproducible": true,
+      "steps_to_reproduce": [
+        "1. Register new user via /{partnerId}/api/v3/Client/Register",
+        "2. Attempt login with same email/password via /{partnerId}/api/v3/Client/Login",
+        "3. Observe GeneralException with NullReference"
+      ],
+      "expected": "Login should succeed and return session token",
+      "actual": "GeneralException: Object reference not set to an instance of an object",
+      "trace_id": "02cf66a98218c0806af386e41b050740"
+    },
+    {
+      "type": "OBSERVATION",
+      "severity": "INFO",
+      "title": "Google OneTapAuth accepts mock tokens silently",
+      "description": "When sending mock JWT to OneTapAuth endpoint, backend returns Success with null ResponseObject instead of validation error",
+      "endpoint": "/api/v3/GoogleAccount/OneTapAuth",
+      "implication": "Either token validation is disabled on dev, or backend silently fails and returns success"
+    }
+  ],
+  
+  "deliverables": [
+    {
+      "file": "scripts/generate_telegram_hash.py",
+      "description": "Telegram WebApp initData hash generator",
+      "ready": true
+    },
+    {
+      "file": "scripts/mock_google_jwt.js",
+      "description": "Mock Google OneTap JWT generator",
+      "ready": true
+    },
+    {
+      "file": "scripts/test_login_dev.py",
+      "description": "Regression test script for email/password auth",
+      "ready": true
+    },
+    {
+      "file": "test-results/CT-709/results.json",
+      "description": "This comprehensive test results report",
+      "ready": true
+    }
+  ],
+  
+  "next_steps": [
+    {
+      "action": "Report critical bug",
+      "description": "Create Jira ticket for login NullReferenceException",
+      "priority": "IMMEDIATE"
+    },
+    {
+      "action": "Obtain OAuth credentials",
+      "description": "Request from Ihor: (1) Google test account OAuth token, (2) Telegram bot token + test user ID",
+      "priority": "HIGH"
+    },
+    {
+      "action": "Re-execute blocked tests",
+      "description": "Once credentials available, run full OAuth test suite",
+      "priority": "HIGH"
+    },
+    {
+      "action": "Test on QA environment",
+      "description": "Verify if login bug exists on QA or is dev-specific",
+      "priority": "MEDIUM"
+    }
+  ],
+  
+  "recommendations": [
+    "Backend team should add test mode flag to accept mock OAuth tokens on dev/stage environments",
+    "Consider adding API endpoint to create test users with pre-populated ExternalId for backfill testing",
+    "Investigate why OneTapAuth returns Success with null object - should fail fast on invalid tokens"
+  ]
+}

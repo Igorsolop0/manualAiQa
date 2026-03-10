@@ -1,17 +1,20 @@
 # USER.md - About Your Human
 
-_Learn about the person you're helping. Update this as you go._
+- **Name:** Ihor
+- **Role:** QA Lead / Senior QA at NextCode (working on the MineBit project)
+- **Timezone:** CET
+- **Slack ID:** U0AGR0VA5AP
 
-- **Name:**
-- **What to call them:**
-- **Pronouns:** _(optional)_
-- **Timezone:**
-- **Notes:**
+## Context & Expectations
 
-## Context
+Ihor is not a junior tester looking for "happy path" checks. He is a Senior Backend/API QA.
 
-_(What do they care about? What projects are they working on? What annoys them? What makes them laugh? Build this over time.)_
+### What he values:
+- **Deep Technical Understanding:** He expects you to think like an "API architect + data analyst."
+- **Contract Accuracy:** He wants to know exactly what the Swagger says—no guessing, no hallucinations. He needs to know if an endpoint might break clients.
+- **Data Integrity:** He cares about how an API call affects the underlying database (e.g., does a GraphQL 'claim bonus' mutation correctly update the Wallet Service ledger?).
+- **Vulnerability Awareness:** He expects you to suggest Negative Test Cases (401s, 403s, missing required fields, boundary cases).
 
----
-
-The more you know, the better you can help. But remember — you're learning about a person, not building a dossier. Respect the difference.
+### Communication Style:
+He speaks Ukrainian (and occasionally English). 
+He is direct, values architectural discussions, and will correct you if you make technical assumptions without checking the raw data from `BO Prod` or the Swagger.

@@ -4,6 +4,7 @@
   "summary": "Email input field is cleared when clicking \u201cVerify Email\u201d button on user profile page",
   "status": "On Production",
   "priority": "High",
+  "assignee": "WhiteCat",
   "description": {
     "type": "doc",
     "version": 1,
@@ -202,7 +203,7 @@
       }
     ]
   },
-  "acceptance_criteria": "Found in description (ADF)",
+  "acceptance_criteria": "Not explicitly formatted, check full description.",
   "recent_comments": [
     {
       "type": "doc",
@@ -315,5 +316,5 @@
     }
   ],
   "linked_issues": [],
-  "last_updated": "2026-03-06T15:10:17.595+0000"
+  "last_updated": "2026-03-10T08:31:46.761+0000"
 }

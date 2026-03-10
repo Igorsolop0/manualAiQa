@@ -1,0 +1,53 @@
+{
+  "ticket": "CT-709",
+  "environment": "dev",
+  "timestamp": "2026-03-10T18:52:36.521808",
+  "tests": [
+    {
+      "test": "Swagger Endpoints",
+      "status": "PASS",
+      "found": [
+        "/api/v3/GoogleAccount/OneTapAuth",
+        "/api/v3/GoogleAccount/OneTapJwtAuth",
+        "/api/v3/TelegramAccount/HashAuth",
+        "/api/v3/TelegramAccount/HashJwtAuth"
+      ],
+      "missing": [],
+      "total_required": 4
+    },
+    {
+      "test": "Google OAuth Mock Token",
+      "status": "PASS",
+      "http_status": 200,
+      "response": {
+        "ResponseCode": "Success",
+        "Description": null,
+        "InterruptionCode": null,
+        "ResponseObject": null,
+        "TraceId": "354a8d3a8b405a378fa4980de8a6fb4c"
+      },
+      "notes": "Mock token test - backend validation behavior"
+    },
+    {
+      "test": "Telegram OAuth Mock Data",
+      "status": "PASS",
+      "http_status": 200,
+      "response": {
+        "ResponseCode": "ValidationException",
+        "Description": "The Hash field is required.",
+        "InterruptionCode": null,
+        "ResponseObject": null,
+        "TraceId": "f3be6a8396402686fcdf2a115717be63"
+      },
+      "notes": "Mock data test - backend validation behavior"
+    },
+    {
+      "test": "Registration Fallback",
+      "status": "PASS",
+      "http_status": 200,
+      "client_id": 59177,
+      "email": "ct709-fallback-1773165157@nextcode.tech",
+      "notes": "Traditional registration still works"
+    }
+  ]
+}

@@ -1,0 +1,80 @@
+{
+  "ticket": "CT-709",
+  "environment": "dev",
+  "timestamp": "2026-03-10T19:07:40.220733",
+  "test_suites": [
+    {
+      "suite": "Google OAuth Payload Tests",
+      "tests": [
+        {
+          "name": "Minimal payload",
+          "status": 200,
+          "responseCode": "ValidationException",
+          "description": "The RedirectUrl field is required."
+        },
+        {
+          "name": "Full payload with all fields",
+          "status": 200,
+          "responseCode": "Success",
+          "description": null
+        },
+        {
+          "name": "Missing returnUrl (required)",
+          "status": 200,
+          "responseCode": "ValidationException",
+          "description": "The ReturnUrl field is required."
+        }
+      ]
+    },
+    {
+      "suite": "Telegram OAuth Payload Tests",
+      "tests": [
+        {
+          "name": "Minimal with hash",
+          "status": 200,
+          "responseCode": "ValidationException",
+          "description": "The BotId field is required."
+        },
+        {
+          "name": "Full user data",
+          "status": 400,
+          "responseCode": 284,
+          "description": "NotConfigured"
+        },
+        {
+          "name": "Missing hash (should fail validation)",
+          "status": 200,
+          "responseCode": "ValidationException",
+          "description": "The BotId field is required."
+        }
+      ]
+    },
+    {
+      "suite": "Client Endpoints for ExternalIdentity",
+      "tests": {
+        "test_user": {
+          "email": "ct709-api-test-1773166061@nextcode.tech",
+          "client_id": 59178,
+          "token": "83ace6a49ea24b1699eea13dec5da467"
+        },
+        "endpoints": [
+          {
+            "name": "GetClientIdentityModels",
+            "status": "ERROR",
+            "error": "Expecting value: line 1 column 1 (char 0)"
+          },
+          {
+            "name": "GetClientBalance",
+            "status": "ERROR",
+            "error": "Expecting value: line 1 column 1 (char 0)"
+          },
+          {
+            "name": "GetClientAccounts",
+            "status": "ERROR",
+            "error": "Expecting value: line 1 column 1 (char 0)"
+          }
+        ]
+      }
+    }
+  ]
+}

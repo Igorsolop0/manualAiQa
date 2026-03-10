@@ -1,0 +1,130 @@
+📝 **Ready to copy → Jira CT-476:**
+
+---
+
+🚨 **P0 BUG CONFIRMED - Feature Not Working**
+
+Tested on PROD Internal, devices: MacBook Air (Desktop Chrome), browsers: Chrome. VPN: no.
+
+**Test Method:** Created new authenticated player via GraphQL API, tested all 5 scenarios with proper authentication.
+
+**Player Details:**
+- ID: 1184435
+- Email: test-1773149485938@nextcode.tech
+- Auth Token: ✅ Valid and set in browser context
+- Authentication Method: GraphQL API registration with sessionToken
+
+---
+
+**🚨 BUG: Wallet/Cashier Modal Does NOT Auto-Open with URL Parameters**
+
+**Expected Behavior:**
+- URL parameter `cashierstep` should automatically open wallet/cashier modal
+- URL parameter `cashiersum` should pre-fill amount in cashier
+- Modal should open on specific tab based on parameter value
+
+**Actual Behavior:**
+❌ **Modal does NOT open for ANY scenario** (0/5 scenarios passed)
+✅ Parameters are accepted in URL without errors
+✅ Page loads correctly with parameters
+✅ Content related to parameters found on page (Deposit, Buy, 100, Withdraw)
+
+---
+
+**Test Results Summary:**
+
+| Scenario | URL | Modal Opened | Expected Content |
+|----------|-----|--------------|------------------|
+| depositcrypto | ?cashierstep=depositcrypto | ❌ NO | ✅ Found |
+| buycrypto | ?cashierstep=buycrypto | ❌ NO | ✅ Found |
+| buycrypto&cashiersum=100 | ?cashierstep=buycrypto&cashiersum=100 | ❌ NO | ✅ Found |
+| withdrawcrypto | ?cashierstep=withdrawcrypto | ❌ NO | ✅ Found |
+| invalid | ?cashierstep=invalid | ❌ NO | ✅ Handled |
+
+**Severity:** P0 - Feature completely non-functional
+
+---
+
+**Evidence:**
+
+📸 Screenshots saved at: ~/.openclaw/workspace/shared/test-results/CT-476/prod-auth-api/
+
+1. scenario_depositcrypto.png (2.1 MB) - No modal opened
+2. scenario_buycrypto.png (1.6 MB) - No modal opened
+3. scenario_buycrypto-with-amount.png (1.1 MB) - No modal, no amount pre-fill
+4. scenario_withdrawcrypto.png (1.5 MB) - No modal opened
+5. scenario_invalid.png (1.5 MB) - Correctly handled, no modal
+
+📄 Test Report: test-report.json (1.9 KB) - Full test results with API authentication
+
+---
+
+**Technical Details:**
+
+**Authentication:**
+- Method: GraphQL API (playerRegisterUniversal mutation)
+- Token Type: sessionToken
+- Token Storage: Cookies (token, sessionToken, auth-token)
+- Authentication Status: ✅ Confirmed valid
+
+**URL Format Tested:**
+```
+https://minebit-casino.prod.sofon.one/?cashierstep=<step>&cashiersum=<amount>
+```
+
+**Modal Detection:**
+- Selectors: [class*="cashier"], [class*="wallet"], [role="dialog"], [class*="modal"]
+- Result: 0 elements found for all scenarios
+- Visibility: All modals hidden/non-existent
+
+---
+
+**Root Cause Analysis:**
+
+**Possible Causes:**
+1. Feature not implemented on backend (URL parameter parsing)
+2. Feature disabled on production environment
+3. Missing event listener for URL parameters
+4. Modal trigger not connected to URL parameter detection
+5. Feature behind feature flag that's disabled
+
+**Next Steps:**
+1. Check backend logs for cashierstep parameter processing
+2. Verify if feature flag exists for this functionality
+3. Check frontend event listeners for URL parameter changes
+4. Review implementation tickets for this feature
+5. Test on QA/Dev environment to compare behavior
+
+---
+
+**Impact:**
+- Users cannot use direct links to open specific cashier tabs
+- Marketing campaigns with pre-filled deposit amounts won't work
+- User experience degraded (extra clicks required)
+- Feature documented but not functional
+
+**Affected User Flows:**
+- Direct deposit links from emails
+- Marketing campaigns with pre-filled amounts
+- Quick access to specific cashier operations
+- Mobile app deep links to cashier
+
+---
+
+**Test Artifacts:**
+- Test File: /Users/ihorsolopii/Documents/minebit-e2e-playwright/tests/e2e/smoke/CT-476-api-player.spec.ts
+- Test Report: ~/.openclaw/workspace/shared/test-results/CT-476/prod-auth-api/test-report.json
+- Screenshots: 5 high-quality PNG files (total 7.8 MB)
+
+**Test Duration:** 42.4 seconds
+**Test Status:** ✅ PASS (Bug successfully documented)
+**Bug Status:** 🚨 P0 - Critical - Feature Non-Functional
+
+---
+
+**Recommendations:**
+1. Immediate investigation by backend team
+2. Check feature implementation status
+3. If implemented, check environment configuration
+4. Add integration tests for this feature
+5. Update documentation if feature deprecated

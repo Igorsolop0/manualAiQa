@@ -1,0 +1,48 @@
+🔌 **CT-709 Backend Testing Status**
+
+**TL;DR:** OAuth tests blocked (need real credentials), found CRITICAL bug in login endpoint on dev.
+
+---
+
+**✅ Completed:**
+- Created test data generators (Telegram hash, Google JWT mock)
+- Analyzed all OAuth endpoints via Swagger
+- Executed regression test (email/password auth)
+
+**⚠️ Critical Bug Found:**
+- Login endpoint throws `NullReferenceException` after successful registration
+- Trace ID: `02cf66a98218c0806af386e41b050740`
+- Blocks all regression testing on dev
+- Endpoint: `/{partnerId}/api/v3/Client/Login`
+- Steps: Register new user → Try to login → 💥 GeneralException
+
+**🚫 Blocked OAuth Tests (8/10):**
+Need real credentials:
+1. **Google:** Real OAuth token (mock tokens silently accepted but return null)
+2. **Telegram:** Bot token from @BotFather + test user ID
+
+**📊 Test Results:**
+- ✅ Registration: PASS (clientId 59160 created)
+- ❌ Login: FAIL (NullReferenceException)
+- ⏸️ OAuth Google: BLOCKED (need real token)
+- ⏸️ OAuth Telegram: BLOCKED (need bot token)
+- ⏸️ Backfill tests: BLOCKED (need pre-migration accounts + real tokens)
+
+**📁 Deliverables:**
+- `scripts/generate_telegram_hash.py` ✅
+- `scripts/mock_google_jwt.js` ✅
+- `scripts/test_login_dev.py` ✅
+- Full report: `test-results/CT-709/results.json`
+
+**🔧 Next Steps:**
+1. **IMMEDIATE:** Report login bug to backend team (Jira ticket needed?)
+2. **HIGH:** Provide Google OAuth token or create test mode endpoint
+3. **HIGH:** Provide Telegram bot token for testing
+4. **MEDIUM:** Re-run tests on QA environment
+
+**💡 Recommendation:**
+Backend should add test mode flag to accept mock OAuth tokens on dev/stage environments for automated testing.
+
+---
+
+Thread: Весь детальний звіт у `test-results/CT-709/results.json` (JSON формат для парсингу)

@@ -2,8 +2,9 @@
   "key": "CT-622",
   "url": "https://next-t-code.atlassian.net/browse/CT-622",
   "summary": "[FE] Metamask FE integration (mob+desktop)",
-  "status": "On Production",
+  "status": "Testing",
   "priority": "Normal",
+  "assignee": "Panda Sensei",
   "description": {
     "type": "doc",
     "version": 1,
@@ -296,187 +297,8 @@
       }
     ]
   },
-  "acceptance_criteria": "Found in description (ADF)",
+  "acceptance_criteria": "Not explicitly formatted, check full description.",
   "recent_comments": [
-    {
-      "type": "doc",
-      "version": 1,
-      "content": [
-        {
-          "type": "mediaSingle",
-          "attrs": {
-            "width": 667,
-            "widthType": "pixel",
-            "layout": "align-start"
-          },
-          "content": [
-            {
-              "type": "media",
-              "attrs": {
-                "type": "file",
-                "id": "3576a705-b8ff-4e64-b626-865fc12b04ee",
-                "alt": "\u0417\u043d\u0456\u043c\u043e\u043a \u0435\u043a\u0440\u0430\u043d\u0430 2026-01-09 \u043e 14.01.40.png",
-                "collection": "",
-                "height": 415,
-                "width": 667
-              }
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "doc",
-      "version": 1,
-      "content": [
-        {
-          "type": "paragraph",
-          "content": [
-            {
-              "type": "text",
-              "text": "Tech Notes (15.01.26)",
-              "marks": [
-                {
-                  "type": "strong"
-                }
-              ]
-            },
-            {
-              "type": "hardBreak"
-            },
-            {
-              "type": "text",
-              "text": "As additional technical research for "
-            },
-            {
-              "type": "text",
-              "text": "Crypto wallet authentication and login",
-              "marks": [
-                {
-                  "type": "strong"
-                }
-              ]
-            },
-            {
-              "type": "text",
-              "text": " has already been completed by "
-            },
-            {
-              "type": "mention",
-              "attrs": {
-                "id": "712020:9881c551-f4f9-40df-ba5d-5fd4a07eb0e5",
-                "text": "@Grinch",
-                "accessLevel": "",
-                "localId": "210da8c9-010d-4477-9b25-0eed1dc10b63"
-              }
-            },
-            {
-              "type": "text",
-              "text": " , we will proceed with the technical decision described in the analysis."
-            },
-            {
-              "type": "hardBreak"
-            },
-            {
-              "type": "hardBreak"
-            },
-            {
-              "type": "text",
-              "text": "Tech research: "
-            },
-            {
-              "type": "inlineCard",
-              "attrs": {
-                "url": "https://next-t-code.atlassian.net/wiki/spaces/CTD/pages/561184796/Crypto-Wallet+Registration+Authorization"
-              }
-            },
-            {
-              "type": "text",
-              "text": " "
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "content": [
-            {
-              "type": "text",
-              "text": "The implementation should follow the "
-            },
-            {
-              "type": "text",
-              "text": "BC Games flow",
-              "marks": [
-                {
-                  "type": "strong"
-                }
-              ]
-            },
-            {
-              "type": "text",
-              "text": ", as outlined in the technical research, to ensure consistent and correct behavior."
-            }
-          ]
-        },
-        {
-          "type": "mediaSingle",
-          "attrs": {
-            "width": 598,
-            "widthType": "pixel",
-            "layout": "align-start"
-          },
-          "content": [
-            {
-              "type": "media",
-              "attrs": {
-                "type": "file",
-                "id": "19525cda-5637-497c-8009-735e629c705b",
-                "alt": "Screen Recording 2026-01-15 at 16.22.10.mov",
-                "collection": "",
-                "height": 2132,
-                "width": 2972
-              }
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "content": [
-            {
-              "type": "hardBreak"
-            },
-            {
-              "type": "text",
-              "text": "Also the estimated changed:"
-            },
-            {
-              "type": "hardBreak"
-            },
-            {
-              "type": "text",
-              "text": "Current estimates:",
-              "marks": [
-                {
-                  "type": "strong"
-                }
-              ]
-            },
-            {
-              "type": "hardBreak"
-            },
-            {
-              "type": "text",
-              "text": "DEV 1w Test 1d 4h",
-              "marks": [
-                {
-                  "type": "strong"
-                }
-              ]
-            }
-          ]
-        }
-      ]
-    },
     {
       "type": "doc",
       "version": 1,
@@ -776,5 +598,5 @@
     "implements CRYPTO-485",
     "relates to PR-2870"
   ],
-  "last_updated": "2026-03-06T13:38:49.011+0000"
+  "last_updated": "2026-03-10T09:07:31.882+0000"
 }

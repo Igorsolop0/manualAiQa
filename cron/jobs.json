@@ -7,7 +7,7 @@
       "name": "Gmail Check - NextCode",
       "enabled": true,
       "createdAtMs": 1771084279927,
-      "updatedAtMs": 1773079327324,
+      "updatedAtMs": 1773165611294,
       "schedule": {
         "kind": "cron",
         "expr": "0 8-19 * * 1-5"
@@ -20,17 +20,18 @@
         "model": "zai-coding/glm-4.7"
       },
       "delivery": {
-        "mode": "announce"
+        "mode": "announce",
+        "channel": "slack"
       },
       "state": {
-        "nextRunAtMs": 1773126000000,
-        "lastRunAtMs": 1773079315898,
-        "lastStatus": "ok",
-        "lastDurationMs": 11426,
-        "consecutiveErrors": 0,
-        "lastRunStatus": "ok",
-        "lastDeliveryStatus": "not-delivered",
-        "lastDelivered": false
+        "nextRunAtMs": 1773212400000,
+        "lastRunAtMs": 1773165600106,
+        "lastStatus": "error",
+        "lastDurationMs": 11188,
+        "consecutiveErrors": 5,
+        "lastRunStatus": "error",
+        "lastDeliveryStatus": "unknown",
+        "lastError": "Delivering to Slack requires target <channelId|user:ID|channel:ID>"
       }
     },
     {
@@ -40,7 +41,7 @@
       "description": "Щоденний аналіз дій, розмов та model performance для покращення роботи",
       "enabled": true,
       "createdAtMs": 1772640000000,
-      "updatedAtMs": 1773007282602,
+      "updatedAtMs": 1773093652025,
       "schedule": {
         "kind": "cron",
         "expr": "0 23 * * *",
@@ -50,18 +51,19 @@
       "wakeMode": "now",
       "payload": {
         "kind": "agentTurn",
-        "message": "Виконай щоденний self-review. Прочитай /Users/ihorsolopii/.openclaw/workspace/MEMORY.md та останні оновлення в /Users/ihorsolopii/.openclaw/workspace/LEARNINGS.md. Також проаналізуй наші останні розмови.\n\nПроаналізуй нашу взаємодію об'єктивно та критично. Зверни увагу на мої правила з USER.md (особливо: чи зекономив ти мені час та чи зменшив cognitive load).\n\nНапиши звіт у Slack канал #gmail (C0AH7CRFQES) у такому форматі:\n**1. Що було добре:** Які твої відповіді чи дії сьогодні були найбільш ефективними?\n**2. Що можна було б зробити краще:** Де ти припустився помилок, був занадто багатослівним або відхилився від правил? Які твої слабкі місця проявилися?\n**3. Як Ігор може пояснювати краще:** Якого контексту або деталей тобі не вистачало в моїх запитах? Як я можу формулювати задачі ефективніше?\n**4. Action Items для агента:** 1-2 конкретні ідеї, які ти сам імплементуєш завтра для покращення своєї роботи.\n**5. Model Performance (щоп'ятниці):** Прочитай /Users/ihorsolopii/.openclaw/workspace/MODEL_BENCHMARK.md. Якщо сьогодні п'ятниця — оціни якість поточної моделі за тиждень: tasks completed, latency impression, quality 1-5, corrections needed, hallucinations. Запиши в Weekly Reports секцію MODEL_BENCHMARK.md.\n\nБудь лаконічним, професійним. Уникай 'корпоративної води'."
+        "message": "Виконай щоденний self-review та збір інсайтів від команди (Cipher та Clawver).\n\n1. Прочитай файл /Users/ihorsolopii/.openclaw/workspace/shared/DAILY_INSIGHTS.md. Проаналізуй помилки, яких припустилися агенти сьогодні. Якщо є цінні архітектурні чи тестувальні висновки, додай їх у /Users/ihorsolopii/.openclaw/workspace/PROJECT_KNOWLEDGE.md. Після цього очисти файл DAILY_INSIGHTS.md.\n2. Прочитай /Users/ihorsolopii/.openclaw/workspace/MEMORY.md та останні оновлення в LEARNINGS.md.\n3. Проаналізуй нашу з тобою взаємодію об'єктивно. Зверни увагу на мої правила з USER.md.\n\nНапиши і відправ цей звіт мені в Telegram у такому форматі:\n**1. 🧠 Team Learnings:** Які висновки ми зібрали сьогодні від Cipher та Clawver? Які нові правила ти додав до PROJECT_KNOWLEDGE?\n**2. Що було добре:** Які твої дії (Оркестратора) були сьогодні ефективними?\n**3. Що можна зробити краще:** Де ти припустився помилок або відхилився від правил?\n**4. Як Ігор може пояснювати краще:** Чого тобі не вистачало в моїх запитах?\n**5. Action Items:** 1-2 конкретні ідеї для Нексуса на завтра.\n**6. Model Performance (щоп'ятниці):** Оціни якість моделі (latency, quality, hallucinations) та онови файл MODEL_BENCHMARK.md.\n\nБудь лаконічним, професійним. Уникай 'корпоративної води'."
       },
       "delivery": {
-        "mode": "announce"
+        "mode": "announce",
+        "channel": "telegram"
       },
       "state": {
         "consecutiveErrors": 0,
-        "nextRunAtMs": 1773093600000,
-        "lastRunAtMs": 1773007200071,
+        "nextRunAtMs": 1773180000000,
+        "lastRunAtMs": 1773093600089,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 82531,
+        "lastDurationMs": 51936,
         "lastDelivered": true,
         "lastDeliveryStatus": "delivered"
       }
@@ -87,19 +89,20 @@
         "model": "zai/glm-4.7-flashx"
       },
       "delivery": {
-        "mode": "announce"
+        "mode": "announce",
+        "channel": "slack"
       },
       "state": {
-        "nextRunAtMs": 1773083795966,
-        "lastRunAtMs": 1773080090122,
+        "nextRunAtMs": 1773168792306,
+        "lastRunAtMs": 1773165120789,
         "lastRunStatus": "error",
         "lastStatus": "error",
-        "lastDurationMs": 105844,
+        "lastDurationMs": 71517,
         "lastDeliveryStatus": "unknown",
-        "consecutiveErrors": 66,
-        "lastError": "Channel is required when multiple channels are configured: telegram, slack Set delivery.channel explicitly or use a main session with a previous channel."
+        "consecutiveErrors": 88,
+        "runningAtMs": 1773168792320
       },
-      "updatedAtMs": 1773080195966
+      "updatedAtMs": 1773165192306
     },
     {
       "id": "api-docs-daily",
@@ -121,19 +124,20 @@
         "model": "zai-coding/glm-4.7"
       },
       "delivery": {
-        "mode": "announce"
+        "mode": "announce",
+        "channel": "slack"
       },
       "state": {
-        "nextRunAtMs": 1773129600000,
-        "lastRunAtMs": 1773043235791,
+        "nextRunAtMs": 1773216000000,
+        "lastRunAtMs": 1773129666262,
         "lastRunStatus": "error",
         "lastStatus": "error",
-        "lastDurationMs": 664020,
-        "lastError": "Channel is required when multiple channels are configured: telegram, slack Set delivery.channel explicitly or use a main session with a previous channel.",
+        "lastDurationMs": 120686,
         "lastDeliveryStatus": "unknown",
-        "consecutiveErrors": 1
+        "consecutiveErrors": 2,
+        "lastError": "Channel is required when multiple channels are configured: telegram, slack Set delivery.channel explicitly or use a main session with a previous channel."
       },
-      "updatedAtMs": 1773043899811
+      "updatedAtMs": 1773129786948
     }
   ]
 }

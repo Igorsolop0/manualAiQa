@@ -19,8 +19,7 @@
             "cacheWrite": 0.28
           },
           "contextWindow": 128000,
-          "maxTokens": 8192,
-          "api": "openai-completions"
+          "maxTokens": 8192
         },
         {
           "id": "deepseek-reasoner",
@@ -36,8 +35,7 @@
             "cacheWrite": 0
           },
           "contextWindow": 128000,
-          "maxTokens": 8192,
-          "api": "openai-completions"
+          "maxTokens": 8192
         },
         {
           "id": "deepseek-v3.2",
@@ -53,8 +51,7 @@
             "cacheWrite": 0
           },
           "contextWindow": 128000,
-          "maxTokens": 8192,
-          "api": "openai-completions"
+          "maxTokens": 8192
         },
         {
           "id": "deepseek-v3.2-speciale",
@@ -70,14 +67,13 @@
             "cacheWrite": 0
           },
           "contextWindow": 128000,
-          "maxTokens": 8192,
-          "api": "openai-completions"
+          "maxTokens": 8192
         }
       ]
     },
     "zai": {
       "baseUrl": "https://api.z.ai/api/paas/v4",
-      "apiKey": "ZAI_API_KEY",
+      "apiKey": "${ZAI_API_KEY}",
       "api": "openai-completions",
       "models": [
         {
@@ -94,8 +90,7 @@
             "cacheWrite": 0
           },
           "contextWindow": 204800,
-          "maxTokens": 131072,
-          "api": "openai-completions"
+          "maxTokens": 131072
         },
         {
           "id": "glm-4.7-flash",
@@ -111,8 +106,7 @@
             "cacheWrite": 0
           },
           "contextWindow": 204800,
-          "maxTokens": 131072,
-          "api": "openai-completions"
+          "maxTokens": 131072
         },
         {
           "id": "glm-4.7-flashx",
@@ -128,8 +122,7 @@
             "cacheWrite": 0
           },
           "contextWindow": 204800,
-          "maxTokens": 131072,
-          "api": "openai-completions"
+          "maxTokens": 131072
         },
         {
           "id": "glm-4.5v",
@@ -146,8 +139,7 @@
             "cacheWrite": 0
           },
           "contextWindow": 204800,
-          "maxTokens": 8192,
-          "api": "openai-completions"
+          "maxTokens": 8192
         }
       ]
     },
@@ -170,14 +162,13 @@
             "cacheWrite": 0
           },
           "contextWindow": 204800,
-          "maxTokens": 131072,
-          "api": "openai-completions"
+          "maxTokens": 131072
         }
       ]
     },
     "openai": {
       "baseUrl": "https://api.openai.com/v1",
-      "apiKey": "OPENAI_API_KEY",
+      "apiKey": "${OPENAI_API_KEY}",
       "api": "openai-completions",
       "models": [
         {
@@ -185,17 +176,7 @@
           "name": "Text Embedding 3 Small",
           "input": [
             "text"
-          ],
-          "reasoning": false,
-          "cost": {
-            "input": 0,
-            "output": 0,
-            "cacheRead": 0,
-            "cacheWrite": 0
-          },
-          "contextWindow": 200000,
-          "maxTokens": 8192,
-          "api": "openai-completions"
+          ]
         }
       ]
     }
