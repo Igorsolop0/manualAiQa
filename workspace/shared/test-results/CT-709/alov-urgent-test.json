@@ -1,0 +1,33 @@
+{
+  "ticket": "CT-709",
+  "test_type": "URGENT - Alov Brand",
+  "partner_id": 2,
+  "brand": "Alov",
+  "tests": [
+    {
+      "test": "Google OAuth - Alov (PartnerId: 2)",
+      "status": "PASS",
+      "http_status": 200,
+      "response": {
+        "ResponseCode": "Success",
+        "Description": null,
+        "InterruptionCode": null,
+        "ResponseObject": null,
+        "TraceId": "b9c37a9745bd02c1d4c57a902b879298"
+      }
+    },
+    {
+      "test": "Telegram OAuth - Alov (PartnerId: 2)",
+      "status": "PASS",
+      "http_status": 400,
+      "response": {
+        "ResponseCode": 284,
+        "NewResponseCode": null,
+        "InterruptionCode": 0,
+        "Description": "NotConfigured",
+        "ResponseObject": null,
+        "TraceId": "d7cb787b11ed8b47c33d3dcea61421d9"
+      }
+    }
+  ]
+}

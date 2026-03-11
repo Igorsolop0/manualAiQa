@@ -1,0 +1,68 @@
+{
+  "ticket": "CT-709",
+  "test_type": "Retest",
+  "environment": "dev",
+  "timestamp": "2026-03-11T11:22:37.985925",
+  "previous_test_date": "2026-03-10T18:52:36",
+  "tests": [
+    {
+      "test": "Google OAuth",
+      "status": "PASS",
+      "http_status": 200,
+      "response": {
+        "ResponseCode": "Success",
+        "Description": null,
+        "InterruptionCode": null,
+        "ResponseObject": null,
+        "TraceId": "d4d7b3711321bbac986651aec2c2a348"
+      },
+      "changes_from_previous": [
+        "No changes"
+      ],
+      "previous_result": {
+        "status": 200,
+        "responseCode": "Success",
+        "responseObject": null,
+        "traceId": "354a8d3a8b405a378fa4980de8a6fb4c"
+      }
+    },
+    {
+      "test": "Telegram OAuth",
+      "status": "PASS",
+      "http_status": 400,
+      "response": {
+        "ResponseCode": 284,
+        "NewResponseCode": null,
+        "InterruptionCode": 0,
+        "Description": "NotConfigured",
+        "ResponseObject": null,
+        "TraceId": "8f7d0c8e5c15060cdbe3da1ef1736af4"
+      },
+      "changes_from_previous": [
+        "No changes"
+      ],
+      "previous_result": {
+        "status": 400,
+        "responseCode": 284,
+        "description": "NotConfigured"
+      }
+    },
+    {
+      "test": "Traditional Registration",
+      "status": "PASS",
+      "http_status": 200,
+      "client_id": 59179,
+      "email": "ct709-retest-1773224558@nextcode.tech",
+      "changes_from_previous": [
+        "Previous client_id: 59177",
+        "New client_id: 59179",
+        "✅ Registration still working"
+      ],
+      "previous_result": {
+        "status": 200,
+        "responseCode": "Success",
+        "clientId": 59177
+      }
+    }
+  ]
+}

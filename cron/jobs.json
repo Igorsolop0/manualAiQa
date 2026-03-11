@@ -7,7 +7,7 @@
       "name": "Gmail Check - NextCode",
       "enabled": true,
       "createdAtMs": 1771084279927,
-      "updatedAtMs": 1773165611294,
+      "updatedAtMs": 1773252021620,
       "schedule": {
         "kind": "cron",
         "expr": "0 8-19 * * 1-5"
@@ -21,14 +21,15 @@
       },
       "delivery": {
         "mode": "announce",
-        "channel": "slack"
+        "channel": "slack",
+        "target": "channel:C0AH7CRFQES"
       },
       "state": {
-        "nextRunAtMs": 1773212400000,
-        "lastRunAtMs": 1773165600106,
+        "nextRunAtMs": 1773298800000,
+        "lastRunAtMs": 1773252000056,
         "lastStatus": "error",
-        "lastDurationMs": 11188,
-        "consecutiveErrors": 5,
+        "lastDurationMs": 21564,
+        "consecutiveErrors": 4,
         "lastRunStatus": "error",
         "lastDeliveryStatus": "unknown",
         "lastError": "Delivering to Slack requires target <channelId|user:ID|channel:ID>"
@@ -41,7 +42,7 @@
       "description": "Щоденний аналіз дій, розмов та model performance для покращення роботи",
       "enabled": true,
       "createdAtMs": 1772640000000,
-      "updatedAtMs": 1773093652025,
+      "updatedAtMs": 1773180097374,
       "schedule": {
         "kind": "cron",
         "expr": "0 23 * * *",
@@ -51,7 +52,7 @@
       "wakeMode": "now",
       "payload": {
         "kind": "agentTurn",
-        "message": "Виконай щоденний self-review та збір інсайтів від команди (Cipher та Clawver).\n\n1. Прочитай файл /Users/ihorsolopii/.openclaw/workspace/shared/DAILY_INSIGHTS.md. Проаналізуй помилки, яких припустилися агенти сьогодні. Якщо є цінні архітектурні чи тестувальні висновки, додай їх у /Users/ihorsolopii/.openclaw/workspace/PROJECT_KNOWLEDGE.md. Після цього очисти файл DAILY_INSIGHTS.md.\n2. Прочитай /Users/ihorsolopii/.openclaw/workspace/MEMORY.md та останні оновлення в LEARNINGS.md.\n3. Проаналізуй нашу з тобою взаємодію об'єктивно. Зверни увагу на мої правила з USER.md.\n\nНапиши і відправ цей звіт мені в Telegram у такому форматі:\n**1. 🧠 Team Learnings:** Які висновки ми зібрали сьогодні від Cipher та Clawver? Які нові правила ти додав до PROJECT_KNOWLEDGE?\n**2. Що було добре:** Які твої дії (Оркестратора) були сьогодні ефективними?\n**3. Що можна зробити краще:** Де ти припустився помилок або відхилився від правил?\n**4. Як Ігор може пояснювати краще:** Чого тобі не вистачало в моїх запитах?\n**5. Action Items:** 1-2 конкретні ідеї для Нексуса на завтра.\n**6. Model Performance (щоп'ятниці):** Оціни якість моделі (latency, quality, hallucinations) та онови файл MODEL_BENCHMARK.md.\n\nБудь лаконічним, професійним. Уникай 'корпоративної води'."
+        "message": "Виконай щоденний self-review та збір інсайтів від команди (Cipher та Clawver).\n\n1. Прочитай файл /Users/ihorsolopii/.openclaw/workspace/shared/DAILY_INSIGHTS.md. Проаналізуй помилки, яких припустилися агенти сьогодні. Якщо є цінні архітектурні чи тестувальні висновки, додай їх у /Users/ihorsolopii/.openclaw/workspace/PROJECT_KNOWLEDGE.md. Після цього очисти файл DAILY_INSIGHTS.md.\n\nIMPORTANT: If DAILY_INSIGHTS.md is empty or contains only headers, explicitly state: 'Сьогодні агенти не записали жодних інсайтів.' Do NOT fabricate or assume agent activities. Only report real data from the file.\n\n2. Прочитай /Users/ihorsolopii/.openclaw/workspace/MEMORY.md та останні оновлення в LEARNINGS.md.\n3. Проаналізуй нашу з тобою взаємодію об'єктивно. Зверни увагу на мої правила з USER.md.\n\nНапиши і відправ цей звіт мені в Telegram у такому форматі:\n**1. 🧠 Team Learnings:** Які висновки ми зібрали сьогодні від Cipher та Clawver? Які нові правила ти додав до PROJECT_KNOWLEDGE? (Якщо DAILY_INSIGHTS пустий — чесно скажи.)\n**2. Що було добре:** Які твої дії (Оркестратора) були сьогодні ефективними?\n**3. Що можна зробити краще:** Де ти припустився помилок або відхилився від правил?\n**4. Як Ігор може пояснювати краще:** Чого тобі не вистачало в моїх запитах?\n**5. Action Items:** 1-2 конкретні ідеї для Нексуса на завтра.\n**6. Model Performance (щоп'ятниці):** Оціни якість моделі (latency, quality, hallucinations) та онови файл MODEL_BENCHMARK.md.\n\nБудь лаконічним, професійним. Уникай 'корпоративної води'."
       },
       "delivery": {
         "mode": "announce",
@@ -59,11 +60,11 @@
       },
       "state": {
         "consecutiveErrors": 0,
-        "nextRunAtMs": 1773180000000,
-        "lastRunAtMs": 1773093600089,
+        "nextRunAtMs": 1773266400000,
+        "lastRunAtMs": 1773180000086,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 51936,
+        "lastDurationMs": 97288,
         "lastDelivered": true,
         "lastDeliveryStatus": "delivered"
       }
@@ -90,19 +91,20 @@
       },
       "delivery": {
         "mode": "announce",
-        "channel": "slack"
+        "channel": "slack",
+        "target": "channel:C0AH10XDKM2"
       },
       "state": {
-        "nextRunAtMs": 1773168792306,
-        "lastRunAtMs": 1773165120789,
+        "nextRunAtMs": 1773255684157,
+        "lastRunAtMs": 1773252084189,
         "lastRunStatus": "error",
         "lastStatus": "error",
-        "lastDurationMs": 71517,
+        "lastDurationMs": 41209,
         "lastDeliveryStatus": "unknown",
-        "consecutiveErrors": 88,
-        "runningAtMs": 1773168792320
+        "consecutiveErrors": 4,
+        "lastError": "Delivering to Slack requires target <channelId|user:ID|channel:ID>"
       },
-      "updatedAtMs": 1773165192306
+      "updatedAtMs": 1773252125398
     },
     {
       "id": "api-docs-daily",
@@ -125,19 +127,20 @@
       },
       "delivery": {
         "mode": "announce",
-        "channel": "slack"
+        "channel": "slack",
+        "target": "channel:C0AH10XDKM2"
       },
       "state": {
-        "nextRunAtMs": 1773216000000,
-        "lastRunAtMs": 1773129666262,
+        "nextRunAtMs": 1773302400000,
+        "lastRunAtMs": 1773216000387,
         "lastRunStatus": "error",
         "lastStatus": "error",
-        "lastDurationMs": 120686,
+        "lastDurationMs": 476091,
         "lastDeliveryStatus": "unknown",
-        "consecutiveErrors": 2,
-        "lastError": "Channel is required when multiple channels are configured: telegram, slack Set delivery.channel explicitly or use a main session with a previous channel."
+        "consecutiveErrors": 0,
+        "lastError": ""
       },
-      "updatedAtMs": 1773129786948
+      "updatedAtMs": 1773216476478
     }
   ]
 }

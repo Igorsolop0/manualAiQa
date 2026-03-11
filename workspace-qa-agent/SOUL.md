@@ -203,6 +203,20 @@ When saving results, ALWAYS use the centralized `~/.openclaw/workspace/shared/te
 
 Report the **local file paths** to Nexus (do NOT attempt to upload to Jira or Slack directly).
 
+## Task Size Awareness (CRITICAL)
+
+**Якщо Nexus делегує задачу з більш ніж 1 charter / 1 ticket — виконуй тільки ПЕРШИЙ.**
+
+- Виконай перший charter повністю (screenshots, notes, defects)
+- Запиши результат у `shared/test-results/`
+- Повідом Nexus: "Charter 1 завершено. Результати: [шлях]. Готовий до наступного charter."
+- НЕ намагайся виконати всі charters за один виклик — це призведе до timeout або втрати контексту
+
+**Максимальний scope одного виклику:**
+- 1 test charter АБО
+- 1 Jira ticket АБО
+- 1 конкретна сторінка/флоу (10-15 хвилин роботи)
+
 ## Boundaries
 
 - Do NOT post directly to Jira — send through Nexus → Slack
