@@ -7,7 +7,7 @@
       "name": "Gmail Check - NextCode",
       "enabled": true,
       "createdAtMs": 1771084279927,
-      "updatedAtMs": 1773252021620,
+      "updatedAtMs": 1773338438015,
       "schedule": {
         "kind": "cron",
         "expr": "0 8-19 * * 1-5"
@@ -20,19 +20,18 @@
         "model": "zai-coding/glm-4.7"
       },
       "delivery": {
-        "mode": "announce",
-        "channel": "slack",
-        "target": "channel:C0AH7CRFQES"
+        "mode": "none",
+        "channel": "slack"
       },
       "state": {
-        "nextRunAtMs": 1773298800000,
-        "lastRunAtMs": 1773252000056,
-        "lastStatus": "error",
-        "lastDurationMs": 21564,
-        "consecutiveErrors": 4,
-        "lastRunStatus": "error",
-        "lastDeliveryStatus": "unknown",
-        "lastError": "Delivering to Slack requires target <channelId|user:ID|channel:ID>"
+        "nextRunAtMs": 1773385200000,
+        "lastRunAtMs": 1773338400075,
+        "lastStatus": "ok",
+        "lastDurationMs": 37940,
+        "consecutiveErrors": 0,
+        "lastRunStatus": "ok",
+        "lastDeliveryStatus": "not-delivered",
+        "lastDelivered": false
       }
     },
     {
@@ -42,7 +41,7 @@
       "description": "Щоденний аналіз дій, розмов та model performance для покращення роботи",
       "enabled": true,
       "createdAtMs": 1772640000000,
-      "updatedAtMs": 1773180097374,
+      "updatedAtMs": 1773266452091,
       "schedule": {
         "kind": "cron",
         "expr": "0 23 * * *",
@@ -52,7 +51,7 @@
       "wakeMode": "now",
       "payload": {
         "kind": "agentTurn",
-        "message": "Виконай щоденний self-review та збір інсайтів від команди (Cipher та Clawver).\n\n1. Прочитай файл /Users/ihorsolopii/.openclaw/workspace/shared/DAILY_INSIGHTS.md. Проаналізуй помилки, яких припустилися агенти сьогодні. Якщо є цінні архітектурні чи тестувальні висновки, додай їх у /Users/ihorsolopii/.openclaw/workspace/PROJECT_KNOWLEDGE.md. Після цього очисти файл DAILY_INSIGHTS.md.\n\nIMPORTANT: If DAILY_INSIGHTS.md is empty or contains only headers, explicitly state: 'Сьогодні агенти не записали жодних інсайтів.' Do NOT fabricate or assume agent activities. Only report real data from the file.\n\n2. Прочитай /Users/ihorsolopii/.openclaw/workspace/MEMORY.md та останні оновлення в LEARNINGS.md.\n3. Проаналізуй нашу з тобою взаємодію об'єктивно. Зверни увагу на мої правила з USER.md.\n\nНапиши і відправ цей звіт мені в Telegram у такому форматі:\n**1. 🧠 Team Learnings:** Які висновки ми зібрали сьогодні від Cipher та Clawver? Які нові правила ти додав до PROJECT_KNOWLEDGE? (Якщо DAILY_INSIGHTS пустий — чесно скажи.)\n**2. Що було добре:** Які твої дії (Оркестратора) були сьогодні ефективними?\n**3. Що можна зробити краще:** Де ти припустився помилок або відхилився від правил?\n**4. Як Ігор може пояснювати краще:** Чого тобі не вистачало в моїх запитах?\n**5. Action Items:** 1-2 конкретні ідеї для Нексуса на завтра.\n**6. Model Performance (щоп'ятниці):** Оціни якість моделі (latency, quality, hallucinations) та онови файл MODEL_BENCHMARK.md.\n\nБудь лаконічним, професійним. Уникай 'корпоративної води'."
+        "message": "CRITICAL RULE: Ти ЗАБОРОНЕНО вигадувати або припускати будь-яку активність агентів. Звітуй ТІЛЬКИ те, що реально знаходиш у файлах. Якщо файл порожній або містить тільки заголовки — так і напиши: 'Файл порожній, нових інсайтів не було.'\n\nЩоденний Self-Review — кроки:\n\n1. Прочитай файл /Users/ihorsolopii/.openclaw/workspace/shared/DAILY_INSIGHTS.md\n   - Якщо є реальні записи (помилки, висновки) → додай їх у PROJECT_KNOWLEDGE.md і очисти DAILY_INSIGHTS.md\n   - Якщо файл порожній або містить тільки шаблон → напиши в звіті: '📭 Сьогодні агенти не залогували жодних інсайтів'\n\n2. Прочитай memory/<today-date>.md — що ти реально робив сьогодні?\n\n3. Надішли звіт в Telegram у форматі:\n   🧠 Team Learnings: Що РЕАЛЬНО записали Cipher/Clawver? (або '📭 Нічого')\n   ✅ Що було добре: Які дії оркестратора були ефективними?\n   ⚠️ Що покращити: Де ти помилився?\n   📋 Action Items: 1-2 конкретні задачі на завтра\n\nЗвіт має бути КОРОТКИМ (5-10 рядків). Без води. Без вигадок."
       },
       "delivery": {
         "mode": "announce",
@@ -60,11 +59,11 @@
       },
       "state": {
         "consecutiveErrors": 0,
-        "nextRunAtMs": 1773266400000,
-        "lastRunAtMs": 1773180000086,
+        "nextRunAtMs": 1773352800000,
+        "lastRunAtMs": 1773266400038,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 97288,
+        "lastDurationMs": 52053,
         "lastDelivered": true,
         "lastDeliveryStatus": "delivered"
       }
@@ -92,19 +91,20 @@
       "delivery": {
         "mode": "announce",
         "channel": "slack",
-        "target": "channel:C0AH10XDKM2"
+        "to": "C0AH10XDKM2",
+        "bestEffort": true
       },
       "state": {
-        "nextRunAtMs": 1773255684157,
-        "lastRunAtMs": 1773252084189,
-        "lastRunStatus": "error",
-        "lastStatus": "error",
-        "lastDurationMs": 41209,
-        "lastDeliveryStatus": "unknown",
-        "consecutiveErrors": 4,
-        "lastError": "Delivering to Slack requires target <channelId|user:ID|channel:ID>"
+        "nextRunAtMs": 1773342084157,
+        "lastRunAtMs": 1773338484173,
+        "lastRunStatus": "ok",
+        "lastStatus": "ok",
+        "lastDurationMs": 112903,
+        "lastDeliveryStatus": "delivered",
+        "consecutiveErrors": 0,
+        "lastDelivered": true
       },
-      "updatedAtMs": 1773252125398
+      "updatedAtMs": 1773338597076
     },
     {
       "id": "api-docs-daily",
@@ -128,19 +128,20 @@
       "delivery": {
         "mode": "announce",
         "channel": "slack",
-        "target": "channel:C0AH10XDKM2"
+        "to": "C0AH10XDKM2",
+        "bestEffort": true
       },
       "state": {
-        "nextRunAtMs": 1773302400000,
-        "lastRunAtMs": 1773216000387,
-        "lastRunStatus": "error",
-        "lastStatus": "error",
-        "lastDurationMs": 476091,
-        "lastDeliveryStatus": "unknown",
+        "nextRunAtMs": 1773388800000,
+        "lastRunAtMs": 1773303827615,
+        "lastRunStatus": "ok",
+        "lastStatus": "ok",
+        "lastDurationMs": 297857,
+        "lastDeliveryStatus": "delivered",
         "consecutiveErrors": 0,
-        "lastError": ""
+        "lastDelivered": true
       },
-      "updatedAtMs": 1773216476478
+      "updatedAtMs": 1773304125472
     }
   ]
 }

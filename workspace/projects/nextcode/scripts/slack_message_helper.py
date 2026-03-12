@@ -4,15 +4,23 @@
 import json
 import sys
 import argparse
+import os
 import urllib.request
 import urllib.parse
 from pathlib import Path
 
 def get_slack_token():
+    token = os.getenv("SLACK_BOT_TOKEN", "").strip()
+    if token:
+        return token
+
     config_path = Path.home() / ".openclaw" / "openclaw.json"
-    with open(config_path, "r") as f:
-        config = json.load(f)
-        return config.get("channels", {}).get("slack", {}).get("botToken")
+    try:
+        with open(config_path, "r") as f:
+            config = json.load(f)
+            return config.get("channels", {}).get("slack", {}).get("botToken")
+    except FileNotFoundError:
+        return None
 
 def main():
     parser = argparse.ArgumentParser(description="Send Slack messages via API")
@@ -25,7 +33,7 @@ def main():
     token = get_slack_token()
     
     if not token:
-        print(json.dumps({"error": "Slack bot token not found in openclaw.json"}))
+        print(json.dumps({"error": "Slack bot token not found (set SLACK_BOT_TOKEN or configure openclaw.json)"}))
         sys.exit(1)
 
     payload = {

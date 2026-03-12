@@ -8,20 +8,29 @@ import base64
 from datetime import datetime
 import re
 
-JIRA_DOMAIN = "https://next-t-code.atlassian.net"
-JIRA_USER = "ihor.so@nextcode.tech"
-JIRA_TOKEN_PATH = "/Users/ihorsolopii/.openclaw/workspace/projects/nextcode/.jira_token"
+DEFAULT_JIRA_DOMAIN = "https://next-t-code.atlassian.net"
+DEFAULT_JIRA_USER = "ihor.so@nextcode.tech"
+DEFAULT_JIRA_TOKEN_PATH = "/Users/ihorsolopii/.openclaw/workspace/projects/nextcode/.jira_token"
+DEFAULT_STATE_FILE = "/Users/ihorsolopii/.openclaw/workspace-jira-watcher/.jira_state.json"
+DEFAULT_SHARED_CONTEXT_DIR = "/Users/ihorsolopii/.openclaw/workspace/shared/json-sources/jira"
+DEFAULT_SLACK_CHANNEL = "C0AH10XDKM2"
+DEFAULT_NEXUS_BOT_USER_ID = "U0AGXTVUU11"
 
-SLACK_BOT_TOKEN = "xoxb-10603696718384-10575947980035-88yQnaV3IuCdjUA3SjSyy1xe"
-SLACK_CHANNEL = "C0AH10XDKM2"
-NEXUS_BOT_USER_ID = "U0AGXTVUU11"
-
-STATE_FILE = "/Users/ihorsolopii/.openclaw/workspace-jira-watcher/.jira_state.json"
-SHARED_CONTEXT_DIR = "/Users/ihorsolopii/.openclaw/workspace/shared/json-sources/jira"
+JIRA_DOMAIN = os.getenv("JIRA_DOMAIN", DEFAULT_JIRA_DOMAIN)
+JIRA_USER = os.getenv("JIRA_USER", DEFAULT_JIRA_USER)
+JIRA_TOKEN_PATH = os.getenv("JIRA_TOKEN_PATH", DEFAULT_JIRA_TOKEN_PATH)
+SLACK_BOT_TOKEN = os.getenv("SLACK_BOT_TOKEN", "").strip()
+SLACK_CHANNEL = os.getenv("JIRA_WATCHER_SLACK_CHANNEL", DEFAULT_SLACK_CHANNEL)
+NEXUS_BOT_USER_ID = os.getenv("NEXUS_BOT_USER_ID", DEFAULT_NEXUS_BOT_USER_ID)
+STATE_FILE = os.getenv("JIRA_WATCHER_STATE_FILE", DEFAULT_STATE_FILE)
+SHARED_CONTEXT_DIR = os.getenv("JIRA_WATCHER_CONTEXT_DIR", DEFAULT_SHARED_CONTEXT_DIR)
 
 JQL = 'project = "PandaSen" AND status IN ("Ready for testing", "On production") AND assignee = currentUser()'
 
 def read_token():
+    token = os.getenv("JIRA_API_TOKEN", "").strip()
+    if token:
+        return token
     if not os.path.exists(JIRA_TOKEN_PATH):
         raise Exception(f"Jira token not found at {JIRA_TOKEN_PATH}")
     with open(JIRA_TOKEN_PATH, "r") as f:
@@ -46,6 +55,10 @@ def jira_api_call(url, payload=None):
         raise
 
 def slack_post_message(blocks, text_fallback):
+    if not SLACK_BOT_TOKEN:
+        print("SLACK_BOT_TOKEN is missing; skipping Slack notification.")
+        return
+
     url = "https://slack.com/api/chat.postMessage"
     headers = {
         "Authorization": f"Bearer {SLACK_BOT_TOKEN}",

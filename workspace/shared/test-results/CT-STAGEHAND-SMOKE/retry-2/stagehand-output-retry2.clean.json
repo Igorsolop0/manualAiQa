@@ -1,0 +1,173 @@
+{
+  "success": false,
+  "reason": "timeout",
+  "steps": [
+    {
+      "index": 1,
+      "action": "goto",
+      "description": "goto",
+      "selector": null,
+      "method": null,
+      "arguments": null,
+      "framePath": null,
+      "url": "https://minebit-casino.prod.sofon.one/"
+    },
+    {
+      "index": 2,
+      "action": "ariaTree",
+      "description": "ariaTree",
+      "selector": null,
+      "method": null,
+      "arguments": null,
+      "framePath": null,
+      "url": "https://minebit-casino.prod.sofon.one/"
+    },
+    {
+      "index": 3,
+      "action": "act",
+      "description": "click the Log In button",
+      "selector": "xpath=/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/header[1]/div[1]/div[1]/div[6]/div[1]/div[2]/button[1]",
+      "method": "click",
+      "arguments": [],
+      "framePath": null,
+      "url": "https://minebit-casino.prod.sofon.one/?modal=iqs-sign-in"
+    },
+    {
+      "index": 4,
+      "action": "ariaTree",
+      "description": "ariaTree",
+      "selector": null,
+      "method": null,
+      "arguments": null,
+      "framePath": null,
+      "url": "https://minebit-casino.prod.sofon.one/?modal=iqs-sign-in"
+    },
+    {
+      "index": 5,
+      "action": "fillForm",
+      "description": "fillForm",
+      "selector": null,
+      "method": null,
+      "arguments": null,
+      "framePath": null,
+      "url": "https://minebit-casino.prod.sofon.one/?modal=iqs-sign-in"
+    },
+    {
+      "index": 6,
+      "action": "act",
+      "description": "click the Start Playing button",
+      "selector": "xpath=/html[1]/body[1]/div[2]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[5]/div[1]/div[2]/form[1]/div[2]/div[2]/button[1]",
+      "method": "click",
+      "arguments": [],
+      "framePath": null,
+      "url": "https://minebit-casino.prod.sofon.one/?modal=iqs-sign-in"
+    },
+    {
+      "index": 7,
+      "action": "wait",
+      "description": "wait",
+      "selector": null,
+      "method": null,
+      "arguments": null,
+      "framePath": null,
+      "url": "https://minebit-casino.prod.sofon.one/?modal=iqs-sign-in"
+    }
+  ],
+  "artifacts": {
+    "screenshots": [
+      {
+        "stepIndex": 0,
+        "path": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/CT-STAGEHAND-SMOKE/retry-2/artifacts/step-000-initial.png",
+        "label": "initial"
+      },
+      {
+        "stepIndex": 1,
+        "path": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/CT-STAGEHAND-SMOKE/retry-2/artifacts/step-001-after-tool.png",
+        "label": "after-step-1"
+      },
+      {
+        "stepIndex": 2,
+        "path": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/CT-STAGEHAND-SMOKE/retry-2/artifacts/step-002-after-tool.png",
+        "label": "after-step-2"
+      },
+      {
+        "stepIndex": 3,
+        "path": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/CT-STAGEHAND-SMOKE/retry-2/artifacts/step-003-after-tool.png",
+        "label": "after-step-3"
+      },
+      {
+        "stepIndex": 4,
+        "path": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/CT-STAGEHAND-SMOKE/retry-2/artifacts/step-004-after-tool.png",
+        "label": "after-step-4"
+      },
+      {
+        "stepIndex": 5,
+        "path": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/CT-STAGEHAND-SMOKE/retry-2/artifacts/step-005-after-tool.png",
+        "label": "after-step-5"
+      },
+      {
+        "stepIndex": 6,
+        "path": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/CT-STAGEHAND-SMOKE/retry-2/artifacts/step-006-after-tool.png",
+        "label": "after-step-6"
+      },
+      {
+        "stepIndex": 7,
+        "path": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/CT-STAGEHAND-SMOKE/retry-2/artifacts/step-007-after-tool.png",
+        "label": "after-step-7"
+      }
+    ],
+    "domSnapshots": [
+      {
+        "stepIndex": 0,
+        "path": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/CT-STAGEHAND-SMOKE/retry-2/artifacts/step-000-initial.html",
+        "label": "initial"
+      },
+      {
+        "stepIndex": 1,
+        "path": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/CT-STAGEHAND-SMOKE/retry-2/artifacts/step-001-after-tool.html",
+        "label": "after-step-1"
+      },
+      {
+        "stepIndex": 2,
+        "path": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/CT-STAGEHAND-SMOKE/retry-2/artifacts/step-002-after-tool.html",
+        "label": "after-step-2"
+      },
+      {
+        "stepIndex": 3,
+        "path": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/CT-STAGEHAND-SMOKE/retry-2/artifacts/step-003-after-tool.html",
+        "label": "after-step-3"
+      },
+      {
+        "stepIndex": 4,
+        "path": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/CT-STAGEHAND-SMOKE/retry-2/artifacts/step-004-after-tool.html",
+        "label": "after-step-4"
+      },
+      {
+        "stepIndex": 5,
+        "path": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/CT-STAGEHAND-SMOKE/retry-2/artifacts/step-005-after-tool.html",
+        "label": "after-step-5"
+      },
+      {
+        "stepIndex": 6,
+        "path": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/CT-STAGEHAND-SMOKE/retry-2/artifacts/step-006-after-tool.html",
+        "label": "after-step-6"
+      },
+      {
+        "stepIndex": 7,
+        "path": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/CT-STAGEHAND-SMOKE/retry-2/artifacts/step-007-after-tool.html",
+        "label": "after-step-7"
+      }
+    ]
+  },
+  "errors": [
+    "Agent execution was aborted: timeout"
+  ],
+  "meta": {
+    "durationMs": 96004,
+    "timedOut": true,
+    "model": "deepseek/deepseek-chat",
+    "initialUrl": "https://minebit-casino.prod.sofon.one",
+    "finalUrl": null,
+    "artifactDir": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/CT-STAGEHAND-SMOKE/retry-2/artifacts"
+  }
+}

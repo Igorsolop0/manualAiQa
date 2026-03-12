@@ -30,3 +30,5 @@ These are public-facing domains. They require a standard VPN (e.g., Hungary, Swi
 
 ### Browser Configuration
 - **Playwright CDP Port:** 18801 (Profile 2 - nextcode)
+- **Stagehand Runner:** `/Users/ihorsolopii/Documents/stagehand-runner`
+- **Stagehand Chrome Path:** `/Applications/Google Chrome.app/Contents/MacOS/Google Chrome`

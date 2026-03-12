@@ -1,0 +1,32 @@
+{
+  "success": false,
+  "reason": "timeout",
+  "steps": [
+    {
+      "index": 1,
+      "action": "ariaTree",
+      "description": "I'll open the page and report the current URL. Let me first check the current page state.",
+      "selector": null,
+      "method": null,
+      "arguments": null,
+      "framePath": null,
+      "url": "https://example.com/"
+    }
+  ],
+  "artifacts": {
+    "screenshots": [],
+    "domSnapshots": []
+  },
+  "errors": [
+    "Agent stopped: reached maximum steps (1)"
+  ],
+  "meta": {
+    "durationMs": 31177,
+    "timedOut": true,
+    "model": "deepseek/glm-4.7",
+    "resolvedModel": "deepseek/glm-4.7",
+    "initialUrl": "https://example.com",
+    "finalUrl": "https://example.com/",
+    "artifactDir": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/ct-stagehand-model-smoke/stagehand/20260312-150224-open-the-page-and-report-current-url"
+  }
+}

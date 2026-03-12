@@ -2,7 +2,7 @@
   "providers": {
     "deepseek": {
       "baseUrl": "https://api.deepseek.com",
-      "apiKey": "sk-0eeca7b793e2421c998193b8778155ab",
+      "apiKey": "DEEPSEEK_API_KEY",
       "api": "openai-completions",
       "models": [
         {
@@ -73,7 +73,6 @@
     },
     "zai": {
       "baseUrl": "https://api.z.ai/api/paas/v4",
-      "apiKey": "1749788e8c1c4e8882599013e82a6492.QOVpdZ3ii7Qk5lo5",
       "api": "openai-completions",
       "models": [
         {
@@ -141,11 +140,12 @@
           "contextWindow": 204800,
           "maxTokens": 8192
         }
-      ]
+      ],
+      "apiKey": "ZAI_API_KEY"
     },
     "zai-coding": {
       "baseUrl": "https://api.z.ai/api/coding/paas/v4",
-      "apiKey": "1749788e8c1c4e8882599013e82a6492.QOVpdZ3ii7Qk5lo5",
+      "apiKey": "ZAI_API_KEY",
       "api": "openai-completions",
       "models": [
         {
@@ -168,7 +168,7 @@
     },
     "openai": {
       "baseUrl": "https://api.openai.com/v1",
-      "apiKey": "${OPENAI_API_KEY}",
+      "apiKey": "OPENAI_API_KEY",
       "api": "openai-completions",
       "models": [
         {

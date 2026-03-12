@@ -1,0 +1,388 @@
+{
+  "key": "CT-657",
+  "url": "https://next-t-code.atlassian.net/browse/CT-657",
+  "summary": "[BE] tags mechanism for profile section ",
+  "status": "On Production",
+  "priority": "Normal",
+  "issuetype": "Task",
+  "assignee": "WhiteCat",
+  "reporter": "Potoibicha",
+  "created": "2026-03-11T12:57:32.012+0000",
+  "updated": "2026-03-11T15:03:06.029+0000",
+  "description": {
+    "type": "doc",
+    "version": 1,
+    "content": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Task:",
+            "marks": [
+              {
+                "type": "strong"
+              }
+            ]
+          },
+          {
+            "type": "hardBreak"
+          },
+          {
+            "type": "text",
+            "text": "The goal of this task is to introduce a bonus tagging mechanism and enable bonus statistics aggregation by tags using the existing statistics service."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Scope of work",
+            "marks": [
+              {
+                "type": "strong"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "orderedList",
+        "attrs": {
+          "order": 1
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Review the existing client statistics service to understand how bonus data is currently tracked and stored in history."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Review the current bonus system to check whether any tag mechanism already exists."
+                  },
+                  {
+                    "type": "hardBreak"
+                  },
+                  {
+                    "type": "text",
+                    "text": "If no tag system is present, it must be added."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "(Optional) Add Backoffice endpoints to manage available bonus tags."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Implement functionality to assign a tag to a bonus during bonus creation or editing."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Implement the ability to retrieve statistics aggregated by client bonus tags."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Review the current reward calculation logic in the statistics service to understand how bonus reward sums are calculated based on the existing implementation."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "First iteration constraints",
+            "marks": [
+              {
+                "type": "strong"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "bulletList",
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Bonus statistics will not be recalculated retroactively (no historical backfill)."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Bonus tags will be hardcoded on the Backend side for the first iteration to reduce Backoffice scope."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Tags must be implemented via a lookup entity to allow future extension or modification."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Tags must be stored in a separate table, not in the bonuses table."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "All tag-related logic should be implemented directly in the statistics service."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "A dedicated endpoint must be created in the statistics service to allow assigning a tag to a bonus."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Backoffice integration requirements",
+            "marks": [
+              {
+                "type": "strong"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "bulletList",
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "An endpoint created for Backoffice must not only accept and pass bonus tag data, but also fully align with the expected Backoffice workflow."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "When saving bonus changes in Backoffice (specifically when a tag is added or updated):"
+                  }
+                ]
+              },
+              {
+                "type": "bulletList",
+                "content": [
+                  {
+                    "type": "listItem",
+                    "content": [
+                      {
+                        "type": "paragraph",
+                        "content": [
+                          {
+                            "type": "text",
+                            "text": "the endpoint must return the updated bonus data back to Backoffice as it currently does;"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "listItem",
+                    "content": [
+                      {
+                        "type": "paragraph",
+                        "content": [
+                          {
+                            "type": "text",
+                            "text": "additionally, the same change must be persisted into the new bonus tag table within the statistics service."
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This ensures data consistency between Backoffice bonus configuration and the statistics service storage."
+          }
+        ]
+      }
+    ]
+  },
+  "linked_tickets": [
+    {
+      "key": "CT-58",
+      "summary": "(CRYPTO-2) [FE] Profile Section on the Bonus page ",
+      "status": "Done"
+    },
+    {
+      "key": "CRYPTO-497",
+      "summary": "Personal Account on Bonus page",
+      "status": "Development"
+    },
+    {
+      "key": "CT-757",
+      "summary": "[FE] Move \u201cDaily Quests\u201d Slider to Bonuses Page",
+      "status": "Done"
+    }
+  ],
+  "recent_comments": [
+    {
+      "author": "WhiteCat",
+      "body": "{'type': 'doc', 'version': 1, 'content': [{'type': 'paragraph', 'content': [{'type': 'text', 'text': 'Bonus tag field is missing from the bonus set up after deployment to QA'}], 'attrs': {'localId': '",
+      "time": "2026-03-10T11:53:54.945+0000"
+    },
+    {
+      "author": "WhiteCat",
+      "body": "{'type': 'doc', 'version': 1, 'content': [{'type': 'paragraph', 'content': [{'type': 'text', 'text': 'there is issue with free spin bonus because statistic is not shown '}, {'type': 'hardBreak'}, {'ty",
+      "time": "2026-03-10T14:58:42.564+0000"
+    },
+    {
+      "author": "WhiteCat",
+      "body": "{'type': 'doc', 'version': 1, 'content': [{'type': 'paragraph', 'content': [{'type': 'text', 'text': 'Issue with statistic for free spin bonus is not fixed'}], 'attrs': {'localId': '79100e8e6401'}}]}",
+      "time": "2026-03-11T07:53:50.589+0000"
+    },
+    {
+      "author": "WhiteCat",
+      "body": "{'type': 'doc', 'version': 1, 'content': [{'type': 'paragraph', 'content': [{'type': 'text', 'text': 'Issue with free spin bonus is fixed but wager bonus statistic has been broken '}], 'attrs': {'loca",
+      "time": "2026-03-11T10:28:52.076+0000"
+    },
+    {
+      "author": "WhiteCat",
+      "body": "{'type': 'doc', 'version': 1, 'content': [{'type': 'paragraph', 'content': [{'type': 'text', 'text': 'Statistic with bonus tags is working on qa'}, {'type': 'hardBreak'}, {'type': 'text', 'text': 'che",
+      "time": "2026-03-11T12:57:32.012+0000"
+    }
+  ]
+}

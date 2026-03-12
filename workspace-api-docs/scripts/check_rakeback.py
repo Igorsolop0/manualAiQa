@@ -6,11 +6,14 @@ Check rakeback status using GraphQL queries from user.
 import requests
 import json
 import sys
+import os
 
 GRAPHQL_URL = "https://minebit-casino.qa.sofon.one/graphql"
-AUTH_TOKEN = "Bearer 19ce3e425ec44271a2099a92993cc9dd"
-BONUS_ID = 2469229  # From user
-PARTNER_ID = 5
+AUTH_TOKEN = os.getenv("MINEBIT_AUTH_TOKEN", "").strip()
+if AUTH_TOKEN and not AUTH_TOKEN.lower().startswith("bearer "):
+    AUTH_TOKEN = f"Bearer {AUTH_TOKEN}"
+BONUS_ID = int(os.getenv("MINEBIT_RAKEBACK_BONUS_ID", "2469229"))
+PARTNER_ID = int(os.getenv("MINEBIT_PARTNER_ID", "5"))
 
 headers = {
     "Accept-Language": "en-US,en;q=0.9,uk;q=0.8,de;q=0.7",
@@ -156,6 +159,11 @@ def check_wallet_balance():
 def main():
     print("🔍 Checking Realtime Rakeback status...")
     print(f"Bonus ID: {BONUS_ID}")
+
+    if not AUTH_TOKEN:
+        print("❌ Missing auth token. Set MINEBIT_AUTH_TOKEN and retry.")
+        sys.exit(1)
+
     print(f"Auth token: {AUTH_TOKEN[:30]}...")
     
     try:

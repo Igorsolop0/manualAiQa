@@ -9,7 +9,18 @@ Instead of randomly parsing the DOM or guessing selectors, the agent MUST first 
 1. **Action Request:** Ihor asks to interact with a page (e.g., "Click the first quest on bonuses page").
 2. **Lookup:** Check `.json` files in this directory for known selectors and instructions.
 3. **Execution:** Use the known selector via Playwright Script / MCP.
-4. **Healing / Updating:** If the element is not found, take a DOM snapshot, find the new selector, and **update the JSON file immediately**. Notify Ihor about the selector change in Slack.
+4. **Healing / Updating:** If the element is not found, run Stagehand exploration (`stagehand-runner`) to collect path + DOM/screenshot artifacts, find the new selector, and **update the JSON file immediately**. Notify Ihor about the selector change in Slack.
+
+## Stagehand Artifact Source
+
+Default location for exploration evidence:
+
+`~/.openclaw/workspace/shared/test-results/<ticket-id>/stagehand/<run-id>/`
+
+Use these files as evidence when updating page dictionaries:
+- `stagehand-result.json`
+- `step-*-after-tool.png`
+- `step-*-after-tool.html`
 
 ## Format
 Each page should be a `.json` file containing:

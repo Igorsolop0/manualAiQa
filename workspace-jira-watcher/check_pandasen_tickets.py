@@ -14,32 +14,50 @@ from datetime import datetime
 def load_config():
     """Load Jira configuration from token file and yaml config."""
     config = {}
-    
-    # Load token
-    token_file = Path.home() / '.openclaw/workspace/projects/nextcode/.jira_token'
-    if token_file.exists():
-        with open(token_file, 'r') as f:
-            config['api_token'] = f.read().strip()
+
+    # Load token from env first; fallback to token file for backward compatibility.
+    api_token = os.getenv('JIRA_API_TOKEN', '').strip()
+    if api_token:
+        config['api_token'] = api_token
     else:
-        print(f"❌ Jira token file not found: {token_file}")
-        sys.exit(1)
+        token_path = os.getenv(
+            'JIRA_TOKEN_PATH',
+            str(Path.home() / '.openclaw/workspace/projects/nextcode/.jira_token')
+        )
+        token_file = Path(token_path)
+        if token_file.exists():
+            with open(token_file, 'r') as f:
+                config['api_token'] = f.read().strip()
+        else:
+            print(f"❌ Jira token file not found: {token_file}")
+            print("   Set JIRA_API_TOKEN or JIRA_TOKEN_PATH")
+            sys.exit(1)
     
-    # Load endpoint from ~/.jira.yml
+    # Load endpoint from env first, then ~/.jira.yml
+    endpoint_env = os.getenv('JIRA_DOMAIN', '').strip()
+    if endpoint_env:
+        config['endpoint'] = endpoint_env
+
     jira_yml = Path.home() / '.jira.yml'
-    if jira_yml.exists():
+    if 'endpoint' not in config and jira_yml.exists():
         with open(jira_yml, 'r') as f:
             lines = f.readlines()
             for line in lines:
                 if 'endpoint:' in line:
                     config['endpoint'] = line.split(':', 1)[1].strip()
                     break
-    else:
+    if 'endpoint' not in config:
         # Default endpoint
         config['endpoint'] = 'https://next-t-code.atlassian.net'
     
-    # User from ~/.jira.yml or default
-    config['user'] = 'ihor.so@nextcode.tech'
-    if jira_yml.exists():
+    # User from env first, then ~/.jira.yml, then default.
+    user_env = os.getenv('JIRA_USER', '').strip()
+    if user_env:
+        config['user'] = user_env
+    else:
+        config['user'] = 'ihor.so@nextcode.tech'
+
+    if not user_env and jira_yml.exists():
         with open(jira_yml, 'r') as f:
             lines = f.readlines()
             for line in lines:

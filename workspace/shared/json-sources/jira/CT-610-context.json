@@ -1,0 +1,272 @@
+{
+  "key": "CT-610",
+  "url": "https://next-t-code.atlassian.net/browse/CT-610",
+  "summary": "[BE] separate service for consuming bet events ",
+  "status": "Ready for testing",
+  "priority": "Normal",
+  "issuetype": "Task",
+  "assignee": "WhiteCat",
+  "reporter": "Potoibicha",
+  "created": "2026-02-19T14:26:46.487+0000",
+  "updated": "2026-03-11T07:09:22.040+0000",
+  "description": {
+    "type": "doc",
+    "version": 1,
+    "content": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Task title",
+            "marks": [
+              {
+                "type": "strong"
+              }
+            ]
+          },
+          {
+            "type": "hardBreak"
+          },
+          {
+            "type": "text",
+            "text": "Create a separate service for consuming bet events and publishing filtered data via WebSockets"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Description",
+            "marks": [
+              {
+                "type": "strong"
+              }
+            ]
+          },
+          {
+            "type": "hardBreak"
+          },
+          {
+            "type": "text",
+            "text": "Implement a separate service that consumes bet events, stores the latest N bets in cache, filters bets based on min/max settings, and publishes filtered events via WebSockets. The service must include product information in the response to support game navigation on the UI."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Requirements",
+            "marks": [
+              {
+                "type": "strong"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "bulletList",
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Create a separate service to consume bet events"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Store the latest N bets in cache"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Filter bets based on min/max settings"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Publish filtered events via WebSockets"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Backend must pass the game slug"
+                  },
+                  {
+                    "type": "hardBreak"
+                  },
+                  {
+                    "type": "text",
+                    "text": "Bets should be updated one by one every 1 seconds."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "Technical notes",
+            "marks": [
+              {
+                "type": "strong"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "bulletList",
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Add product information in the response (to allow the game to be clickable on UI)"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Review Kafka performance load with the new consumer"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Define API contract between backend and frontend"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Deploy the new service with DevOps support"
+                  },
+                  {
+                    "type": "hardBreak"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "This service should be usable for transfer bets and wins."
+          }
+        ]
+      }
+    ]
+  },
+  "linked_tickets": [
+    {
+      "key": "CT-672",
+      "summary": "[BE] Extend existing WWA GetWinners endpoint for Recent wins widget",
+      "status": "Done"
+    },
+    {
+      "key": "CRYPTO-499",
+      "summary": "Separate service for consuming bet events ",
+      "status": "Development"
+    }
+  ],
+  "recent_comments": [
+    {
+      "author": "Potoibicha",
+      "body": "{'type': 'doc', 'version': 1, 'content': [{'type': 'paragraph', 'content': [{'type': 'text', 'text': 'EST: dev 2d test 4h'}]}]}",
+      "time": "2025-12-26T15:24:14.293+0000"
+    },
+    {
+      "author": "Galadriel",
+      "body": "{'type': 'doc', 'version': 1, 'content': [{'type': 'paragraph', 'content': [{'type': 'text', 'text': 'Added 2+ hours for QA'}]}]}",
+      "time": "2026-02-19T12:39:00.741+0000"
+    },
+    {
+      "author": "Potoibicha",
+      "body": "{'type': 'doc', 'version': 1, 'content': [{'type': 'paragraph', 'content': [{'type': 'text', 'text': 'The feature should be implemented for 2 tasks:'}, {'type': 'hardBreak'}, {'type': 'text', 'text': ",
+      "time": "2026-02-19T14:26:46.487+0000"
+    }
+  ]
+}

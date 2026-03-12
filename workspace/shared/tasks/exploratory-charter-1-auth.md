@@ -4,8 +4,8 @@
 **Тип:** Exploratory Testing — Single Charter
 **Дата:** 2026-03-11
 **Агент:** Clawver (QA Agent)
-**Environment:** QA
-**URL:** https://minebit-casino.qa.sofon.one
+**Environment:** PROD
+**URL:** https://minebit-casino.prod.sofon.one
 
 ---
 

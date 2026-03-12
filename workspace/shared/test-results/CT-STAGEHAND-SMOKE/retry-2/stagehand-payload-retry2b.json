@@ -1,0 +1,10 @@
+{
+  "goal": "Open minebit prod login modal, fill email field with test-ihorsolop0@nextcode.tech and password field with Qweasd123!, verify both inputs contain non-empty values, then click Start Playing. If validation says required or inputs became empty, refill once and submit again. Finish by checking whether authenticated UI (profile/account menu) is visible or login modal remains open.",
+  "initialUrl": "https://minebit-casino.prod.sofon.one",
+  "ticketId": "CT-STAGEHAND-SMOKE-RETRY2B",
+  "maxSteps": 20,
+  "timeoutMs": 120000,
+  "needScreenshots": true,
+  "needDomSnapshots": true,
+  "artifactDir": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/CT-STAGEHAND-SMOKE/retry-2/artifacts-b"
+}

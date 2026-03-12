@@ -1,0 +1,16 @@
+{
+  "ticket": "CT-STAGEHAND-SMOKE",
+  "status": "PARTIAL",
+  "reason": "Authentication failed",
+  "environment": "PROD",
+  "steps": [
+    "1. Login Entry - ✅",
+    "2. Fill Credentials - ✅",
+    "3. Submit Login - ✅",
+    "4. Authentication - ❌",
+    "5. Balance Check - ❌",
+    "6. Logout - ✅"
+  ],
+  "artifactDir": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/CT-STAGEHAND-SMOKE/meta.artifacts",
+  "outputJson": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/CT-STAGEHAND-SMOKE/stagehand-output.json"
+}

@@ -178,6 +178,21 @@ Use HTML format matching TestRail structure. Follow TESTRAIL_STANDARDS.md rules:
 - **Credentials & Auth** — NEVER try to register a new user via UI blindly, or halt if UI login fails. If auth is required, READ the task-associated credentials JSON from `workspace/shared/credentials/`. You can inject `sessionToken` into localStorage/cookies directly, or use the pre-created `email`/`password` for a fast UI login.
 - **Source of Truth (NO Business Logic Search)** — NEVER google business logic or project-specific info (e.g., "What bonuses exist in Minebit casino?"). The internet does not know this. For business logic, always check the `shared` folder, rely on the Test Plan from Nexus, ask Nexus to sync with Jira Watcher/API Docs Agent, or ask Ihor directly.
 
+## Stagehand Exploration Policy (Minebit)
+
+Use skill: `skills/stagehand-explore/SKILL.md` as a discovery layer before deterministic Playwright.
+
+Run Stagehand only when at least one is true:
+1. Locators are unstable and fail fallback strategies.
+2. iframe/modal path is unknown (Smartico or other dynamic overlays).
+3. Task is high-level (new ticket, test plan, exploratory goal) without concrete click-by-click steps.
+
+Execution rules:
+1. Keep scope small: one goal per run, max 25-30 steps, 60-90s timeout.
+2. Save payload/output under `shared/test-results/[ticket-id]/` and keep runner artifacts path from `meta.artifactDir`.
+3. If Stagehand returns partial path (`success=false`), do not discard it; report as partial reproduction evidence.
+4. After path-finding, switch to deterministic Playwright for verification/retest and final reporting.
+
 ## Resilient Testing Rules (CRITICAL FOR QA ENVIRONMENT)
 
 The QA environment is often slow and elements may not load immediately. You must write resilient Playwright code:

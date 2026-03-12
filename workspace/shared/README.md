@@ -10,6 +10,7 @@ Inter-agent data exchange directory for the Nexus multi-agent system.
   - `swagger/` — Swagger JSON schemas
   - `jira/` — Jira ticket snapshots
   - `gmail/` — Gmail parsed summaries
+- `SECURITY_KEY_ROTATION_RUNBOOK.md` — Step-by-step key rotation runbook for gateway/channels/providers
 
 ## Contracts
 

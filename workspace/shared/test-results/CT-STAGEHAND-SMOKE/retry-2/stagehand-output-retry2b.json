@@ -1,0 +1,251 @@
+
+> stagehand-runner@0.1.0 run
+> node dist/index.js --input /Users/ihorsolopii/.openclaw/workspace/shared/test-results/CT-STAGEHAND-SMOKE/retry-2/stagehand-payload-retry2b.json --pretty
+
+{
+  "success": false,
+  "reason": "Failed to execute task: This model's maximum context length is 131072 tokens. However, you requested 516419 tokens (516419 in the messages, 0 in the completion). Please reduce the length of the messages or completion.",
+  "steps": [
+    {
+      "index": 1,
+      "action": "ariaTree",
+      "description": "I'll start by understanding the current page state and then proceed with the task.",
+      "selector": null,
+      "method": null,
+      "arguments": null,
+      "framePath": null,
+      "url": "https://minebit-casino.prod.sofon.one/"
+    },
+    {
+      "index": 2,
+      "action": "act",
+      "description": "click the Log In button",
+      "selector": "xpath=/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/header[1]/div[1]/div[1]/div[6]/div[1]/div[2]/button[1]",
+      "method": "click",
+      "arguments": [],
+      "framePath": null,
+      "url": "https://minebit-casino.prod.sofon.one/"
+    },
+    {
+      "index": 3,
+      "action": "ariaTree",
+      "description": "Now let me check the ariaTree again to see if the login modal has appeared.",
+      "selector": null,
+      "method": null,
+      "arguments": null,
+      "framePath": null,
+      "url": "https://minebit-casino.prod.sofon.one/?modal=iqs-sign-in"
+    },
+    {
+      "index": 4,
+      "action": "fillForm",
+      "description": "Perfect! I can see the login modal is open. I can see:\n1. Email textbox\n2. Password textbox  \n3. \"Start Playing\" button\n\nNow I need to fill the email and password fields. I'll use the fillForm tool since there are two fields.",
+      "selector": null,
+      "method": null,
+      "arguments": null,
+      "framePath": null,
+      "url": "https://minebit-casino.prod.sofon.one/?modal=iqs-sign-in"
+    },
+    {
+      "index": 5,
+      "action": "act",
+      "description": "acting from fillform tool",
+      "selector": "xpath=/html[1]/body[1]/div[2]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[5]/div[1]/div[2]/form[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]",
+      "method": "type",
+      "arguments": [
+        "test-ihorsolop0@nextcode.tech"
+      ],
+      "framePath": null,
+      "url": "https://minebit-casino.prod.sofon.one/?modal=iqs-sign-in"
+    },
+    {
+      "index": 6,
+      "action": "act",
+      "description": "acting from fillform tool",
+      "selector": "xpath=/html[1]/body[1]/div[2]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[5]/div[1]/div[2]/form[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/input[1]",
+      "method": "type",
+      "arguments": [
+        "Qweasd123!"
+      ],
+      "framePath": null,
+      "url": "https://minebit-casino.prod.sofon.one/?modal=iqs-sign-in"
+    },
+    {
+      "index": 7,
+      "action": "ariaTree",
+      "description": "Great! Now I need to verify both inputs contain non-empty values. Let me check the ariaTree again to see the current state.",
+      "selector": null,
+      "method": null,
+      "arguments": null,
+      "framePath": null,
+      "url": "https://minebit-casino.prod.sofon.one/?modal=iqs-sign-in"
+    },
+    {
+      "index": 8,
+      "action": "act",
+      "description": "click the Start Playing button",
+      "selector": "xpath=/html[1]/body[1]/div[2]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[5]/div[1]/div[2]/form[1]/div[2]/div[2]/button[1]",
+      "method": "click",
+      "arguments": [],
+      "framePath": null,
+      "url": "https://minebit-casino.prod.sofon.one/?modal=iqs-sign-in"
+    },
+    {
+      "index": 9,
+      "action": "wait",
+      "description": "Now I need to wait a moment for the login to process, then check if the login modal remains open or if we see authenticated UI (profile/account menu).",
+      "selector": null,
+      "method": null,
+      "arguments": null,
+      "framePath": null,
+      "url": "https://minebit-casino.prod.sofon.one/?modal=iqs-sign-in"
+    },
+    {
+      "index": 10,
+      "action": "ariaTree",
+      "description": "Let me check the ariaTree to see the current state.",
+      "selector": null,
+      "method": null,
+      "arguments": null,
+      "framePath": null,
+      "url": "https://minebit-casino.prod.sofon.one/"
+    },
+    {
+      "index": 11,
+      "action": "screenshot",
+      "description": "Perfect! I can see that the login modal is no longer visible in the ariaTree. Instead, I can see authenticated UI elements:\n\n1. I can see a balance button showing \"$178.53\" \n2. I can see a \"Wallet\" button\n3. I can see a user profile button showing \"899629\" (which appears to be a user ID or username)\n4. I can see a button with \"1\" (likely notifications or similar)\n\nThe login modal is completely gone from the ariaTree, which means the login was successful and we're now seeing authenticated UI. Let me also take a screenshot to visually confirm.",
+      "selector": null,
+      "method": null,
+      "arguments": null,
+      "framePath": null,
+      "url": "https://minebit-casino.prod.sofon.one/"
+    }
+  ],
+  "artifacts": {
+    "screenshots": [
+      {
+        "stepIndex": 0,
+        "path": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/CT-STAGEHAND-SMOKE/retry-2/artifacts-b/step-000-initial.png",
+        "label": "initial"
+      },
+      {
+        "stepIndex": 1,
+        "path": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/CT-STAGEHAND-SMOKE/retry-2/artifacts-b/step-001-after-tool.png",
+        "label": "after-step-1"
+      },
+      {
+        "stepIndex": 2,
+        "path": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/CT-STAGEHAND-SMOKE/retry-2/artifacts-b/step-002-after-tool.png",
+        "label": "after-step-2"
+      },
+      {
+        "stepIndex": 3,
+        "path": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/CT-STAGEHAND-SMOKE/retry-2/artifacts-b/step-003-after-tool.png",
+        "label": "after-step-3"
+      },
+      {
+        "stepIndex": 4,
+        "path": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/CT-STAGEHAND-SMOKE/retry-2/artifacts-b/step-004-after-tool.png",
+        "label": "after-step-4"
+      },
+      {
+        "stepIndex": 5,
+        "path": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/CT-STAGEHAND-SMOKE/retry-2/artifacts-b/step-005-after-tool.png",
+        "label": "after-step-5"
+      },
+      {
+        "stepIndex": 6,
+        "path": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/CT-STAGEHAND-SMOKE/retry-2/artifacts-b/step-006-after-tool.png",
+        "label": "after-step-6"
+      },
+      {
+        "stepIndex": 7,
+        "path": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/CT-STAGEHAND-SMOKE/retry-2/artifacts-b/step-007-after-tool.png",
+        "label": "after-step-7"
+      },
+      {
+        "stepIndex": 8,
+        "path": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/CT-STAGEHAND-SMOKE/retry-2/artifacts-b/step-008-after-tool.png",
+        "label": "after-step-8"
+      },
+      {
+        "stepIndex": 9,
+        "path": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/CT-STAGEHAND-SMOKE/retry-2/artifacts-b/step-009-after-tool.png",
+        "label": "after-step-9"
+      },
+      {
+        "stepIndex": null,
+        "path": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/CT-STAGEHAND-SMOKE/retry-2/artifacts-b/step-999-final.png",
+        "label": "final"
+      }
+    ],
+    "domSnapshots": [
+      {
+        "stepIndex": 0,
+        "path": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/CT-STAGEHAND-SMOKE/retry-2/artifacts-b/step-000-initial.html",
+        "label": "initial"
+      },
+      {
+        "stepIndex": 1,
+        "path": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/CT-STAGEHAND-SMOKE/retry-2/artifacts-b/step-001-after-tool.html",
+        "label": "after-step-1"
+      },
+      {
+        "stepIndex": 2,
+        "path": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/CT-STAGEHAND-SMOKE/retry-2/artifacts-b/step-002-after-tool.html",
+        "label": "after-step-2"
+      },
+      {
+        "stepIndex": 3,
+        "path": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/CT-STAGEHAND-SMOKE/retry-2/artifacts-b/step-003-after-tool.html",
+        "label": "after-step-3"
+      },
+      {
+        "stepIndex": 4,
+        "path": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/CT-STAGEHAND-SMOKE/retry-2/artifacts-b/step-004-after-tool.html",
+        "label": "after-step-4"
+      },
+      {
+        "stepIndex": 5,
+        "path": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/CT-STAGEHAND-SMOKE/retry-2/artifacts-b/step-005-after-tool.html",
+        "label": "after-step-5"
+      },
+      {
+        "stepIndex": 6,
+        "path": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/CT-STAGEHAND-SMOKE/retry-2/artifacts-b/step-006-after-tool.html",
+        "label": "after-step-6"
+      },
+      {
+        "stepIndex": 7,
+        "path": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/CT-STAGEHAND-SMOKE/retry-2/artifacts-b/step-007-after-tool.html",
+        "label": "after-step-7"
+      },
+      {
+        "stepIndex": 8,
+        "path": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/CT-STAGEHAND-SMOKE/retry-2/artifacts-b/step-008-after-tool.html",
+        "label": "after-step-8"
+      },
+      {
+        "stepIndex": 9,
+        "path": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/CT-STAGEHAND-SMOKE/retry-2/artifacts-b/step-009-after-tool.html",
+        "label": "after-step-9"
+      },
+      {
+        "stepIndex": null,
+        "path": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/CT-STAGEHAND-SMOKE/retry-2/artifacts-b/step-999-final.html",
+        "label": "final"
+      }
+    ]
+  },
+  "errors": [
+    "Failed to execute task: This model's maximum context length is 131072 tokens. However, you requested 516419 tokens (516419 in the messages, 0 in the completion). Please reduce the length of the messages or completion."
+  ],
+  "meta": {
+    "durationMs": 114986,
+    "timedOut": false,
+    "model": "deepseek/deepseek-chat",
+    "initialUrl": "https://minebit-casino.prod.sofon.one",
+    "finalUrl": "https://minebit-casino.prod.sofon.one/",
+    "artifactDir": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/CT-STAGEHAND-SMOKE/retry-2/artifacts-b"
+  }
+}

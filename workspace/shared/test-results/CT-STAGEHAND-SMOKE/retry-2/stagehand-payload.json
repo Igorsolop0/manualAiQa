@@ -1,0 +1,10 @@
+{
+  "goal": "Open https://minebit-casino.prod.sofon.one, find and open Login/Register entrypoint, login with existing credentials email test-ihorsolop0@nextcode.tech and password Qweasd123!, then verify authenticated state by confirming account/profile/menu is visible and login button is no longer primary CTA. If already logged in, validate account/profile/menu visibility directly.",
+  "initialUrl": "https://minebit-casino.prod.sofon.one",
+  "ticketId": "CT-STAGEHAND-SMOKE-RETRY2",
+  "maxSteps": 25,
+  "timeoutMs": 90000,
+  "needScreenshots": true,
+  "needDomSnapshots": true,
+  "artifactDir": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/CT-STAGEHAND-SMOKE/retry-2/artifacts"
+}

@@ -1,0 +1,42 @@
+{
+  "success": false,
+  "reason": "I'll help you confirm the page is loaded. Let me start by checking the current page state.",
+  "steps": [
+    {
+      "index": 1,
+      "action": "ariaTree",
+      "description": "I'll help you confirm the page is loaded. Let me start by checking the current page state.",
+      "selector": null,
+      "method": null,
+      "arguments": null,
+      "framePath": null,
+      "url": "https://example.com/"
+    },
+    {
+      "index": 2,
+      "action": "screenshot",
+      "description": "screenshot",
+      "selector": null,
+      "method": null,
+      "arguments": null,
+      "framePath": null,
+      "url": "https://example.com/"
+    }
+  ],
+  "artifacts": {
+    "screenshots": [],
+    "domSnapshots": []
+  },
+  "errors": [
+    "I'll help you confirm the page is loaded. Let me start by checking the current page state."
+  ],
+  "meta": {
+    "durationMs": 31547,
+    "timedOut": false,
+    "model": "zai-coding/glm-4.7",
+    "resolvedModel": "deepseek/glm-4.7",
+    "initialUrl": "https://example.com",
+    "finalUrl": "https://example.com/",
+    "artifactDir": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/ct-stagehand-model-smoke/stagehand/20260312-150448-confirm-the-page-is-loaded-and-finish-the-task."
+  }
+}

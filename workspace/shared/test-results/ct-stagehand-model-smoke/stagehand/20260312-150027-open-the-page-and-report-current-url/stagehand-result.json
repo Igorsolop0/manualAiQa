@@ -1,0 +1,21 @@
+{
+  "success": false,
+  "reason": "Failed to execute task: Not Found",
+  "steps": [],
+  "artifacts": {
+    "screenshots": [],
+    "domSnapshots": []
+  },
+  "errors": [
+    "Failed to execute task: Not Found"
+  ],
+  "meta": {
+    "durationMs": 6129,
+    "timedOut": false,
+    "model": "zai-coding/glm-4.7",
+    "resolvedModel": "openai/glm-4.7",
+    "initialUrl": "https://example.com",
+    "finalUrl": "https://example.com/",
+    "artifactDir": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/ct-stagehand-model-smoke/stagehand/20260312-150027-open-the-page-and-report-current-url"
+  }
+}

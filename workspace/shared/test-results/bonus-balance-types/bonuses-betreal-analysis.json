@@ -1,0 +1,109 @@
+{
+  "environment": "PROD",
+  "timestamp": "2026-03-12T18:35:00Z",
+  "total_active_bonuses": 670,
+  
+  "key_discovery": {
+    "finding": "System uses TemplateBonusName to differentiate wager balance types, NOT BetRealPercent",
+    "betreal_percent_field": "DEPRECATED - All 670 bonuses have BetRealPercent: null",
+    "actual_mechanism": "TemplateBonusName field determines wager behavior"
+  },
+
+  "welcome_bonus_wagering": {
+    "template_name": "Welcome Bonus Wagering",
+    "count": 73,
+    "bonus_type_ids": [10, 16],
+    "wager_behavior": "Wagers from REAL balance (BetRealPercent: 100%)",
+    "sample_bonuses": [
+      {
+        "id": 11397,
+        "name": "$25 Cash Bonus",
+        "bonus_type_id": 10
+      },
+      {
+        "id": 11380,
+        "name": "ROCKTUBER 150% + 50 FS",
+        "bonus_type_id": 16
+      }
+    ]
+  },
+
+  "bonus_balance_wagering": {
+    "template_name": "Bonus Wagering",
+    "count": "MANY (shown in results)",
+    "bonus_type_ids": [10],
+    "wager_behavior": "Wagers from BONUS balance (BetRealPercent: 0%)",
+    "sample_bonuses": [
+      {
+        "id": 11071,
+        "name": "10 USD Comeback Cash Drop",
+        "bonus_type_id": 10
+      },
+      {
+        "id": 11065,
+        "name": "5 USD Comeback Drop",
+        "bonus_type_id": 10
+      },
+      {
+        "id": 11042,
+        "name": "3 dep streak bonus",
+        "bonus_type_id": 10
+      },
+      {
+        "id": 10626,
+        "name": "Low Balance $30 Cash Bonus DC=3",
+        "bonus_type_id": 10
+      },
+      {
+        "id": 10408,
+        "name": "$2 Cash Bonus",
+        "bonus_type_id": 10
+      },
+      {
+        "id": 10219,
+        "name": "50 FS in Top Games",
+        "bonus_type_id": 10
+      }
+    ]
+  },
+
+  "comparison": {
+    "welcome_bonus": {
+      "id": 11380,
+      "name": "ROCKTUBER 150% + 50 FS",
+      "template": "Welcome Bonus Wagering",
+      "betreal_percent": null,
+      "wager_source": "REAL balance (100%)"
+    },
+    "bonus_balance_bonus": {
+      "id": 11071,
+      "name": "10 USD Comeback Cash Drop",
+      "template": "Bonus Wagering",
+      "betreal_percent": null,
+      "wager_source": "BONUS balance (0%)"
+    }
+  },
+
+  "conclusion": {
+    "betreal_percent_field_status": "DEPRECATED - Not populated for any bonus",
+    "actual_wager_mechanism": "TemplateBonusName field",
+    "found_both_wager_types": true,
+    "welcome_bonus_wagering_count": 73,
+    "bonus_balance_wagering_count": "Multiple (not exact count from initial query)",
+    "system_supports_multiple_wager_types": true
+  },
+
+  "technical_details": {
+    "all_bonuses_betreal_null": true,
+    "all_bonuses_winreal_null": true,
+    "all_bonuses_iswageronlyreal_null": true,
+    "field_used_for_wager_type": "TemplateBonusName",
+    "bonus_type_ids_found": [10, 11, 14, 16]
+  },
+
+  "recommendation": {
+    "for_testing": "Use TemplateBonusName to identify wager balance types",
+    "for_backend_team": "Consider populating BetRealPercent field or removing it from API",
+    "for_documentation": "Update docs to reflect TemplateBonusName as the wager type indicator"
+  }
+}

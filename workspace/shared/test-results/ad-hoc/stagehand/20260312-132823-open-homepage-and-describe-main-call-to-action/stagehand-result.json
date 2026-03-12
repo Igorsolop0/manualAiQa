@@ -1,0 +1,20 @@
+{
+  "success": false,
+  "reason": "Failed to execute task: DeepSeek API key API key is missing. Pass it using the 'apiKey' parameter or the DEEPSEEK_API_KEY environment variable.",
+  "steps": [],
+  "artifacts": {
+    "screenshots": [],
+    "domSnapshots": []
+  },
+  "errors": [
+    "Failed to execute task: DeepSeek API key API key is missing. Pass it using the 'apiKey' parameter or the DEEPSEEK_API_KEY environment variable."
+  ],
+  "meta": {
+    "durationMs": 3760,
+    "timedOut": false,
+    "model": "deepseek/deepseek-chat",
+    "initialUrl": "https://example.com",
+    "finalUrl": "https://example.com/",
+    "artifactDir": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/ad-hoc/stagehand/20260312-132823-open-homepage-and-describe-main-call-to-action"
+  }
+}

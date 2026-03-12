@@ -1,0 +1,30 @@
+{
+  "ticket": "CT-STAGEHAND-SMOKE",
+  "testName": "Stagehand Exploratory Smoke Test - PROD",
+  "environment": "PROD",
+  "url": "https://minebit-casino.prod.sofon.one",
+  "timestamp": "2026-03-12T13:30:50.862Z",
+  "credentials": {
+    "email": "test-ihorsolop0@nextcode.tech"
+  },
+  "testType": "Stagehand Exploratory Smoke",
+  "results": {
+    "loginEntry": true,
+    "credentialsFilled": true,
+    "loginSubmitted": true,
+    "authenticated": false,
+    "balanceVisible": false,
+    "userIdVisible": false,
+    "logoutFound": false,
+    "logoutSuccessful": true
+  },
+  "screenshots": {
+    "total": 6,
+    "directory": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/CT-STAGEHAND-SMOKE/meta.artifacts"
+  },
+  "summary": {
+    "overallStatus": "PARTIAL",
+    "maxSteps": 25,
+    "stepsTaken": 6
+  }
+}

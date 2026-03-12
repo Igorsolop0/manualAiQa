@@ -1,0 +1,1597 @@
+{
+  "search_query": "Welcome bonus / signup code",
+  "bonus_id": 11380,
+  "bonus_details": {
+    "Id": 11380,
+    "Name": "ROCKTUBER 150% + 50 FS ",
+    "TranslationName": null,
+    "Description": "ROCKTUBER 150% + 50 FS ",
+    "PartnerId": 5,
+    "AccountTypeId": null,
+    "Status": true,
+    "StartTime": "2026-02-26T22:00:00Z",
+    "FinishTime": "2029-02-27T21:59:00Z",
+    "LastExecutionTime": "2026-03-09T11:23:25Z",
+    "CreationTime": "2026-03-09T11:23:25Z",
+    "UpdateTime": "2026-03-09T11:25:10Z",
+    "Period": 0,
+    "Percent": 100.0,
+    "Products": [
+      {
+        "Id": 2293365,
+        "ProductStructureId": 21781,
+        "Percent": 100.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293366,
+        "ProductStructureId": 175946,
+        "Percent": 0.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293367,
+        "ProductStructureId": 175917,
+        "Percent": 100.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293368,
+        "ProductStructureId": 55189,
+        "Percent": 0.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293369,
+        "ProductStructureId": 55157,
+        "Percent": 100.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293370,
+        "ProductStructureId": 175947,
+        "Percent": 0.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293371,
+        "ProductStructureId": 55158,
+        "Percent": 100.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293372,
+        "ProductStructureId": 175948,
+        "Percent": 0.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293373,
+        "ProductStructureId": 55191,
+        "Percent": 0.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293374,
+        "ProductStructureId": 55159,
+        "Percent": 100.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293375,
+        "ProductStructureId": 175949,
+        "Percent": 0.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293376,
+        "ProductStructureId": 55192,
+        "Percent": 0.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293377,
+        "ProductStructureId": 55160,
+        "Percent": 100.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293378,
+        "ProductStructureId": 175950,
+        "Percent": 0.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293379,
+        "ProductStructureId": 175918,
+        "Percent": 100.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293380,
+        "ProductStructureId": 55193,
+        "Percent": 0.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293381,
+        "ProductStructureId": 55161,
+        "Percent": 100.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293382,
+        "ProductStructureId": 175951,
+        "Percent": 0.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293383,
+        "ProductStructureId": 175919,
+        "Percent": 100.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293384,
+        "ProductStructureId": 55194,
+        "Percent": 0.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293385,
+        "ProductStructureId": 55162,
+        "Percent": 100.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293386,
+        "ProductStructureId": 175952,
+        "Percent": 0.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293387,
+        "ProductStructureId": 55195,
+        "Percent": 0.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293388,
+        "ProductStructureId": 55163,
+        "Percent": 100.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293389,
+        "ProductStructureId": 175953,
+        "Percent": 0.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293390,
+        "ProductStructureId": 175920,
+        "Percent": 100.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293391,
+        "ProductStructureId": 55196,
+        "Percent": 0.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293392,
+        "ProductStructureId": 55164,
+        "Percent": 100.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293393,
+        "ProductStructureId": 175954,
+        "Percent": 0.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293394,
+        "ProductStructureId": 175921,
+        "Percent": 100.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293395,
+        "ProductStructureId": 55197,
+        "Percent": 0.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293396,
+        "ProductStructureId": 55165,
+        "Percent": 100.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293397,
+        "ProductStructureId": 175955,
+        "Percent": 0.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293398,
+        "ProductStructureId": 175922,
+        "Percent": 100.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293399,
+        "ProductStructureId": 55198,
+        "Percent": 0.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293400,
+        "ProductStructureId": 55166,
+        "Percent": 100.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293401,
+        "ProductStructureId": 175956,
+        "Percent": 0.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293402,
+        "ProductStructureId": 175923,
+        "Percent": 100.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293403,
+        "ProductStructureId": 55199,
+        "Percent": 0.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293404,
+        "ProductStructureId": 55167,
+        "Percent": 100.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293405,
+        "ProductStructureId": 175957,
+        "Percent": 0.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293406,
+        "ProductStructureId": 175924,
+        "Percent": 100.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293407,
+        "ProductStructureId": 55200,
+        "Percent": 0.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293408,
+        "ProductStructureId": 55168,
+        "Percent": 100.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293409,
+        "ProductStructureId": 175958,
+        "Percent": 0.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293410,
+        "ProductStructureId": 175925,
+        "Percent": 100.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293411,
+        "ProductStructureId": 55201,
+        "Percent": 0.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293412,
+        "ProductStructureId": 55169,
+        "Percent": 100.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293413,
+        "ProductStructureId": 175959,
+        "Percent": 0.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293414,
+        "ProductStructureId": 55202,
+        "Percent": 0.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293415,
+        "ProductStructureId": 55170,
+        "Percent": 100.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293416,
+        "ProductStructureId": 175960,
+        "Percent": 0.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293417,
+        "ProductStructureId": 175926,
+        "Percent": 100.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293418,
+        "ProductStructureId": 55203,
+        "Percent": 0.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293419,
+        "ProductStructureId": 55171,
+        "Percent": 100.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293420,
+        "ProductStructureId": 175961,
+        "Percent": 0.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293421,
+        "ProductStructureId": 175927,
+        "Percent": 100.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293422,
+        "ProductStructureId": 55204,
+        "Percent": 0.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293423,
+        "ProductStructureId": 55172,
+        "Percent": 100.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293424,
+        "ProductStructureId": 175962,
+        "Percent": 0.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293425,
+        "ProductStructureId": 55205,
+        "Percent": 0.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293426,
+        "ProductStructureId": 55173,
+        "Percent": 100.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293427,
+        "ProductStructureId": 175963,
+        "Percent": 0.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293428,
+        "ProductStructureId": 175928,
+        "Percent": 100.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293429,
+        "ProductStructureId": 55206,
+        "Percent": 0.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293430,
+        "ProductStructureId": 55174,
+        "Percent": 100.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293431,
+        "ProductStructureId": 175964,
+        "Percent": 0.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293432,
+        "ProductStructureId": 175929,
+        "Percent": 100.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293433,
+        "ProductStructureId": 55207,
+        "Percent": 0.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293434,
+        "ProductStructureId": 55175,
+        "Percent": 100.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293435,
+        "ProductStructureId": 175965,
+        "Percent": 0.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293436,
+        "ProductStructureId": 175930,
+        "Percent": 100.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293437,
+        "ProductStructureId": 55208,
+        "Percent": 0.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293438,
+        "ProductStructureId": 55176,
+        "Percent": 100.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293439,
+        "ProductStructureId": 175966,
+        "Percent": 0.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293440,
+        "ProductStructureId": 175931,
+        "Percent": 100.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293441,
+        "ProductStructureId": 55209,
+        "Percent": 0.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293442,
+        "ProductStructureId": 55177,
+        "Percent": 100.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293443,
+        "ProductStructureId": 175761,
+        "Percent": null,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293444,
+        "ProductStructureId": 180228,
+        "Percent": 0.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293445,
+        "ProductStructureId": 180227,
+        "Percent": 0.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293446,
+        "ProductStructureId": 175984,
+        "Percent": 0.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293447,
+        "ProductStructureId": 175945,
+        "Percent": 0.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293448,
+        "ProductStructureId": 175916,
+        "Percent": 100.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293449,
+        "ProductStructureId": 56129,
+        "Percent": 0.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293450,
+        "ProductStructureId": 56128,
+        "Percent": 100.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293451,
+        "ProductStructureId": 175983,
+        "Percent": 0.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293452,
+        "ProductStructureId": 175944,
+        "Percent": 100.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293453,
+        "ProductStructureId": 97274,
+        "Percent": 0.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293454,
+        "ProductStructureId": 97267,
+        "Percent": 100.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293455,
+        "ProductStructureId": 175982,
+        "Percent": 0.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293456,
+        "ProductStructureId": 175943,
+        "Percent": 100.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293457,
+        "ProductStructureId": 97273,
+        "Percent": 0.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293458,
+        "ProductStructureId": 97266,
+        "Percent": 100.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293459,
+        "ProductStructureId": 97272,
+        "Percent": 0.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293460,
+        "ProductStructureId": 97265,
+        "Percent": 100.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293461,
+        "ProductStructureId": 175981,
+        "Percent": 0.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293462,
+        "ProductStructureId": 175942,
+        "Percent": 100.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293463,
+        "ProductStructureId": 97271,
+        "Percent": 0.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293464,
+        "ProductStructureId": 97264,
+        "Percent": 100.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293465,
+        "ProductStructureId": 175980,
+        "Percent": 0.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293466,
+        "ProductStructureId": 175941,
+        "Percent": 100.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293467,
+        "ProductStructureId": 97270,
+        "Percent": 0.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293468,
+        "ProductStructureId": 97263,
+        "Percent": 100.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293469,
+        "ProductStructureId": 175979,
+        "Percent": 0.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293470,
+        "ProductStructureId": 97269,
+        "Percent": 0.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293471,
+        "ProductStructureId": 97262,
+        "Percent": 100.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293472,
+        "ProductStructureId": 175978,
+        "Percent": 0.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293473,
+        "ProductStructureId": 175940,
+        "Percent": 100.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293474,
+        "ProductStructureId": 97268,
+        "Percent": 0.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293475,
+        "ProductStructureId": 97261,
+        "Percent": 100.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293476,
+        "ProductStructureId": 175976,
+        "Percent": 0.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293477,
+        "ProductStructureId": 175939,
+        "Percent": 100.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293478,
+        "ProductStructureId": 55220,
+        "Percent": 0.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293479,
+        "ProductStructureId": 55188,
+        "Percent": 100.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293480,
+        "ProductStructureId": 175975,
+        "Percent": 0.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293481,
+        "ProductStructureId": 175938,
+        "Percent": 100.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293482,
+        "ProductStructureId": 55219,
+        "Percent": 0.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293483,
+        "ProductStructureId": 55187,
+        "Percent": 100.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293484,
+        "ProductStructureId": 175974,
+        "Percent": 0.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293485,
+        "ProductStructureId": 175937,
+        "Percent": 100.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293486,
+        "ProductStructureId": 55218,
+        "Percent": 0.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293487,
+        "ProductStructureId": 55186,
+        "Percent": 100.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293488,
+        "ProductStructureId": 55217,
+        "Percent": 0.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293489,
+        "ProductStructureId": 55185,
+        "Percent": 100.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293490,
+        "ProductStructureId": 175973,
+        "Percent": 0.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293491,
+        "ProductStructureId": 55216,
+        "Percent": 0.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293492,
+        "ProductStructureId": 55184,
+        "Percent": 100.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293493,
+        "ProductStructureId": 175972,
+        "Percent": 0.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293494,
+        "ProductStructureId": 175936,
+        "Percent": 100.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293495,
+        "ProductStructureId": 55215,
+        "Percent": 0.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293496,
+        "ProductStructureId": 55183,
+        "Percent": 100.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293497,
+        "ProductStructureId": 175971,
+        "Percent": 0.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293498,
+        "ProductStructureId": 55214,
+        "Percent": 0.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293499,
+        "ProductStructureId": 55182,
+        "Percent": 100.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293500,
+        "ProductStructureId": 175970,
+        "Percent": 0.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293501,
+        "ProductStructureId": 175935,
+        "Percent": 100.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293502,
+        "ProductStructureId": 55213,
+        "Percent": 0.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293503,
+        "ProductStructureId": 55181,
+        "Percent": 100.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293504,
+        "ProductStructureId": 175969,
+        "Percent": 0.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293505,
+        "ProductStructureId": 175934,
+        "Percent": 100.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293506,
+        "ProductStructureId": 55212,
+        "Percent": 0.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293507,
+        "ProductStructureId": 55180,
+        "Percent": 100.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293508,
+        "ProductStructureId": 175968,
+        "Percent": 0.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293509,
+        "ProductStructureId": 175933,
+        "Percent": 100.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293510,
+        "ProductStructureId": 55211,
+        "Percent": 0.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293511,
+        "ProductStructureId": 55179,
+        "Percent": 0.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293512,
+        "ProductStructureId": 175967,
+        "Percent": 0.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293513,
+        "ProductStructureId": 175932,
+        "Percent": 100.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293514,
+        "ProductStructureId": 55210,
+        "Percent": 0.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293515,
+        "ProductStructureId": 55178,
+        "Percent": 100.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293516,
+        "ProductStructureId": 55190,
+        "Percent": 0.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293517,
+        "ProductStructureId": 55992,
+        "Percent": 0.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293518,
+        "ProductStructureId": 43506,
+        "Percent": 0.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293519,
+        "ProductStructureId": 181008,
+        "Percent": 0.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293520,
+        "ProductStructureId": 40181,
+        "Percent": 0.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293521,
+        "ProductStructureId": 40191,
+        "Percent": 0.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293522,
+        "ProductStructureId": 40185,
+        "Percent": 0.0,
+        "FreeSpinsCount": null,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293523,
+        "ProductStructureId": 76807,
+        "Percent": null,
+        "FreeSpinsCount": 50,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293524,
+        "ProductStructureId": 58105,
+        "Percent": null,
+        "FreeSpinsCount": 50,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293525,
+        "ProductStructureId": 56261,
+        "Percent": null,
+        "FreeSpinsCount": 50,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293526,
+        "ProductStructureId": 55330,
+        "Percent": null,
+        "FreeSpinsCount": 50,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293527,
+        "ProductStructureId": 43147,
+        "Percent": null,
+        "FreeSpinsCount": 50,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293528,
+        "ProductStructureId": 42429,
+        "Percent": null,
+        "FreeSpinsCount": 50,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      },
+      {
+        "Id": 2293529,
+        "ProductStructureId": 40964,
+        "Percent": null,
+        "FreeSpinsCount": 50,
+        "FreeSpinSupport": null,
+        "CreationDate": "0001-01-01T00:00:00Z",
+        "LastUpdateDate": "0001-01-01T00:00:00Z"
+      }
+    ],
+    "BonusTypeId": 16,
+    "Info": null,
+    "TurnoverCount": 40,
+    "CurrencyMode": 0,
+    "MinAmount": 0.1,
+    "MinAmountCurrencies": null,
+    "MaxAmount": 500.0,
+    "MaxAmountCurrencies": null,
+    "MinWagerBetAmount": 0.1,
+    "MinWagerBetAmountCurrencies": null,
+    "MaxWagerBetAmount": 5.0,
+    "MaxWagerBetAmountCurrencies": null,
+    "MaxGrantedAmount": null,
+    "MaxGrantedAmountCurrencies": null,
+    "TotalGrantedAmount": 0.0,
+    "TotalGrantedAmountCurrencies": {},
+    "MaxCashoutMultiplierType": 0,
+    "MaxAmountMultiplier": 3.0,
+    "DepositMaxAmountMultiplier": null,
+    "Sequence": null,
+    "PromoCode": null,
+    "Priority": null,
+    "IgnoreEligibility": null,
+    "ValidForAwarding": 999999,
+    "ValidForSpending": 120,
+    "ReusingMaxCount": 1,
+    "DailyMaxReuseCount": null,
+    "WeeklyMaxReuseCount": null,
+    "MonthlyMaxReuseCount": null,
+    "ResetScheduleCron": "",
+    "ResetOnWithdraw": null,
+    "RefundRollbacked": null,
+    "AllowSplit": null,
+    "Countries": {
+      "Type": 1,
+      "Ids": [],
+      "Names": null
+    },
+    "Languages": {
+      "Type": 1,
+      "Ids": null,
+      "Names": []
+    },
+    "Currencies": {
+      "Type": 1,
+      "Ids": null,
+      "Names": []
+    },
+    "SegmentIdsInSet": [],
+    "SegmentIdsToDisplay": [],
+    "SegmentIdsToHide": [],
+    "SegmentIdsOutOfSet": [
+      1437,
+      1151,
+      487,
+      484
+    ],
+    "PaymentSystemIds": {
+      "Type": 1,
+      "Ids": [],
+      "Names": null
+    },
+    "LinkedCampaign": false,
+    "Conditions": null,
+    "MaxReceiversCount": null,
+    "TotalReceiversCount": 4,
+    "LinkedBonusId": null,
+    "AutoApproveMaxAmount": null,
+    "AffiliateReferralId": null,
+    "Affiliate": null,
+    "MaxGrantedFreeSpins": null,
+    "TotalGrantedFreeSpins": 0,
+    "ShouldClientEmailBeVerified": false,
+    "TemplateBonusId": 30,
+    "TemplateBonusName": "Welcome Bonus Wagering",
+    "BonusCategory": "Affiliate",
+    "BetRealPercent": 100.0,
+    "WinRealPercent": null,
+    "IsWagerOnlyReal": null,
+    "IsStrictBetDistribution": false,
+    "ClientIds": [],
+    "WinRealPercentSameAsBet": true,
+    "TurnoverCountForFreeSpin": 40,
+    "WagerBetRestrictionType": 0,
+    "IsSmartico": false,
+    "IsDepositStreak": false,
+    "RequiresManualClaim": false,
+    "IsAlwaysEligible": false,
+    "WagerBalanceActivatedWhenType": 0,
+    "BonusTagId": null
+  }
+}
