@@ -1,0 +1,21 @@
+{
+  "run_id": "CT-901-20260313-01",
+  "agent": "clawver",
+  "status": "completed",
+  "assertions_passed": [
+    "bonus streak banner visible in promotions UI",
+    "wallet history shows second qualifying deposit"
+  ],
+  "assertions_failed": [],
+  "blockers": [],
+  "evidence_refs": [
+    "workspace/shared/test-results/CT-901/ui/01-login-success.png",
+    "workspace/shared/test-results/CT-901/ui/02-promotions-bonus-visible.png",
+    "workspace/shared/test-results/CT-901/ui/03-wallet-history.png"
+  ],
+  "notes": [
+    "Stagehand was not required for this run; deterministic Playwright path worked."
+  ],
+  "confidence": "medium",
+  "recommended_next_owner": "nexus"
+}

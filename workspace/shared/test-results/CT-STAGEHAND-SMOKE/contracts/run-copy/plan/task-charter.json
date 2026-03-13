@@ -1,0 +1,31 @@
+{
+  "task_id": "CT-STAGEHAND-SMOKE",
+  "run_id": "CT-STAGEHAND-SMOKE-20260313-01",
+  "project": "minebit",
+  "title": "CT-STAGEHAND-SMOKE - Phase 2 pilot dual-write run",
+  "goal": "Execute one ticket with run-centric ledger while preserving legacy outputs.",
+  "source": {
+    "jira_key": "CT-STAGEHAND-SMOKE"
+  },
+  "scope": {
+    "ui": true,
+    "api": true,
+    "research": false
+  },
+  "preconditions": [
+    "Legacy workspace paths remain active.",
+    "Pilot run initialized via scripts/phase2_pilot.py."
+  ],
+  "data_needs": [],
+  "assertions": [
+    "Legacy evidence is present under workspace/shared/test-results/<ticket>.",
+    "Mirrored evidence exists under shared/runs/<run_id>/evidence/legacy-mirror/."
+  ],
+  "success_criteria": [
+    "Nexus can review ticket from run folder.",
+    "Legacy workflow remains unbroken."
+  ],
+  "status": "planned",
+  "owner": "nexus",
+  "next_owner": "qa-agent"
+}

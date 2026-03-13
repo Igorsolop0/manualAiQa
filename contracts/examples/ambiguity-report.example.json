@@ -1,0 +1,43 @@
+{
+  "run_id": "CT-901-20260313-01",
+  "project": "minebit",
+  "ticket_ref": "CT-901",
+  "summary": "Requirements mostly clear for mixed UI+API validation, but two business-rule ambiguities remain.",
+  "ambiguities": [
+    {
+      "id": "AMB-1",
+      "description": "Exact qualifying deposit amount threshold is not explicit in ticket text.",
+      "impact": "Could produce false fail if wrong threshold is tested.",
+      "severity": "high",
+      "resolution_needed": "Confirm threshold with product owner or linked ticket."
+    },
+    {
+      "id": "AMB-2",
+      "description": "Expected UI location for streak bonus (banner vs promotions list card) is not fixed.",
+      "impact": "Could miss valid behavior variant in UI check.",
+      "severity": "medium",
+      "resolution_needed": "Confirm expected UI oracle from design or acceptance comment."
+    }
+  ],
+  "assumptions": [
+    "QA environment has active streak campaign config",
+    "Prepared player can receive two qualifying deposits in sequence"
+  ],
+  "open_questions": [
+    "What exact minimum amount marks a qualifying deposit?",
+    "What is the canonical UI location for verification?"
+  ],
+  "recommended_test_levels": [
+    "api",
+    "ui"
+  ],
+  "data_env_needs": [
+    "prepared player",
+    "wallet balance top-up",
+    "campaign enabled"
+  ],
+  "risks": [
+    "environment drift may hide banner after cache delay"
+  ],
+  "decision_ready": false
+}

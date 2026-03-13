@@ -1,0 +1,10 @@
+{
+  "run_id": "CT-STAGEHAND-SMOKE-20260313-01",
+  "ticket_id": "CT-STAGEHAND-SMOKE",
+  "timestamp": "2026-03-13T14:35:30Z",
+  "legacy_results_ref": "workspace/shared/test-results/CT-STAGEHAND-SMOKE",
+  "run_mirror_ref": "shared/runs/CT-STAGEHAND-SMOKE-20260313-01/evidence/legacy-mirror",
+  "files_copied": 1,
+  "files_skipped": 68,
+  "contracts_exported_count": 6
+}

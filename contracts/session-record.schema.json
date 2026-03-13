@@ -1,0 +1,44 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "session-record.schema.json",
+  "title": "Session Record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "session_id",
+    "project",
+    "subject_type",
+    "owner",
+    "storage_state_ref",
+    "token_ref",
+    "created_at",
+    "status"
+  ],
+  "properties": {
+    "session_id": { "type": "string", "minLength": 1 },
+    "project": { "type": "string", "minLength": 1 },
+    "subject_type": {
+      "type": "string",
+      "enum": ["player", "admin", "service", "api"]
+    },
+    "owner": { "type": "string", "minLength": 1 },
+    "storage_state_ref": { "type": "string", "minLength": 1 },
+    "token_ref": { "type": "string", "minLength": 1 },
+    "created_at": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}Z$"
+    },
+    "expires_at": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}Z$"
+    },
+    "refresh_strategy": {
+      "type": "string",
+      "enum": ["ui_login", "api_refresh", "manual", "not_applicable"]
+    },
+    "status": {
+      "type": "string",
+      "enum": ["active", "expired", "revoked", "invalid", "pending"]
+    }
+  }
+}

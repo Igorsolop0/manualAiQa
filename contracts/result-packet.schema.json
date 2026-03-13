@@ -1,0 +1,39 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "result-packet.schema.json",
+  "title": "Result Packet",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "run_id",
+    "agent",
+    "status",
+    "assertions_passed",
+    "assertions_failed",
+    "blockers",
+    "evidence_refs",
+    "confidence",
+    "recommended_next_owner"
+  ],
+  "properties": {
+    "run_id": { "type": "string", "minLength": 1 },
+    "agent": { "type": "string", "minLength": 1 },
+    "status": {
+      "type": "string",
+      "enum": ["completed", "partial", "blocked", "failed"]
+    },
+    "assertions_passed": { "type": "array", "items": { "type": "string" } },
+    "assertions_failed": { "type": "array", "items": { "type": "string" } },
+    "blockers": { "type": "array", "items": { "type": "string" } },
+    "evidence_refs": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "notes": { "type": "array", "items": { "type": "string" } },
+    "confidence": {
+      "type": "string",
+      "enum": ["low", "medium", "high"]
+    },
+    "recommended_next_owner": { "type": "string", "minLength": 1 }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "project": "minebit",
+  "fact_type": "auth-entrypoint",
+  "title": "Promotions streak visibility requires completed wallet bootstrap",
+  "fact": "For CT-901 flow, bonus visibility appears only after wallet history refresh is complete.",
+  "source_run": "CT-901-20260313-01",
+  "confidence": "high",
+  "last_verified": "2026-03-13",
+  "ttl_days": 30,
+  "invalidates_when": [
+    "promotions UI auth flow changes",
+    "wallet history endpoint contract changes"
+  ]
+}

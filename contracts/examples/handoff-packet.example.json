@@ -1,0 +1,25 @@
+{
+  "run_id": "CT-901-20260313-01",
+  "from": "cipher",
+  "to": "clawver",
+  "state_refs": [
+    "contracts/examples/task-charter.example.json"
+  ],
+  "session_refs": [
+    "shared/sessions/sess-player-ct901.json"
+  ],
+  "entity_ids": {
+    "player_id": "p_ct901_01",
+    "wallet_id": "w_ct901_01",
+    "bonus_id": "b_ct901_streak"
+  },
+  "pending_assertions": [
+    "bonus banner is visible for prepared player",
+    "wallet history includes second qualifying deposit"
+  ],
+  "expected_next_step": "Open player session and verify UI evidence for streak bonus visibility.",
+  "recommended_owner": "clawver",
+  "notes": [
+    "Use existing test account if available; do not create duplicate production entities."
+  ]
+}

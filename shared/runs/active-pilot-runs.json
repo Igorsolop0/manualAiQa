@@ -1,0 +1,21 @@
+{
+  "updated_at": "2026-03-13T16:38:07Z",
+  "tickets": {
+    "CT-STAGEHAND-SMOKE": {
+      "active_run_id": "CT-STAGEHAND-SMOKE-20260313-01",
+      "mode": "dual-write",
+      "status": "active",
+      "legacy_results_ref": "workspace/shared/test-results/CT-STAGEHAND-SMOKE",
+      "task_file_ref": "workspace/shared/tasks/CT-STAGEHAND-SMOKE.md",
+      "updated_at": "2026-03-13T14:34:49Z"
+    },
+    "CT-752": {
+      "active_run_id": "CT-752-20260313-01",
+      "mode": "dual-write",
+      "status": "active",
+      "legacy_results_ref": "workspace/shared/test-results/CT-752",
+      "task_file_ref": "workspace/shared/tasks/CT-752.md",
+      "updated_at": "2026-03-13T16:38:07Z"
+    }
+  }
+}

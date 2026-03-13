@@ -1,0 +1,34 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "knowledge-card.schema.json",
+  "title": "Knowledge Card",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "project",
+    "fact_type",
+    "title",
+    "fact",
+    "source_run",
+    "confidence",
+    "last_verified",
+    "ttl_days"
+  ],
+  "properties": {
+    "project": { "type": "string", "minLength": 1 },
+    "fact_type": { "type": "string", "minLength": 1 },
+    "title": { "type": "string", "minLength": 1 },
+    "fact": { "type": "string", "minLength": 1 },
+    "source_run": { "type": "string", "minLength": 1 },
+    "confidence": {
+      "type": "string",
+      "enum": ["low", "medium", "high"]
+    },
+    "last_verified": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+    },
+    "ttl_days": { "type": "integer", "minimum": 1 },
+    "invalidates_when": { "type": "array", "items": { "type": "string" } }
+  }
+}

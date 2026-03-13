@@ -1,0 +1,16 @@
+{
+  "run_id": "CT-752-20260313-01",
+  "agent": "qa-agent",
+  "status": "partial",
+  "assertions_passed": [],
+  "assertions_failed": [],
+  "blockers": [],
+  "evidence_refs": [
+    "workspace/shared/test-results/CT-752/results.json"
+  ],
+  "confidence": "medium",
+  "recommended_next_owner": "nexus",
+  "notes": [
+    "Legacy run imported into Phase 2 pilot"
+  ]
+}

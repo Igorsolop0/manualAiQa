@@ -1,0 +1,45 @@
+capabilities:
+  ticket.analyze:
+    owner: nexus
+    maturity: beta
+    notes: "Shift-left analysis, ambiguity report, risk framing."
+
+  ticket.plan:
+    owner: nexus
+    maturity: beta
+    notes: "Creates structured task charters and routing-ready plans."
+
+  ui.execute:
+    owner: clawver
+    maturity: stable
+    notes: "Deterministic UI/manual/browser execution with evidence."
+
+  ui.discover_path:
+    owner: stagehand-helper
+    maturity: stable
+    notes: "Use only for unstable locator/modal/iframe discovery."
+
+  api.execute:
+    owner: cipher
+    maturity: stable
+    notes: "API checks, payload validation, service-level assertions."
+
+  data.prepare:
+    owner: cipher
+    maturity: beta
+    notes: "Player/balance/bonus/flag setup and reset recipes."
+
+  research.digest:
+    owner: researcher
+    maturity: alpha
+    notes: "Async external digest only; not mandatory ticket path."
+
+  jira.delta.poll:
+    owner: jira-watcher
+    maturity: alpha
+    notes: "Deterministic polling capability; service-style evolution target."
+
+  visual.batch_review:
+    owner: vision-scout
+    maturity: deprecated
+    notes: "Not routed for ticket-critical execution."

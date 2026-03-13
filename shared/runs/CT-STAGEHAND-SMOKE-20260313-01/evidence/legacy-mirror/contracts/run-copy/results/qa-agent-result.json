@@ -1,0 +1,17 @@
+{
+  "run_id": "CT-STAGEHAND-SMOKE-20260313-01",
+  "agent": "qa-agent",
+  "status": "completed",
+  "assertions_passed": [
+    "Login/Register path discovered with Stagehand",
+    "Auth state reached and logout verified"
+  ],
+  "assertions_failed": [],
+  "blockers": [],
+  "evidence_refs": [
+    "workspace/shared/test-results/CT-STAGEHAND-SMOKE/stagehand-output.json",
+    "workspace/shared/test-results/CT-STAGEHAND-SMOKE/summary.json"
+  ],
+  "confidence": "medium",
+  "recommended_next_owner": "nexus"
+}

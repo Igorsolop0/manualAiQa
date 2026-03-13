@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OpenClaw Architecture v3.5 — Live System Map</title>
+    <title>OpenClaw Architecture v4.0 — Ticket Testing System Map</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -24,6 +24,10 @@
             --memory: #06b6d4;
             --slack: #e01e5a;
             --telegram: #26a5e4;
+            --research: #fb7185;
+            --stagehand: #f97316;
+            --knowledge: #14b8a6;
+            --heartbeat: #22c55e;
         }
 
         * { box-sizing: border-box; margin: 0; }
@@ -298,15 +302,15 @@
 
 <div class="sidebar">
     <div class="sidebar-header">
-        <h1 id="title">🦞 OpenClaw v3.5</h1>
-        <div class="version" id="subtitle">MULTI-AGENT QA ARCHITECTURE — LIVE SYSTEM MAP</div>
+        <h1 id="title">🦞 OpenClaw v4.0</h1>
+        <div class="version" id="subtitle">TICKET TESTING SYSTEM — ORCHESTRATION MAP</div>
     </div>
 
     <div class="tabs">
         <button class="tab active" onclick="showTab('overview')">Overview</button>
         <button class="tab" onclick="showTab('agents')">Agents</button>
         <button class="tab" onclick="showTab('data')">Data Flow</button>
-        <button class="tab" onclick="showTab('cron')">Cron & Status</button>
+        <button class="tab" onclick="showTab('cron')">Ops & Rhythm</button>
     </div>
 
     <div class="sidebar-content" id="sidebar-body">
@@ -317,10 +321,10 @@
         <h4>Connection Types</h4>
         <div class="legend-item"><div class="legend-line" style="background:#8b5cf6;"></div> exec (agent dispatch)</div>
         <div class="legend-item"><div class="legend-line" style="background:#f59e0b;"></div> sessions_send (notify)</div>
-        <div class="legend-item"><div class="legend-line" style="background:#f472b6;"></div> cron trigger</div>
+        <div class="legend-item"><div class="legend-line" style="background:#f472b6;"></div> cron / scheduled trigger</div>
         <div class="legend-item"><div class="legend-line" style="background:#38bdf8;"></div> read / write (files)</div>
         <div class="legend-item"><div class="legend-line" style="background:#10b981;"></div> user ↔ nexus (chat)</div>
-        <div class="legend-item"><div class="legend-line" style="background:#06b6d4;"></div> RAG memory (embeddings)</div>
+        <div class="legend-item"><div class="legend-line" style="background:#06b6d4;"></div> memory / knowledge feedback</div>
     </div>
 </div>
 
@@ -329,7 +333,7 @@
     <div class="zone-label" style="top:5%;left:50%;transform:translateX(-50%)">Channels</div>
     <div class="zone-label" style="top:24%;left:50%;transform:translateX(-50%)">Orchestration</div>
     <div class="zone-label" style="top:52%;left:50%;transform:translateX(-50%)">Shared State</div>
-    <div class="zone-label" style="top:78%;left:50%;transform:translateX(-50%)">Worker Agents</div>
+    <div class="zone-label" style="top:78%;left:50%;transform:translateX(-50%)">Execution & Automation</div>
 
     <svg class="lines" id="svg"></svg>
     <div id="nodes"></div>
@@ -338,108 +342,128 @@
 <script>
 const NODES = [
     // Channels
-    { id:'slack',     icon:'💬', name:'Slack',     sub:'#qa-testing',      x:35, y:10, color:'var(--slack)',    status:'green' },
-    { id:'telegram',  icon:'✈️', name:'Telegram',   sub:'@famallyassistant', x:65, y:10, color:'var(--telegram)', status:'green' },
+    { id:'slack',     icon:'💬', name:'Slack',     sub:'#general · #qa-testing · #gmail', x:35, y:10, color:'var(--slack)',    status:'green' },
+    { id:'telegram',  icon:'✈️', name:'Telegram',  sub:'short pings + private chat', x:65, y:10, color:'var(--telegram)', status:'green' },
 
     // Orchestration
-    { id:'nexus',     icon:'👑', name:'Nexus',      sub:'GLM-5 · timeout:600s', x:50, y:30, color:'var(--nexus)', hub:true, status:'green' },
-    { id:'soul',      icon:'📜', name:'SOUL.md',    sub:'Routing + Task Size Limit', x:25, y:26, color:'var(--nexus)' },
-    { id:'memory_n',  icon:'🧠', name:'MEMORY.md',  sub:'Nexus knowledge base', x:25, y:35, color:'var(--memory)' },
-    { id:'projknow',  icon:'📚', name:'PROJECT_KNOWLEDGE', sub:'Learned rules', x:75, y:26, color:'var(--nexus)' },
+    { id:'nexus',       icon:'👑', name:'Nexus',      sub:'orchestrator · test lead · reviewer', x:50, y:30, color:'var(--nexus)', hub:true, status:'green' },
+    { id:'memory_n',    icon:'🧠', name:'Curated Memory', sub:'routing rules + project truths', x:25, y:30, color:'var(--memory)' },
+    { id:'knowledge',   icon:'📚', name:'shared/knowledge/', sub:'project facts + UI/API learnings', x:75, y:30, color:'var(--knowledge)' },
+    { id:'heartbeat',   icon:'💓', name:'Heartbeat', sub:'light periodic checks for Nexus', x:90, y:24, color:'var(--heartbeat)', status:'green' },
 
     // Shared State
-    { id:'tasks',     icon:'📋', name:'shared/tasks/',     sub:'charter-*.md files', x:25, y:50, color:'var(--shared)' },
-    { id:'creds',     icon:'🔑', name:'shared/credentials/', sub:'JSON token store', x:42, y:50, color:'var(--shared)' },
-    { id:'results',   icon:'📊', name:'shared/test-results/', sub:'screenshots + reports', x:59, y:50, color:'var(--shared)' },
-    { id:'insights',  icon:'💡', name:'DAILY_INSIGHTS.md',  sub:'agent error log', x:76, y:50, color:'var(--shared)' },
-    { id:'rag',       icon:'🔮', name:'RAG Vector DB',  sub:'OpenAI embeddings (sqlite)', x:92, y:35, color:'var(--memory)', status:'yellow' },
+    { id:'tasks',       icon:'📋', name:'shared/tasks/', sub:'1 ticket / 1 charter task files', x:18, y:52, color:'var(--shared)' },
+    { id:'creds',       icon:'🔑', name:'shared/credentials/', sub:'JSON creds + session handoffs', x:35, y:52, color:'var(--shared)' },
+    { id:'results',     icon:'📊', name:'shared/test-results/', sub:'evidence + reports + artifacts', x:52, y:52, color:'var(--shared)' },
+    { id:'daily_notes', icon:'📝', name:'daily notes', sub:'raw logs of what happened today', x:69, y:52, color:'var(--shared)' },
+    { id:'knowledge_q', icon:'🗂️', name:'curated knowledge', sub:'distilled learnings promoted by Nexus', x:86, y:52, color:'var(--knowledge)' },
 
-    // Workers
-    { id:'clawver',   icon:'🐱', name:'Clawver',    sub:'GLM-4.7 · QA Agent',    x:22, y:85, color:'var(--qa)',   hub:true, status:'green' },
-    { id:'cipher',    icon:'👾', name:'Cipher',     sub:'GLM-4.7 · API Agent',   x:50, y:85, color:'var(--api)',  hub:true, status:'green' },
-    { id:'jiraw',     icon:'🦉', name:'Jira Watcher', sub:'GLM-4.7-FlashX · cron', x:78, y:85, color:'var(--jira)', hub:true, status:'yellow' },
+    // Execution & Automation
+    { id:'clawver',   icon:'🐞', name:'Clawver',    sub:'UI manual QA + browser execution', x:14, y:85, color:'var(--qa)', hub:true, status:'green' },
+    { id:'stagehand', icon:'🧭', name:'Stagehand',  sub:'path-finding for unstable UI only', x:31, y:85, color:'var(--stagehand)', status:'green' },
+    { id:'cipher',    icon:'🔌', name:'Cipher',     sub:'API / BE / data prep / swagger', x:50, y:85, color:'var(--api)', hub:true, status:'green' },
+    { id:'research',  icon:'🔎', name:'Researcher', sub:'external best-practice digest', x:69, y:85, color:'var(--research)', hub:true, status:'green' },
+    { id:'jiraw',     icon:'🦉', name:'Jira Watcher', sub:'cron intake for ticket status changes', x:86, y:85, color:'var(--jira)', hub:true, status:'green' },
 
-    // Cron
-    { id:'cron_engine', icon:'⏰', name:'Cron Engine', sub:'4 jobs · gateway-managed', x:92, y:65, color:'var(--cron)', status:'green' },
+    // Schedulers
+    { id:'cron_engine', icon:'⏰', name:'Cron Engine', sub:'reliable scheduled jobs', x:92, y:68, color:'var(--cron)', status:'green' },
 ];
 
 const LINKS = [
     // User channels → Nexus
-    { from:'slack',    to:'nexus',   type:'io',      label:'Chat' },
-    { from:'telegram', to:'nexus',   type:'io',      label:'Chat + Reports' },
+    { from:'slack',    to:'nexus',   type:'io',      label:'Ticket / context / report request' },
+    { from:'telegram', to:'nexus',   type:'io',      label:'Short ping / private chat' },
 
-    // Nexus reads
-    { from:'nexus', to:'soul',      type:'rw',      label:'Read rules' },
-    { from:'nexus', to:'memory_n',  type:'rw',      label:'Read/Write memory' },
-    { from:'nexus', to:'projknow',  type:'rw',      label:'Read learned rules' },
+    // Nexus knowledge loop
+    { from:'nexus', to:'memory_n',   type:'rw',      label:'Read/Write memory' },
+    { from:'nexus', to:'knowledge',  type:'rw',      label:'Read project knowledge' },
+    { from:'heartbeat', to:'nexus',  type:'cron',    label:'Periodic check-in' },
 
-    // Nexus → Shared (write)
-    { from:'nexus', to:'tasks',     type:'rw',      label:'Write task.md' },
-    { from:'nexus', to:'creds',     type:'rw',      label:'Write credentials' },
-    { from:'nexus', to:'results',   type:'rw',      label:'Read reports' },
-    { from:'nexus', to:'insights',  type:'rw',      label:'Process insights (nightly)' },
+    // Nexus → Shared
+    { from:'nexus', to:'tasks',       type:'rw',      label:'Write test plan / task' },
+    { from:'nexus', to:'creds',       type:'rw',      label:'Prepare credentials' },
+    { from:'nexus', to:'results',     type:'rw',      label:'Read agent results' },
+    { from:'nexus', to:'daily_notes', type:'rw',      label:'Read raw daily logs' },
+    { from:'nexus', to:'knowledge_q', type:'rw',      label:'Promote distilled learnings' },
 
-    // Nexus → Workers (exec dispatch)
+    // Nexus → Workers
     { from:'nexus', to:'clawver',   type:'exec',    label:'exec: qa-agent' },
     { from:'nexus', to:'cipher',    type:'exec',    label:'exec: api-docs-agent' },
+    { from:'nexus', to:'research',  type:'exec',    label:'exec: research-agent' },
 
-    // sessions_send (new!)
-    { from:'nexus', to:'clawver',   type:'session', label:'sessions_send: plan/notify' },
-    { from:'nexus', to:'cipher',    type:'session', label:'sessions_send: plan/notify' },
+    // Notification layer
+    { from:'nexus', to:'clawver',   type:'session', label:'plan / notify' },
+    { from:'nexus', to:'cipher',    type:'session', label:'plan / notify' },
+    { from:'clawver', to:'nexus',   type:'session', label:'result ready' },
+    { from:'cipher',  to:'nexus',   type:'session', label:'result ready' },
+    { from:'research',to:'nexus',   type:'session', label:'digest ready' },
+    { from:'jiraw',   to:'nexus',   type:'session', label:'ready-for-testing alert' },
 
     // Workers → Shared
-    { from:'clawver', to:'tasks',   type:'rw',      label:'Read charter' },
-    { from:'clawver', to:'creds',   type:'rw',      label:'Read credentials' },
-    { from:'clawver', to:'results', type:'rw',      label:'Write screenshots' },
-    { from:'clawver', to:'insights',type:'rw',      label:'Write errors' },
+    { from:'clawver', to:'tasks',      type:'rw',      label:'Read charter' },
+    { from:'clawver', to:'creds',      type:'rw',      label:'Read credentials' },
+    { from:'clawver', to:'results',    type:'rw',      label:'Write evidence + report' },
+    { from:'clawver', to:'daily_notes',type:'rw',      label:'Write daily note' },
+    { from:'clawver', to:'stagehand',  type:'exec',    label:'Use only for discovery' },
 
-    { from:'cipher',  to:'tasks',   type:'rw',      label:'Read API task' },
-    { from:'cipher',  to:'results', type:'rw',      label:'Write API report' },
-    { from:'cipher',  to:'insights',type:'rw',      label:'Write errors' },
+    { from:'cipher',  to:'tasks',      type:'rw',      label:'Read API task' },
+    { from:'cipher',  to:'creds',      type:'rw',      label:'Read token / auth handoff' },
+    { from:'cipher',  to:'results',    type:'rw',      label:'Write API report' },
+    { from:'cipher',  to:'daily_notes',type:'rw',      label:'Write daily note' },
 
-    // Cron
-    { from:'cron_engine', to:'nexus',   type:'cron', label:'Daily Self-Review 23:00' },
-    { from:'cron_engine', to:'jiraw',   type:'cron', label:'Hourly Jira check' },
-    { from:'cron_engine', to:'cipher',  type:'cron', label:'API Docs Daily 09:00' },
-    { from:'cron_engine', to:'slack',   type:'cron', label:'Gmail check + delivery' },
+    { from:'research',to:'knowledge_q', type:'rw',     label:'Write digest / best practices' },
+    { from:'research',to:'daily_notes', type:'rw',     label:'Write what mattered' },
+
+    // Scheduled jobs
+    { from:'cron_engine', to:'jiraw',    type:'cron', label:'Ticket polling' },
+    { from:'cron_engine', to:'research', type:'cron', label:'Daily / 3-day digest' },
 
     // Jira Watcher
-    { from:'jiraw', to:'results',  type:'rw',      label:'Write context JSON' },
+    { from:'jiraw', to:'knowledge_q', type:'rw',      label:'Write ticket context snapshot' },
 
-    // RAG Memory
-    { from:'rag', to:'nexus',    type:'memory',  label:'Embedding search' },
-    { from:'rag', to:'clawver',  type:'memory',  label:'Memory retrieval' },
-    { from:'rag', to:'cipher',   type:'memory',  label:'Memory retrieval' },
+    // Knowledge feedback
+    { from:'knowledge_q', to:'nexus',   type:'memory', label:'Use in better plans' },
+    { from:'knowledge_q', to:'clawver', type:'memory', label:'Use in better testing' },
+    { from:'knowledge_q', to:'cipher',  type:'memory', label:'Use in better API prep' },
 ];
 
 const TABS = {
     overview: `
         <div class="info-card">
-            <h3>🏗️ Architecture: Hub & Spoke v3.5</h3>
+            <h3>🏗️ Architecture: Hub & Spoke v4.0</h3>
             <p>
-                <strong style="color:var(--text)">Nexus</strong> — центральний оркестратор. Всі задачі проходять через нього.<br><br>
-                <strong style="color:var(--text)">Clawver</strong> (QA) та <strong style="color:var(--text)">Cipher</strong> (API) — ізольовані виконавці.<br><br>
-                <strong style="color:var(--text)">Jira Watcher</strong> — автономний cron-агент, не спілкується з іншими агентами.<br><br>
-                Спільний стан зберігається у <code>shared/</code> папках — tasks, credentials, results, insights.
+                <strong style="color:var(--text)">Nexus</strong> — головний вхід для задачі, test plan, review і фінального висновку.<br><br>
+                <strong style="color:var(--text)">Clawver</strong> — виконує UI/manual/browser testing.<br>
+                <strong style="color:var(--text)">Cipher</strong> — готує дані, перевіряє API/BE і swagger.<br>
+                <strong style="color:var(--text)">Researcher</strong> — не в критичному path тікета, а в контурі покращення системи.<br><br>
+                <strong style="color:var(--text)">Stagehand</strong> — helper для unstable UI, не окремий decision-maker.
+            </p>
+        </div>
+        <div class="info-card">
+            <h3>🎯 Core Goal</h3>
+            <p>
+                Система оптимізована не під весь SDLC/STLC, а під один outcome:<br><br>
+                <strong style="color:var(--text)">ticket tested → evidence collected → result summarized</strong><br><br>
+                Усе інше підпорядковано цій цілі: routing, data prep, external research, learning loop.
             </p>
         </div>
         <div class="info-card">
             <h3>🔄 Delegation Protocol</h3>
             <p>
-                <strong style="color:#8b5cf6">exec</strong> — для важкої роботи (Playwright, API scripts)<br>
-                <strong style="color:#f59e0b">sessions_send</strong> — для notification (план готовий, результат готовий)<br><br>
-                <strong style="color:var(--text)">Правило:</strong> Максимум 1 charter / 1 ticket на 1 agent call.<br>
-                Великі задачі розбиваються на послідовні виклики.
+                <strong style="color:#8b5cf6">exec</strong> — heavy work dispatch<br>
+                <strong style="color:#f59e0b">sessions_send</strong> — short coordination / done signal<br><br>
+                <strong style="color:var(--text)">Правило:</strong> 1 ticket або 1 charter на один агентний виклик.<br>
+                Великі задачі дробляться, а не відправляються пачкою.
             </p>
         </div>
         <div class="info-card">
             <h3>📂 Shared State = Source of Truth</h3>
             <p>
-                <code>shared/tasks/</code> — файли завдань (.md)<br>
-                <code>shared/credentials/</code> — auth tokens (JSON)<br>
-                <code>shared/test-results/</code> — screenshots, звіти<br>
-                <code>DAILY_INSIGHTS.md</code> — лог помилок агентів<br>
-                <code>PROJECT_KNOWLEDGE.md</code> — абстраговані правила
+                <code>shared/tasks/</code> — what to test<br>
+                <code>shared/credentials/</code> — how to authenticate<br>
+                <code>shared/test-results/</code> — what happened + evidences<br>
+                <code>daily notes</code> — raw learnings of the day<br>
+                <code>shared/knowledge/</code> — distilled truths that improve tomorrow
             </p>
         </div>
     `,
@@ -447,63 +471,84 @@ const TABS = {
         <div class="info-card" style="border-color:var(--nexus)">
             <h3>👑 Nexus (Orchestrator)</h3>
             <p>
-                <strong>Model:</strong> <code>zai/glm-5</code> (primary)<br>
-                <strong>Fallbacks:</strong> glm-4.7 → deepseek-chat<br>
-                <strong>Timeout:</strong> 600s<br>
-                <strong>Tools:</strong> exec, read, write, edit, web_search, <span style="color:#f59e0b;font-weight:600">sessions_send ✨</span><br>
-                <strong>Blocked:</strong> browser, sessions_spawn, canvas
+                <strong>Role:</strong> receives task, prepares plan, routes work, reviews outputs<br>
+                <strong>Owns:</strong> FE vs BE decision, task splitting, final summary, learning promotion<br>
+                <strong>Uses:</strong> heartbeat for light checks, not heavy execution
             </p>
             <div class="tag-row">
                 <span class="tag ok">● Active</span>
                 <span class="tag">Hub</span>
                 <span class="tag">Router</span>
-                <span class="tag">Task Size Limit</span>
+                <span class="tag">Reviewer</span>
             </div>
         </div>
         <div class="info-card" style="border-color:var(--qa)">
             <h3>🐱 Clawver (QA Agent)</h3>
             <p>
-                <strong>Model:</strong> <code>zai-coding/glm-4.7</code> (primary)<br>
-                <strong>Fallbacks:</strong> glm-5 → deepseek-chat<br>
-                <strong>Tools:</strong> exec (Playwright), read, write, edit, web_search<br>
-                <strong>Rules:</strong> Chrome only, Pixel 7 emulation, getByRole() priority<br>
-                <strong>Limit:</strong> 1 charter per call
+                <strong>Role:</strong> FE/UI executor, manual QA, browser evidence collector<br>
+                <strong>Knows:</strong> what and how to test in UI flows<br>
+                <strong>Uses Stagehand:</strong> only when locators/paths are unstable or unknown
             </p>
             <div class="tag-row">
                 <span class="tag ok">● Active</span>
                 <span class="tag">Playwright</span>
+                <span class="tag">Stagehand-aware</span>
                 <span class="tag">UI Testing</span>
-                <span class="tag">Spoke</span>
+                <span class="tag">Evidence First</span>
+            </div>
+        </div>
+        <div class="info-card" style="border-color:var(--stagehand)">
+            <h3>🧭 Stagehand</h3>
+            <p>
+                <strong>Role:</strong> discovery helper for unstable UI<br>
+                <strong>Not:</strong> primary automation framework<br>
+                <strong>Output:</strong> path-finding artifacts + DOM/screenshot context for Clawver
+            </p>
+            <div class="tag-row">
+                <span class="tag ok">Selective</span>
+                <span class="tag">Unstable Locators</span>
+                <span class="tag">Modal / iframe path</span>
             </div>
         </div>
         <div class="info-card" style="border-color:var(--api)">
             <h3>👾 Cipher (API Docs Agent)</h3>
             <p>
-                <strong>Model:</strong> <code>zai-coding/glm-4.7</code> (primary)<br>
-                <strong>Tools:</strong> read, write, edit, exec<br>
-                <strong>Blocked:</strong> web_search<br>
-                <strong>Focus:</strong> Swagger, OpenAPI, REST/GraphQL testing, Python scripts
+                <strong>Role:</strong> API / BE specialist and data-prep assistant<br>
+                <strong>Knows:</strong> swagger, microservices, tokens, payloads, test data setup<br>
+                <strong>Helps Nexus:</strong> decide backend scope and prepare state for Clawver
             </p>
             <div class="tag-row">
                 <span class="tag ok">● Active</span>
                 <span class="tag">API</span>
                 <span class="tag">Swagger</span>
-                <span class="tag">Spoke</span>
+                <span class="tag">Data Prep</span>
+            </div>
+        </div>
+        <div class="info-card" style="border-color:var(--research)">
+            <h3>🔎 Researcher</h3>
+            <p>
+                <strong>Role:</strong> QA analyst / external scout<br>
+                <strong>Not in critical path:</strong> does not block ticket execution<br>
+                <strong>Produces:</strong> short actionable digests about testing, tools, frameworks, iGaming/Web3 patterns
+            </p>
+            <div class="tag-row">
+                <span class="tag ok">● Active</span>
+                <span class="tag">Digest</span>
+                <span class="tag">Best Practices</span>
+                <span class="tag">External Context</span>
             </div>
         </div>
         <div class="info-card" style="border-color:var(--jira)">
             <h3>🦉 Jira Watcher</h3>
             <p>
-                <strong>Model:</strong> <code>zai/glm-4.7-flashx</code><br>
-                <strong>Tools:</strong> exec, read, web_search<br>
-                <strong>Blocked:</strong> write, edit (read-only monitor)<br>
-                <strong>Schedule:</strong> Every hour, work days<br>
-                <strong>JQL:</strong> <code>project = PandaSen AND status IN ("Ready for testing")</code>
+                <strong>Role:</strong> reliable Jira intake via cron<br>
+                <strong>Purpose:</strong> spot ticket state changes and feed Nexus context<br>
+                <strong>Why cron:</strong> exact and stable polling is better here than heartbeat
             </p>
             <div class="tag-row">
-                <span class="tag warn">● Cron-only</span>
+                <span class="tag ok">● Cron-only</span>
                 <span class="tag">Autonomous</span>
-                <span class="tag">No A2A</span>
+                <span class="tag">Ticket Intake</span>
             </div>
         </div>
     `,
@@ -511,37 +556,35 @@ const TABS = {
         <div class="info-card">
             <h3>📋 Task Delegation Flow</h3>
             <p style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;line-height:2;color:var(--text)">
-                1. Ihor → Nexus: "Запусти exploratory"<br>
-                2. Nexus: створює <code>shared/tasks/charter-1.md</code><br>
-                3. Nexus → <span style="color:#8b5cf6">exec</span> → Clawver<br>
-                4. Clawver: читає task → виконує → пише результат<br>
-                5. Clawver → <span style="color:#f59e0b">sessions_send</span> → Nexus: "Done"<br>
-                6. Nexus: читає результат → формує звіт<br>
-                7. Nexus → Ihor: "Ось що знайшов Clawver"
+                1. Ihor → Nexus: ticket / bug / feature to test<br>
+                2. Nexus: determines FE, BE or mixed scope<br>
+                3. Nexus: prepares <code>shared/tasks/CT-XXX.md</code><br>
+                4. Nexus → Clawver and/or Cipher<br>
+                5. Agents execute and save evidence/results<br>
+                6. Nexus reviews outputs and summarizes result<br>
+                7. Ihor gets final tested outcome + evidence paths
             </p>
         </div>
         <div class="info-card">
-            <h3>🧠 Self-Improvement Loop</h3>
+            <h3>🧠 Daily Learning Loop</h3>
             <p style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;line-height:2;color:var(--text)">
-                Day: Agents write errors → <code>DAILY_INSIGHTS.md</code><br>
-                23:00: Cron → Nexus Self-Review<br>
-                Nexus: reads insights → updates <code>PROJECT_KNOWLEDGE.md</code><br>
-                Nexus: sends report → Telegram<br>
-                Nexus: clears DAILY_INSIGHTS for tomorrow
+                During work: agents write short raw notes<br>
+                End of day: Nexus reviews raw notes + ticket outputs<br>
+                Nexus promotes only valuable truths to curated knowledge<br>
+                Next day: better plans, better testing, less repetition
             </p>
         </div>
         <div class="info-card">
-            <h3>🔮 RAG Memory</h3>
+            <h3>🔎 Research Feedback Loop</h3>
             <p>
-                <strong>Provider:</strong> OpenAI<br>
-                <strong>Model:</strong> <code>text-embedding-3-small</code><br>
-                <strong>Storage:</strong> SQLite per agent<br>
-                <strong>Sizes:</strong> main: 14MB, qa: 7.3MB, api: 6.6MB, jira: 6.6MB<br>
-                <strong>Status:</strong> <span class="status-dot yellow"></span> Configured, verification pending
+                Researcher scans external updates on a schedule.<br><br>
+                Only <strong>actionable</strong> findings are passed to Nexus.<br>
+                Nexus decides what becomes system knowledge for Clawver/Cipher.<br>
+                This keeps context small and avoids internet-noise in every ticket.
             </p>
         </div>
         <div class="info-card">
-            <h3>🔏 Cross-Agent Auth Handshake</h3>
+            <h3>🔏 FE ↔ BE Token / Data Handoff</h3>
             <p>
                 When Cipher needs a player session token:<br><br>
                 1. Nexus → Clawver: "Login and save token"<br>
@@ -553,54 +596,50 @@ const TABS = {
     `,
     cron: `
         <div class="info-card">
-            <h3><span class="status-dot green"></span> Nexus Daily Self-Review</h3>
+            <h3><span class="status-dot green"></span> Jira Watcher = Cron Job</h3>
             <p>
-                <strong>Schedule:</strong> <code>0 23 * * *</code> (23:00 daily)<br>
-                <strong>Agent:</strong> main (Nexus)<br>
-                <strong>Delivery:</strong> Telegram ✅<br>
-                <strong>Status:</strong> Working<br>
-                <strong>Guard:</strong> Anti-hallucination (won't fabricate if insights empty)
+                <strong>Why cron:</strong> точний і надійний polling Jira<br>
+                <strong>Role:</strong> ловить Ready for Testing / status changes<br>
+                <strong>Feeds:</strong> Nexus with context snapshots<br>
+                <strong>Best for:</strong> stable ingestion backbone
             </p>
-            <div class="tag-row"><span class="tag ok">OK</span></div>
+            <div class="tag-row"><span class="tag ok">Reliable</span><span class="tag">Precise timing</span></div>
         </div>
         <div class="info-card">
-            <h3><span class="status-dot green"></span> Jira Watcher Hourly</h3>
+            <h3><span class="status-dot green"></span> Nexus = Heartbeat</h3>
             <p>
-                <strong>Schedule:</strong> <code>0 * * * 1-5</code> (hourly, workdays)<br>
-                <strong>Agent:</strong> jira-watcher<br>
-                <strong>Delivery:</strong> Slack → <code>channel:C0AH10XDKM2</code> ✅<br>
-                <strong>Previous errors:</strong> 107 (fixed — missing target)
+                <strong>Why heartbeat:</strong> легкі регулярні перевірки без окремого важкого job<br>
+                <strong>Role:</strong> gateway health, stuck workflows, pending reviews, quiet checks<br>
+                <strong>Best for:</strong> assistant behavior, not exact polling
             </p>
-            <div class="tag-row"><span class="tag ok">FIXED</span><span class="tag">target added</span></div>
+            <div class="tag-row"><span class="tag ok">Lightweight</span><span class="tag">Context-aware</span></div>
         </div>
         <div class="info-card">
-            <h3><span class="status-dot green"></span> API Docs Daily Sync</h3>
+            <h3><span class="status-dot green"></span> Researcher = Periodic Digest</h3>
             <p>
-                <strong>Schedule:</strong> <code>0 9 * * 1-5</code> (09:00, workdays)<br>
-                <strong>Agent:</strong> api-docs-agent<br>
-                <strong>Delivery:</strong> Slack → <code>channel:C0AH10XDKM2</code> ✅<br>
-                <strong>Previous errors:</strong> 3 (fixed — missing target)
+                <strong>Cadence:</strong> daily or once per 3 days<br>
+                <strong>Topics:</strong> QA, Playwright, Stagehand, iGaming, Web3, mobile testing<br>
+                <strong>Rule:</strong> publish only what is practically useful for the system
             </p>
-            <div class="tag-row"><span class="tag ok">FIXED</span><span class="tag">target added</span></div>
+            <div class="tag-row"><span class="tag ok">Async learning</span><span class="tag">Not in ticket critical path</span></div>
         </div>
         <div class="info-card">
-            <h3><span class="status-dot green"></span> Gmail Check NextCode</h3>
+            <h3><span class="status-dot green"></span> Stagehand = On-Demand Helper</h3>
             <p>
-                <strong>Schedule:</strong> <code>0 * * * 1-5</code> (hourly, workdays)<br>
-                <strong>Agent:</strong> main<br>
-                <strong>Delivery:</strong> Slack → <code>channel:C0AH7CRFQES</code> ✅<br>
-                <strong>Previous errors:</strong> 13 (fixed — missing target)
+                <strong>Not cron, not heartbeat:</strong> invoked only from Clawver when needed<br>
+                <strong>Use cases:</strong> unstable locators, unknown modal path, iframe discovery<br>
+                <strong>After that:</strong> deterministic Playwright takes over
             </p>
-            <div class="tag-row"><span class="tag ok">FIXED</span><span class="tag">target added</span></div>
+            <div class="tag-row"><span class="tag ok">Selective</span><span class="tag">Discovery only</span></div>
         </div>
         <div class="info-card" style="border-color:var(--slack)">
-            <h3><span class="status-dot yellow"></span> Slack Integration</h3>
+            <h3><span class="status-dot green"></span> Learning Model</h3>
             <p>
-                <strong>Socket Mode:</strong> Connected ✅<br>
-                <strong>Issue:</strong> <code>missing_scope</code> — needs <code>channels:read</code> OAuth scope<br>
-                <strong>Impact:</strong> Channel auto-resolve fails, falls back to config entries (works but non-ideal)
+                <strong>Raw layer:</strong> daily notes and ticket artifacts<br>
+                <strong>Curated layer:</strong> promoted project knowledge<br>
+                <strong>Outcome:</strong> agents improve every day without loading giant files every run
             </p>
-            <div class="tag-row"><span class="tag warn">NEEDS SCOPE</span></div>
+            <div class="tag-row"><span class="tag ok">Compact</span><span class="tag">Low-noise context</span></div>
         </div>
     `
 };
@@ -729,8 +768,8 @@ function highlight(id) {
 function clearHL() {
     wrap.classList.remove('dimmed');
     document.querySelectorAll('.hl,.hl-link,.hl-label').forEach(e => e.classList.remove('hl','hl-link','hl-label'));
-    document.getElementById('title').innerHTML = '🦞 OpenClaw v3.5';
-    document.getElementById('subtitle').textContent = 'MULTI-AGENT QA ARCHITECTURE — LIVE SYSTEM MAP';
+    document.getElementById('title').innerHTML = '🦞 OpenClaw v4.0';
+    document.getElementById('subtitle').textContent = 'TICKET TESTING SYSTEM — ORCHESTRATION MAP';
 }
 
 function showTab(name) {

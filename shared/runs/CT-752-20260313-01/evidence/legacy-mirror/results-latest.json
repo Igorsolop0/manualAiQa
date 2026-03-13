@@ -1,0 +1,22 @@
+{
+  "status": "completed",
+  "signUpButtonFound": true,
+  "registrationModalVisible": true,
+  "googleIconPresent": true,
+  "telegramIconPresent": true,
+  "consoleErrorsCount": 12,
+  "consoleErrors": [
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  ],
+  "evidencePaths": [
+    "shared/test-results/CT-752/01_initial_state.png",
+    "shared/test-results/CT-752/02_after_signup_click.png",
+    "shared/test-results/CT-752/03_registration_modal.png",
+    "shared/test-results/CT-752/04_social_options_closeup.png",
+    "shared/test-results/CT-752/05_with_console_errors.png"
+  ]
+}

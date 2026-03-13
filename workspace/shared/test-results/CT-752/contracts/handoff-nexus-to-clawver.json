@@ -1,0 +1,17 @@
+{
+  "run_id": "CT-752-20260313-01",
+  "from": "nexus",
+  "to": "qa-agent",
+  "state_refs": [
+    "shared/runs/CT-752-20260313-01/plan/task-charter.json"
+  ],
+  "session_refs": [],
+  "entity_ids": {},
+  "pending_assertions": [],
+  "expected_next_step": "Execute UI flow and write result packet + evidence.",
+  "recommended_owner": "qa-agent",
+  "notes": [
+    "Pilot dual-write mode is active.",
+    "Keep writing legacy evidence path and sync to run folder."
+  ]
+}

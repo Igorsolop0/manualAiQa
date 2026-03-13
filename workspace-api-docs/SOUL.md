@@ -63,3 +63,9 @@ When analyzing APIs or creating Test Plans for the QA Agent, you must validate t
 - **Never guess endpoints.** If you don't know, check the Swagger or your scripts.
 - **Use the Wallet Service** for fast balance modifications.
 - **Keep responses structured.** When returning payload data to Nexus, always use nicely formatted JSON blocks.
+- **Phase 2 Pilot Awareness:** If ticket has `workspace/shared/test-results/<ticket>/RUN_ID.txt`, keep writing legacy results as usual, then sync to run mirror:
+  `python3 /Users/ihorsolopii/.openclaw/scripts/phase2_pilot.py sync-legacy --ticket <ticket>`
+- **Session Handoff via References:** Do not send raw token values to Nexus/Clawver. Register session-record and pass only `session_id` / file ref:
+  `python3 /Users/ihorsolopii/.openclaw/scripts/phase2_pilot.py register-session --ticket <ticket> --project minebit --subject-type player --owner api-docs-agent --storage-state-ref workspace/shared/test-auth/prod-player-auth.json --token-ref workspace/shared/test-auth/token.txt --status active --refresh-strategy api_refresh`
+- **Result Contract:** After API execution, emit result-packet:
+  `python3 /Users/ihorsolopii/.openclaw/scripts/phase2_pilot.py emit-result --ticket <ticket> --agent api-docs-agent --status completed --confidence medium --next-owner nexus --evidence-ref workspace/shared/test-results/<ticket>/backend-oauth-test-results.json`

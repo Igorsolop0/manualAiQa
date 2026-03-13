@@ -4,15 +4,30 @@ Register and authenticate player on PROD via GraphQL API for CT-476 testing.
 This bypasses the broken Login endpoint by creating a new test account.
 """
 
-import requests
 import json
 import sys
+import argparse
+import subprocess
 from datetime import datetime
 import random
+
+try:
+    import requests
+except ImportError:
+    requests = None
 
 PARTNER_ID = 5
 GRAPHQL_URL = "https://minebit-casino.prod.sofon.one/graphql"
 WEBSITE_URL = "https://minebit-casino.prod.sofon.one"
+
+
+def mask_secret(value):
+    if not value:
+        return "<empty>"
+    if len(value) <= 10:
+        return "***"
+    return f"{value[:6]}...{value[-4:]}"
+
 
 def generate_fingerprint():
     """Generate random device fingerprint."""
@@ -20,6 +35,8 @@ def generate_fingerprint():
 
 def register_player_via_graphql():
     """Register new player via GraphQL mutation and get session token."""
+    if requests is None:
+        raise RuntimeError("Missing dependency: requests. Install with `pip install requests`.")
     
     timestamp = int(datetime.now().timestamp() * 1000)
     random_suffix = random.randint(1000, 9999)
@@ -120,7 +137,7 @@ def register_player_via_graphql():
         print(f"Player ID: {player_data['id']}")
         print(f"Email: {player_data['email']}")
         print(f"Username: {player_data['userName']}")
-        print(f"Session Token: {player_data['sessionToken']}")
+        print(f"Session Token: {mask_secret(player_data['sessionToken'])}")
         
         return player_data
         
@@ -130,6 +147,8 @@ def register_player_via_graphql():
 
 def test_token(session_token):
     """Test session token by making authenticated GraphQL query."""
+    if requests is None:
+        raise RuntimeError("Missing dependency: requests. Install with `pip install requests`.")
     
     query = """
     query GetPlayerProfile {
@@ -205,25 +224,59 @@ def save_auth_data(auth_data):
         f.write(auth_data['sessionToken'])
     
     print(f"\n📋 Usage for Clawver:")
-    print(f"   Token: {auth_data['sessionToken']}")
-    print(f"   ")
-    print(f"   Option 1 - Authorization header:")
-    print(f"   Authorization: {auth_data['sessionToken']}")
-    print(f"   ")
-    print(f"   Option 2 - Cookie:")
-    print(f"   session_token={auth_data['sessionToken']}")
+    print("   Token saved to token.txt (masked output in logs)")
+    print(f"   Option 1 - Authorization header: [use token file ref]")
+    print(f"   Option 2 - Cookie: session_token=[use token file ref]")
     print(f"   ")
     print(f"   Option 3 - Set cookie in browser context:")
     print(f"   await context.addCookies([{{")
     print(f"     name: 'session_token',")
-    print(f"     value: '{auth_data['sessionToken']}',")
+    print(f"     value: '<read from token_ref>',")
     print(f"     domain: 'minebit-casino.prod.sofon.one',")
     print(f"     path: '/'")
     print(f"   }}]);")
     
-    return output_file
+    return output_file, token_file
+
+
+def register_session_record(run_id, ticket, storage_ref, token_ref):
+    """Optional: register session-record in Phase 2 pilot registry."""
+    cmd = [
+        "python3",
+        "/Users/ihorsolopii/.openclaw/scripts/phase2_pilot.py",
+        "register-session",
+        "--project",
+        "minebit",
+        "--subject-type",
+        "player",
+        "--owner",
+        "api-docs-agent",
+        "--storage-state-ref",
+        storage_ref,
+        "--token-ref",
+        token_ref,
+        "--status",
+        "active",
+        "--refresh-strategy",
+        "api_refresh",
+    ]
+    if run_id:
+        cmd.extend(["--run-id", run_id])
+    if ticket:
+        cmd.extend(["--ticket", ticket])
+    if not run_id and not ticket:
+        return
+    try:
+        subprocess.run(cmd, check=True)
+    except subprocess.CalledProcessError as exc:
+        print(f"⚠️ Session record registration failed: {exc}")
 
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="PROD auth via GraphQL registration")
+    parser.add_argument("--run-id", default=None, help="Optional Phase 2 run_id")
+    parser.add_argument("--ticket", default=None, help="Optional ticket key (CT-XXX)")
+    args = parser.parse_args()
+
     try:
         print("=" * 60)
         print("CT-476 PROD Authentication via GraphQL Registration")
@@ -233,7 +286,13 @@ if __name__ == "__main__":
         auth_data = register_player_via_graphql()
         
         if test_token(auth_data['sessionToken']):
-            output_file = save_auth_data(auth_data)
+            output_file, token_file = save_auth_data(auth_data)
+            register_session_record(
+                run_id=args.run_id,
+                ticket=args.ticket,
+                storage_ref="workspace/shared/test-auth/prod-player-auth.json",
+                token_ref="workspace/shared/test-auth/token.txt",
+            )
             print(f"\n✅ All done! Auth data ready for Clawver at:")
             print(f"   {output_file}")
             sys.exit(0)

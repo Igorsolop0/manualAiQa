@@ -1,0 +1,37 @@
+{
+  "task_id": "CT-901",
+  "run_id": "CT-901-20260313-01",
+  "project": "minebit",
+  "title": "Deposit streak bonus appears after second qualifying deposit",
+  "goal": "Validate deposit streak eligibility at API level and verify bonus visibility in UI.",
+  "source": {
+    "jira_key": "CT-901",
+    "design_refs": [],
+    "ticket_snapshot_ref": "workspace/shared/json-sources/jira/ct-901-snapshot.json"
+  },
+  "scope": {
+    "ui": true,
+    "api": true,
+    "research": false
+  },
+  "preconditions": [
+    "streak campaign is active on QA environment",
+    "test player can be created or reused safely"
+  ],
+  "data_needs": [
+    "player account",
+    "wallet balance",
+    "bonus eligibility state"
+  ],
+  "assertions": [
+    "first qualifying deposit is accepted by API",
+    "second qualifying deposit increments streak state",
+    "bonus becomes visible in UI promotions area"
+  ],
+  "success_criteria": [
+    "review-ready API and UI evidence is produced"
+  ],
+  "status": "planned",
+  "owner": "nexus",
+  "next_owner": "cipher"
+}

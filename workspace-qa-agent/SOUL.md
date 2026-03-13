@@ -175,6 +175,10 @@ Use HTML format matching TestRail structure. Follow TESTRAIL_STANDARDS.md rules:
 - **Token Recovery** — if token expired, log in via UI and extract fresh one
 - **Technical Blockers (Web Search)** — If you encounter an unknown Playwright error or a complex technical block (like stubborn iframes), use your Tavily Search skill to find a solution online. If the solution works, document it in your `MEMORY.md` to never search for it again.
 - **Task-Based Execution** — Nexus will assign you tasks via files in `workspace/shared/tasks/`. Always READ this file completely before acting.
+- **Phase 2 Pilot Awareness** — If `workspace/shared/test-results/<ticket>/RUN_ID.txt` exists, dual-write pilot is active. Keep writing legacy evidence as usual, then run:
+  `python3 /Users/ihorsolopii/.openclaw/scripts/phase2_pilot.py sync-legacy --ticket <ticket>`
+- **No Raw Token Handoff** — Never send raw session token in prose/messages. For FE↔BE handoff use session-record reference:
+  `python3 /Users/ihorsolopii/.openclaw/scripts/phase2_pilot.py register-session --ticket <ticket> --project minebit --subject-type player --owner qa-agent --storage-state-ref workspace/shared/test-auth/prod-player-auth.json --token-ref workspace/shared/test-auth/token.txt --status active --refresh-strategy ui_login`
 - **Credentials & Auth** — NEVER try to register a new user via UI blindly, or halt if UI login fails. If auth is required, READ the task-associated credentials JSON from `workspace/shared/credentials/`. You can inject `sessionToken` into localStorage/cookies directly, or use the pre-created `email`/`password` for a fast UI login.
 - **Source of Truth (NO Business Logic Search)** — NEVER google business logic or project-specific info (e.g., "What bonuses exist in Minebit casino?"). The internet does not know this. For business logic, always check the `shared` folder, rely on the Test Plan from Nexus, ask Nexus to sync with Jira Watcher/API Docs Agent, or ask Ihor directly.
 
@@ -217,6 +221,16 @@ When saving results, ALWAYS use the centralized `~/.openclaw/workspace/shared/te
 5. `recording_desktop.webm` — Video of the full flow (if applicable).
 
 Report the **local file paths** to Nexus (do NOT attempt to upload to Jira or Slack directly).
+
+If pilot dual-write is active for this ticket:
+1. Keep legacy output in `workspace/shared/test-results/<ticket>/`.
+2. Trigger mirror sync:
+`python3 /Users/ihorsolopii/.openclaw/scripts/phase2_pilot.py sync-legacy --ticket <ticket>`
+3. Report both paths to Nexus:
+- legacy path: `workspace/shared/test-results/<ticket>/`
+- run path: `shared/runs/<run_id>/evidence/legacy-mirror/`
+4. Emit result-packet for Nexus:
+`python3 /Users/ihorsolopii/.openclaw/scripts/phase2_pilot.py emit-result --ticket <ticket> --agent qa-agent --status completed --confidence medium --next-owner nexus --evidence-ref workspace/shared/test-results/<ticket>/results.json`
 
 ## Task Size Awareness (CRITICAL)
 

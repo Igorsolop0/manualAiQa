@@ -1,0 +1,25 @@
+maturity_levels:
+  stable:
+    description: "Production-ready capability for ticket-critical path."
+    critical_path_allowed: true
+  beta:
+    description: "Usable in critical path with review and cautious rollout."
+    critical_path_allowed: true
+  alpha:
+    description: "Experimental; not mandatory for ticket completion."
+    critical_path_allowed: false
+  deprecated:
+    description: "Legacy capability scheduled for archive or repurpose."
+    critical_path_allowed: false
+  disabled:
+    description: "Do not route work to this capability."
+    critical_path_allowed: false
+
+policy:
+  critical_path_requires:
+    - stable
+    - beta
+  forbidden_for_critical_path:
+    - alpha
+    - deprecated
+    - disabled

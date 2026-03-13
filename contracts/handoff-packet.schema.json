@@ -1,0 +1,34 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "handoff-packet.schema.json",
+  "title": "Handoff Packet",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "run_id",
+    "from",
+    "to",
+    "state_refs",
+    "expected_next_step",
+    "recommended_owner"
+  ],
+  "properties": {
+    "run_id": { "type": "string", "minLength": 1 },
+    "from": { "type": "string", "minLength": 1 },
+    "to": { "type": "string", "minLength": 1 },
+    "state_refs": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "session_refs": { "type": "array", "items": { "type": "string" } },
+    "entity_ids": {
+      "type": "object",
+      "additionalProperties": { "type": "string" }
+    },
+    "pending_assertions": { "type": "array", "items": { "type": "string" } },
+    "expected_next_step": { "type": "string", "minLength": 1 },
+    "recommended_owner": { "type": "string", "minLength": 1 },
+    "notes": { "type": "array", "items": { "type": "string" } }
+  }
+}

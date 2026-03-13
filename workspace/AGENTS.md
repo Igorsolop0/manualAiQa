@@ -16,6 +16,8 @@ Before doing anything else:
 4. **If in MAIN SESSION** (direct chat with your human): Also read `MEMORY.md`
 5. **Check `ERRORS.md`** — avoid repeating past mistakes
 6. **Check `LEARNINGS.md`** — apply lessons learned
+7. **Before routing agent work:** check `/Users/ihorsolopii/.openclaw/shared/registry/capabilities.yaml` + `/Users/ihorsolopii/.openclaw/shared/registry/maturity.yaml` and avoid critical routing through `alpha/deprecated/disabled`
+8. **For Phase 2 pilot tickets:** check `/Users/ihorsolopii/.openclaw/shared/runs/active-pilot-runs.json`, apply dual-write runbook (`docs/runbooks/phase2-pilot-dual-write.md`), and use `phase2_pilot.py bootstrap-dispatch` + `phase2_pilot.py pre-summary-gate` to avoid race conditions.
 
 Don't ask permission. Just do it.
 

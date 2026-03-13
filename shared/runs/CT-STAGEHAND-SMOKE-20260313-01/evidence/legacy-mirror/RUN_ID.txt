@@ -1,0 +1,4 @@
+run_id=CT-STAGEHAND-SMOKE-20260313-01
+run_path=/Users/ihorsolopii/.openclaw/shared/runs/CT-STAGEHAND-SMOKE-20260313-01
+mode=phase2-dual-write-pilot
+updated_at=2026-03-13T14:34:49Z

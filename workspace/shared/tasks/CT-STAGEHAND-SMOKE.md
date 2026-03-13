@@ -116,3 +116,26 @@ Report to Nexus with:
 1. `stagehand-output.json` path
 2. `meta.artifactDir` path
 3. Short conclusion (success/fail + reason)
+
+<!-- PHASE2_DISPATCH_BLOCK_START -->
+## Phase 2 Pilot Dispatch Hooks (Auto-generated)
+
+- **run_id:** `CT-STAGEHAND-SMOKE-20260313-01`
+- **agent:** `qa-agent`
+- **mode:** `dual-write` (legacy + run mirror)
+
+After execution, run mirror sync:
+```bash
+python3 /Users/ihorsolopii/.openclaw/scripts/phase2_pilot.py sync-legacy --ticket CT-STAGEHAND-SMOKE
+```
+
+If auth/session was used in this run, register session-record (reference-only handoff):
+```bash
+python3 /Users/ihorsolopii/.openclaw/scripts/phase2_pilot.py register-session --ticket CT-STAGEHAND-SMOKE --project minebit --subject-type player --owner qa-agent --storage-state-ref workspace/shared/test-auth/prod-player-auth.json --token-ref workspace/shared/test-auth/token.txt --status active --refresh-strategy ui_login
+```
+
+Emit result packet for Nexus review:
+```bash
+python3 /Users/ihorsolopii/.openclaw/scripts/phase2_pilot.py emit-result --ticket CT-STAGEHAND-SMOKE --agent qa-agent --status completed --confidence medium --next-owner nexus --evidence-ref workspace/shared/test-results/CT-STAGEHAND-SMOKE/results.json
+```
+<!-- PHASE2_DISPATCH_BLOCK_END -->

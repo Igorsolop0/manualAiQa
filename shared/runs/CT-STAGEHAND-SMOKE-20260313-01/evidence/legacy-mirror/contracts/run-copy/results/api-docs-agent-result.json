@@ -1,0 +1,15 @@
+{
+  "run_id": "CT-STAGEHAND-SMOKE-20260313-01",
+  "agent": "api-docs-agent",
+  "status": "partial",
+  "assertions_passed": [],
+  "assertions_failed": [],
+  "blockers": [
+    "API validation not included in this UI-only smoke"
+  ],
+  "evidence_refs": [
+    "workspace/shared/test-results/CT-STAGEHAND-SMOKE/summary.json"
+  ],
+  "confidence": "low",
+  "recommended_next_owner": "nexus"
+}

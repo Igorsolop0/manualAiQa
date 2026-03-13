@@ -1,0 +1,60 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "task-charter.schema.json",
+  "title": "Task Charter",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "task_id",
+    "run_id",
+    "project",
+    "title",
+    "goal",
+    "source",
+    "scope",
+    "assertions",
+    "status",
+    "owner"
+  ],
+  "properties": {
+    "task_id": { "type": "string", "minLength": 1 },
+    "run_id": { "type": "string", "minLength": 1 },
+    "project": { "type": "string", "minLength": 1 },
+    "title": { "type": "string", "minLength": 1 },
+    "goal": { "type": "string", "minLength": 1 },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["jira_key"],
+      "properties": {
+        "jira_key": { "type": "string", "minLength": 1 },
+        "design_refs": { "type": "array", "items": { "type": "string" } },
+        "ticket_snapshot_ref": { "type": "string" }
+      }
+    },
+    "scope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["ui", "api", "research"],
+      "properties": {
+        "ui": { "type": "boolean" },
+        "api": { "type": "boolean" },
+        "research": { "type": "boolean" }
+      }
+    },
+    "preconditions": { "type": "array", "items": { "type": "string" } },
+    "data_needs": { "type": "array", "items": { "type": "string" } },
+    "assertions": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "success_criteria": { "type": "array", "items": { "type": "string" } },
+    "status": {
+      "type": "string",
+      "enum": ["planned", "in_progress", "blocked", "completed", "cancelled"]
+    },
+    "owner": { "type": "string", "minLength": 1 },
+    "next_owner": { "type": "string", "minLength": 1 }
+  }
+}

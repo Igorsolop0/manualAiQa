@@ -1,0 +1,200 @@
+{
+  "ticket": "CT-752",
+  "status": "PARTIAL",
+  "timestamp": "2026-03-13T15:46:43.106Z",
+  "networkFindings": {
+    "getClientByTokenCalls": 0,
+    "oauthStartRequest": null,
+    "redirectChain": [],
+    "callbackStatus": null,
+    "errors": [
+      {
+        "url": "https://minebit-casino.qa.sofon.one/assets/crypto_77ecd3da00.svg",
+        "status": 404,
+        "method": "GET"
+      },
+      {
+        "url": "https://minebit-casino.qa.sofon.one/assets/cart_def_479af314e5.svg",
+        "status": 404,
+        "method": "GET"
+      },
+      {
+        "url": "https://minebit-casino.qa.sofon.one/assets/search_8bdabea647.svg",
+        "status": 404,
+        "method": "GET"
+      },
+      {
+        "url": "https://minebit-casino.qa.sofon.one/assets/open_sidebar_7caabb617f.svg",
+        "status": 404,
+        "method": "GET"
+      },
+      {
+        "url": "https://minebit-casino.qa.sofon.one/assets/bonuses_e44044ad0c.svg",
+        "status": 404,
+        "method": "GET"
+      },
+      {
+        "url": "https://minebit-casino.qa.sofon.one/assets/casino_af2bf3f3d7.svg",
+        "status": 404,
+        "method": "GET"
+      },
+      {
+        "url": "https://minebit-casino.qa.sofon.one/assets/hot_games_308fa06671.svg",
+        "status": 404,
+        "method": "GET"
+      },
+      {
+        "url": "https://minebit-casino.qa.sofon.one/assets/slots_423176cca3.svg",
+        "status": 404,
+        "method": "GET"
+      },
+      {
+        "url": "https://minebit-casino.qa.sofon.one/assets/rocket_19652e766d.svg",
+        "status": 404,
+        "method": "GET"
+      },
+      {
+        "url": "https://minebit-casino.qa.sofon.one/assets/new_games_6087200d92.svg",
+        "status": 404,
+        "method": "GET"
+      },
+      {
+        "url": "https://minebit-casino.qa.sofon.one/assets/game_Shows_688cce32f4.svg",
+        "status": 404,
+        "method": "GET"
+      },
+      {
+        "url": "https://minebit-casino.qa.sofon.one/assets/black_Jack_92cbce1e28.svg",
+        "status": 404,
+        "method": "GET"
+      },
+      {
+        "url": "https://minebit-casino.qa.sofon.one/assets/roulette_6e538a4d28.svg",
+        "status": 404,
+        "method": "GET"
+      },
+      {
+        "url": "https://minebit-casino.qa.sofon.one/assets/bonus_buy_grey_bae3c27b84.svg",
+        "status": 404,
+        "method": "GET"
+      },
+      {
+        "url": "https://minebit-casino.qa.sofon.one/assets/themes_icon_01cb3da990.svg",
+        "status": 404,
+        "method": "GET"
+      },
+      {
+        "url": "https://minebit-casino.qa.sofon.one/assets/missions_ece5061175.svg",
+        "status": 404,
+        "method": "GET"
+      },
+      {
+        "url": "https://minebit-casino.qa.sofon.one/assets/promotions_c6df78d8d2.svg",
+        "status": 404,
+        "method": "GET"
+      },
+      {
+        "url": "https://minebit-casino.qa.sofon.one/assets/providers_2a53803a5b.svg",
+        "status": 404,
+        "method": "GET"
+      },
+      {
+        "url": "https://minebit-casino.qa.sofon.one/assets/social_share_af47365deb.svg",
+        "status": 404,
+        "method": "GET"
+      },
+      {
+        "url": "https://minebit-casino.qa.sofon.one/assets/help_33676574e4.svg",
+        "status": 404,
+        "method": "GET"
+      },
+      {
+        "url": "https://minebit-casino.qa.sofon.one/assets/live_support_785e562852.svg",
+        "status": 404,
+        "method": "GET"
+      },
+      {
+        "url": "https://minebit-casino.qa.sofon.one/assets/loyalty_0e3b0bb2e0.svg",
+        "status": 404,
+        "method": "GET"
+      },
+      {
+        "url": "https://minebit-casino.qa.sofon.one/_next/image?url=%2Fassets%2Fen_flag_39ae719dbf.png&w=16&q=75",
+        "status": 400,
+        "method": "GET"
+      },
+      {
+        "url": "https://minebit-casino.qa.sofon.one/assets/download_7965b89b37.svg",
+        "status": 404,
+        "method": "GET"
+      },
+      {
+        "url": "https://minebit-casino.qa.sofon.one/assets/Frame_1321320440_a321c4640e.svg",
+        "status": 404,
+        "method": "GET"
+      },
+      {
+        "url": "https://minebit-casino.qa.sofon.one/assets/search_light_black_e722b43984.svg",
+        "status": 404,
+        "method": "GET"
+      },
+      {
+        "url": "https://minebit-casino.qa.sofon.one/assets/arrows_4d0084cbb9.svg",
+        "status": 404,
+        "method": "GET"
+      },
+      {
+        "url": "https://minebit-casino.qa.sofon.one/_next/image?url=%2Fassets%2Ftether_4d0f53286c.png&w=64&q=75",
+        "status": 400,
+        "method": "GET"
+      },
+      {
+        "url": "https://minebit-casino.qa.sofon.one/_next/image?url=%2Fassets%2Fethereum_f4fb1a08fa.png&w=64&q=75",
+        "status": 400,
+        "method": "GET"
+      }
+    ]
+  },
+  "consoleFindings": {
+    "errors": 29,
+    "warnings": 0,
+    "tokenLeakage": false,
+    "errorDetails": [
+      "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "Failed to load resource: the server responded with a status of 400 (Bad Request)",
+      "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "Failed to load resource: the server responded with a status of 400 (Bad Request)",
+      "Failed to load resource: the server responded with a status of 400 (Bad Request)"
+    ]
+  },
+  "evidence": [
+    "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/CT-752/01_initial_state.png",
+    "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/CT-752/02_network_state.png",
+    "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/CT-752/03_console_state.png"
+  ],
+  "summary": "Test PARTIAL. GetClientByToken calls: 0, Console errors: 29, Token leakage: false"
+}

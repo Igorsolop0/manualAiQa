@@ -1,0 +1,10 @@
+{
+  "run_id": "CT-752-20260313-01",
+  "ticket_id": "CT-752",
+  "timestamp": "2026-03-13T16:38:28Z",
+  "legacy_results_ref": "workspace/shared/test-results/CT-752",
+  "run_mirror_ref": "shared/runs/CT-752-20260313-01/evidence/legacy-mirror",
+  "files_copied": 17,
+  "files_skipped": 0,
+  "contracts_exported_count": 7
+}

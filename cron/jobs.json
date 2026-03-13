@@ -7,7 +7,7 @@
       "name": "Gmail Check - NextCode",
       "enabled": true,
       "createdAtMs": 1771084279927,
-      "updatedAtMs": 1773338438015,
+      "updatedAtMs": 1773424824472,
       "schedule": {
         "kind": "cron",
         "expr": "0 8-19 * * 1-5"
@@ -24,10 +24,10 @@
         "channel": "slack"
       },
       "state": {
-        "nextRunAtMs": 1773385200000,
-        "lastRunAtMs": 1773338400075,
+        "nextRunAtMs": 1773644400000,
+        "lastRunAtMs": 1773424800112,
         "lastStatus": "ok",
-        "lastDurationMs": 37940,
+        "lastDurationMs": 24360,
         "consecutiveErrors": 0,
         "lastRunStatus": "ok",
         "lastDeliveryStatus": "not-delivered",
@@ -41,7 +41,7 @@
       "description": "Щоденний аналіз дій, розмов та model performance для покращення роботи",
       "enabled": true,
       "createdAtMs": 1772640000000,
-      "updatedAtMs": 1773266452091,
+      "updatedAtMs": 1773352858459,
       "schedule": {
         "kind": "cron",
         "expr": "0 23 * * *",
@@ -59,11 +59,11 @@
       },
       "state": {
         "consecutiveErrors": 0,
-        "nextRunAtMs": 1773352800000,
-        "lastRunAtMs": 1773266400038,
+        "nextRunAtMs": 1773439200000,
+        "lastRunAtMs": 1773352800089,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 52053,
+        "lastDurationMs": 58370,
         "lastDelivered": true,
         "lastDeliveryStatus": "delivered"
       }
@@ -95,16 +95,16 @@
         "bestEffort": true
       },
       "state": {
-        "nextRunAtMs": 1773342084157,
-        "lastRunAtMs": 1773338484173,
+        "nextRunAtMs": 1773428484157,
+        "lastRunAtMs": 1773424884176,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 112903,
+        "lastDurationMs": 32180,
         "lastDeliveryStatus": "delivered",
         "consecutiveErrors": 0,
         "lastDelivered": true
       },
-      "updatedAtMs": 1773338597076
+      "updatedAtMs": 1773424916356
     },
     {
       "id": "api-docs-daily",
@@ -132,16 +132,16 @@
         "bestEffort": true
       },
       "state": {
-        "nextRunAtMs": 1773388800000,
-        "lastRunAtMs": 1773303827615,
+        "nextRunAtMs": 1773648000000,
+        "lastRunAtMs": 1773388892205,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 297857,
+        "lastDurationMs": 654168,
         "lastDeliveryStatus": "delivered",
         "consecutiveErrors": 0,
         "lastDelivered": true
       },
-      "updatedAtMs": 1773304125472
+      "updatedAtMs": 1773389546373
     }
   ]
 }

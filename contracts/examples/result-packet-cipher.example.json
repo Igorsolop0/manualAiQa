@@ -1,0 +1,21 @@
+{
+  "run_id": "CT-901-20260313-01",
+  "agent": "cipher",
+  "status": "completed",
+  "assertions_passed": [
+    "first qualifying deposit accepted by API",
+    "second qualifying deposit updated streak eligibility"
+  ],
+  "assertions_failed": [],
+  "blockers": [],
+  "evidence_refs": [
+    "workspace/shared/test-results/CT-901/api/deposit-1-response.json",
+    "workspace/shared/test-results/CT-901/api/deposit-2-response.json",
+    "workspace/shared/test-results/CT-901/api/bonus-eligibility.json"
+  ],
+  "notes": [
+    "Prepared player state and left session reference for UI verification."
+  ],
+  "confidence": "high",
+  "recommended_next_owner": "clawver"
+}
