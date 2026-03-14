@@ -1,0 +1,60 @@
+{
+  "key": "CT-548",
+  "summary": "[FE] google linking&unlinking",
+  "status": "Ready for testing",
+  "assignee": "Panda Sensei",
+  "priority": "Normal",
+  "issuetype": "Task",
+  "created": "2025-12-02T19:06:34.305+0000",
+  "updated": "2026-03-13T16:28:43.717+0000",
+  "description": "",
+  "recent_comments": [
+    {
+      "author": "Stark",
+      "created": "2026-02-16T16:26:00.080+0000",
+      "body": "{'type': 'doc', 'version': 1, 'content': [{'type': 'panel', 'content': [{'type': 'paragraph', 'content': [{'type': 'text', 'text': 'https://git.dolore.cc/portal/portal/-/merge_requests/111', 'marks': [{'type': 'link', 'attrs': {'href': 'https://git.dolore.cc/portal/portal/-/merge_requests/111'}}, {'type': 'underline'}]}]}], 'attrs': {'panelType': 'info'}}]}"
+    },
+    {
+      "author": "Stark",
+      "created": "2026-02-19T16:59:15.462+0000",
+      "body": "{'type': 'doc', 'version': 1, 'content': [{'type': 'paragraph', 'content': [{'type': 'text', 'text': \"Since I can't test, I'm moving the task to blocked until the error is fixed. \"}, {'type': 'mention', 'attrs': {'id': '712020:7054c1c6-9a9d-4153-8aa4-f4ed26779735', 'text': '@Kevin', 'accessLevel': '', 'localId': 'b9090c09-0c01-41e8-801b-e45a2ff73a67'}}, {'type': 'text', 'text': '  Please let me know when it will be fixed and in which task?'}, {'type': 'hardBreak'}, {'type': 'mention', 'attrs': {"
+    },
+    {
+      "author": "Stark",
+      "created": "2026-02-19T19:23:22.387+0000",
+      "body": "{'type': 'doc', 'version': 1, 'content': [{'type': 'paragraph', 'content': [{'type': 'text', 'text': 'Strapi configured - '}, {'type': 'text', 'text': 'https://minebit-casino.prod.sofon.one/test-social-linking', 'marks': [{'type': 'link', 'attrs': {'href': 'https://minebit-casino.prod.sofon.one/test-social-linking'}}]}]}]}"
+    },
+    {
+      "author": "Stark",
+      "created": "2026-02-22T20:29:28.226+0000",
+      "body": "{'type': 'doc', 'version': 1, 'content': [{'type': 'paragraph', 'content': [{'type': 'text', 'text': 'Testing linking on QA env, don\u2019t return new param ('}, {'type': 'text', 'text': 'linkedRegistrationSources', 'marks': [{'type': 'strong'}]}, {'type': 'text', 'text': '). It player object from QA env. '}, {'type': 'mention', 'attrs': {'id': '712020:7054c1c6-9a9d-4153-8aa4-f4ed26779735', 'text': '@Kevin', 'accessLevel': '', 'localId': '569eb077-8d36-4d89-a52c-8d445423f60d'}}, {'type': 'text', 'tex"
+    },
+    {
+      "author": "Stark",
+      "created": "2026-03-13T13:13:45.630+0000",
+      "body": "{'type': 'doc', 'version': 1, 'content': [{'type': 'paragraph', 'content': [{'type': 'text', 'text': 'https://minebit-casino.qa.sofon.one/test-social-linking', 'marks': [{'type': 'link', 'attrs': {'href': 'https://minebit-casino.qa.sofon.one/test-social-linking'}}]}], 'attrs': {'localId': '58276afac185'}}]}"
+    }
+  ],
+  "linked_tickets": [
+    {
+      "key": "CRYPTO-445",
+      "summary": "Google Linking & Unlinking",
+      "status": "Development"
+    },
+    {
+      "key": "CT-751",
+      "summary": "[BE] Extend GetClientByToken with Linked Registration Sources",
+      "status": "Done"
+    },
+    {
+      "key": "PR-2756",
+      "summary": "[Crypto Release] Scope for PS2 release 19.02.2026",
+      "status": "Closed"
+    }
+  ],
+  "url": "https://next-t-code.atlassian.net/browse/CT-548",
+  "labels": [
+    "PostMVP_CT18",
+    "PostMVP_CT20"
+  ]
+}

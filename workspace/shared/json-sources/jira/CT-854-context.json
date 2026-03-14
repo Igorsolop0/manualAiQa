@@ -1,0 +1,34 @@
+{
+  "key": "CT-854",
+  "summary": "[BE] mockups for portal dev",
+  "status": "Ready for testing",
+  "assignee": "Kevin",
+  "priority": "Normal",
+  "issuetype": "Task",
+  "created": "2026-03-05T14:18:58.490+0000",
+  "updated": "2026-03-13T08:09:59.463+0000",
+  "description": "",
+  "recent_comments": [
+    {
+      "author": "Kevin",
+      "created": "2026-03-12T08:51:26.582+0000",
+      "body": "{'type': 'doc', 'version': 1, 'content': [{'type': 'paragraph', 'content': [{'type': 'mention', 'attrs': {'id': '712020:9881c551-f4f9-40df-ba5d-5fd4a07eb0e5', 'text': '@Grinch', 'accessLevel': '', 'localId': '735775d9-b270-4780-b058-054c19ce023f'}}, {'type': 'text', 'text': ' please review, if anything needed to be updated - leave a comment'}, {'type': 'hardBreak'}, {'type': 'text', 'text': 'https://git.dolore.cc/platform/wwa-wiremock/-/merge_requests/4', 'marks': [{'type': 'link', 'attrs': {'hr"
+    },
+    {
+      "author": "Grinch",
+      "created": "2026-03-12T10:03:09.826+0000",
+      "body": "{'type': 'doc', 'version': 1, 'content': [{'type': 'paragraph', 'content': [{'type': 'mention', 'attrs': {'id': '712020:7054c1c6-9a9d-4153-8aa4-f4ed26779735', 'text': '@Kevin', 'accessLevel': '', 'localId': '0ea5965aa255'}}, {'type': 'text', 'text': \" All good, the only thing is that ResponseCodes for errors are not set \u2014 if you already know what they'll be we can fix that, otherwise we can merge as is. We use them for error localization.\"}], 'attrs': {'localId': 'c321b5891c16'}}]}"
+    }
+  ],
+  "linked_tickets": [
+    {
+      "key": "CRYPTO-70",
+      "summary": "[Feature request] Referral system ",
+      "status": "BACKLOG"
+    }
+  ],
+  "url": "https://next-t-code.atlassian.net/browse/CT-854",
+  "labels": [
+    "PostMVP_CT20"
+  ]
+}

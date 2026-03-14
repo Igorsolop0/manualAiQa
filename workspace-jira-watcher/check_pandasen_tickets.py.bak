@@ -137,7 +137,7 @@ def check_pandasen_tickets(config):
     Returns list of ticket details.
     """
     # JQL query - PandaSen project with Ready for Testing OR On Production
-    jql = 'project = "CT" AND (status in ("Ready for testing", "On Production"))'
+    jql = 'project = "PandaSen" AND (status = "Ready for Testing" OR status = "On Production")'
     
     print(f"🔍 Searching Jira for: {jql}")
     search_result = search_tickets(config, jql, max_results=20)

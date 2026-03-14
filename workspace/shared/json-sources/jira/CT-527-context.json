@@ -1,0 +1,60 @@
+{
+  "key": "CT-527",
+  "summary": "[FE] Passing Auth Token for Social Linking",
+  "status": "Ready for testing",
+  "assignee": "Panda Sensei",
+  "priority": "Normal",
+  "issuetype": "Task",
+  "created": "2025-11-27T21:24:20.360+0000",
+  "updated": "2026-03-13T16:28:20.059+0000",
+  "description": "",
+  "recent_comments": [
+    {
+      "author": "Stark",
+      "created": "2026-02-10T18:02:37.787+0000",
+      "body": "{'type': 'doc', 'version': 1, 'content': [{'type': 'panel', 'content': [{'type': 'paragraph', 'content': [{'type': 'text', 'text': 'https://git.dolore.cc/portal/portal/-/merge_requests/111', 'marks': [{'type': 'link', 'attrs': {'href': 'https://git.dolore.cc/portal/portal/-/merge_requests/111'}}]}]}], 'attrs': {'panelType': 'info'}}]}"
+    },
+    {
+      "author": "Stark",
+      "created": "2026-02-11T08:42:00.342+0000",
+      "body": "{'type': 'doc', 'version': 1, 'content': [{'type': 'paragraph', 'content': [{'type': 'inlineCard', 'attrs': {'url': 'https://www.figma.com/design/qkzG2IGMeL6JEpJSmIEQxE/Minebit--Workfile-?node-id=271-56986&t=wKQEwZX6Ply3wFXr-0'}}, {'type': 'text', 'text': ' '}]}]}"
+    },
+    {
+      "author": "Stark",
+      "created": "2026-02-11T22:29:36.958+0000",
+      "body": "{'type': 'doc', 'version': 1, 'content': [{'type': 'paragraph', 'content': [{'type': 'text', 'text': 'The task was moved to '}, {'type': 'text', 'text': 'Hold', 'marks': [{'type': 'strong'}]}, {'type': 'text', 'text': ' because the backend work has not been fully completed.'}]}, {'type': 'paragraph', 'content': [{'type': 'text', 'text': 'Additionally, related tasks were created:'}]}, {'type': 'bulletList', 'content': [{'type': 'listItem', 'content': [{'type': 'paragraph', 'content': [{'type': 't"
+    },
+    {
+      "author": "Stark",
+      "created": "2026-02-19T21:14:38.955+0000",
+      "body": "{'type': 'doc', 'version': 1, 'content': [{'type': 'paragraph', 'content': [{'type': 'text', 'text': 'Move to blocked. Info here - '}, {'type': 'inlineCard', 'attrs': {'url': 'https://next-t-code.atlassian.net/browse/CT-548?focusedCommentId=112372'}}, {'type': 'text', 'text': ' '}]}]}"
+    },
+    {
+      "author": "Stark",
+      "created": "2026-03-13T13:13:12.826+0000",
+      "body": "{'type': 'doc', 'version': 1, 'content': [{'type': 'paragraph', 'content': [{'type': 'text', 'text': 'https://minebit-casino.qa.sofon.one/test-social-linking', 'marks': [{'type': 'link', 'attrs': {'href': 'https://minebit-casino.qa.sofon.one/test-social-linking'}}]}], 'attrs': {'localId': '529727fcbca7'}}]}"
+    }
+  ],
+  "linked_tickets": [
+    {
+      "key": "CRYPTO-450",
+      "summary": "Telegram Login Account Linking & Unlinking Flow",
+      "status": "Development"
+    },
+    {
+      "key": "CT-751",
+      "summary": "[BE] Extend GetClientByToken with Linked Registration Sources",
+      "status": "Done"
+    },
+    {
+      "key": "PR-2756",
+      "summary": "[Crypto Release] Scope for PS2 release 19.02.2026",
+      "status": "Closed"
+    }
+  ],
+  "url": "https://next-t-code.atlassian.net/browse/CT-527",
+  "labels": [
+    "PostMVP_CT18",
+    "PostMVP_CT20"
+  ]
+}

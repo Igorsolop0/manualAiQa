@@ -1,0 +1,60 @@
+{
+  "key": "CT-750",
+  "summary": "[FE] FE: Social Provider Unlink with 2FA Validation",
+  "status": "Ready for testing",
+  "assignee": "Panda Sensei",
+  "priority": "Normal",
+  "issuetype": "Task",
+  "created": "2026-02-11T20:49:22.145+0000",
+  "updated": "2026-03-13T16:29:14.371+0000",
+  "description": "",
+  "recent_comments": [
+    {
+      "author": "Stark",
+      "created": "2026-02-12T13:22:31.212+0000",
+      "body": "{'type': 'doc', 'version': 1, 'content': [{'type': 'paragraph', 'content': [{'type': 'mention', 'attrs': {'id': '712020:1d0516dc-16f3-49fc-be41-6115412dfa7f', 'text': '@Potoibicha', 'accessLevel': '', 'localId': '6ada442a-8f94-4a9e-a843-c8addfa3020f'}}, {'type': 'text', 'text': ' Should 2FA be considered if it is not enabled?'}]}]}"
+    },
+    {
+      "author": "Potoibicha",
+      "created": "2026-02-12T14:22:44.453+0000",
+      "body": "{'type': 'doc', 'version': 1, 'content': [{'type': 'paragraph', 'content': [{'type': 'mention', 'attrs': {'id': '712020:ab250189-87ba-4ef1-bb27-59f0be58bc54', 'text': '@Stark', 'accessLevel': ''}}, {'type': 'text', 'text': ' '}, {'type': 'hardBreak'}, {'type': 'text', 'text': 'Currently we use 2fa only for unlinking, if the 2fa enabled than we do not need to request it'}]}, {'type': 'paragraph'}, {'type': 'mediaSingle', 'attrs': {'width': 538, 'widthType': 'pixel', 'layout': 'align-start'}, 'con"
+    },
+    {
+      "author": "Stark",
+      "created": "2026-02-16T15:52:01.076+0000",
+      "body": "{'type': 'doc', 'version': 1, 'content': [{'type': 'panel', 'content': [{'type': 'paragraph', 'content': [{'type': 'text', 'text': 'https://git.dolore.cc/portal/portal/-/merge_requests/111', 'marks': [{'type': 'link', 'attrs': {'href': 'https://git.dolore.cc/portal/portal/-/merge_requests/111'}}]}]}], 'attrs': {'panelType': 'info'}}]}"
+    },
+    {
+      "author": "Stark",
+      "created": "2026-02-19T21:13:50.298+0000",
+      "body": "{'type': 'doc', 'version': 1, 'content': [{'type': 'paragraph', 'content': [{'type': 'text', 'text': 'Move to blocked. Info here - '}, {'type': 'inlineCard', 'attrs': {'url': 'https://next-t-code.atlassian.net/browse/CT-548?focusedCommentId=112372'}}, {'type': 'text', 'text': ' '}]}]}"
+    },
+    {
+      "author": "Stark",
+      "created": "2026-03-13T13:15:56.159+0000",
+      "body": "{'type': 'doc', 'version': 1, 'content': [{'type': 'paragraph', 'content': [{'type': 'text', 'text': 'https://minebit-casino.qa.sofon.one/test-social-linking', 'marks': [{'type': 'link', 'attrs': {'href': 'https://minebit-casino.qa.sofon.one/test-social-linking'}}]}], 'attrs': {'localId': 'dd90572b09e5'}}]}"
+    }
+  ],
+  "linked_tickets": [
+    {
+      "key": "CRYPTO-450",
+      "summary": "Telegram Login Account Linking & Unlinking Flow",
+      "status": "Development"
+    },
+    {
+      "key": "CT-656",
+      "summary": "[BE] Social Unlink",
+      "status": "Blocked"
+    },
+    {
+      "key": "PR-2756",
+      "summary": "[Crypto Release] Scope for PS2 release 19.02.2026",
+      "status": "Closed"
+    }
+  ],
+  "url": "https://next-t-code.atlassian.net/browse/CT-750",
+  "labels": [
+    "PostMVP_CT20",
+    "buffer_CT18"
+  ]
+}

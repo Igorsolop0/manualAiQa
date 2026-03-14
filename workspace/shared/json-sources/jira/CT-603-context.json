@@ -1,0 +1,52 @@
+{
+  "key": "CT-603",
+  "summary": "CLONE - Enable feature \u201cPlay Any Game While Bonus is Active\u201d",
+  "status": "Ready for testing",
+  "assignee": "Panda Sensei",
+  "priority": "High",
+  "issuetype": "Task",
+  "created": "2025-12-23T10:29:24.141+0000",
+  "updated": "2026-03-14T09:17:33.635+0000",
+  "description": "",
+  "recent_comments": [
+    {
+      "author": "Mikirurk",
+      "created": "2026-02-05T09:59:15.148+0000",
+      "body": "{'type': 'doc', 'version': 1, 'content': [{'type': 'paragraph', 'content': [{'type': 'text', 'text': 'Dev: 1.5d'}]}]}"
+    },
+    {
+      "author": "Galadriel",
+      "created": "2026-02-18T16:06:31.226+0000",
+      "body": "{'type': 'doc', 'version': 1, 'content': [{'type': 'paragraph', 'content': [{'type': 'mention', 'attrs': {'id': '712020:3d17a257-23ee-46de-a437-3b7a254c8a3b', 'text': '@Panda Sensei', 'accessLevel': '', 'localId': '3fe483de-d215-425f-bf3b-50012e0e343b'}}, {'type': 'text', 'text': ' \u0437\u0430\u0434\u0430\u0447\u0430 \u043d\u0435 \u0432\u043a\u043b\u044e\u0447\u0430\u0454 \u0432 \u0441\u0435\u0431\u0435 \u043f\u043e\u043f-\u0430\u043f \u0456 \u043c\u0435\u043d\u044e'}, {'type': 'hardBreak'}]}, {'type': 'mediaSingle', 'attrs': {'width': 352, 'widthType': 'pixel', 'layout': 'align-start'}, 'content': [{'type': 'media', 'attrs': {'type': 'file'"
+    },
+    {
+      "author": "Mikirurk",
+      "created": "2026-03-12T15:31:30.292+0000",
+      "body": "{'type': 'doc', 'version': 1, 'content': [{'type': 'paragraph', 'content': [{'type': 'text', 'text': 'RCA: ', 'marks': [{'type': 'strong'}]}, {'type': 'text', 'text': 'Added logic to show funds and information elements for Real-only'}, {'type': 'hardBreak'}, {'type': 'hardBreak'}, {'type': 'hardBreak'}, {'type': 'text', 'text': 'Temporary change only for one game because there are too many games. Revalidation will be done in the evening of 12.03.2026', 'marks': [{'type': 'strong'}]}], 'attrs': {"
+    },
+    {
+      "author": "Panda Sensei",
+      "created": "2026-03-12T17:04:35.903+0000",
+      "body": "{'type': 'doc', 'version': 1, 'content': [{'type': 'panel', 'content': [{'type': 'paragraph', 'content': [{'type': 'text', 'text': 'Tested on the prod internal domain'}], 'attrs': {'localId': '9c71697c1fea'}}, {'type': 'paragraph', 'content': [{'type': 'text', 'text': 'Devices: Pixel 10, iPhone 15 Pro Max, MacBook Air'}], 'attrs': {'localId': '60b64255ae43'}}, {'type': 'paragraph', 'content': [{'type': 'text', 'text': 'Browsers: Safari, Chrome'}], 'attrs': {'localId': 'd39578d40b68'}}, {'type': "
+    },
+    {
+      "author": "Mikirurk",
+      "created": "2026-03-14T09:16:31.621+0000",
+      "body": "{'type': 'doc', 'version': 1, 'content': [{'type': 'paragraph', 'content': [{'type': 'text', 'text': 'RCA: ', 'marks': [{'type': 'strong'}]}, {'type': 'text', 'text': 'Fixed a bug where the new menu overlaps the top menu'}], 'attrs': {'localId': '646e94f26778'}}, {'type': 'mediaSingle', 'attrs': {'width': 361, 'widthType': 'pixel', 'localId': 'e2ea7b3ccc67', 'layout': 'align-start'}, 'content': [{'type': 'media', 'attrs': {'type': 'file', 'id': '95038aa4-5b81-400a-8791-9ffa3fe67941', 'alt': 'Scr"
+    }
+  ],
+  "linked_tickets": [
+    {
+      "key": "MN-306",
+      "summary": "Enable feature \u201cPlay Any Game While Bonus is Active\u201d",
+      "status": "In progress"
+    }
+  ],
+  "url": "https://next-t-code.atlassian.net/browse/CT-603",
+  "labels": [
+    "Cloned",
+    "L1_Checked",
+    "PostMVP_CT19",
+    "PostMVP_CT20"
+  ]
+}

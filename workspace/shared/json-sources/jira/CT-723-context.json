@@ -1,0 +1,53 @@
+{
+  "key": "CT-723",
+  "summary": "CLONE - Transfer CIS-201 feature /Withdrawal cancellation reason",
+  "status": "On Production",
+  "assignee": "777 Bjorn",
+  "priority": "High",
+  "issuetype": "Task",
+  "created": "2026-02-04T13:34:02.682+0000",
+  "updated": "2026-03-13T15:50:34.751+0000",
+  "description": "",
+  "recent_comments": [
+    {
+      "author": "Mikirurk",
+      "created": "2026-02-05T13:14:17.092+0000",
+      "body": "{'type': 'doc', 'version': 1, 'content': [{'type': 'paragraph', 'content': [{'type': 'text', 'text': 'Dev: 3h'}]}]}"
+    },
+    {
+      "author": "Mikirurk",
+      "created": "2026-02-16T12:45:00.092+0000",
+      "body": "{'type': 'doc', 'version': 1, 'content': [{'type': 'paragraph', 'content': [{'type': 'text', 'text': 'RCA:', 'marks': [{'type': 'strong'}]}, {'type': 'text', 'text': ' A new column for the reason of payment '}, {'type': 'text', 'text': 'withdrawal', 'marks': [{'type': 'strong'}]}, {'type': 'text', 'text': ' was added'}, {'type': 'hardBreak'}]}, {'type': 'mediaSingle', 'attrs': {'width': 384, 'widthType': 'pixel', 'layout': 'align-start'}, 'content': [{'type': 'media', 'attrs': {'type': 'file', '"
+    },
+    {
+      "author": "Panda Sensei",
+      "created": "2026-02-17T14:49:36.658+0000",
+      "body": "{'type': 'doc', 'version': 1, 'content': [{'type': 'panel', 'content': [{'type': 'paragraph', 'content': [{'type': 'text', 'text': 'Environment:', 'marks': [{'type': 'strong'}]}, {'type': 'text', 'text': ' Portal PROD'}]}, {'type': 'paragraph', 'content': [{'type': 'text', 'text': 'Devices:', 'marks': [{'type': 'strong'}]}, {'type': 'text', 'text': ' iPhone 15 Pro Max, Pixel 10'}]}, {'type': 'paragraph', 'content': [{'type': 'text', 'text': 'Browsers:', 'marks': [{'type': 'strong'}]}, {'type': '"
+    },
+    {
+      "author": "Mikirurk",
+      "created": "2026-02-18T08:29:54.565+0000",
+      "body": "{'type': 'doc', 'version': 1, 'content': [{'type': 'paragraph', 'content': [{'type': 'text', 'text': 'Waiting for Smartico email setup'}]}]}"
+    },
+    {
+      "author": "777 Bjorn",
+      "created": "2026-03-10T11:10:47.607+0000",
+      "body": "{'type': 'doc', 'version': 1, 'content': [{'type': 'paragraph', 'content': [{'type': 'text', 'text': '\u041f\u0440\u043e\u0433\u043e\u0432\u043e\u0440\u0438\u0432 \u0437 \u0422\u0456\u043c\u0443\u0440\u043e\u043c, \u0432\u0456\u043d \u043f\u0440\u043e\u0442\u0435\u0441\u0442\u0443\u0454 \u0437\u0456 \u0441\u0432\u043e\u0454\u0457 \u0441\u0442\u043e\u0440\u043e\u043d\u0438 \u0442\u0430 \u043f\u043e\u0432\u0435\u0440\u043d\u0435\u0442\u044c\u0441\u044f \u0437 \u0444\u0456\u0431\u0435\u043a\u043e\u043c'}], 'attrs': {'localId': '51aa7ab4b85c'}}]}"
+    }
+  ],
+  "linked_tickets": [
+    {
+      "key": "MN-374",
+      "summary": "Transfer CIS-201 feature /Withdrawal cancellation reason",
+      "status": "Need to review"
+    }
+  ],
+  "url": "https://next-t-code.atlassian.net/browse/CT-723",
+  "labels": [
+    "Cloned",
+    "L1_Checked",
+    "PostMVP_CT18",
+    "PostMVP_CT19",
+    "PostMVP_CT20"
+  ]
+}

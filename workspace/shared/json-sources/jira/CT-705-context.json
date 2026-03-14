@@ -1,0 +1,47 @@
+{
+  "key": "CT-705",
+  "summary": "[FE] Display error and info messages for social login reset",
+  "status": "Ready for testing",
+  "assignee": "Panda Sensei",
+  "priority": "Normal",
+  "issuetype": "Task",
+  "created": "2026-01-23T10:03:35.373+0000",
+  "updated": "2026-03-13T13:14:41.205+0000",
+  "description": "",
+  "recent_comments": [
+    {
+      "author": "Potoibicha",
+      "created": "2026-01-23T10:22:30.718+0000",
+      "body": "{'type': 'doc', 'version': 1, 'content': [{'type': 'paragraph', 'content': [{'type': 'text', 'text': 'Est'}, {'type': 'hardBreak'}, {'type': 'text', 'text': 'dev 1d test 2h'}]}]}"
+    },
+    {
+      "author": "Stark",
+      "created": "2026-02-09T10:09:31.281+0000",
+      "body": "{'type': 'doc', 'version': 1, 'content': [{'type': 'codeBlock', 'content': [{'type': 'text', 'text': 'SocialAccountLinkTokenInvalid = 535,\\nSocialAccountAlreadyLinked = 536,\\nSocialAccountNotLinked = 537'}]}]}"
+    },
+    {
+      "author": "Stark",
+      "created": "2026-03-03T16:27:26.878+0000",
+      "body": "{'type': 'doc', 'version': 1, 'content': [{'type': 'paragraph', 'content': [{'type': 'mention', 'attrs': {'id': '712020:7054c1c6-9a9d-4153-8aa4-f4ed26779735', 'text': '@Kevin', 'accessLevel': '', 'localId': 'a197ff9c-cfea-4d73-93e8-535ac83db717'}}, {'type': 'text', 'text': ' need code error for this errors'}], 'attrs': {'localId': 'ccaadc1dae08'}}, {'type': 'paragraph', 'attrs': {'localId': '744aa6affc3a'}}, {'type': 'mediaSingle', 'attrs': {'width': 617, 'widthType': 'pixel', 'localId': '97354e"
+    },
+    {
+      "author": "Stark",
+      "created": "2026-03-03T16:28:34.831+0000",
+      "body": "{'type': 'doc', 'version': 1, 'content': [{'type': 'paragraph', 'content': [{'type': 'text', 'text': 'Move to blocked. Info here - '}, {'type': 'inlineCard', 'attrs': {'url': 'https://next-t-code.atlassian.net/browse/CT-548?focusedCommentId=112372', 'localId': 'c3f297d18bba'}}], 'attrs': {'localId': 'dc9636079e17'}}]}"
+    },
+    {
+      "author": "Stark",
+      "created": "2026-03-13T13:14:18.243+0000",
+      "body": "{'type': 'doc', 'version': 1, 'content': [{'type': 'paragraph', 'content': [{'type': 'text', 'text': 'https://minebit-casino.qa.sofon.one/test-social-linking', 'marks': [{'type': 'link', 'attrs': {'href': 'https://minebit-casino.qa.sofon.one/test-social-linking'}}]}], 'attrs': {'localId': '07e0c71eaa4a'}}]}"
+    }
+  ],
+  "linked_tickets": [
+    {
+      "key": "PS2-577",
+      "summary": "Disable password login after Social Auth",
+      "status": "Development"
+    }
+  ],
+  "url": "https://next-t-code.atlassian.net/browse/CT-705",
+  "labels": []
+}

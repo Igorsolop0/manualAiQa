@@ -1,14 +1,11 @@
 {
   "key": "CT-657",
-  "url": "https://next-t-code.atlassian.net/browse/CT-657",
   "summary": "[BE] tags mechanism for profile section ",
   "status": "On Production",
+  "assignee": "WhiteCat",
   "priority": "Normal",
   "issuetype": "Task",
-  "assignee": "WhiteCat",
-  "reporter": "Potoibicha",
-  "created": "2026-03-11T12:57:32.012+0000",
-  "updated": "2026-03-11T15:03:06.029+0000",
+  "project": "Crypto Team ",
   "description": {
     "type": "doc",
     "version": 1,
@@ -344,45 +341,21 @@
   "linked_tickets": [
     {
       "key": "CT-58",
-      "summary": "(CRYPTO-2) [FE] Profile Section on the Bonus page ",
-      "status": "Done"
+      "summary": "(CRYPTO-2) [FE] Profile Section on the Bonus page "
     },
     {
       "key": "CRYPTO-497",
-      "summary": "Personal Account on Bonus page",
-      "status": "Development"
+      "summary": "Personal Account on Bonus page"
     },
     {
       "key": "CT-757",
-      "summary": "[FE] Move \u201cDaily Quests\u201d Slider to Bonuses Page",
-      "status": "Done"
+      "summary": "[FE] Move \u201cDaily Quests\u201d Slider to Bonuses Page"
     }
   ],
   "recent_comments": [
-    {
-      "author": "WhiteCat",
-      "body": "{'type': 'doc', 'version': 1, 'content': [{'type': 'paragraph', 'content': [{'type': 'text', 'text': 'Bonus tag field is missing from the bonus set up after deployment to QA'}], 'attrs': {'localId': '",
-      "time": "2026-03-10T11:53:54.945+0000"
-    },
-    {
-      "author": "WhiteCat",
-      "body": "{'type': 'doc', 'version': 1, 'content': [{'type': 'paragraph', 'content': [{'type': 'text', 'text': 'there is issue with free spin bonus because statistic is not shown '}, {'type': 'hardBreak'}, {'ty",
-      "time": "2026-03-10T14:58:42.564+0000"
-    },
-    {
-      "author": "WhiteCat",
-      "body": "{'type': 'doc', 'version': 1, 'content': [{'type': 'paragraph', 'content': [{'type': 'text', 'text': 'Issue with statistic for free spin bonus is not fixed'}], 'attrs': {'localId': '79100e8e6401'}}]}",
-      "time": "2026-03-11T07:53:50.589+0000"
-    },
-    {
-      "author": "WhiteCat",
-      "body": "{'type': 'doc', 'version': 1, 'content': [{'type': 'paragraph', 'content': [{'type': 'text', 'text': 'Issue with free spin bonus is fixed but wager bonus statistic has been broken '}], 'attrs': {'loca",
-      "time": "2026-03-11T10:28:52.076+0000"
-    },
-    {
-      "author": "WhiteCat",
-      "body": "{'type': 'doc', 'version': 1, 'content': [{'type': 'paragraph', 'content': [{'type': 'text', 'text': 'Statistic with bonus tags is working on qa'}, {'type': 'hardBreak'}, {'type': 'text', 'text': 'che",
-      "time": "2026-03-11T12:57:32.012+0000"
-    }
-  ]
+    "",
+    "",
+    ""
+  ],
+  "url": "https://next-t-code.atlassian.net/browse/CT-657"
 }

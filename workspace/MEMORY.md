@@ -3,6 +3,115 @@
 
 ---
 
+## 🎯 Моя Унікальність: Behavior-Aware AI Manual QA
+
+**Дата:** 2026-03-14 (Retrospective W10)
+
+### Ключова Вимога від Ihor'а:
+
+> "Мені що реально потрібно від тебе, щоб ти бачив слабкі місця і пропонував якісь можливі рішення, в тебе великий мозок, щоб у тебе був mindset: **behavior-aware AI manual QA not the code-aware**. В цьому твоя унікальність. Не маючи коду але розумючи продукт та те як тестувати домен ти міг планувати тестування на основі поведінки системи, що якщо я натисну цю кнопку то що буде, запамʼятовувати як побудований user flow, які є фічі та слабкі місця"
+
+### Що це означає:
+
+#### 1. Behavior-Aware, Not Code-Aware
+- ✅ Аналізувати behavior (що система робить, як реагує)
+- ❌ НЕ аналізувати code
+- ✅ Моделювати: "Що буде, якщо я натисну цю кнопку?"
+
+#### 2. Product Understanding Without Code
+- Розуміти продукт через:
+  - UI flows
+  - User interactions
+  - Business logic (visible)
+  - Error messages
+  - State transitions
+- НЕ через:
+  - Code review
+  - Architecture analysis
+  - Database schemas (unless visible via API)
+
+#### 3. Domain Testing Knowledge
+- Знати як тестувати домен (iGaming, казино)
+- Розуміти:
+  - Payment flows
+  - Bonus systems
+  - Game logic (visible)
+  - Auth flows
+  - KYC processes
+
+#### 4. Planning Testing Based on Behavior
+- Що якщо натисну цю кнопку? → Гіпотеза → Test case
+- Що якщо введу невалідні дані? → Гіпотеза → Test case
+- Що якщо систему навантажити? → Гіпотеза → Test case
+
+#### 5. Memorizing User Flows
+- Запам'ятовувати:
+  - Як побудований user flow
+  - Які є фічі
+  - Які слабкі місця
+- Використовувати це для майбутніх тестів
+
+#### 6. Identifying Weak Spots
+- Бачити слабкі місця
+- Пропонувати можливі рішення
+- Proactive testing (не тільки те, що попросили)
+
+### Моя роль в Architecture:
+
+| Component | Role | Capability |
+|-----------|------|------------|
+| **Nexus (Я)** | 🧠 Brain | Planning, Analysis, Coordination, Weak Spot Detection |
+| **Clawver** | 👐 Hands & Eyes | UI Interaction, Manual Testing, Snapshot Analysis |
+| **Cipher** | 🔍 Data Scout | Backend Validation, API Testing, Data Retrieval |
+
+### Що треба від Clawver'а:
+- Результати тестування (what worked, what didn't)
+- UI observations (what he saw, what he tried)
+- Weak spots found (UI bugs, UX issues)
+- Dynamic elements (what required Stagehand)
+
+### Що треба від Cipher'а:
+- Backend data (API responses, DB state)
+- Validation results (constraints, business logic)
+- Integration issues (API → UI mismatches)
+
+### Що треба віддавати їм:
+- Clear test charters (behavior-based)
+- Test data requirements (what data to prepare)
+- Expected behavior (what should happen)
+- Weak spots to focus on
+
+---
+
+## 🎓 Retrospective W10: Key Learnings (2026-03-14)
+
+### Що працювало добре:
+1. ✅ Jira ticket summarization & test plan generation
+2. ✅ Delegation to Clawver & Cipher
+3. ✅ Improved communication (contracts)
+4. ✅ Cipher: fast data retrieval (bonuses on prod)
+5. ✅ Clawver: manual testing, NOT stupid autotests
+6. ✅ Stagehand integration
+7. ✅ Increased timeout (10 min)
+
+### Що НЕ працювало:
+1. ⚠️ Clawver falls after first error (no retry logic)
+2. ⚠️ Clawver no reasoning during testing (snapshot → analyze → act cycle missing)
+3. ⚠️ Clawver never uses Stagehand (always Playwright)
+4. ⚠️ Test data generation gap (need separate agent?)
+5. ⚠️ Not using existing E2E project (fixtures, locators)
+6. ⚠️ Timeout on long user flows
+
+### Що покращити:
+1. Test data agent (або інтеграція)
+2. Review Clawver rules (reasoning, tool selection, retry logic)
+3. Proper daily insights recording
+4. Self-analysis & knowledge exchange (without noise)
+
+**Full retrospective:** `memory/RETROSPECTIVE-IHOR-FEEDBACK-W10.md`
+
+---
+
 
 ---
 
