@@ -41,7 +41,7 @@
       "description": "Щоденний аналіз дій, розмов та model performance для покращення роботи",
       "enabled": true,
       "createdAtMs": 1772640000000,
-      "updatedAtMs": 1773439235774,
+      "updatedAtMs": 1773525665872,
       "schedule": {
         "kind": "cron",
         "expr": "0 23 * * *",
@@ -59,11 +59,11 @@
       },
       "state": {
         "consecutiveErrors": 0,
-        "nextRunAtMs": 1773525600000,
-        "lastRunAtMs": 1773439200037,
+        "nextRunAtMs": 1773612000000,
+        "lastRunAtMs": 1773525600053,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 35737,
+        "lastDurationMs": 65819,
         "lastDelivered": true,
         "lastDeliveryStatus": "delivered"
       }
@@ -95,16 +95,16 @@
         "bestEffort": true
       },
       "state": {
-        "nextRunAtMs": 1773514884157,
-        "lastRunAtMs": 1773511284176,
+        "nextRunAtMs": 1773601284157,
+        "lastRunAtMs": 1773597685838,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 277462,
+        "lastDurationMs": 202022,
         "lastDeliveryStatus": "delivered",
         "consecutiveErrors": 0,
         "lastDelivered": true
       },
-      "updatedAtMs": 1773511561638
+      "updatedAtMs": 1773597887860
     },
     {
       "id": "api-docs-daily",

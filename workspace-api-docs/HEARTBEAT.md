@@ -1,5 +1,10 @@
-# HEARTBEAT.md
+# HEARTBEAT.md - Cipher
 
-# Keep this file empty (or with only comments) to skip heartbeat API calls.
+Default state: empty.
 
-# Add tasks below when you want the agent to check something periodically.
+Cipher should not duplicate Nexus recurring checks.
+Use this file only for specific recurring API or backend monitoring work.
+
+Shared reference:
+
+- `/Users/ihorsolopii/.openclaw/docs/architecture/core-trio-shared-standard.md`

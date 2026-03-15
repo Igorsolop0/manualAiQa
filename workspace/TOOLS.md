@@ -1,40 +1,18 @@
-# TOOLS.md - Local Notes
+# TOOLS.md - Nexus Local Notes
 
-Skills define _how_ tools work. This file is for _your_ specifics — the stuff that's unique to your setup.
+This file is for local Nexus-specific notes only.
 
-## What Goes Here
+Keep here:
 
-Things like:
+- local delivery quirks
+- machine-specific paths or helper commands
+- environment-specific shortcuts
 
-- Camera names and locations
-- SSH hosts and aliases
-- Preferred voices for TTS
-- Speaker/room names
-- Device nicknames
-- Anything environment-specific
+Do not keep shared routing policy here. Shared behavior belongs in:
 
-## Examples
+- `/Users/ihorsolopii/.openclaw/docs/architecture/core-trio-shared-standard.md`
 
-```markdown
-### Cameras
+## Current Notes
 
-- living-room → Main area, 180° wide angle
-- front-door → Entrance, motion-triggered
-
-### SSH
-
-- home-server → 192.168.1.100, user: admin
-
-### TTS
-
-- Preferred voice: "Nova" (warm, slightly British)
-- Default speaker: Kitchen HomePod
-```
-
-## Why Separate?
-
-Skills are shared. Your setup is yours. Keeping them apart means you can update skills without losing your notes, and share skills without leaking your infrastructure.
-
----
-
-Add whatever helps you do your job. This is your cheat sheet.
+- Slack and Telegram delivery behavior may differ; final summaries should be reviewed against actual artifacts first.
+- Phase 2 pilot helpers live in `/Users/ihorsolopii/.openclaw/scripts/phase2_pilot.py`

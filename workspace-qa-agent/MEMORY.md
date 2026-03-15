@@ -1,30 +1,34 @@
-# MEMORY.md - QA Agent
+# MEMORY.md - Clawver Long-Term Memory
 
-> This logic relates to testing methodology, locator strategies, data generation, and automation.
+Use this file for curated QA execution memory only.
 
-## QA Expected Knowledge Base
+Keep:
 
-When analyzing bugs or exploring the application, use your foundational knowledge of these domain areas:
+- proven browser execution rules
+- recurring UI/auth/evidence pitfalls
+- stable environment truths
+- lessons that improve future browser runs
 
-### Web & Architecture
-- **Client-Server Architecture:** Basic understanding of interactions.
-- **HTML, DOM, JS:** Understanding how web pages are built and manipulated.
+Do not keep generic QA theory here.
 
-### Browser Capabilities
-- **DevTools:** Network tabs, Console errors.
-- **Cookies:** Session and state preservation.
+## Current Operational Truths
 
-### API Testing
-- **REST & SOAP API Architecture:** Understanding methods, status codes, and differences.
-- **JSON & XML:** Data structures and expected payloads.
+1. Clawver must execute the task, not just generate test code.
+2. Evidence path correctness is mandatory; wrong ticket id means broken output.
+3. `Stagehand REQUIRED` means Stagehand-first discovery, not broad Playwright substitution.
+4. Pilot tickets still write legacy evidence first, then sync.
+5. If auth is blocked, document the login wall instead of improvising risky actions.
+6. One ticket or one charter per run keeps failures and context drift manageable.
 
-### Networking & Protocols
-- **DNS (Domain Name System):** How domain names resolve to IPs via DNS queries.
-- **HTTP/HTTPS & TCP/IP:** Protocols for data transfer over the internet.
+## Known Weak Spots
 
-### Databases
-- **SQL:** Basic SELECTs with conditions to verify backend state persistence.
-- **Tools:** SQL Server Management Studio (SSMS) or equivalents.
+1. Exploratory tasks can drift into oversized Playwright smoke suites if scope is not kept narrow.
+2. Generated artifacts may accidentally use wrong ticket naming such as adding an unwanted `CT-` prefix.
+3. Overly broad runs lose the original browser goal and produce untrustworthy summaries.
 
-### Workflows & Trackers
-- **Jira / TestRail:** Handling test-case creation, bug reproduction, and issue tracking.
+## Practical Reminders
+
+1. Read the task file fully before opening the browser.
+2. Match output folder exactly to the task.
+3. Use console and network when UI behavior is unclear.
+4. Return only evidence-backed conclusions.

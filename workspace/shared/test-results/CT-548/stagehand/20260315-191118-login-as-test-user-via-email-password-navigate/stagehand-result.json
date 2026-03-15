@@ -1,0 +1,194 @@
+{
+  "success": false,
+  "reason": "timeout",
+  "steps": [
+    {
+      "index": 1,
+      "action": "ariaTree",
+      "description": "ariaTree",
+      "selector": null,
+      "method": null,
+      "arguments": null,
+      "framePath": null,
+      "url": "https://minebit-casino.qa.sofon.one/"
+    },
+    {
+      "index": 2,
+      "action": "act",
+      "description": "click the Log In button",
+      "selector": "xpath=/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/header[1]/div[1]/div[1]/div[6]/div[1]/div[2]/button[1]",
+      "method": "click",
+      "arguments": [],
+      "framePath": null,
+      "url": "https://minebit-casino.qa.sofon.one/?modal=iqs-sign-in"
+    },
+    {
+      "index": 3,
+      "action": "wait",
+      "description": "wait",
+      "selector": null,
+      "method": null,
+      "arguments": null,
+      "framePath": null,
+      "url": "https://minebit-casino.qa.sofon.one/?modal=iqs-sign-in"
+    },
+    {
+      "index": 4,
+      "action": "ariaTree",
+      "description": "ariaTree",
+      "selector": null,
+      "method": null,
+      "arguments": null,
+      "framePath": null,
+      "url": "https://minebit-casino.qa.sofon.one/?modal=iqs-sign-in"
+    },
+    {
+      "index": 5,
+      "action": "fillForm",
+      "description": "fillForm",
+      "selector": null,
+      "method": null,
+      "arguments": null,
+      "framePath": null,
+      "url": "https://minebit-casino.qa.sofon.one/?modal=iqs-sign-in"
+    },
+    {
+      "index": 6,
+      "action": "act",
+      "description": "click the Start Playing button",
+      "selector": "xpath=/html[1]/body[1]/div[2]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[2]/form[1]/div[2]/div[2]/button[1]",
+      "method": "click",
+      "arguments": [],
+      "framePath": null,
+      "url": "https://minebit-casino.qa.sofon.one/?modal=iqs-sign-in"
+    },
+    {
+      "index": 7,
+      "action": "wait",
+      "description": "wait",
+      "selector": null,
+      "method": null,
+      "arguments": null,
+      "framePath": null,
+      "url": "https://minebit-casino.qa.sofon.one/?modal=iqs-sign-in"
+    },
+    {
+      "index": 8,
+      "action": "screenshot",
+      "description": "screenshot",
+      "selector": null,
+      "method": null,
+      "arguments": null,
+      "framePath": null,
+      "url": "https://minebit-casino.qa.sofon.one/?modal=iqs-sign-in"
+    }
+  ],
+  "artifacts": {
+    "screenshots": [
+      {
+        "stepIndex": 0,
+        "path": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/ct-548/stagehand/20260315-191118-login-as-test-user-via-email-password-navigate/step-000-initial.png",
+        "label": "initial"
+      },
+      {
+        "stepIndex": 1,
+        "path": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/ct-548/stagehand/20260315-191118-login-as-test-user-via-email-password-navigate/step-001-after-tool.png",
+        "label": "after-step-1"
+      },
+      {
+        "stepIndex": 2,
+        "path": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/ct-548/stagehand/20260315-191118-login-as-test-user-via-email-password-navigate/step-002-after-tool.png",
+        "label": "after-step-2"
+      },
+      {
+        "stepIndex": 3,
+        "path": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/ct-548/stagehand/20260315-191118-login-as-test-user-via-email-password-navigate/step-003-after-tool.png",
+        "label": "after-step-3"
+      },
+      {
+        "stepIndex": 4,
+        "path": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/ct-548/stagehand/20260315-191118-login-as-test-user-via-email-password-navigate/step-004-after-tool.png",
+        "label": "after-step-4"
+      },
+      {
+        "stepIndex": 5,
+        "path": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/ct-548/stagehand/20260315-191118-login-as-test-user-via-email-password-navigate/step-005-after-tool.png",
+        "label": "after-step-5"
+      },
+      {
+        "stepIndex": 6,
+        "path": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/ct-548/stagehand/20260315-191118-login-as-test-user-via-email-password-navigate/step-006-after-tool.png",
+        "label": "after-step-6"
+      },
+      {
+        "stepIndex": 7,
+        "path": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/ct-548/stagehand/20260315-191118-login-as-test-user-via-email-password-navigate/step-007-after-tool.png",
+        "label": "after-step-7"
+      },
+      {
+        "stepIndex": 8,
+        "path": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/ct-548/stagehand/20260315-191118-login-as-test-user-via-email-password-navigate/step-008-after-tool.png",
+        "label": "after-step-8"
+      }
+    ],
+    "domSnapshots": [
+      {
+        "stepIndex": 0,
+        "path": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/ct-548/stagehand/20260315-191118-login-as-test-user-via-email-password-navigate/step-000-initial.html",
+        "label": "initial"
+      },
+      {
+        "stepIndex": 1,
+        "path": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/ct-548/stagehand/20260315-191118-login-as-test-user-via-email-password-navigate/step-001-after-tool.html",
+        "label": "after-step-1"
+      },
+      {
+        "stepIndex": 2,
+        "path": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/ct-548/stagehand/20260315-191118-login-as-test-user-via-email-password-navigate/step-002-after-tool.html",
+        "label": "after-step-2"
+      },
+      {
+        "stepIndex": 3,
+        "path": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/ct-548/stagehand/20260315-191118-login-as-test-user-via-email-password-navigate/step-003-after-tool.html",
+        "label": "after-step-3"
+      },
+      {
+        "stepIndex": 4,
+        "path": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/ct-548/stagehand/20260315-191118-login-as-test-user-via-email-password-navigate/step-004-after-tool.html",
+        "label": "after-step-4"
+      },
+      {
+        "stepIndex": 5,
+        "path": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/ct-548/stagehand/20260315-191118-login-as-test-user-via-email-password-navigate/step-005-after-tool.html",
+        "label": "after-step-5"
+      },
+      {
+        "stepIndex": 6,
+        "path": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/ct-548/stagehand/20260315-191118-login-as-test-user-via-email-password-navigate/step-006-after-tool.html",
+        "label": "after-step-6"
+      },
+      {
+        "stepIndex": 7,
+        "path": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/ct-548/stagehand/20260315-191118-login-as-test-user-via-email-password-navigate/step-007-after-tool.html",
+        "label": "after-step-7"
+      },
+      {
+        "stepIndex": 8,
+        "path": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/ct-548/stagehand/20260315-191118-login-as-test-user-via-email-password-navigate/step-008-after-tool.html",
+        "label": "after-step-8"
+      }
+    ]
+  },
+  "errors": [
+    "Agent execution was aborted: timeout"
+  ],
+  "meta": {
+    "durationMs": 128767,
+    "timedOut": true,
+    "model": "zai-coding/glm-4.7",
+    "resolvedModel": "deepseek/glm-4.7",
+    "initialUrl": "https://minebit-casino.qa.sofon.one",
+    "finalUrl": null,
+    "artifactDir": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/ct-548/stagehand/20260315-191118-login-as-test-user-via-email-password-navigate"
+  }
+}

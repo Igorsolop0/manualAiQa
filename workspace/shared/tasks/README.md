@@ -8,9 +8,26 @@ Task files should be named `[TICKET_ID]-task.md` (e.g., `CT-476-task.md`).
 ## Template
 ```markdown
 # Task: Smoke Test CT-476
+- **Source ticket or charter:** CT-476
+- **Prepared by:** Nexus
+- **Context retrieval notes:**
+  - Related prior flow or ticket: [if found]
+  - Existing assets checked: [fixtures/scripts/tests/helpers/session refs]
+  - Important missing context: [if any]
+- **Feature framing:**
+  - Behavior under test: [what changed]
+  - User-visible goal: [what should happen]
+  - Key dependency: [backend/auth/data dependency]
+- **Risk focus:**
+  1. [highest risk]
+  2. [second risk]
 - **Environment:** https://minebit-casino.prod.sofon.one
 - **Auth:** Required. Read credentials from `workspace/shared/credentials/CT-476-prod-credentials.json`
 - **Stagehand mode:** auto (`auto|required|off`)
+- **Execution owner:** `qa-agent` (`qa-agent|api-docs-agent|mixed`)
+- **Execution split:**
+  - Clawver: [browser or UI scope]
+  - Cipher: [API or data-prep scope, if any]
 - **Browser goals (only if Stagehand mode != off):**
   1. Reach state: [expected final UI state]
   2. Start URL: [exact URL]
@@ -71,3 +88,16 @@ Before final Slack summary in pilot mode:
 ```bash
 python3 /Users/ihorsolopii/.openclaw/scripts/phase2_pilot.py pre-summary-gate --ticket CT-XXX
 ```
+
+## Nexus planning expectation
+
+Before creating a task file, Nexus should usually structure the planning output as:
+
+1. `Context Retrieval`
+2. `Feature Framing`
+3. `Risk Focus`
+4. `Execution Split`
+5. `Test Plan`
+6. `Approval / Next Action`
+
+Task files should reflect that structure in compact form instead of starting directly with scenarios only.

@@ -31,3 +31,8 @@ Scope: Controlled baseline snapshot before contract-driven refactor.
 - Freeze current architecture before introducing contracts.
 - Make maturity visible before changing routing logic.
 - Reduce ambiguity without rewriting all persona/agent docs.
+
+## Current Shared Standard
+
+- Core trio communication and file semantics are standardized in:
+- `/Users/ihorsolopii/.openclaw/docs/architecture/core-trio-shared-standard.md`

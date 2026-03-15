@@ -1,0 +1,154 @@
+{
+  "success": false,
+  "reason": "timeout",
+  "steps": [
+    {
+      "index": 1,
+      "action": "ariaTree",
+      "description": "ariaTree",
+      "selector": null,
+      "method": null,
+      "arguments": null,
+      "framePath": null,
+      "url": "https://minebit-casino.qa.sofon.one/test-social-linking"
+    },
+    {
+      "index": 2,
+      "action": "screenshot",
+      "description": "screenshot",
+      "selector": null,
+      "method": null,
+      "arguments": null,
+      "framePath": null,
+      "url": "https://minebit-casino.qa.sofon.one/test-social-linking"
+    },
+    {
+      "index": 3,
+      "action": "scroll",
+      "description": "scroll",
+      "selector": null,
+      "method": null,
+      "arguments": null,
+      "framePath": null,
+      "url": "https://minebit-casino.qa.sofon.one/test-social-linking"
+    },
+    {
+      "index": 4,
+      "action": "screenshot",
+      "description": "screenshot",
+      "selector": null,
+      "method": null,
+      "arguments": null,
+      "framePath": null,
+      "url": "https://minebit-casino.qa.sofon.one/test-social-linking"
+    },
+    {
+      "index": 5,
+      "action": "scroll",
+      "description": "scroll",
+      "selector": null,
+      "method": null,
+      "arguments": null,
+      "framePath": null,
+      "url": "https://minebit-casino.qa.sofon.one/test-social-linking"
+    },
+    {
+      "index": 6,
+      "action": "screenshot",
+      "description": "screenshot",
+      "selector": null,
+      "method": null,
+      "arguments": null,
+      "framePath": null,
+      "url": "https://minebit-casino.qa.sofon.one/test-social-linking"
+    }
+  ],
+  "artifacts": {
+    "screenshots": [
+      {
+        "stepIndex": 0,
+        "path": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/ct-548/stagehand/20260315-192015-navigate-to-test-social-linking-page-find-and-c/step-000-initial.png",
+        "label": "initial"
+      },
+      {
+        "stepIndex": 1,
+        "path": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/ct-548/stagehand/20260315-192015-navigate-to-test-social-linking-page-find-and-c/step-001-after-tool.png",
+        "label": "after-step-1"
+      },
+      {
+        "stepIndex": 2,
+        "path": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/ct-548/stagehand/20260315-192015-navigate-to-test-social-linking-page-find-and-c/step-002-after-tool.png",
+        "label": "after-step-2"
+      },
+      {
+        "stepIndex": 3,
+        "path": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/ct-548/stagehand/20260315-192015-navigate-to-test-social-linking-page-find-and-c/step-003-after-tool.png",
+        "label": "after-step-3"
+      },
+      {
+        "stepIndex": 4,
+        "path": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/ct-548/stagehand/20260315-192015-navigate-to-test-social-linking-page-find-and-c/step-004-after-tool.png",
+        "label": "after-step-4"
+      },
+      {
+        "stepIndex": 5,
+        "path": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/ct-548/stagehand/20260315-192015-navigate-to-test-social-linking-page-find-and-c/step-005-after-tool.png",
+        "label": "after-step-5"
+      },
+      {
+        "stepIndex": 6,
+        "path": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/ct-548/stagehand/20260315-192015-navigate-to-test-social-linking-page-find-and-c/step-006-after-tool.png",
+        "label": "after-step-6"
+      }
+    ],
+    "domSnapshots": [
+      {
+        "stepIndex": 0,
+        "path": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/ct-548/stagehand/20260315-192015-navigate-to-test-social-linking-page-find-and-c/step-000-initial.html",
+        "label": "initial"
+      },
+      {
+        "stepIndex": 1,
+        "path": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/ct-548/stagehand/20260315-192015-navigate-to-test-social-linking-page-find-and-c/step-001-after-tool.html",
+        "label": "after-step-1"
+      },
+      {
+        "stepIndex": 2,
+        "path": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/ct-548/stagehand/20260315-192015-navigate-to-test-social-linking-page-find-and-c/step-002-after-tool.html",
+        "label": "after-step-2"
+      },
+      {
+        "stepIndex": 3,
+        "path": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/ct-548/stagehand/20260315-192015-navigate-to-test-social-linking-page-find-and-c/step-003-after-tool.html",
+        "label": "after-step-3"
+      },
+      {
+        "stepIndex": 4,
+        "path": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/ct-548/stagehand/20260315-192015-navigate-to-test-social-linking-page-find-and-c/step-004-after-tool.html",
+        "label": "after-step-4"
+      },
+      {
+        "stepIndex": 5,
+        "path": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/ct-548/stagehand/20260315-192015-navigate-to-test-social-linking-page-find-and-c/step-005-after-tool.html",
+        "label": "after-step-5"
+      },
+      {
+        "stepIndex": 6,
+        "path": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/ct-548/stagehand/20260315-192015-navigate-to-test-social-linking-page-find-and-c/step-006-after-tool.html",
+        "label": "after-step-6"
+      }
+    ]
+  },
+  "errors": [
+    "Agent execution was aborted: timeout"
+  ],
+  "meta": {
+    "durationMs": 66455,
+    "timedOut": true,
+    "model": "zai-coding/glm-4.7",
+    "resolvedModel": "deepseek/glm-4.7",
+    "initialUrl": "https://minebit-casino.qa.sofon.one/test-social-linking",
+    "finalUrl": null,
+    "artifactDir": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/ct-548/stagehand/20260315-192015-navigate-to-test-social-linking-page-find-and-c"
+  }
+}

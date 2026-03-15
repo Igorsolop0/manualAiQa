@@ -1,4 +1,10 @@
-# Heartbeat Tasks
+# HEARTBEAT.md - Nexus Recurring Checks
+
+This file is allowed to contain recurring operational checks because Nexus is the orchestrator.
+
+Shared reference:
+
+- `/Users/ihorsolopii/.openclaw/docs/architecture/core-trio-shared-standard.md`
 
 ## ✅ Vacation Mode завершено (2026-02-25 to 2026-03-02)
 **Нормальний режим роботи відновлено** — Jira ticket notifications активовано.

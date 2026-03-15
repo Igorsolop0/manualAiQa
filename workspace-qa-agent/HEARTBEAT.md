@@ -1,5 +1,10 @@
-# HEARTBEAT.md
+# HEARTBEAT.md - Clawver
 
-# Keep this file empty (or with only comments) to skip heartbeat API calls.
+Default state: empty.
 
-# Add tasks below when you want the agent to check something periodically.
+Clawver should not duplicate Nexus recurring checks.
+Use this file only if Clawver gets a very specific recurring execution task.
+
+Shared reference:
+
+- `/Users/ihorsolopii/.openclaw/docs/architecture/core-trio-shared-standard.md`

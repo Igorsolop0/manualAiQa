@@ -1,34 +1,35 @@
-# TOOLS.md - Local Notes
+# TOOLS.md - Clawver Local Notes
 
-Skills define _how_ tools work. This file is for _your_ specifics — the stuff that's unique to your setup.
+This file is for Clawver-specific local environment notes only.
 
-## What Goes Here
+Do not keep shared execution policy here. Shared behavior belongs in:
 
-Things like:
-- Local domains and test environments
-- VPN requirements and routing rules
-- SSH hosts and aliases
-- Port configurations (e.g., CDP ports)
-- Anything environment-specific
+- `/Users/ihorsolopii/.openclaw/docs/architecture/core-trio-shared-standard.md`
 
----
+## Environments
 
-## My Cheat Sheet (QA Environment)
+### Internal Portals
 
-### Environments & Domains
+Usually require Tailscale VPN.
+Format:
 
-#### Internal Portals (Requires Tailscale VPN)
-Usually, I test on these internal domains. They are accessible **only when Tailscale VPN is connected**.
-Format: `https://{brand}-casino.{env}.sofon.one`
-- **Brands:** `minebit`, `alov`, `wagibet`
-- **Environments:** `qa`, `dev`, `prod`
-- *Example:* `https://minebit-casino.qa.sofon.one`
+- `https://{brand}-casino.{env}.sofon.one`
 
-#### Public Web Domains (Requires Geo-VPN)
-These are public-facing domains. They require a standard VPN (e.g., Hungary, Switzerland, Canada, etc.) to simulate real user traffic and bypass geo-blocks.
-- **Domains:** `minebit.com`, `minebit.io`
+Examples:
 
-### Browser Configuration
-- **Playwright CDP Port:** 18801 (Profile 2 - nextcode)
-- **Stagehand Runner:** `/Users/ihorsolopii/Documents/stagehand-runner`
-- **Stagehand Chrome Path:** `/Applications/Google Chrome.app/Contents/MacOS/Google Chrome`
+- `https://minebit-casino.qa.sofon.one`
+- `https://minebit-casino.prod.sofon.one`
+
+### Public Domains
+
+May require geo-VPN:
+
+- `minebit.com`
+- `minebit.io`
+
+## Browser Notes
+
+- Playwright CDP port: `18801`
+- Default Minebit browser profile: `Profile 2`
+- Stagehand runner: `/Users/ihorsolopii/Documents/stagehand-runner`
+- Stagehand Chrome path: `/Applications/Google Chrome.app/Contents/MacOS/Google Chrome`
