@@ -3,6 +3,10 @@
 Date: 2026-03-13  
 Scope: Safe pilot for one ticket at a time.
 
+Companion checklist:
+
+- `/Users/ihorsolopii/.openclaw/docs/runbooks/core-trio-ops-checklist.md`
+
 ## Goal
 
 Keep current behavior (`workspace/shared/*`) while introducing per-ticket run traceability in:
@@ -15,6 +19,8 @@ Keep current behavior (`workspace/shared/*`) while introducing per-ticket run tr
 - Legacy paths remain active.
 - No existing task/evidence path is removed.
 - Pilot is opt-in per ticket.
+- For new `CT-*` execution tasks, treat pilot bootstrap as the default operating path.
+- Ticket naming is canonicalized to `CT-XXX` for task, result, stagehand, and run paths.
 
 ## Commands
 
@@ -42,6 +48,12 @@ Or explicitly by run_id:
 python3 /Users/ihorsolopii/.openclaw/scripts/phase2_pilot.py sync-legacy --run-id CT-XXX-YYYYMMDD-01
 ```
 
+Fail-fast Stagehand policy guard (use after executor pass, before normal `emit-result`):
+
+```bash
+python3 /Users/ihorsolopii/.openclaw/scripts/phase2_pilot.py stagehand-guard --ticket CT-XXX --phase post --agent qa-agent --on-violation blocked --next-owner nexus --emit-result --write-results-stub
+```
+
 Register session-record (instead of raw token handoff):
 
 ```bash
@@ -52,6 +64,12 @@ Emit result-packet from executor:
 
 ```bash
 python3 /Users/ihorsolopii/.openclaw/scripts/phase2_pilot.py emit-result --ticket CT-XXX --agent qa-agent --status completed --confidence medium --next-owner nexus --evidence-ref workspace/shared/test-results/CT-XXX/results.json
+```
+
+Emit learning candidate (idempotent; writes ticket insight + daily intake + run learning mirror):
+
+```bash
+python3 /Users/ihorsolopii/.openclaw/scripts/phase2_pilot.py emit-learning --ticket CT-XXX --owner qa-agent --status completed --observed "Google OAuth page opens but requires pre-auth session" --impact "auth-first precondition must be explicit in planning" --applies-to "Minebit social linking flows" --promote-to project --evidence-ref workspace/shared/test-results/CT-XXX/results.json
 ```
 
 Auto-insert hooks into task file:
@@ -79,6 +97,12 @@ Pre-summary gate before Nexus posts Slack result:
 python3 /Users/ihorsolopii/.openclaw/scripts/phase2_pilot.py pre-summary-gate --ticket CT-XXX
 ```
 
+Strict variant (fail gate when learning sync is missing):
+
+```bash
+python3 /Users/ihorsolopii/.openclaw/scripts/phase2_pilot.py pre-summary-gate --ticket CT-XXX --require-learning
+```
+
 ## What gets created
 
 - `shared/runs/<run_id>/` folders:
@@ -97,17 +121,28 @@ python3 /Users/ihorsolopii/.openclaw/scripts/phase2_pilot.py pre-summary-gate --
 ## Pilot operating rules
 
 1. Nexus still writes task file into legacy `workspace/shared/tasks/`.
-2. Clawver/Cipher still write evidence into legacy `workspace/shared/test-results/<ticket>/`.
-3. After each executor pass, Nexus (or executor) runs `sync-legacy`.
-4. Session handoff is by `session-record` refs (no raw token in prose).
-5. Executors emit `result-packet` into run contracts.
-6. Nexus reviews run folder as canonical trace for pilot ticket.
-7. Before Slack summary, Nexus waits for `results.json` readiness.
+2. For a new `CT-*` execution task, Nexus should run `bootstrap-dispatch` before delegation unless the work is analysis-only.
+3. Clawver/Cipher still write evidence into legacy `workspace/shared/test-results/<ticket>/`.
+4. After each executor pass, Nexus (or executor) runs `sync-legacy`.
+5. Session handoff is by `session-record` refs (no raw token in prose).
+6. Executors emit `result-packet` into run contracts.
+7. Executors emit `emit-learning` for reusable findings (ticket note + daily candidate + run learning mirror).
+8. Nexus reviews run folder as canonical trace for pilot ticket.
+9. Before Slack summary, Nexus waits for `results.json` readiness.
    - Use retry with short backoff until file exists and timestamp is stable.
    - If not ready by timeout, return partial status with explicit "result not finalized".
-8. Before Slack summary in pilot mode, run contract validation.
+10. Before Slack summary in pilot mode, run contract validation.
    - Validate `result-packet` and `session-record` (when present).
    - If invalid, mark summary as `PARTIAL` and include validation error.
+11. `pre-summary-gate` also checks runtime policy alignment for pilot runs.
+   - Example: `Stagehand ONLY` tasks must not produce Playwright fallback artifacts like `manual-test.ts` or `*.spec.ts`.
+   - If such artifacts exist, the gate should return `PARTIAL` with `runtime_policy_violation`.
+11.1 Use `stagehand-guard` for fail-fast callback from executor side.
+   - If violation is found, it emits a blocked/partial result packet immediately and writes a legacy `results.json` stub.
+   - This avoids long "preparing" loops before Nexus sees a real blocked state.
+12. `pre-summary-gate` reports learning-sync status.
+   - By default this is advisory.
+   - Use `--require-learning` when you want gate to enforce learning emission.
 
 ## Exit criteria for pilot
 

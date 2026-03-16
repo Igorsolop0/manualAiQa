@@ -1,0 +1,20 @@
+{
+  "player": {
+    "id": 3563473,
+    "email": "pandasen@echoprx.cc"
+  },
+  "tests": [
+    {
+      "environment": "dev",
+      "endpoint": "/api/Client/DeactivateClients",
+      "method": "POST",
+      "success": false
+    },
+    {
+      "environment": "qa",
+      "endpoint": "/api/Client/DeactivateClients",
+      "method": "POST",
+      "success": false
+    }
+  ]
+}

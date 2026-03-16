@@ -1,0 +1,182 @@
+{
+  "ticket": "CT-657",
+  "task": "Перевірка механізму тегів на PROD",
+  "environment": "prod",
+  "timestamp": "2026-03-16T16:00:00Z",
+  
+  "findings": {
+    "bonus_11439_details": {
+      "id": 11439,
+      "name": "120% Super Boost",
+      "bonus_tag_id_from_list": null,
+      "bonus_tag_id_from_detail": null,
+      "bonus_type": "Bonus Wagering",
+      "template": "Bonus Wagering",
+      "promo_code": null
+    },
+    
+    "bonus_11380_details": {
+      "id": 11380,
+      "name": "ROCKTUBER 150% + 50 FS",
+      "bonus_tag_id_from_list": null,
+      "bonus_tag_id_from_detail": null,
+      "bonus_type": "Welcome Bonus Wagering",
+      "template": "Welcome Bonus Wagering",
+      "promo_code": null
+    },
+    
+    "bonus_11397_details": {
+      "id": 11397,
+      "name": "$25 Cash Bonus",
+      "bonus_tag_id_from_list": null,
+      "bonus_tag_id_from_detail": null,
+      "bonus_type": "Bonus Wagering",
+      "template": "Bonus Wagering",
+      "promo_code": null
+    }
+  },
+  
+  "tag_system_status": {
+    "mechanism_exists": true,
+    "endpoint_works": true,
+    "endpoint": "GET /api/Bonus/GetBonusTags",
+    "total_tags_found": 8
+  },
+  
+  "available_bonus_tags": [
+    {
+      "id": 1,
+      "name": "Quests",
+      "description": "Місії або квестові бонуси"
+    },
+    {
+      "id": 2,
+      "name": "Wheel of fortune",
+      "description": "Бонуси з колесом фортуни"
+    },
+    {
+      "id": 3,
+      "name": "Rakeback",
+      "description": "Бонуси рейкбеку"
+    },
+    {
+      "id": 4,
+      "name": "Cashback",
+      "description": "Кешбек бонуси"
+    },
+    {
+      "id": 5,
+      "name": "Deposit bonus",
+      "description": "Депозитні бонуси"
+    },
+    {
+      "id": 6,
+      "name": "Free Spins",
+      "description": "Безкоштовні фріспіни"
+    },
+    {
+      "id": 7,
+      "name": "Weekly",
+      "description": "Тижневі бонуси"
+    },
+    {
+      "id": 8,
+      "name": "Monthly",
+      "description": "Щомісячні бонуси"
+    }
+  ],
+  
+  "comparison": {
+    "getbonuses_list_endpoint": {
+      "endpoint": "GET /api/Bonus/GetBonuses",
+      "bonus_count_checked": 2000,
+      "bonuses_with_tags": 0,
+      "bonus_tag_id_field": "PRESENT",
+      "bonus_tag_id_value": "null for all bonuses"
+    },
+    
+    "getbonusinfo_detail_endpoint": {
+      "endpoint": "GET /api/Bonus/GetBonusInfo",
+      "bonus_id_checked": 11439,
+      "bonus_tag_id_field": "PRESENT",
+      "bonus_tag_id_value": "null",
+      "notes": "Показує null незважаючи на те що поле присутнє"
+    },
+    
+    "other_bonuses_checked": {
+      "bonus_11380": "bonus_tag_id: null",
+      "bonus_11397": "bonus_tag_id: null"
+    }
+  },
+  
+  "conclusion": {
+    "system_implementation": {
+      "tag_system_developed": true,
+      "api_endpoint_exists": true,
+      "getbonustags_works": true,
+      "bonus_object_has_field": true
+    },
+    
+    "deployment_status": {
+      "production": "NOT ACTIVE",
+      "no_bonuses_have_tags": true,
+      "all_bonuses_null_bonus_tag_id": true,
+      "mechanism_functional": "NO"
+    },
+    
+    "ticket_ct657_status": {
+      "likely_status": "IN_DEVELOPMENT",
+      "alternative": "DEPLOYMENT_PENDING",
+      "or": "DISABLED_ON_PROD"
+    }
+  },
+  
+  "investigation": {
+    "why_user_saw_tagid_7": {
+      "theory_1": "Кешовані дані (користувач дивився на застарілий об'єкт)",
+      "theory_2": "Бонус 11439 мав тег 'Weekly' (ID 7) але потім був оновлений і тег видалений",
+      "theory_3": "Користувач дивився на інший бонус (не 11439) або інше середовище",
+      "theory_4": "GetBonusInfo повертає старі дані з кешу",
+      "theory_5": "GetBonusInfo має баг - показує null не зважаючи на це"
+    },
+    
+    "api_behavior_analysis": {
+      "inconsistency": "GetBonuses повертає BonusTagId=null, але GetBonusInfo показує null",
+      "expected_behavior": "Обидва ендпоінти повинні показувати однакові дані",
+      "actual_behavior": "Дані різняться між ендпоінтами",
+      "possible_explanation": "Різні джерела даних або кешування"
+    }
+  },
+  
+  "recommendations": [
+    {
+      "priority": "HIGH",
+      "action": "Підтвердити статус CT-657 з Backend Team",
+      "description": "Чи тікет завершений і механізм задеплоєний на PROD?"
+    },
+    {
+      "priority": "HIGH",
+      "action": "Перевірити наявність бонусів з тегами в DEV/QA",
+      "description": "Можливо механізм активований тільки в тестових середовищах"
+    },
+    {
+      "priority": "MEDIUM",
+      "action": "Розуміти чому BonusTagId не заповнюється",
+      "description": "Чи це неактивна функціональність, чи баг, чи вимкнена конфігурація"
+    },
+    {
+      "priority": "LOW",
+      "action": "Документувати несуперечність між GetBonuses та GetBonusInfo",
+      "description": "Пояснити чому різні ендпоінти показують різні дані"
+    }
+  ],
+  
+  "summary": {
+    "tag_system_exists": true,
+    "tags_available": 8,
+    "bonuses_populated_with_tags": 0,
+    "mechanism_works_on_prod": false,
+    "ct657_status": "LIKELY_IN_DEVELOPMENT_OR_NOT_DEPLOYED",
+    "user_claim_verification": "POSSIBLY_CACHED_DATA_OR_WRONG_BONUS"
+  }
+}

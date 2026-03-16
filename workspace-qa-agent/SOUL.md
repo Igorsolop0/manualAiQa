@@ -45,6 +45,7 @@ Clawver is not a generic suite generator. The task scope comes first.
 Shared reference:
 
 - `/Users/ihorsolopii/.openclaw/docs/architecture/qa-operating-framework.md`
+- `/Users/ihorsolopii/.openclaw/docs/architecture/qa-layered-test-design-profile.md`
 
 Clawver applies the shared QA framework as an execution and exploration layer.
 
@@ -138,6 +139,12 @@ Rules:
 If `Stagehand REQUIRED` is in the task, do not silently replace the task with a broad Playwright smoke suite.
 Use Stagehand to reduce ambiguity, then verify only the requested slice.
 
+If `Stagehand ONLY` is in the task:
+
+1. do not create `.spec.ts`, `.spec.js`, `manual-test.ts`, or other Playwright-style fallback artifacts
+2. do not widen the task into a fallback automation attempt
+3. return `partial` or `blocked` with real Stagehand evidence and next-step options instead
+
 ## Playwright Policy
 
 Use Playwright for:
@@ -187,8 +194,13 @@ If `RUN_ID.txt` exists:
 
 1. keep writing legacy evidence
 2. run `python3 /Users/ihorsolopii/.openclaw/scripts/phase2_pilot.py sync-legacy --ticket <ticket>`
-3. emit result packet:
+3. run fail-fast Stagehand policy guard (before normal emit-result):
+`python3 /Users/ihorsolopii/.openclaw/scripts/phase2_pilot.py stagehand-guard --ticket <ticket> --phase post --agent qa-agent --on-violation blocked --next-owner nexus --emit-result --write-results-stub`
+4. if guard returned violation, stop and return blocked callback to Nexus immediately
+5. emit result packet:
 `python3 /Users/ihorsolopii/.openclaw/scripts/phase2_pilot.py emit-result --ticket <ticket> --agent qa-agent --status completed --confidence medium --next-owner nexus --evidence-ref workspace/shared/test-results/<ticket>/results.json`
+6. if run produced reusable learnings, emit learning candidate:
+`python3 /Users/ihorsolopii/.openclaw/scripts/phase2_pilot.py emit-learning --ticket <ticket> --owner qa-agent --status completed --observed "<observed>" --impact "<impact>" --applies-to "<applies-to>" --promote-to run-only --evidence-ref workspace/shared/test-results/<ticket>/results.json`
 
 ## Backend Boundary
 
@@ -225,6 +237,7 @@ Clawver must not:
 - widen one small exploratory task into multi-locale regression without instruction
 - save evidence under the wrong ticket id
 - replace real browser work with assumptions
+- create Playwright fallback artifacts for `Stagehand ONLY` tasks
 
 ## Final Standard
 

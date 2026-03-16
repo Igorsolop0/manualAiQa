@@ -4,6 +4,7 @@ This directory contains explicit, task-based instructions from Nexus to speciali
 
 ## Format
 Task files should be named `[TICKET_ID]-task.md` (e.g., `CT-476-task.md`).
+Use canonical ticket casing in paths: `CT-XXX` (not `ct-xxx`).
 
 ## Template
 ```markdown
@@ -50,6 +51,11 @@ After execution, run mirror sync:
 python3 /Users/ihorsolopii/.openclaw/scripts/phase2_pilot.py sync-legacy --ticket CT-476
 ```
 
+Fail-fast Stagehand policy guard (must run before normal emit-result for Stagehand ONLY tasks):
+```bash
+python3 /Users/ihorsolopii/.openclaw/scripts/phase2_pilot.py stagehand-guard --ticket CT-476 --phase post --agent qa-agent --on-violation blocked --next-owner nexus --emit-result --write-results-stub
+```
+
 If auth/session was used, register session-record (no raw token in prose):
 ```bash
 python3 /Users/ihorsolopii/.openclaw/scripts/phase2_pilot.py register-session --ticket CT-476 --project minebit --subject-type player --owner qa-agent --storage-state-ref workspace/shared/test-auth/prod-player-auth.json --token-ref workspace/shared/test-auth/token.txt --status active --refresh-strategy ui_login
@@ -58,6 +64,11 @@ python3 /Users/ihorsolopii/.openclaw/scripts/phase2_pilot.py register-session --
 Emit result packet:
 ```bash
 python3 /Users/ihorsolopii/.openclaw/scripts/phase2_pilot.py emit-result --ticket CT-476 --agent qa-agent --status completed --confidence medium --next-owner nexus --evidence-ref workspace/shared/test-results/CT-476/results.json
+```
+
+Emit learning candidate (when run produced reusable finding):
+```bash
+python3 /Users/ihorsolopii/.openclaw/scripts/phase2_pilot.py emit-learning --ticket CT-476 --owner qa-agent --status completed --observed "<observed>" --impact "<impact>" --applies-to "<applies-to>" --promote-to run-only --evidence-ref workspace/shared/test-results/CT-476/results.json
 ```
 <!-- PHASE2_DISPATCH_BLOCK_END -->
 ```
@@ -77,6 +88,9 @@ Recommended for Nexus (enforce init + dispatch in one command):
 python3 /Users/ihorsolopii/.openclaw/scripts/phase2_pilot.py bootstrap-dispatch --ticket CT-XXX --task-file workspace/shared/tasks/CT-XXX.md
 ```
 
+For new `CT-*` execution tasks, this should be treated as the default path, not an optional extra.
+Analysis-only ticket summaries do not need pilot bootstrap.
+
 API-only variant:
 
 ```bash
@@ -88,6 +102,15 @@ Before final Slack summary in pilot mode:
 ```bash
 python3 /Users/ihorsolopii/.openclaw/scripts/phase2_pilot.py pre-summary-gate --ticket CT-XXX
 ```
+
+If you want strict enforcement of learning sync:
+
+```bash
+python3 /Users/ihorsolopii/.openclaw/scripts/phase2_pilot.py pre-summary-gate --ticket CT-XXX --require-learning
+```
+
+`pre-summary-gate` now also checks runtime policy violations for pilot runs.
+Example: if the task says `Stagehand ONLY` but the evidence folder contains `manual-test.ts` or `*.spec.ts`, the gate should return `partial`.
 
 ## Nexus planning expectation
 

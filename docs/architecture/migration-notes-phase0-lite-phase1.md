@@ -66,15 +66,22 @@ Completed so far:
 - core trio file-meaning standard is aligned
 - shared QA cognition layer was drafted in `docs/architecture/qa-operating-framework.md`
 - shared learning sync model was drafted in `docs/architecture/learning-sync-model.md`
+- refactor run review checklist was added in `docs/architecture/refactor-compliance-checklist.md`
 - Nexus, Clawver, and Cipher startup guides were cleaned up
 - Nexus, Clawver, and Cipher `SOUL.md` files were narrowed to role, boundaries, stop rules, and evidence rules
 - shared communication model was documented in `docs/architecture/core-trio-shared-standard.md`
 - safe archival cleanup removed legacy noise from top-level `workspace/` and `workspace-qa-agent/`
 - actual startup/runtime file usage was documented in `docs/architecture/agent-reference-map.md`
 - Nexus `MEMORY.md` was reduced to operational memory only
+- ticket naming was normalized to canonical `CT-XXX` across pilot helper and Stagehand artifact fallback paths
+- layered test-design profile extracted from `workspace/QA_TEST_DESIGN_APPROACH.md` into canonical architecture docs
 
 Still open in Phase 3:
 
-- decide what to extract from `workspace/QA_TEST_DESIGN_APPROACH.md` into a canonical practical framework
-- continue behavioral hardening so `Stagehand REQUIRED` tasks do not drift into oversized generic Playwright generation
+- Stagehand drift hardening now has fail-fast guard (`phase2_pilot.py stagehand-guard`) for `Stagehand ONLY` violations
+- roll out updated dispatch block via `bootstrap-dispatch` on new execution tasks to apply guard consistently
+- learning emission hardening is now implemented in pilot helper (`phase2_pilot.py emit-learning` + gate visibility in `pre-summary-gate`)
+- Batch 6A baseline checklist added: `docs/runbooks/core-trio-ops-checklist.md`
+- adopt `pre-summary-gate --require-learning` on selected runs after 1-2 dry runs confirm signal/noise balance
+- use the refactor compliance checklist on more live runs and convert repeated failures into explicit guardrails
 - optionally do another pass on project-specific memory placement if new duplication appears

@@ -1,0 +1,170 @@
+{
+  "ticket": "CT-657",
+  "task": "Пошук бонусів з тегами на PROД",
+  "environment": "prod",
+  "timestamp": "2026-03-16T17:35:00Z",
+  "bonus_id_tested": 11439,
+  
+  "test_1_check": {
+    "endpoint": "GET /api/Bonus/GetBonusInfo",
+    "body": "11439",
+    "timestamp": "2026-03-16T16:05:00Z",
+    "result": {
+      "Id": 11439,
+      "Name": "120% Super Boost",
+      "BonusTagId": null,
+      "PromoCode": null
+    },
+    "status": "BONUS_EXISTS_NO_TAG"
+  },
+  
+  "test_2_check": {
+    "endpoint": "GET /api/Bonus/GetBonusInfo",
+    "body": "11439",
+    "timestamp": "2026-03-16T17:35:00Z",
+    "result": {
+      "Id": null,
+      "Name": null,
+      "BonusTagId": null,
+      "PromoCode": null
+    },
+    "status": "BONUS_DELETED_OR_NOT_FOUND"
+  },
+  
+  "test_3_all_bonuses": {
+    "endpoint": "GET /api/Bonus/GetBonuses",
+    "parameters": {
+      "partnerId": 5,
+      "takeCount": 50,
+      "skipCount": 0,
+      "isActive": true
+    },
+    "result": {
+      "query": "[.ResponseObject.Entities[] | select(.BonusTagId != null)]",
+      "output": "[]"
+    },
+    "status": "NO_TAGGED_BONUSES_FOUND"
+  },
+  
+  "final_conclusion": {
+    "bonus_11439_status": "DELETED_OR_BROKEN",
+    "all_bonuses_with_tags": 0,
+    "total_bonuses_checked": 50,
+    "tag_system_status": "TAGS_EXIST_BUT_NOT_POPULATED"
+  },
+  
+  "findings": [
+    {
+      "type": "CRITICAL",
+      "finding": "Бонус 11439 був змінений або видалений між двома запитами",
+      "evidence": "Перший запит: ID=11439, Name='120% Super Boost', BonusTagId=null. Другий запит: всі поля null",
+      "conclusion": "Бонус більше не існує або був видалений"
+    },
+    {
+      "type": "CRITICAL",
+      "finding": "ЖОДИН бонус на PROД має призначений тег",
+      "evidence": "Проверено 50 бонусів, всі мають BonusTagId=null",
+      "conclusion": "Система тегів існує технічно але функціонально неактивована"
+    },
+    {
+      "type": "FACT",
+      "finding": "Механізм тегів повністю неактивований на PROД",
+      "evidence": [
+        "BonusTagId поле присутнє в схемі",
+        "8 бонусних тегів доступні через GetBonusTags",
+        "ЖОДИН бонус не має призначеного тегу"
+        "GetBonusTags повертає список 8 тегів"
+      ]
+    },
+    {
+      "type": "INCONSISTENCY",
+      "finding": "Користувач бачив BonusTagId: 7 (Weekly) через backoffice UI",
+      "evidence": "BonusTagId: 7 існує в системі як 'Weekly'",
+      "explanation": [
+        "Це застарілі/кешовані дані",
+        "Або користувач бачив інший бонус із тегом",
+        "Або backoffice UI використовує інший ендпоінт (mgw)",
+        "Або тег був призначений але потім видалений між запитами"
+      ]
+    }
+  ],
+  
+  "answers_to_questions": {
+    "question_1": "Бонуси з BonusTagId на PROД?",
+      "answer": "НІ, жодного бонусу не має заповненого BonusTagId",
+      "evidence": "Проверено 50 бонусів, всі BonusTagId=null"
+    },
+    {
+      "question_2": "Бонус 11439 був видалений між запитами?",
+      "answer": "ТАК, другий запит повернув ID=null, Name=null",
+      "evidence": "Бонус більше не існує або був видалений/змінений"
+    },
+    {
+      "question_3": "Чи працює механізм тегів на PROД?",
+      "answer": "НІ, система тегів існує але функціонально неактивована",
+      "evidence": "Теги доступні, але жодний бонус не має призначеного тегу"
+    },
+    {
+      "question_4": "Як користувач бачив BonusTagId: 7?",
+      "answer": "Невідомо, можливо: кешовані дані, інший ендпоінт, або тег був видалений",
+      "theories": [
+        "Користувач бачив застарілі дані з кешу",
+        "Користувач бачив інший бонус (не 11439) із тегом 'Weekly'",
+        "Backoffice UI використовує mgw/admin/api (інша система)",
+        "Тег 'Weekly' (ID: 7) був призначений бонусу 11439 але потім видалений"
+      ]
+    }
+  },
+  
+  "tag_system_status": {
+    "tags_exist": true,
+    "tags_count": 8,
+    "tag_list": [
+      {"id": 1, "name": "Quests"},
+      {"id": 2, "name": "Wheel of fortune"},
+      {"id": 3, "name": "Rakeback"},
+      {"id": 4, "name": "Cashback"},
+      {"id": 5, "name": "Deposit bonus"},
+      {"id": 6, "name": "Free Spins"},
+      {"id": 7, "name": "Weekly"},
+      {"id": 8, "name": "Monthly"}
+    ],
+    "populated_status": "NO_BONUSES_ASSIGNED"
+  },
+  
+  "recommendations": [
+    {
+      "priority": "HIGH",
+      "action": "Підтвердити з backend team чи механізм тегів активований на PROД",
+      "description": "Система існує технічно, але жодний бонус не має тегу"
+    },
+    {
+      "priority": "HIGH",
+      "action": "Перевірити чи CT-657 (Bonus Tag System) задеплоєний на PROД",
+      "description": "Можливо міграція ще не пройшла або функція відключена"
+    },
+    {
+      "priority": "MEDIUM",
+      "action": "Питати про backoffice UI та mgw/admin/api різницю",
+      "description": "Користувач міг бачити дані з іншого ендпоінта"
+    },
+    {
+      "priority": "LOW",
+      "action": "Документувати несуперечність між ендпоінтами",
+      "description": "adminwebapi показує null, mgw може показувати інші дані"
+    },
+    {
+      "priority": "INFO",
+      "action": "Нагадування про кешування даних",
+      "description": "Можливо користувач бачив застарілі дані з кешу API або браузера"
+    }
+  ],
+  
+  "summary": {
+    "bonus_11439": "DELETED_OR_BROKEN",
+    "bonuses_with_tags": 0,
+    "tag_system": "EXISTS_BUT_INACTIVE",
+    "ct657_status": "LIKELY_NOT_DEPLOYED_OR_DISABLED",
+    "investigation_status": "COMPLETE"
+  }
+}

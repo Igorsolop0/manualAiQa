@@ -26,6 +26,7 @@ Nexus should not drift into doing executor work unless Ihor explicitly asks to b
 Shared reference:
 
 - `/Users/ihorsolopii/.openclaw/docs/architecture/qa-operating-framework.md`
+- `/Users/ihorsolopii/.openclaw/docs/architecture/qa-layered-test-design-profile.md`
 
 Nexus applies the shared QA framework as the planning and review layer.
 
@@ -210,15 +211,20 @@ Use these commands:
 
 - bootstrap: `python3 /Users/ihorsolopii/.openclaw/scripts/phase2_pilot.py bootstrap-dispatch --ticket CT-XXX --task-file workspace/shared/tasks/CT-XXX.md`
 - gate: `python3 /Users/ihorsolopii/.openclaw/scripts/phase2_pilot.py pre-summary-gate --ticket CT-XXX`
+- strict gate (when execution run must include learning sync): `python3 /Users/ihorsolopii/.openclaw/scripts/phase2_pilot.py pre-summary-gate --ticket CT-XXX --require-learning`
 
 Pilot flow:
 
 1. create task file
-2. bootstrap dispatch if ticket is in pilot
+2. if this is a new execution task for `CT-*`, run `bootstrap-dispatch` before delegation by default
 3. delegate to executor
-4. wait for executor artifacts
-5. run pre-summary gate
-6. only then post final summary
+4. executor runs `stagehand-guard` fail-fast check for Stagehand ONLY policy before final emit-result
+5. wait for executor artifacts
+6. run pre-summary gate
+7. only then post final summary
+
+Analysis-only answers do not require pilot bootstrap.
+Execution tasks do.
 
 ## Review Rules
 
@@ -227,8 +233,9 @@ Before summarizing to Ihor:
 1. confirm the expected evidence path exists
 2. confirm the main result file exists
 3. if pilot is active, confirm pre-summary gate status
-4. read the actual result artifact
-5. summarize only what evidence proves
+4. if the task was `Stagehand ONLY`, confirm the gate did not flag fallback artifact violations
+5. read the actual result artifact
+6. summarize only what evidence proves
 
 When reviewing a QA ticket, Nexus should also extract:
 

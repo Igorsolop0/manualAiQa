@@ -5,6 +5,10 @@ Scope: Nexus, Clawver, Cipher
 
 This document is the shared QA cognition layer for the OpenClaw core trio.
 
+Companion profile (practical layered sequence):
+
+- `/Users/ihorsolopii/.openclaw/docs/architecture/qa-layered-test-design-profile.md`
+
 It is not:
 
 - a full ISTQB textbook
@@ -318,6 +322,23 @@ The goal is:
 - improve future planning
 - improve future execution
 - improve future confidence
+
+## 14. Layered Design Profile
+
+For ticket-level planning and test design, use the layered profile alias "Burger":
+
+0. memory check
+1. feature container
+2. testing types
+3. design techniques
+4. principles and risk prioritization
+5. scenario set
+
+Reference:
+
+- `/Users/ihorsolopii/.openclaw/docs/architecture/qa-layered-test-design-profile.md`
+
+This keeps analysis structured and avoids jumping straight into untraceable scenario dumps.
 
 ## 14. Behavior-Aware QA In Practice
 

@@ -5,12 +5,16 @@ from __future__ import annotations
 
 import argparse
 import datetime as dt
+import hashlib
 import json
 import re
 import shutil
 import subprocess
 import time
 from pathlib import Path
+
+
+TICKET_ID_RE = re.compile(r"^([A-Za-z]+)-(\d+)$")
 
 
 def utc_now() -> str:
@@ -42,6 +46,14 @@ def ensure_json_file(path: Path, default_data: dict) -> dict:
 def save_json(path: Path, data: dict) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(data, indent=2) + "\n", encoding="utf-8")
+
+
+def ensure_markdown_file(path: Path, default_content: str) -> str:
+    if not path.exists():
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(default_content.rstrip() + "\n", encoding="utf-8")
+        return default_content.rstrip() + "\n"
+    return path.read_text(encoding="utf-8")
 
 
 def next_run_id(runs_dir: Path, ticket_id: str) -> str:
@@ -278,6 +290,382 @@ def sanitize_id(value: str) -> str:
     return safe or "unknown"
 
 
+def canonical_ticket_id(raw: str) -> str:
+    value = raw.strip()
+    match = TICKET_ID_RE.match(value)
+    if not match:
+        return value
+    return f"{match.group(1).upper()}-{match.group(2)}"
+
+
+def make_learning_fingerprint(
+    ticket_id: str,
+    owner: str,
+    status: str,
+    observed: list[str],
+    impact: list[str],
+    applies_to: list[str],
+    promote_to: str,
+    evidence_refs: list[str],
+) -> str:
+    payload = {
+        "ticket_id": ticket_id,
+        "owner": owner,
+        "status": status,
+        "observed": observed,
+        "impact": impact,
+        "applies_to": applies_to,
+        "promote_to": promote_to,
+        "evidence_refs": sorted(evidence_refs),
+    }
+    digest = hashlib.sha1(
+        json.dumps(payload, sort_keys=True, ensure_ascii=True).encode("utf-8")
+    ).hexdigest()
+    return digest[:12]
+
+
+def ensure_insight_note_file(path: Path, ticket_id: str) -> str:
+    default = "\n".join(
+        [
+            f"# Insight Note: {ticket_id}",
+            "",
+            "- Date: YYYY-MM-DD",
+            "- Owner: qa-agent | api-docs-agent",
+            "- Status: completed | partial | blocked | failed",
+            "",
+            "## Observed",
+            "- [what actually happened]",
+            "",
+            "## Impact",
+            "- [why it matters for future testing]",
+            "",
+            "## Applies To",
+            "- [project, flow, or feature family]",
+            "",
+            "## Candidate Promotion",
+            "- run-only | project | nexus-memory | clawver-memory | cipher-memory",
+            "",
+            "## Evidence",
+            "- workspace/shared/test-results/<ticket>/results.json",
+            "",
+        ]
+    )
+    return ensure_markdown_file(path, default)
+
+
+def append_ticket_insight_entry(
+    path: Path,
+    ticket_id: str,
+    date_text: str,
+    owner: str,
+    status: str,
+    observed: list[str],
+    impact: list[str],
+    applies_to: list[str],
+    promote_to: str,
+    evidence_refs: list[str],
+    run_id: str | None,
+    fingerprint: str,
+) -> bool:
+    content = ensure_insight_note_file(path, ticket_id)
+    marker = f"<!-- insight-id: {fingerprint} -->"
+    if marker in content:
+        return False
+
+    lines = [
+        "",
+        marker,
+        f"## {date_text} - {owner}",
+        f"- Status: {status}",
+        "",
+        "### Observed",
+    ]
+    lines.extend([f"- {item}" for item in observed])
+    lines.extend(["", "### Impact"])
+    lines.extend([f"- {item}" for item in impact])
+    lines.extend(["", "### Applies To"])
+    lines.extend([f"- {item}" for item in applies_to])
+    lines.extend(["", "### Candidate Promotion", f"- {promote_to}", "", "### Evidence"])
+    if evidence_refs:
+        lines.extend([f"- {ref}" for ref in evidence_refs])
+    else:
+        lines.append("- [no explicit evidence ref provided]")
+    if run_id:
+        lines.extend(["", "### Run", f"- shared/runs/{run_id}"])
+    lines.append("")
+
+    updated = content.rstrip() + "\n" + "\n".join(lines).rstrip() + "\n"
+    path.write_text(updated, encoding="utf-8")
+    return True
+
+
+def append_daily_insight_candidate(
+    path: Path,
+    date_text: str,
+    ticket_id: str,
+    owner: str,
+    observed: list[str],
+    impact: list[str],
+    applies_to: list[str],
+    promote_to: str,
+    evidence_refs: list[str],
+    fingerprint: str,
+) -> bool:
+    default = "\n".join(
+        [
+            "# Daily Agent Insights & Errors",
+            "",
+            "_This file is used by Clawver and Cipher to append short, evidence-backed learning candidates._",
+            "",
+            "_Every night at 23:00, Nexus Orchestrator reads this file, abstracts the learned rules into `PROJECT_KNOWLEDGE.md`, and then clears this file._",
+            "",
+            "---",
+            "",
+            "## Entry Format",
+            "",
+            "Use compact entries only.",
+            "",
+            "---",
+            "",
+        ]
+    )
+    content = ensure_markdown_file(path, default)
+    marker = f"<!-- insight-id: {fingerprint} -->"
+    if marker in content:
+        return False
+
+    observed_text = "; ".join(item.strip() for item in observed if item.strip())
+    impact_text = "; ".join(item.strip() for item in impact if item.strip())
+    applies_text = "; ".join(item.strip() for item in applies_to if item.strip())
+    evidence_text = ", ".join(evidence_refs) if evidence_refs else "[not provided]"
+
+    block = "\n".join(
+        [
+            "",
+            marker,
+            f"### {date_text} - {ticket_id} - {owner}",
+            f"- Observed: {observed_text}",
+            f"- Impact: {impact_text}",
+            f"- Applies to: {applies_text}",
+            f"- Promote to: {promote_to}",
+            f"- Evidence: {evidence_text}",
+            "",
+        ]
+    )
+    updated = content.rstrip() + "\n" + block.rstrip() + "\n"
+    path.write_text(updated, encoding="utf-8")
+    return True
+
+
+def write_run_learning_candidate(
+    root: Path,
+    run_id: str,
+    ticket_id: str,
+    owner: str,
+    status: str,
+    observed: list[str],
+    impact: list[str],
+    applies_to: list[str],
+    promote_to: str,
+    evidence_refs: list[str],
+    note_ref: str,
+    daily_ref: str | None,
+    fingerprint: str,
+    date_text: str,
+) -> Path:
+    payload = {
+        "ticket_id": ticket_id,
+        "run_id": run_id,
+        "date": date_text,
+        "owner": owner,
+        "status": status,
+        "observed": observed,
+        "impact": impact,
+        "applies_to": applies_to,
+        "promote_to": promote_to,
+        "evidence_refs": evidence_refs,
+        "insight_note_ref": note_ref,
+        "daily_candidate_ref": daily_ref,
+        "fingerprint": fingerprint,
+        "created_at": utc_now(),
+    }
+    run_learning_dir = root / "shared" / "runs" / run_id / "learning"
+    run_learning_dir.mkdir(parents=True, exist_ok=True)
+    out = run_learning_dir / f"{ticket_id}-{sanitize_id(owner)}-{fingerprint}.json"
+    save_json(out, payload)
+    return out
+
+
+def inspect_learning_sync(root: Path, ticket_id: str, run_id: str) -> dict:
+    insight_path = root / "workspace" / "memory" / "insights" / f"{ticket_id}-insights.md"
+    daily_path = root / "workspace" / "shared" / "DAILY_INSIGHTS.md"
+    run_learning_dir = root / "shared" / "runs" / run_id / "learning"
+
+    insight_exists = insight_path.exists()
+    daily_exists = daily_path.exists()
+
+    insight_mentions_ticket = False
+    daily_mentions_ticket = False
+    if insight_exists:
+        try:
+            insight_mentions_ticket = ticket_id in insight_path.read_text(encoding="utf-8")
+        except OSError:
+            insight_mentions_ticket = False
+    if daily_exists:
+        try:
+            daily_text = daily_path.read_text(encoding="utf-8")
+            daily_mentions_ticket = (f"- {ticket_id} -") in daily_text
+        except OSError:
+            daily_mentions_ticket = False
+
+    run_learning_files = 0
+    run_learning_matches_ticket = 0
+    if run_learning_dir.exists():
+        for entry in run_learning_dir.glob("*.json"):
+            run_learning_files += 1
+            try:
+                data = json.loads(entry.read_text(encoding="utf-8"))
+            except (OSError, json.JSONDecodeError):
+                continue
+            if data.get("ticket_id") == ticket_id:
+                run_learning_matches_ticket += 1
+
+    ok = insight_mentions_ticket and daily_mentions_ticket and run_learning_matches_ticket > 0
+    return {
+        "ok": ok,
+        "ticket_id": ticket_id,
+        "insight_note": {
+            "exists": insight_exists,
+            "contains_ticket": insight_mentions_ticket,
+            "ref": rel_path(root, insight_path),
+        },
+        "daily_intake": {
+            "exists": daily_exists,
+            "contains_ticket": daily_mentions_ticket,
+            "ref": rel_path(root, daily_path),
+        },
+        "run_learning": {
+            "dir_ref": rel_path(root, run_learning_dir),
+            "files_found": run_learning_files,
+            "matching_ticket_entries": run_learning_matches_ticket,
+        },
+    }
+
+
+def detect_stagehand_policy(task_text: str) -> str:
+    lowered = task_text.lower()
+    if "stagehand only" in lowered:
+        return "only"
+    if "stagehand required" in lowered:
+        return "required"
+    if "stagehand mode: auto" in lowered or "stagehand mode:** auto" in lowered:
+        return "auto"
+    return "off"
+
+
+def inspect_runtime_policy(
+    root: Path,
+    run_id: str | None,
+    ticket_id: str,
+    task_file_ref: str | None,
+) -> dict:
+    legacy_results_dir = root / "workspace" / "shared" / "test-results" / ticket_id
+    run_dir = (root / "shared" / "runs" / run_id) if run_id else None
+
+    task_text = ""
+    task_sources: list[Path] = []
+    if task_file_ref:
+        candidate = root / task_file_ref
+        if candidate.exists():
+            task_sources.append(candidate)
+    copied_task = (run_dir / "plan" / "task-source.md") if run_dir else None
+    if copied_task and copied_task.exists():
+        task_sources.append(copied_task)
+
+    for source in task_sources:
+        try:
+            task_text = source.read_text(encoding="utf-8")
+            if task_text.strip():
+                break
+        except OSError:
+            continue
+
+    policy = detect_stagehand_policy(task_text)
+    findings: list[dict] = []
+
+    if policy == "only":
+        forbidden_names = {"manual-test.ts"}
+        forbidden_suffixes = (".spec.ts", ".spec.js", ".spec.mjs", ".spec.cjs")
+        seen: set[str] = set()
+        base_dirs = [legacy_results_dir]
+        if run_dir:
+            base_dirs.append(run_dir / "evidence" / "legacy-mirror")
+        for base_dir in base_dirs:
+            if not base_dir.exists():
+                continue
+            for path in base_dir.rglob("*"):
+                if not path.is_file():
+                    continue
+                name = path.name
+                if name in forbidden_names or any(name.endswith(suffix) for suffix in forbidden_suffixes):
+                    ref = rel_path(root, path)
+                    if ref in seen:
+                        continue
+                    seen.add(ref)
+                    findings.append(
+                        {
+                            "type": "forbidden_fallback_artifact",
+                            "file": ref,
+                            "message": "Stagehand ONLY task produced a Playwright-style fallback artifact.",
+                        }
+                    )
+
+    return {
+        "stagehand_policy": policy,
+        "run_id": run_id,
+        "task_file_ref": task_file_ref,
+        "ok": len(findings) == 0,
+        "findings": findings,
+    }
+
+
+def get_active_ticket_entry(root: Path, ticket_id: str) -> dict:
+    registry_path = root / "shared" / "runs" / "active-pilot-runs.json"
+    registry = ensure_json_file(registry_path, {"updated_at": utc_now(), "tickets": {}})
+    return registry.get("tickets", {}).get(ticket_id, {}) or {}
+
+
+def resolve_task_file_ref_for_ticket(
+    root: Path,
+    ticket_id: str,
+    run_id: str | None,
+    explicit_task_file: str | None,
+) -> str | None:
+    if explicit_task_file:
+        candidate = Path(explicit_task_file).expanduser()
+        if not candidate.is_absolute():
+            candidate = root / candidate
+        return rel_path(root, candidate)
+
+    entry = get_active_ticket_entry(root, ticket_id)
+    task_file_ref = entry.get("task_file_ref")
+    if task_file_ref:
+        candidate = root / task_file_ref
+        if candidate.exists():
+            return str(task_file_ref)
+
+    if run_id:
+        copied_task = root / "shared" / "runs" / run_id / "plan" / "task-source.md"
+        if copied_task.exists():
+            return rel_path(root, copied_task)
+
+    default_task = root / "workspace" / "shared" / "tasks" / f"{ticket_id}.md"
+    if default_task.exists():
+        return rel_path(root, default_task)
+
+    return None
+
+
 def register_session_record(
     root: Path,
     run_id: str,
@@ -420,6 +808,15 @@ def build_dispatch_block(root: Path, ticket_id: str, run_id: str, agent: str) ->
         f"python3 {root / 'scripts' / 'phase2_pilot.py'} sync-legacy --ticket {ticket_id}",
         "```",
         "",
+        "Fail-fast runtime guard (required before normal emit-result in Stagehand ONLY tasks):",
+        "```bash",
+        (
+            f"python3 {root / 'scripts' / 'phase2_pilot.py'} stagehand-guard --ticket {ticket_id} "
+            f"--phase post --agent {agent_safe} --on-violation blocked --next-owner nexus "
+            "--emit-result --write-results-stub"
+        ),
+        "```",
+        "",
         session_hint,
         "```bash",
         (
@@ -436,6 +833,16 @@ def build_dispatch_block(root: Path, ticket_id: str, run_id: str, agent: str) ->
         (
             f"python3 {root / 'scripts' / 'phase2_pilot.py'} emit-result --ticket {ticket_id} "
             f"--agent {agent_safe} --status completed --confidence medium --next-owner nexus "
+            f"--evidence-ref {default_evidence}"
+        ),
+        "```",
+        "",
+        "Emit learning candidate (if run produced reusable insight):",
+        "```bash",
+        (
+            f"python3 {root / 'scripts' / 'phase2_pilot.py'} emit-learning --ticket {ticket_id} "
+            f"--owner {agent_safe} --status completed --observed \"<observed>\" "
+            "--impact \"<impact>\" --applies-to \"<applies-to>\" --promote-to run-only "
             f"--evidence-ref {default_evidence}"
         ),
         "```",
@@ -472,20 +879,21 @@ def resolve_run_ticket(
 ) -> tuple[str, str]:
     registry_path = root / "shared" / "runs" / "active-pilot-runs.json"
     registry = ensure_json_file(registry_path, {"updated_at": utc_now(), "tickets": {}})
+    normalized_ticket = canonical_ticket_id(ticket_id) if ticket_id else None
 
-    if run_id and ticket_id:
-        return run_id, ticket_id
+    if run_id and normalized_ticket:
+        return run_id, normalized_ticket
 
-    if ticket_id and not run_id:
-        ticket_entry = registry.get("tickets", {}).get(ticket_id)
+    if normalized_ticket and not run_id:
+        ticket_entry = registry.get("tickets", {}).get(normalized_ticket)
         if not ticket_entry:
             raise SystemExit(
-                f"No active pilot run registered for ticket {ticket_id}. "
+                f"No active pilot run registered for ticket {normalized_ticket}. "
                 "Run init first."
             )
-        return str(ticket_entry["active_run_id"]), ticket_id
+        return str(ticket_entry["active_run_id"]), normalized_ticket
 
-    if run_id and not ticket_id:
+    if run_id and not normalized_ticket:
         for tid, entry in registry.get("tickets", {}).items():
             if entry.get("active_run_id") == run_id:
                 return run_id, tid
@@ -498,6 +906,7 @@ def resolve_run_ticket(
 
 
 def find_active_run_for_ticket(root: Path, ticket_id: str) -> str | None:
+    ticket_id = canonical_ticket_id(ticket_id)
     registry_path = root / "shared" / "runs" / "active-pilot-runs.json"
     registry = ensure_json_file(registry_path, {"updated_at": utc_now(), "tickets": {}})
     entry = registry.get("tickets", {}).get(ticket_id)
@@ -625,7 +1034,7 @@ def init_run(
 
 def cmd_init(args: argparse.Namespace) -> int:
     root = repo_root()
-    ticket_id = args.ticket.strip()
+    ticket_id = canonical_ticket_id(args.ticket)
     init_run(
         root=root,
         ticket_id=ticket_id,
@@ -737,6 +1146,227 @@ def cmd_emit_result(args: argparse.Namespace) -> int:
     print(f"[result] run_id={run_id}")
     print(f"[result] packet={out_path}")
     return 0
+
+
+def cmd_emit_learning(args: argparse.Namespace) -> int:
+    root = repo_root()
+    ticket_id = canonical_ticket_id(args.ticket) if args.ticket else None
+    run_id = args.run_id
+
+    if run_id and not ticket_id:
+        run_id, ticket_id = resolve_run_ticket(root, run_id, None)
+
+    if ticket_id and not run_id:
+        run_id = find_active_run_for_ticket(root, ticket_id)
+
+    if not ticket_id:
+        raise SystemExit("emit-learning requires --ticket or --run-id.")
+
+    if run_id:
+        run_dir = root / "shared" / "runs" / run_id
+        if not run_dir.exists():
+            raise SystemExit(f"Run directory does not exist: {run_dir}")
+
+    date_text = args.date or dt.date.today().isoformat()
+    evidence_refs = [normalize_ref(root, ref) for ref in (args.evidence_ref or [])]
+    observed = [item.strip() for item in args.observed if item.strip()]
+    impact = [item.strip() for item in args.impact if item.strip()]
+    applies_to = [item.strip() for item in args.applies_to if item.strip()]
+    if not observed:
+        raise SystemExit("At least one --observed is required.")
+    if not impact:
+        raise SystemExit("At least one --impact is required.")
+    if not applies_to:
+        raise SystemExit("At least one --applies-to is required.")
+
+    fingerprint = make_learning_fingerprint(
+        ticket_id=ticket_id,
+        owner=args.owner,
+        status=args.status,
+        observed=observed,
+        impact=impact,
+        applies_to=applies_to,
+        promote_to=args.promote_to,
+        evidence_refs=evidence_refs,
+    )
+
+    insight_path = root / "workspace" / "memory" / "insights" / f"{ticket_id}-insights.md"
+    insight_written = append_ticket_insight_entry(
+        path=insight_path,
+        ticket_id=ticket_id,
+        date_text=date_text,
+        owner=args.owner,
+        status=args.status,
+        observed=observed,
+        impact=impact,
+        applies_to=applies_to,
+        promote_to=args.promote_to,
+        evidence_refs=evidence_refs,
+        run_id=run_id,
+        fingerprint=fingerprint,
+    )
+
+    daily_path = root / "workspace" / "shared" / "DAILY_INSIGHTS.md"
+    daily_written = False
+    if not args.no_daily:
+        daily_written = append_daily_insight_candidate(
+            path=daily_path,
+            date_text=date_text,
+            ticket_id=ticket_id,
+            owner=args.owner,
+            observed=observed,
+            impact=impact,
+            applies_to=applies_to,
+            promote_to=args.promote_to,
+            evidence_refs=evidence_refs,
+            fingerprint=fingerprint,
+        )
+
+    run_learning_path = None
+    if run_id and not args.no_run_mirror:
+        run_learning_path = write_run_learning_candidate(
+            root=root,
+            run_id=run_id,
+            ticket_id=ticket_id,
+            owner=args.owner,
+            status=args.status,
+            observed=observed,
+            impact=impact,
+            applies_to=applies_to,
+            promote_to=args.promote_to,
+            evidence_refs=evidence_refs,
+            note_ref=rel_path(root, insight_path),
+            daily_ref=rel_path(root, daily_path) if not args.no_daily else None,
+            fingerprint=fingerprint,
+            date_text=date_text,
+        )
+
+    print(f"[learning] ticket={ticket_id}")
+    print(f"[learning] run_id={run_id or 'none'}")
+    print(f"[learning] fingerprint={fingerprint}")
+    print(f"[learning] insight_note={insight_path} written={insight_written}")
+    if args.no_daily:
+        print("[learning] daily_intake=skipped")
+    else:
+        print(f"[learning] daily_intake={daily_path} written={daily_written}")
+    if run_learning_path:
+        print(f"[learning] run_learning={run_learning_path}")
+    else:
+        print("[learning] run_learning=skipped")
+    return 0
+
+
+def cmd_stagehand_guard(args: argparse.Namespace) -> int:
+    root = repo_root()
+    ticket_id = canonical_ticket_id(args.ticket) if args.ticket else None
+    run_id = args.run_id
+
+    if run_id and not ticket_id:
+        run_id, ticket_id = resolve_run_ticket(root, run_id, None)
+    elif ticket_id and not run_id:
+        run_id = find_active_run_for_ticket(root, ticket_id)
+
+    if not ticket_id:
+        raise SystemExit("stagehand-guard requires --ticket or --run-id.")
+
+    task_file_ref = resolve_task_file_ref_for_ticket(
+        root=root,
+        ticket_id=ticket_id,
+        run_id=run_id,
+        explicit_task_file=args.task_file,
+    )
+
+    runtime_policy = inspect_runtime_policy(
+        root=root,
+        run_id=run_id,
+        ticket_id=ticket_id,
+        task_file_ref=task_file_ref,
+    )
+    violations = runtime_policy.get("findings", [])
+
+    legacy_results_dir = root / "workspace" / "shared" / "test-results" / ticket_id
+    legacy_results_dir.mkdir(parents=True, exist_ok=True)
+    contracts_dir = legacy_results_dir / "contracts"
+    contracts_dir.mkdir(parents=True, exist_ok=True)
+
+    report = {
+        "ticket_id": ticket_id,
+        "run_id": run_id,
+        "phase": args.phase,
+        "generated_at": utc_now(),
+        "runtime_policy": runtime_policy,
+        "violation": len(violations) > 0,
+        "on_violation": args.on_violation,
+        "task_file_ref": task_file_ref,
+    }
+
+    report_path = contracts_dir / f"stagehand-guard-{args.phase}.json"
+    save_json(report_path, report)
+    run_report_path = None
+    if run_id:
+        run_report_path = root / "shared" / "runs" / run_id / "meta" / f"stagehand-guard-{args.phase}.json"
+        save_json(run_report_path, report)
+
+    if not violations:
+        print(f"[guard] ticket={ticket_id}")
+        print(f"[guard] run_id={run_id or 'none'}")
+        print(f"[guard] phase={args.phase}")
+        print("[guard] status=ok")
+        print(f"[guard] report={report_path}")
+        return 0
+
+    callback_message = (
+        f"Runtime policy violation for {ticket_id}: task requires Stagehand ONLY "
+        "but Playwright-style fallback artifacts were detected."
+    )
+    evidence_ref = rel_path(root, report_path)
+
+    results_stub_path = None
+    if args.write_results_stub:
+        results_stub_path = legacy_results_dir / "results.json"
+        if args.force_results_stub or not results_stub_path.exists():
+            stub = {
+                "ticketId": ticket_id,
+                "status": args.on_violation,
+                "reason": "runtime_policy_violation",
+                "summary": callback_message,
+                "guardReportRef": evidence_ref,
+                "findings": violations,
+                "updatedAt": utc_now(),
+            }
+            save_json(results_stub_path, stub)
+
+    result_packet_path = None
+    if args.emit_result and run_id:
+        result_packet_path = write_result_packet(
+            root=root,
+            run_id=run_id,
+            agent=args.agent,
+            status=args.on_violation,
+            assertions_passed=[],
+            assertions_failed=["runtime_policy_stagehand_only_violation"],
+            blockers=[item.get("message", "runtime_policy_violation") for item in violations],
+            evidence_refs=[evidence_ref],
+            confidence="low",
+            recommended_next_owner=args.next_owner,
+            notes=[callback_message],
+        )
+        run_dir = root / "shared" / "runs" / run_id
+        export_run_contracts_to_legacy(run_dir, legacy_results_dir)
+
+    print(f"[guard] ticket={ticket_id}")
+    print(f"[guard] run_id={run_id or 'none'}")
+    print(f"[guard] phase={args.phase}")
+    print(f"[guard] status=violation ({args.on_violation})")
+    print(f"[guard] report={report_path}")
+    if run_report_path:
+        print(f"[guard] run_report={run_report_path}")
+    if results_stub_path:
+        print(f"[guard] results_stub={results_stub_path}")
+    if result_packet_path:
+        print(f"[guard] result_packet={result_packet_path}")
+    print(f"[guard] callback={callback_message}")
+    return 2
 
 
 def prepare_dispatch_for_agent(
@@ -905,6 +1535,7 @@ def cmd_pre_summary_gate(args: argparse.Namespace) -> int:
     registry_path = root / "shared" / "runs" / "active-pilot-runs.json"
     registry = ensure_json_file(registry_path, {"updated_at": utc_now(), "tickets": {}})
     ticket_entry = registry.get("tickets", {}).get(ticket_id, {})
+    task_file_ref = ticket_entry.get("task_file_ref")
 
     if args.result_file:
         result_file = Path(args.result_file).expanduser()
@@ -931,8 +1562,20 @@ def cmd_pre_summary_gate(args: argparse.Namespace) -> int:
         copied, skipped, sync_report = sync_legacy_into_run(root, run_id, ticket_id)
         sync_report_ref = rel_path(root, sync_report)
         contracts = validate_run_contracts(root, run_id)
+    runtime_policy = inspect_runtime_policy(root, run_id, ticket_id, task_file_ref)
+    learning_sync = inspect_learning_sync(root, ticket_id, run_id)
 
-    status = "ready" if (ready and contracts and contracts.get("ok")) else "partial"
+    status = (
+        "ready"
+        if (
+            ready
+            and contracts
+            and contracts.get("ok")
+            and runtime_policy.get("ok")
+            and (learning_sync.get("ok") or not args.require_learning)
+        )
+        else "partial"
+    )
     report = {
         "ticket_id": ticket_id,
         "run_id": run_id,
@@ -946,11 +1589,17 @@ def cmd_pre_summary_gate(args: argparse.Namespace) -> int:
             "report_ref": sync_report_ref,
         },
         "contracts": contracts,
+        "runtime_policy": runtime_policy,
+        "learning_sync": learning_sync,
     }
     if not ready:
         report["reason"] = "result_file_not_ready"
     elif contracts and not contracts.get("ok"):
         report["reason"] = "contract_validation_failed"
+    elif not runtime_policy.get("ok"):
+        report["reason"] = "runtime_policy_violation"
+    elif args.require_learning and not learning_sync.get("ok"):
+        report["reason"] = "learning_sync_missing"
 
     run_report_path = root / "shared" / "runs" / run_id / "meta" / "pre-summary-gate.json"
     save_json(run_report_path, report)
@@ -963,6 +1612,7 @@ def cmd_pre_summary_gate(args: argparse.Namespace) -> int:
     print(f"[gate] status={status}")
     print(f"[gate] result_ready={ready}")
     print(f"[gate] report={run_report_path}")
+    print(f"[gate] learning_ok={learning_sync.get('ok')}")
     if report.get("reason"):
         print(f"[gate] reason={report['reason']}")
     return 0 if status == "ready" else 2
@@ -970,7 +1620,7 @@ def cmd_pre_summary_gate(args: argparse.Namespace) -> int:
 
 def cmd_bootstrap_dispatch(args: argparse.Namespace) -> int:
     root = repo_root()
-    ticket_id = args.ticket.strip()
+    ticket_id = canonical_ticket_id(args.ticket)
 
     run_id = find_active_run_for_ticket(root, ticket_id)
     if not run_id:
@@ -1151,6 +1801,118 @@ def parse_args() -> argparse.Namespace:
         help="Optional note (repeatable).",
     )
 
+    learning_cmd = sub.add_parser(
+        "emit-learning",
+        help="Append ticket insight note + DAILY_INSIGHTS candidate + run learning mirror (idempotent).",
+    )
+    learning_cmd.add_argument("--ticket", default=None, help="Ticket key (e.g. CT-901).")
+    learning_cmd.add_argument("--run-id", default=None, help="Run ID.")
+    learning_cmd.add_argument(
+        "--owner",
+        required=True,
+        help="Learning owner (qa-agent/api-docs-agent/nexus).",
+    )
+    learning_cmd.add_argument(
+        "--status",
+        required=True,
+        choices=["completed", "partial", "blocked", "failed"],
+        help="Execution status that produced the learning.",
+    )
+    learning_cmd.add_argument(
+        "--observed",
+        action="append",
+        required=True,
+        help="Observed behavior (repeatable).",
+    )
+    learning_cmd.add_argument(
+        "--impact",
+        action="append",
+        required=True,
+        help="Why it matters (repeatable).",
+    )
+    learning_cmd.add_argument(
+        "--applies-to",
+        action="append",
+        required=True,
+        help="Flow/project scope for this learning (repeatable).",
+    )
+    learning_cmd.add_argument(
+        "--promote-to",
+        required=True,
+        choices=["run-only", "project", "nexus-memory", "clawver-memory", "cipher-memory"],
+        help="Promotion target recommendation.",
+    )
+    learning_cmd.add_argument(
+        "--evidence-ref",
+        action="append",
+        default=[],
+        help="Evidence path/ref (repeatable).",
+    )
+    learning_cmd.add_argument(
+        "--date",
+        default=None,
+        help="Optional date override (YYYY-MM-DD).",
+    )
+    learning_cmd.add_argument(
+        "--no-daily",
+        action="store_true",
+        help="Do not append candidate to workspace/shared/DAILY_INSIGHTS.md.",
+    )
+    learning_cmd.add_argument(
+        "--no-run-mirror",
+        action="store_true",
+        help="Do not write candidate JSON into shared/runs/<run_id>/learning.",
+    )
+
+    guard_cmd = sub.add_parser(
+        "stagehand-guard",
+        help="Fail-fast guard for Stagehand ONLY policy; can emit blocked/partial callback artifacts.",
+    )
+    guard_cmd.add_argument("--ticket", default=None, help="Ticket key (e.g. CT-901).")
+    guard_cmd.add_argument("--run-id", default=None, help="Run ID.")
+    guard_cmd.add_argument(
+        "--task-file",
+        default=None,
+        help="Optional explicit task markdown path. If omitted, resolved from pilot registry.",
+    )
+    guard_cmd.add_argument(
+        "--phase",
+        default="post",
+        choices=["pre", "post"],
+        help="Guard phase label for report naming.",
+    )
+    guard_cmd.add_argument(
+        "--on-violation",
+        default="blocked",
+        choices=["blocked", "partial"],
+        help="Status to emit when violation is found.",
+    )
+    guard_cmd.add_argument(
+        "--agent",
+        default="qa-agent",
+        help="Agent id for emitted result packet.",
+    )
+    guard_cmd.add_argument(
+        "--next-owner",
+        default="nexus",
+        help="Recommended next owner when violation is emitted.",
+    )
+    guard_cmd.add_argument(
+        "--emit-result",
+        action="store_true",
+        help="If violation found and run exists, emit result-packet immediately.",
+    )
+    guard_cmd.add_argument(
+        "--write-results-stub",
+        action="store_true",
+        help="If violation found, write/update legacy results.json blocker stub.",
+    )
+    guard_cmd.add_argument(
+        "--force-results-stub",
+        action="store_true",
+        help="Overwrite existing legacy results.json when writing guard stub.",
+    )
+
     dispatch_cmd = sub.add_parser(
         "prepare-dispatch",
         help="Insert/update Phase 2 dispatch hook block in a task markdown file.",
@@ -1223,6 +1985,11 @@ def parse_args() -> argparse.Namespace:
         default=2,
         help="How many consecutive identical size+mtime polls are required.",
     )
+    gate_cmd.add_argument(
+        "--require-learning",
+        action="store_true",
+        help="Mark gate as partial if ticket learning sync is missing.",
+    )
 
     return parser.parse_args()
 
@@ -1237,6 +2004,10 @@ def main() -> int:
         return cmd_register_session(args)
     if args.command == "emit-result":
         return cmd_emit_result(args)
+    if args.command == "emit-learning":
+        return cmd_emit_learning(args)
+    if args.command == "stagehand-guard":
+        return cmd_stagehand_guard(args)
     if args.command == "prepare-dispatch":
         return cmd_prepare_dispatch(args)
     if args.command == "bootstrap-dispatch":

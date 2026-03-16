@@ -14,8 +14,10 @@ Do not keep shared execution policy here. Shared behavior belongs in:
 
 ## VPN Notes
 
+- Assume VPN is already on for internal `*.sofon.one` services unless Ihor explicitly says otherwise
 - Tailscale VPN is commonly required for internal `.qa.` and `.dev.` services
 - Geo-VPN may be required for public web domains
+- If an internal service fails, verify with a real request first and report the exact failure instead of assuming VPN is off
 
 ## Execution Tools
 

@@ -1,0 +1,14 @@
+{
+  "player": {
+    "id": 3563473,
+    "email": "pandasen@echoprx.cc"
+  },
+  "tests": [
+    {
+      "endpoint": "/api/Client/SetTest",
+      "method": "POST",
+      "success": false,
+      "notes": "Marks player as TEST - allows testing without deletion"
+    }
+  ]
+}

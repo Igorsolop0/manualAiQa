@@ -1,0 +1,10 @@
+{
+  "goal": "Click Sign Up button, fill registration form with email test-ct548-20260315@nextcode.tech and password TestPass123!, complete registration, navigate to test-social-linking page, find Link Google button, click it, complete Google OAuth using Chrome Profile 3 session, verify Google account is linked",
+  "initialUrl": "https://minebit-casino.qa.sofon.one",
+  "ticketId": "CT-548",
+  "maxSteps": 35,
+  "timeoutMs": 120000,
+  "needScreenshots": true,
+  "needDomSnapshots": true,
+  "chromeProfile": "/Users/ihorsolopii/Library/Application Support/Google/Chrome/Profile 3"
+}

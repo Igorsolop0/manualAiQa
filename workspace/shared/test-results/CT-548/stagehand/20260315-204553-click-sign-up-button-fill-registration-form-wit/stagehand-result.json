@@ -1,0 +1,334 @@
+{
+  "success": false,
+  "reason": "timeout",
+  "steps": [
+    {
+      "index": 1,
+      "action": "ariaTree",
+      "description": "ariaTree",
+      "selector": null,
+      "method": null,
+      "arguments": null,
+      "framePath": null,
+      "url": "https://minebit-casino.qa.sofon.one/"
+    },
+    {
+      "index": 2,
+      "action": "act",
+      "description": "click the Sign Up button",
+      "selector": "xpath=/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/header[1]/div[1]/div[1]/div[7]/div[1]/div[2]/button[1]",
+      "method": "click",
+      "arguments": [],
+      "framePath": null,
+      "url": "https://minebit-casino.qa.sofon.one/?modal=iqs-sign-up"
+    },
+    {
+      "index": 3,
+      "action": "ariaTree",
+      "description": "ariaTree",
+      "selector": null,
+      "method": null,
+      "arguments": null,
+      "framePath": null,
+      "url": "https://minebit-casino.qa.sofon.one/?modal=iqs-sign-up"
+    },
+    {
+      "index": 4,
+      "action": "fillForm",
+      "description": "fillForm",
+      "selector": null,
+      "method": null,
+      "arguments": null,
+      "framePath": null,
+      "url": "https://minebit-casino.qa.sofon.one/?modal=iqs-sign-up"
+    },
+    {
+      "index": 5,
+      "action": "act",
+      "description": "click the Terms and Conditions checkbox",
+      "selector": "xpath=/html[1]/body[1]/div[2]/div[3]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[6]/div[1]/div[2]/form[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[1]/label[1]/span[1]/span[1]/input[1]",
+      "method": "click",
+      "arguments": [],
+      "framePath": null,
+      "url": "https://minebit-casino.qa.sofon.one/?modal=iqs-sign-up"
+    },
+    {
+      "index": 6,
+      "action": "act",
+      "description": "click the Deposit and play with 200% button",
+      "selector": "xpath=/html[1]/body[1]/div[2]/div[3]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[6]/div[1]/div[2]/form[1]/div[1]/div[2]/button[1]",
+      "method": "click",
+      "arguments": [],
+      "framePath": null,
+      "url": "https://minebit-casino.qa.sofon.one/?modal=iqs-sign-up"
+    },
+    {
+      "index": 7,
+      "action": "wait",
+      "description": "wait",
+      "selector": null,
+      "method": null,
+      "arguments": null,
+      "framePath": null,
+      "url": "https://minebit-casino.qa.sofon.one/"
+    },
+    {
+      "index": 8,
+      "action": "ariaTree",
+      "description": "ariaTree",
+      "selector": null,
+      "method": null,
+      "arguments": null,
+      "framePath": null,
+      "url": "https://minebit-casino.qa.sofon.one/"
+    },
+    {
+      "index": 9,
+      "action": "goto",
+      "description": "goto",
+      "selector": null,
+      "method": null,
+      "arguments": null,
+      "framePath": null,
+      "url": "https://minebit-casino.qa.sofon.one/test-social-linking"
+    },
+    {
+      "index": 10,
+      "action": "ariaTree",
+      "description": "ariaTree",
+      "selector": null,
+      "method": null,
+      "arguments": null,
+      "framePath": null,
+      "url": "https://minebit-casino.qa.sofon.one/test-social-linking"
+    },
+    {
+      "index": 11,
+      "action": "act",
+      "description": "click the Google Connect button",
+      "selector": "xpath=/html[1]/body[1]/div[1]/div[1]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/button[1]",
+      "method": "click",
+      "arguments": [],
+      "framePath": null,
+      "url": "https://minebit-casino.qa.sofon.one/test-social-linking"
+    },
+    {
+      "index": 12,
+      "action": "wait",
+      "description": "wait",
+      "selector": null,
+      "method": null,
+      "arguments": null,
+      "framePath": null,
+      "url": "https://accounts.google.com/v3/signin/identifier?opparams=%253F&dsh=S-569861952%3A1773604048609123&client_id=1039679963247-chsuag3vd6s9unsv0ri7k8hpplmot8os.apps.googleusercontent.com&o2v=2&redirect_uri=https%3A%2F%2Fminebit-casino.qa.sofon.one%2Fwebsitewebapi%2Fapi%2Fv2%2FGoogleAccount%2FCallback&response_type=code&scope=openid+profile+email&service=lso&state=eyJQYXJ0bmVySWQiOjUsIlNvdXJjZSI6Ik1vemlsbGEvNS4wIChNYWNpbnRvc2g7IEludGVsIE1hYyBPUyBYIDEwXzE1XzcpIEFwcGxlV2ViS2l0LzUzNy4zNiAoS0hUTUwsIGxpa2UgR2Vja28pIEhlYWRsZXNzQ2hyb21lLzE0NS4wLjAuMCBTYWZhcmkvNTM3LjM2IiwiUmV0dXJuVXJsIjoiaHR0cHM6Ly9taW5lYml0LWNhc2luby5xYS5zb2Zvbi5vbmUvdGVzdC1zb2NpYWwtbGlua2luZyIsIkVycm9yQmFja1VybCI6Imh0dHBzOi8vbWluZWJpdC1jYXNpbm8ucWEuc29mb24ub25lL2VuLyIsIlJlZGlyZWN0VXJsIjoiaHR0cHM6Ly9taW5lYml0LWNhc2luby5xYS5zb2Zvbi5vbmUvd2Vic2l0ZXdlYmFwaS9hcGkvdjIvR29vZ2xlQWNjb3VudC9DYWxsYmFjayIsIkRldmljZUZpbmdlclByaW50IjoiNGU5MTgzMWNmYjA5Mjg1NmY1NjYxMDllMjliNzJjYWUiLCJMYW5ndWFnZUlkIjoiZW4iLCJDdXJyZW5jeUlkIjpudWxsLCJDb3VudHJ5SWQiOm51bGwsIkNvdW50cnlDb2RlIjoiIiwiSXAiOiIxMC4xNTAuMTMxLjExNiIsIkFmZmlsaWF0ZURhdGEiOiJodHRwczovL21pbmViaXQtY2FzaW5vLnFhLnNvZm9uLm9uZS8iLCJEZXZpY2VUeXBlSWQiOjEsIlByb21vQ29kZSI6bnVsbCwiUGtjZUNvZGVWZXJpZmllciI6bnVsbCwiRnJhdWRDaGVja0RldmljZUZpbmdlclByaW50IjoidW5kZWZpbmVkIiwiTGlua1Rva2VuIjoiYmIzNmFmOWIzYjM1NGU5NDlhMjdkYWJmM2JjYjk5ZGYiLCJBdXRoVG9rZW5Nb2RlIjoxfQ&flowName=GeneralOAuthLite&continue=https%3A%2F%2Faccounts.google.com%2Fsignin%2Foauth%2Flegacy%2Fconsent%3Fauthuser%3Dunknown%26part%3DAJi8hAPYXPHuFWT-N7vAb5n_eb2gWbaHDKaqgvsAQoU8Wc2dgBvV859ELJRbvkUmTNWzDcFkfxQQitQfZTGScWbVMZ2wP5aTokrjJGKifrZWxeWKxLFObFNZ9cmlHUxr67UzdjQkuBgHRJqkZGCgTDst3qIIPj-0WkvLNlkh-Dkfh0MJXMaw6tGnABxkxMgVpAhpzlfUdUqhMezbfu9WYQJ8BUQRQG0Z5RAPDICjraXmyXPRs_6qNbMFtFZflECHl5UOpWE4h_sIvwDIoF-sUnKIi1WbT7A3DkSZ1oYuaFJnSWctSCVf48bHmg8d6W_qsbl_VdK6rpJ1AGbyv8OyqJzSPNG0DhXG5QHd9xVzHp43p-WCNen0S4n-7h-kqGzEMlAEikRzz1ybcCzzH7oA_8nGA2l75cGwTRf-h405UUsqQ6jk_eaop1XD6JBqZAN70YIViaqJ5nPCV9qDv5fNHGCX7ft1kQmWMHOctuVahebvEgCb9rdt3FCqzkbmNmoDbQRwfWueDVizsh86H0eoWTGGFkt9RB_Re8rbIp1-M__2rAM10QWeQlFgxsjAbeGs_C3l3a_TBt8OJA9ikcwJ2XIvbjXGZpyXrh_MyNrzlJI7XTxkCwIO3D-RXw4S1cW6dAiXsTlrx9RIwGaIwVR2SgWKEIIKIN732g%26flowName%3DGeneralOAuthFlow%26as%3DS-569861952%253A1773604048609123%26client_id%3D1039679963247-chsuag3vd6s9unsv0ri7k8hpplmot8os.apps.googleusercontent.com%23&app_domain=https%3A%2F%2Fminebit-casino.qa.sofon.one&rart=ANgoxccgVs3xJAIW_RJXk4PpLpzxW3tdw1acZP21tqkuSa8Fwa-OvIa-fK4KtdpdOJl7Xv7vkwR8CNlYRRAeHfMQ_z3EHQMTgghRm97ZaAzWMRFB7zahAVA"
+    },
+    {
+      "index": 13,
+      "action": "ariaTree",
+      "description": "ariaTree",
+      "selector": null,
+      "method": null,
+      "arguments": null,
+      "framePath": null,
+      "url": "https://accounts.google.com/v3/signin/identifier?opparams=%253F&dsh=S-569861952%3A1773604048609123&client_id=1039679963247-chsuag3vd6s9unsv0ri7k8hpplmot8os.apps.googleusercontent.com&o2v=2&redirect_uri=https%3A%2F%2Fminebit-casino.qa.sofon.one%2Fwebsitewebapi%2Fapi%2Fv2%2FGoogleAccount%2FCallback&response_type=code&scope=openid+profile+email&service=lso&state=eyJQYXJ0bmVySWQiOjUsIlNvdXJjZSI6Ik1vemlsbGEvNS4wIChNYWNpbnRvc2g7IEludGVsIE1hYyBPUyBYIDEwXzE1XzcpIEFwcGxlV2ViS2l0LzUzNy4zNiAoS0hUTUwsIGxpa2UgR2Vja28pIEhlYWRsZXNzQ2hyb21lLzE0NS4wLjAuMCBTYWZhcmkvNTM3LjM2IiwiUmV0dXJuVXJsIjoiaHR0cHM6Ly9taW5lYml0LWNhc2luby5xYS5zb2Zvbi5vbmUvdGVzdC1zb2NpYWwtbGlua2luZyIsIkVycm9yQmFja1VybCI6Imh0dHBzOi8vbWluZWJpdC1jYXNpbm8ucWEuc29mb24ub25lL2VuLyIsIlJlZGlyZWN0VXJsIjoiaHR0cHM6Ly9taW5lYml0LWNhc2luby5xYS5zb2Zvbi5vbmUvd2Vic2l0ZXdlYmFwaS9hcGkvdjIvR29vZ2xlQWNjb3VudC9DYWxsYmFjayIsIkRldmljZUZpbmdlclByaW50IjoiNGU5MTgzMWNmYjA5Mjg1NmY1NjYxMDllMjliNzJjYWUiLCJMYW5ndWFnZUlkIjoiZW4iLCJDdXJyZW5jeUlkIjpudWxsLCJDb3VudHJ5SWQiOm51bGwsIkNvdW50cnlDb2RlIjoiIiwiSXAiOiIxMC4xNTAuMTMxLjExNiIsIkFmZmlsaWF0ZURhdGEiOiJodHRwczovL21pbmViaXQtY2FzaW5vLnFhLnNvZm9uLm9uZS8iLCJEZXZpY2VUeXBlSWQiOjEsIlByb21vQ29kZSI6bnVsbCwiUGtjZUNvZGVWZXJpZmllciI6bnVsbCwiRnJhdWRDaGVja0RldmljZUZpbmdlclByaW50IjoidW5kZWZpbmVkIiwiTGlua1Rva2VuIjoiYmIzNmFmOWIzYjM1NGU5NDlhMjdkYWJmM2JjYjk5ZGYiLCJBdXRoVG9rZW5Nb2RlIjoxfQ&flowName=GeneralOAuthLite&continue=https%3A%2F%2Faccounts.google.com%2Fsignin%2Foauth%2Flegacy%2Fconsent%3Fauthuser%3Dunknown%26part%3DAJi8hAPYXPHuFWT-N7vAb5n_eb2gWbaHDKaqgvsAQoU8Wc2dgBvV859ELJRbvkUmTNWzDcFkfxQQitQfZTGScWbVMZ2wP5aTokrjJGKifrZWxeWKxLFObFNZ9cmlHUxr67UzdjQkuBgHRJqkZGCgTDst3qIIPj-0WkvLNlkh-Dkfh0MJXMaw6tGnABxkxMgVpAhpzlfUdUqhMezbfu9WYQJ8BUQRQG0Z5RAPDICjraXmyXPRs_6qNbMFtFZflECHl5UOpWE4h_sIvwDIoF-sUnKIi1WbT7A3DkSZ1oYuaFJnSWctSCVf48bHmg8d6W_qsbl_VdK6rpJ1AGbyv8OyqJzSPNG0DhXG5QHd9xVzHp43p-WCNen0S4n-7h-kqGzEMlAEikRzz1ybcCzzH7oA_8nGA2l75cGwTRf-h405UUsqQ6jk_eaop1XD6JBqZAN70YIViaqJ5nPCV9qDv5fNHGCX7ft1kQmWMHOctuVahebvEgCb9rdt3FCqzkbmNmoDbQRwfWueDVizsh86H0eoWTGGFkt9RB_Re8rbIp1-M__2rAM10QWeQlFgxsjAbeGs_C3l3a_TBt8OJA9ikcwJ2XIvbjXGZpyXrh_MyNrzlJI7XTxkCwIO3D-RXw4S1cW6dAiXsTlrx9RIwGaIwVR2SgWKEIIKIN732g%26flowName%3DGeneralOAuthFlow%26as%3DS-569861952%253A1773604048609123%26client_id%3D1039679963247-chsuag3vd6s9unsv0ri7k8hpplmot8os.apps.googleusercontent.com%23&app_domain=https%3A%2F%2Fminebit-casino.qa.sofon.one&rart=ANgoxccgVs3xJAIW_RJXk4PpLpzxW3tdw1acZP21tqkuSa8Fwa-OvIa-fK4KtdpdOJl7Xv7vkwR8CNlYRRAeHfMQ_z3EHQMTgghRm97ZaAzWMRFB7zahAVA"
+    },
+    {
+      "index": 14,
+      "action": "act",
+      "description": "click in the Email or phone textbox",
+      "selector": "xpath=/html[1]/body[1]/div[2]/div[1]/div[1]/div[1]/div[1]/form[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/label[1]/input[1]",
+      "method": "click",
+      "arguments": [],
+      "framePath": null,
+      "url": "https://accounts.google.com/v3/signin/identifier?opparams=%253F&dsh=S-569861952%3A1773604048609123&client_id=1039679963247-chsuag3vd6s9unsv0ri7k8hpplmot8os.apps.googleusercontent.com&o2v=2&redirect_uri=https%3A%2F%2Fminebit-casino.qa.sofon.one%2Fwebsitewebapi%2Fapi%2Fv2%2FGoogleAccount%2FCallback&response_type=code&scope=openid+profile+email&service=lso&state=eyJQYXJ0bmVySWQiOjUsIlNvdXJjZSI6Ik1vemlsbGEvNS4wIChNYWNpbnRvc2g7IEludGVsIE1hYyBPUyBYIDEwXzE1XzcpIEFwcGxlV2ViS2l0LzUzNy4zNiAoS0hUTUwsIGxpa2UgR2Vja28pIEhlYWRsZXNzQ2hyb21lLzE0NS4wLjAuMCBTYWZhcmkvNTM3LjM2IiwiUmV0dXJuVXJsIjoiaHR0cHM6Ly9taW5lYml0LWNhc2luby5xYS5zb2Zvbi5vbmUvdGVzdC1zb2NpYWwtbGlua2luZyIsIkVycm9yQmFja1VybCI6Imh0dHBzOi8vbWluZWJpdC1jYXNpbm8ucWEuc29mb24ub25lL2VuLyIsIlJlZGlyZWN0VXJsIjoiaHR0cHM6Ly9taW5lYml0LWNhc2luby5xYS5zb2Zvbi5vbmUvd2Vic2l0ZXdlYmFwaS9hcGkvdjIvR29vZ2xlQWNjb3VudC9DYWxsYmFjayIsIkRldmljZUZpbmdlclByaW50IjoiNGU5MTgzMWNmYjA5Mjg1NmY1NjYxMDllMjliNzJjYWUiLCJMYW5ndWFnZUlkIjoiZW4iLCJDdXJyZW5jeUlkIjpudWxsLCJDb3VudHJ5SWQiOm51bGwsIkNvdW50cnlDb2RlIjoiIiwiSXAiOiIxMC4xNTAuMTMxLjExNiIsIkFmZmlsaWF0ZURhdGEiOiJodHRwczovL21pbmViaXQtY2FzaW5vLnFhLnNvZm9uLm9uZS8iLCJEZXZpY2VUeXBlSWQiOjEsIlByb21vQ29kZSI6bnVsbCwiUGtjZUNvZGVWZXJpZmllciI6bnVsbCwiRnJhdWRDaGVja0RldmljZUZpbmdlclByaW50IjoidW5kZWZpbmVkIiwiTGlua1Rva2VuIjoiYmIzNmFmOWIzYjM1NGU5NDlhMjdkYWJmM2JjYjk5ZGYiLCJBdXRoVG9rZW5Nb2RlIjoxfQ&flowName=GeneralOAuthLite&continue=https%3A%2F%2Faccounts.google.com%2Fsignin%2Foauth%2Flegacy%2Fconsent%3Fauthuser%3Dunknown%26part%3DAJi8hAPYXPHuFWT-N7vAb5n_eb2gWbaHDKaqgvsAQoU8Wc2dgBvV859ELJRbvkUmTNWzDcFkfxQQitQfZTGScWbVMZ2wP5aTokrjJGKifrZWxeWKxLFObFNZ9cmlHUxr67UzdjQkuBgHRJqkZGCgTDst3qIIPj-0WkvLNlkh-Dkfh0MJXMaw6tGnABxkxMgVpAhpzlfUdUqhMezbfu9WYQJ8BUQRQG0Z5RAPDICjraXmyXPRs_6qNbMFtFZflECHl5UOpWE4h_sIvwDIoF-sUnKIi1WbT7A3DkSZ1oYuaFJnSWctSCVf48bHmg8d6W_qsbl_VdK6rpJ1AGbyv8OyqJzSPNG0DhXG5QHd9xVzHp43p-WCNen0S4n-7h-kqGzEMlAEikRzz1ybcCzzH7oA_8nGA2l75cGwTRf-h405UUsqQ6jk_eaop1XD6JBqZAN70YIViaqJ5nPCV9qDv5fNHGCX7ft1kQmWMHOctuVahebvEgCb9rdt3FCqzkbmNmoDbQRwfWueDVizsh86H0eoWTGGFkt9RB_Re8rbIp1-M__2rAM10QWeQlFgxsjAbeGs_C3l3a_TBt8OJA9ikcwJ2XIvbjXGZpyXrh_MyNrzlJI7XTxkCwIO3D-RXw4S1cW6dAiXsTlrx9RIwGaIwVR2SgWKEIIKIN732g%26flowName%3DGeneralOAuthFlow%26as%3DS-569861952%253A1773604048609123%26client_id%3D1039679963247-chsuag3vd6s9unsv0ri7k8hpplmot8os.apps.googleusercontent.com%23&app_domain=https%3A%2F%2Fminebit-casino.qa.sofon.one&rart=ANgoxccgVs3xJAIW_RJXk4PpLpzxW3tdw1acZP21tqkuSa8Fwa-OvIa-fK4KtdpdOJl7Xv7vkwR8CNlYRRAeHfMQ_z3EHQMTgghRm97ZaAzWMRFB7zahAVA"
+    },
+    {
+      "index": 15,
+      "action": "wait",
+      "description": "wait",
+      "selector": null,
+      "method": null,
+      "arguments": null,
+      "framePath": null,
+      "url": "https://accounts.google.com/v3/signin/identifier?opparams=%253F&dsh=S-569861952%3A1773604048609123&client_id=1039679963247-chsuag3vd6s9unsv0ri7k8hpplmot8os.apps.googleusercontent.com&o2v=2&redirect_uri=https%3A%2F%2Fminebit-casino.qa.sofon.one%2Fwebsitewebapi%2Fapi%2Fv2%2FGoogleAccount%2FCallback&response_type=code&scope=openid+profile+email&service=lso&state=eyJQYXJ0bmVySWQiOjUsIlNvdXJjZSI6Ik1vemlsbGEvNS4wIChNYWNpbnRvc2g7IEludGVsIE1hYyBPUyBYIDEwXzE1XzcpIEFwcGxlV2ViS2l0LzUzNy4zNiAoS0hUTUwsIGxpa2UgR2Vja28pIEhlYWRsZXNzQ2hyb21lLzE0NS4wLjAuMCBTYWZhcmkvNTM3LjM2IiwiUmV0dXJuVXJsIjoiaHR0cHM6Ly9taW5lYml0LWNhc2luby5xYS5zb2Zvbi5vbmUvdGVzdC1zb2NpYWwtbGlua2luZyIsIkVycm9yQmFja1VybCI6Imh0dHBzOi8vbWluZWJpdC1jYXNpbm8ucWEuc29mb24ub25lL2VuLyIsIlJlZGlyZWN0VXJsIjoiaHR0cHM6Ly9taW5lYml0LWNhc2luby5xYS5zb2Zvbi5vbmUvd2Vic2l0ZXdlYmFwaS9hcGkvdjIvR29vZ2xlQWNjb3VudC9DYWxsYmFjayIsIkRldmljZUZpbmdlclByaW50IjoiNGU5MTgzMWNmYjA5Mjg1NmY1NjYxMDllMjliNzJjYWUiLCJMYW5ndWFnZUlkIjoiZW4iLCJDdXJyZW5jeUlkIjpudWxsLCJDb3VudHJ5SWQiOm51bGwsIkNvdW50cnlDb2RlIjoiIiwiSXAiOiIxMC4xNTAuMTMxLjExNiIsIkFmZmlsaWF0ZURhdGEiOiJodHRwczovL21pbmViaXQtY2FzaW5vLnFhLnNvZm9uLm9uZS8iLCJEZXZpY2VUeXBlSWQiOjEsIlByb21vQ29kZSI6bnVsbCwiUGtjZUNvZGVWZXJpZmllciI6bnVsbCwiRnJhdWRDaGVja0RldmljZUZpbmdlclByaW50IjoidW5kZWZpbmVkIiwiTGlua1Rva2VuIjoiYmIzNmFmOWIzYjM1NGU5NDlhMjdkYWJmM2JjYjk5ZGYiLCJBdXRoVG9rZW5Nb2RlIjoxfQ&flowName=GeneralOAuthLite&continue=https%3A%2F%2Faccounts.google.com%2Fsignin%2Foauth%2Flegacy%2Fconsent%3Fauthuser%3Dunknown%26part%3DAJi8hAPYXPHuFWT-N7vAb5n_eb2gWbaHDKaqgvsAQoU8Wc2dgBvV859ELJRbvkUmTNWzDcFkfxQQitQfZTGScWbVMZ2wP5aTokrjJGKifrZWxeWKxLFObFNZ9cmlHUxr67UzdjQkuBgHRJqkZGCgTDst3qIIPj-0WkvLNlkh-Dkfh0MJXMaw6tGnABxkxMgVpAhpzlfUdUqhMezbfu9WYQJ8BUQRQG0Z5RAPDICjraXmyXPRs_6qNbMFtFZflECHl5UOpWE4h_sIvwDIoF-sUnKIi1WbT7A3DkSZ1oYuaFJnSWctSCVf48bHmg8d6W_qsbl_VdK6rpJ1AGbyv8OyqJzSPNG0DhXG5QHd9xVzHp43p-WCNen0S4n-7h-kqGzEMlAEikRzz1ybcCzzH7oA_8nGA2l75cGwTRf-h405UUsqQ6jk_eaop1XD6JBqZAN70YIViaqJ5nPCV9qDv5fNHGCX7ft1kQmWMHOctuVahebvEgCb9rdt3FCqzkbmNmoDbQRwfWueDVizsh86H0eoWTGGFkt9RB_Re8rbIp1-M__2rAM10QWeQlFgxsjAbeGs_C3l3a_TBt8OJA9ikcwJ2XIvbjXGZpyXrh_MyNrzlJI7XTxkCwIO3D-RXw4S1cW6dAiXsTlrx9RIwGaIwVR2SgWKEIIKIN732g%26flowName%3DGeneralOAuthFlow%26as%3DS-569861952%253A1773604048609123%26client_id%3D1039679963247-chsuag3vd6s9unsv0ri7k8hpplmot8os.apps.googleusercontent.com%23&app_domain=https%3A%2F%2Fminebit-casino.qa.sofon.one&rart=ANgoxccgVs3xJAIW_RJXk4PpLpzxW3tdw1acZP21tqkuSa8Fwa-OvIa-fK4KtdpdOJl7Xv7vkwR8CNlYRRAeHfMQ_z3EHQMTgghRm97ZaAzWMRFB7zahAVA"
+    }
+  ],
+  "artifacts": {
+    "screenshots": [
+      {
+        "stepIndex": 0,
+        "path": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/CT-548/stagehand/20260315-204553-click-sign-up-button-fill-registration-form-wit/step-000-initial.png",
+        "label": "initial"
+      },
+      {
+        "stepIndex": 1,
+        "path": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/CT-548/stagehand/20260315-204553-click-sign-up-button-fill-registration-form-wit/step-001-after-tool.png",
+        "label": "after-step-1"
+      },
+      {
+        "stepIndex": 2,
+        "path": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/CT-548/stagehand/20260315-204553-click-sign-up-button-fill-registration-form-wit/step-002-after-tool.png",
+        "label": "after-step-2"
+      },
+      {
+        "stepIndex": 3,
+        "path": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/CT-548/stagehand/20260315-204553-click-sign-up-button-fill-registration-form-wit/step-003-after-tool.png",
+        "label": "after-step-3"
+      },
+      {
+        "stepIndex": 4,
+        "path": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/CT-548/stagehand/20260315-204553-click-sign-up-button-fill-registration-form-wit/step-004-after-tool.png",
+        "label": "after-step-4"
+      },
+      {
+        "stepIndex": 5,
+        "path": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/CT-548/stagehand/20260315-204553-click-sign-up-button-fill-registration-form-wit/step-005-after-tool.png",
+        "label": "after-step-5"
+      },
+      {
+        "stepIndex": 6,
+        "path": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/CT-548/stagehand/20260315-204553-click-sign-up-button-fill-registration-form-wit/step-006-after-tool.png",
+        "label": "after-step-6"
+      },
+      {
+        "stepIndex": 7,
+        "path": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/CT-548/stagehand/20260315-204553-click-sign-up-button-fill-registration-form-wit/step-007-after-tool.png",
+        "label": "after-step-7"
+      },
+      {
+        "stepIndex": 8,
+        "path": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/CT-548/stagehand/20260315-204553-click-sign-up-button-fill-registration-form-wit/step-008-after-tool.png",
+        "label": "after-step-8"
+      },
+      {
+        "stepIndex": 9,
+        "path": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/CT-548/stagehand/20260315-204553-click-sign-up-button-fill-registration-form-wit/step-009-after-tool.png",
+        "label": "after-step-9"
+      },
+      {
+        "stepIndex": 10,
+        "path": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/CT-548/stagehand/20260315-204553-click-sign-up-button-fill-registration-form-wit/step-010-after-tool.png",
+        "label": "after-step-10"
+      },
+      {
+        "stepIndex": 11,
+        "path": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/CT-548/stagehand/20260315-204553-click-sign-up-button-fill-registration-form-wit/step-011-after-tool.png",
+        "label": "after-step-11"
+      },
+      {
+        "stepIndex": 12,
+        "path": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/CT-548/stagehand/20260315-204553-click-sign-up-button-fill-registration-form-wit/step-012-after-tool.png",
+        "label": "after-step-12"
+      },
+      {
+        "stepIndex": 13,
+        "path": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/CT-548/stagehand/20260315-204553-click-sign-up-button-fill-registration-form-wit/step-013-after-tool.png",
+        "label": "after-step-13"
+      },
+      {
+        "stepIndex": 14,
+        "path": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/CT-548/stagehand/20260315-204553-click-sign-up-button-fill-registration-form-wit/step-014-after-tool.png",
+        "label": "after-step-14"
+      },
+      {
+        "stepIndex": 15,
+        "path": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/CT-548/stagehand/20260315-204553-click-sign-up-button-fill-registration-form-wit/step-015-after-tool.png",
+        "label": "after-step-15"
+      }
+    ],
+    "domSnapshots": [
+      {
+        "stepIndex": 0,
+        "path": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/CT-548/stagehand/20260315-204553-click-sign-up-button-fill-registration-form-wit/step-000-initial.html",
+        "label": "initial"
+      },
+      {
+        "stepIndex": 1,
+        "path": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/CT-548/stagehand/20260315-204553-click-sign-up-button-fill-registration-form-wit/step-001-after-tool.html",
+        "label": "after-step-1"
+      },
+      {
+        "stepIndex": 2,
+        "path": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/CT-548/stagehand/20260315-204553-click-sign-up-button-fill-registration-form-wit/step-002-after-tool.html",
+        "label": "after-step-2"
+      },
+      {
+        "stepIndex": 3,
+        "path": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/CT-548/stagehand/20260315-204553-click-sign-up-button-fill-registration-form-wit/step-003-after-tool.html",
+        "label": "after-step-3"
+      },
+      {
+        "stepIndex": 4,
+        "path": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/CT-548/stagehand/20260315-204553-click-sign-up-button-fill-registration-form-wit/step-004-after-tool.html",
+        "label": "after-step-4"
+      },
+      {
+        "stepIndex": 5,
+        "path": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/CT-548/stagehand/20260315-204553-click-sign-up-button-fill-registration-form-wit/step-005-after-tool.html",
+        "label": "after-step-5"
+      },
+      {
+        "stepIndex": 6,
+        "path": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/CT-548/stagehand/20260315-204553-click-sign-up-button-fill-registration-form-wit/step-006-after-tool.html",
+        "label": "after-step-6"
+      },
+      {
+        "stepIndex": 7,
+        "path": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/CT-548/stagehand/20260315-204553-click-sign-up-button-fill-registration-form-wit/step-007-after-tool.html",
+        "label": "after-step-7"
+      },
+      {
+        "stepIndex": 8,
+        "path": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/CT-548/stagehand/20260315-204553-click-sign-up-button-fill-registration-form-wit/step-008-after-tool.html",
+        "label": "after-step-8"
+      },
+      {
+        "stepIndex": 9,
+        "path": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/CT-548/stagehand/20260315-204553-click-sign-up-button-fill-registration-form-wit/step-009-after-tool.html",
+        "label": "after-step-9"
+      },
+      {
+        "stepIndex": 10,
+        "path": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/CT-548/stagehand/20260315-204553-click-sign-up-button-fill-registration-form-wit/step-010-after-tool.html",
+        "label": "after-step-10"
+      },
+      {
+        "stepIndex": 11,
+        "path": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/CT-548/stagehand/20260315-204553-click-sign-up-button-fill-registration-form-wit/step-011-after-tool.html",
+        "label": "after-step-11"
+      },
+      {
+        "stepIndex": 12,
+        "path": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/CT-548/stagehand/20260315-204553-click-sign-up-button-fill-registration-form-wit/step-012-after-tool.html",
+        "label": "after-step-12"
+      },
+      {
+        "stepIndex": 13,
+        "path": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/CT-548/stagehand/20260315-204553-click-sign-up-button-fill-registration-form-wit/step-013-after-tool.html",
+        "label": "after-step-13"
+      },
+      {
+        "stepIndex": 14,
+        "path": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/CT-548/stagehand/20260315-204553-click-sign-up-button-fill-registration-form-wit/step-014-after-tool.html",
+        "label": "after-step-14"
+      },
+      {
+        "stepIndex": 15,
+        "path": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/CT-548/stagehand/20260315-204553-click-sign-up-button-fill-registration-form-wit/step-015-after-tool.html",
+        "label": "after-step-15"
+      }
+    ]
+  },
+  "errors": [
+    "Agent execution was aborted: timeout"
+  ],
+  "meta": {
+    "durationMs": 128164,
+    "timedOut": true,
+    "model": "zai-coding/glm-4.7",
+    "resolvedModel": "deepseek/glm-4.7",
+    "initialUrl": "https://minebit-casino.qa.sofon.one",
+    "finalUrl": null,
+    "artifactDir": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/CT-548/stagehand/20260315-204553-click-sign-up-button-fill-registration-form-wit"
+  }
+}

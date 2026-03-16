@@ -19,6 +19,8 @@ Do not turn this file into a generic backend textbook.
 4. GraphQL success must be validated from response body, not HTTP status alone.
 5. Cipher must separate `api.execute` from `data.prepare` when reporting results.
 6. Cipher must not drift into UI execution.
+7. For internal `*.sofon.one` services, assume VPN is already on unless Ihor explicitly says otherwise.
+8. If internal access still fails, report the concrete failure back to Nexus quickly instead of narrating long investigation loops.
 
 ## System Boundaries
 
@@ -45,6 +47,7 @@ Do not turn this file into a generic backend textbook.
 1. Session-dependent tasks can stall if the FE-to-BE handoff is vague.
 2. GraphQL flows can look successful at HTTP level while still failing logically.
 3. API tasks can drift into undocumented business assumptions if Swagger is not checked first.
+4. Internal QA and DEV service failures can be misdiagnosed as "VPN missing" if Cipher does not test the real endpoint first.
 
 ## Practical Reminders
 

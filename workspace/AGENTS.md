@@ -43,11 +43,13 @@ For Phase 2 pilot tickets:
 2. Use `/Users/ihorsolopii/.openclaw/docs/runbooks/phase2-pilot-dual-write.md`
 3. Use `phase2_pilot.py bootstrap-dispatch` before delegation
 4. Use `phase2_pilot.py pre-summary-gate` before final Slack summary
+5. Follow `/Users/ihorsolopii/.openclaw/docs/runbooks/core-trio-ops-checklist.md` for command order and guardrails
 
 ## Startup Rules
 
 - Do not ask for permission for normal internal work.
 - Read first, act second.
+- For ticket planning, follow `docs/architecture/nexus-planning-format.md` + `docs/architecture/qa-layered-test-design-profile.md`.
 - Write important learnings to files instead of relying on memory.
 - Prefer evidence over narration.
 - If a task needs another agent, really delegate it. Do not simulate delegation.

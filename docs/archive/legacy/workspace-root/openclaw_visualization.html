@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OpenClaw Architecture v4.0 — Ticket Testing System Map</title>
+    <title>OpenClaw Architecture v4.3 — Core Trio + Pilot Runtime Map</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -302,8 +302,8 @@
 
 <div class="sidebar">
     <div class="sidebar-header">
-        <h1 id="title">🦞 OpenClaw v4.0</h1>
-        <div class="version" id="subtitle">TICKET TESTING SYSTEM — ORCHESTRATION MAP</div>
+        <h1 id="title">🦞 OpenClaw v4.3</h1>
+        <div class="version" id="subtitle">CORE TRIO + PILOT RUNTIME — ORCHESTRATION MAP</div>
     </div>
 
     <div class="tabs">
@@ -347,23 +347,23 @@ const NODES = [
 
     // Orchestration
     { id:'nexus',       icon:'👑', name:'Nexus',      sub:'orchestrator · test lead · reviewer', x:50, y:30, color:'var(--nexus)', hub:true, status:'green' },
-    { id:'memory_n',    icon:'🧠', name:'Curated Memory', sub:'routing rules + project truths', x:25, y:30, color:'var(--memory)' },
-    { id:'knowledge',   icon:'📚', name:'shared/knowledge/', sub:'project facts + UI/API learnings', x:75, y:30, color:'var(--knowledge)' },
+    { id:'memory_n',    icon:'🧠', name:'Curated Memory', sub:'routing rules + role truths', x:25, y:30, color:'var(--memory)' },
+    { id:'knowledge',   icon:'📚', name:'PROJECT_KNOWLEDGE', sub:'curated project truths + reusable findings', x:75, y:30, color:'var(--knowledge)' },
     { id:'heartbeat',   icon:'💓', name:'Heartbeat', sub:'light periodic checks for Nexus', x:90, y:24, color:'var(--heartbeat)', status:'green' },
 
     // Shared State
-    { id:'tasks',       icon:'📋', name:'shared/tasks/', sub:'1 ticket / 1 charter task files', x:18, y:52, color:'var(--shared)' },
-    { id:'creds',       icon:'🔑', name:'shared/credentials/', sub:'JSON creds + session handoffs', x:35, y:52, color:'var(--shared)' },
-    { id:'results',     icon:'📊', name:'shared/test-results/', sub:'evidence + reports + artifacts', x:52, y:52, color:'var(--shared)' },
-    { id:'daily_notes', icon:'📝', name:'daily notes', sub:'raw logs of what happened today', x:69, y:52, color:'var(--shared)' },
-    { id:'knowledge_q', icon:'🗂️', name:'curated knowledge', sub:'distilled learnings promoted by Nexus', x:86, y:52, color:'var(--knowledge)' },
+    { id:'tasks',       icon:'📋', name:'shared/tasks/', sub:'task files + pilot dispatch hooks', x:18, y:52, color:'var(--shared)' },
+    { id:'creds',       icon:'🔑', name:'shared/sessions/', sub:'session refs + registry (pilot)', x:35, y:52, color:'var(--shared)' },
+    { id:'results',     icon:'📊', name:'shared/runs/ + test-results/', sub:'run mirror + legacy evidence', x:52, y:52, color:'var(--shared)' },
+    { id:'daily_notes', icon:'📝', name:'DAILY_INSIGHTS', sub:'candidate learnings + insight notes', x:69, y:52, color:'var(--shared)' },
+    { id:'knowledge_q', icon:'🗂️', name:'contracts + registry', sub:'schemas + capability/maturity guardrails', x:86, y:52, color:'var(--knowledge)' },
 
     // Execution & Automation
     { id:'clawver',   icon:'🐞', name:'Clawver',    sub:'UI manual QA + browser execution', x:14, y:85, color:'var(--qa)', hub:true, status:'green' },
     { id:'stagehand', icon:'🧭', name:'Stagehand',  sub:'path-finding for unstable UI only', x:31, y:85, color:'var(--stagehand)', status:'green' },
     { id:'cipher',    icon:'🔌', name:'Cipher',     sub:'API / BE / data prep / swagger', x:50, y:85, color:'var(--api)', hub:true, status:'green' },
-    { id:'research',  icon:'🔎', name:'Researcher', sub:'external best-practice digest', x:69, y:85, color:'var(--research)', hub:true, status:'green' },
-    { id:'jiraw',     icon:'🦉', name:'Jira Watcher', sub:'cron intake for ticket status changes', x:86, y:85, color:'var(--jira)', hub:true, status:'green' },
+    { id:'research',  icon:'🔎', name:'Researcher', sub:'async digest only (alpha advisory)', x:69, y:85, color:'var(--research)', hub:true, status:'yellow' },
+    { id:'jiraw',     icon:'🦉', name:'Jira Watcher', sub:'cron intake / scope watcher candidate', x:86, y:85, color:'var(--jira)', hub:true, status:'yellow' },
 
     // Schedulers
     { id:'cron_engine', icon:'⏰', name:'Cron Engine', sub:'reliable scheduled jobs', x:92, y:68, color:'var(--cron)', status:'green' },
@@ -435,7 +435,7 @@ const TABS = {
                 <strong style="color:var(--text)">Nexus</strong> — головний вхід для задачі, test plan, review і фінального висновку.<br><br>
                 <strong style="color:var(--text)">Clawver</strong> — виконує UI/manual/browser testing.<br>
                 <strong style="color:var(--text)">Cipher</strong> — готує дані, перевіряє API/BE і swagger.<br>
-                <strong style="color:var(--text)">Researcher</strong> — не в критичному path тікета, а в контурі покращення системи.<br><br>
+                <strong style="color:var(--text)">Researcher</strong> — async digest only, не в критичному path тікета.<br><br>
                 <strong style="color:var(--text)">Stagehand</strong> — helper для unstable UI, не окремий decision-maker.
             </p>
         </div>
@@ -453,17 +453,17 @@ const TABS = {
                 <strong style="color:#8b5cf6">exec</strong> — heavy work dispatch<br>
                 <strong style="color:#f59e0b">sessions_send</strong> — short coordination / done signal<br><br>
                 <strong style="color:var(--text)">Правило:</strong> 1 ticket або 1 charter на один агентний виклик.<br>
-                Великі задачі дробляться, а не відправляються пачкою.
+                Для execution tasks використовується pilot bootstrap + gate, а великі задачі дробляться, а не відправляються пачкою.
             </p>
         </div>
         <div class="info-card">
             <h3>📂 Shared State = Source of Truth</h3>
             <p>
-                <code>shared/tasks/</code> — what to test<br>
-                <code>shared/credentials/</code> — how to authenticate<br>
-                <code>shared/test-results/</code> — what happened + evidences<br>
-                <code>daily notes</code> — raw learnings of the day<br>
-                <code>shared/knowledge/</code> — distilled truths that improve tomorrow
+                <code>shared/tasks/</code> — what to test + dispatch hooks<br>
+                <code>shared/sessions/</code> — session refs instead of raw token prose<br>
+                <code>shared/runs/</code> — pilot run traceability ledger<br>
+                <code>shared/test-results/</code> — legacy evidence path still active<br>
+                <code>DAILY_INSIGHTS</code> — candidate learnings for Nexus curation
             </p>
         </div>
     `,
@@ -480,6 +480,7 @@ const TABS = {
                 <span class="tag">Hub</span>
                 <span class="tag">Router</span>
                 <span class="tag">Reviewer</span>
+                <span class="tag">Pilot-aware</span>
             </div>
         </div>
         <div class="info-card" style="border-color:var(--qa)">
@@ -495,6 +496,7 @@ const TABS = {
                 <span class="tag">Stagehand-aware</span>
                 <span class="tag">UI Testing</span>
                 <span class="tag">Evidence First</span>
+                <span class="tag">Learning candidate writer</span>
             </div>
         </div>
         <div class="info-card" style="border-color:var(--stagehand)">
@@ -522,6 +524,7 @@ const TABS = {
                 <span class="tag">API</span>
                 <span class="tag">Swagger</span>
                 <span class="tag">Data Prep</span>
+                <span class="tag">Session-record aware</span>
             </div>
         </div>
         <div class="info-card" style="border-color:var(--research)">
@@ -532,7 +535,7 @@ const TABS = {
                 <strong>Produces:</strong> short actionable digests about testing, tools, frameworks, iGaming/Web3 patterns
             </p>
             <div class="tag-row">
-                <span class="tag ok">● Active</span>
+                <span class="tag warn">● Alpha advisory</span>
                 <span class="tag">Digest</span>
                 <span class="tag">Best Practices</span>
                 <span class="tag">External Context</span>
@@ -546,7 +549,7 @@ const TABS = {
                 <strong>Why cron:</strong> exact and stable polling is better here than heartbeat
             </p>
             <div class="tag-row">
-                <span class="tag ok">● Cron-only</span>
+                <span class="tag warn">● Alpha support</span>
                 <span class="tag">Autonomous</span>
                 <span class="tag">Ticket Intake</span>
             </div>
@@ -559,18 +562,18 @@ const TABS = {
                 1. Ihor → Nexus: ticket / bug / feature to test<br>
                 2. Nexus: determines FE, BE or mixed scope<br>
                 3. Nexus: prepares <code>shared/tasks/CT-XXX.md</code><br>
-                4. Nexus → Clawver and/or Cipher<br>
-                5. Agents execute and save evidence/results<br>
-                6. Nexus reviews outputs and summarizes result<br>
-                7. Ihor gets final tested outcome + evidence paths
+                4. For execution work: bootstrap pilot dispatch + run hooks<br>
+                5. Nexus → Clawver and/or Cipher<br>
+                6. Agents execute and save evidence/results<br>
+                7. Nexus reviews outputs, gate status, and summarizes result
             </p>
         </div>
         <div class="info-card">
-            <h3>🧠 Daily Learning Loop</h3>
+            <h3>🧠 Learning Loop</h3>
             <p style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;line-height:2;color:var(--text)">
-                During work: agents write short raw notes<br>
-                End of day: Nexus reviews raw notes + ticket outputs<br>
-                Nexus promotes only valuable truths to curated knowledge<br>
+                During work: executors propose short insight candidates<br>
+                Nexus reviews daily insights + ticket outputs<br>
+                Nexus promotes only evidence-backed reusable truths<br>
                 Next day: better plans, better testing, less repetition
             </p>
         </div>
@@ -584,26 +587,26 @@ const TABS = {
             </p>
         </div>
         <div class="info-card">
-            <h3>🔏 FE ↔ BE Token / Data Handoff</h3>
+            <h3>🔏 FE ↔ BE Session / Data Handoff</h3>
             <p>
-                When Cipher needs a player session token:<br><br>
-                1. Nexus → Clawver: "Login and save token"<br>
-                2. Clawver: UI login → writes <code>shared/session/player_token.txt</code><br>
-                3. Nexus → Cipher: "Execute API with player token"<br>
-                4. Cipher: reads token file → calls API
+                When Cipher needs a player session:<br><br>
+                1. Nexus/Clawver create or reuse session artifact<br>
+                2. Pilot flow registers a <code>session-record</code><br>
+                3. Cipher reads session reference, not raw token prose<br>
+                4. Evidence and contracts stay traceable per run
             </p>
         </div>
     `,
     cron: `
         <div class="info-card">
-            <h3><span class="status-dot green"></span> Jira Watcher = Cron Job</h3>
+            <h3><span class="status-dot yellow"></span> Jira Watcher = Cron Job</h3>
             <p>
                 <strong>Why cron:</strong> точний і надійний polling Jira<br>
                 <strong>Role:</strong> ловить Ready for Testing / status changes<br>
                 <strong>Feeds:</strong> Nexus with context snapshots<br>
                 <strong>Best for:</strong> stable ingestion backbone
             </p>
-            <div class="tag-row"><span class="tag ok">Reliable</span><span class="tag">Precise timing</span></div>
+            <div class="tag-row"><span class="tag warn">Alpha support</span><span class="tag">Precise timing</span></div>
         </div>
         <div class="info-card">
             <h3><span class="status-dot green"></span> Nexus = Heartbeat</h3>
@@ -615,13 +618,13 @@ const TABS = {
             <div class="tag-row"><span class="tag ok">Lightweight</span><span class="tag">Context-aware</span></div>
         </div>
         <div class="info-card">
-            <h3><span class="status-dot green"></span> Researcher = Periodic Digest</h3>
+            <h3><span class="status-dot yellow"></span> Researcher = Periodic Digest</h3>
             <p>
                 <strong>Cadence:</strong> daily or once per 3 days<br>
                 <strong>Topics:</strong> QA, Playwright, Stagehand, iGaming, Web3, mobile testing<br>
                 <strong>Rule:</strong> publish only what is practically useful for the system
             </p>
-            <div class="tag-row"><span class="tag ok">Async learning</span><span class="tag">Not in ticket critical path</span></div>
+            <div class="tag-row"><span class="tag warn">Alpha advisory</span><span class="tag">Not in ticket critical path</span></div>
         </div>
         <div class="info-card">
             <h3><span class="status-dot green"></span> Stagehand = On-Demand Helper</h3>
@@ -635,8 +638,9 @@ const TABS = {
         <div class="info-card" style="border-color:var(--slack)">
             <h3><span class="status-dot green"></span> Learning Model</h3>
             <p>
-                <strong>Raw layer:</strong> daily notes and ticket artifacts<br>
-                <strong>Curated layer:</strong> promoted project knowledge<br>
+                <strong>Run layer:</strong> ticket artifacts + run evidence<br>
+                <strong>Candidate layer:</strong> DAILY_INSIGHTS + per-ticket insight notes<br>
+                <strong>Curated layer:</strong> promoted project knowledge and agent memory<br>
                 <strong>Outcome:</strong> agents improve every day without loading giant files every run
             </p>
             <div class="tag-row"><span class="tag ok">Compact</span><span class="tag">Low-noise context</span></div>
@@ -768,8 +772,8 @@ function highlight(id) {
 function clearHL() {
     wrap.classList.remove('dimmed');
     document.querySelectorAll('.hl,.hl-link,.hl-label').forEach(e => e.classList.remove('hl','hl-link','hl-label'));
-    document.getElementById('title').innerHTML = '🦞 OpenClaw v4.0';
-    document.getElementById('subtitle').textContent = 'TICKET TESTING SYSTEM — ORCHESTRATION MAP';
+    document.getElementById('title').innerHTML = '🦞 OpenClaw v4.3';
+    document.getElementById('subtitle').textContent = 'CORE TRIO + PILOT RUNTIME — ORCHESTRATION MAP';
 }
 
 function showTab(name) {

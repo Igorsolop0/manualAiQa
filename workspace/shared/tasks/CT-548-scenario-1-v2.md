@@ -56,7 +56,7 @@
 ```
 
 ## Evidence Path
-- **Artifacts:** `/Users/ihorsolopii/.openclaw/workspace/shared/test-results/ct-548/stagehand/<timestamp>-<run>/`
+- **Artifacts:** `/Users/ihorsolopii/.openclaw/workspace/shared/test-results/CT-548/stagehand/<timestamp>-<run>/`
 - **Screenshots:** Each step
 - **DOM Snapshots:** Each step
 - **Output JSON:** Stagehand steps, artifacts, meta

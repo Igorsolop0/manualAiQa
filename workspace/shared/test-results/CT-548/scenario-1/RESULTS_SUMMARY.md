@@ -21,7 +21,7 @@
   7. wait
   8. screenshot
 - **Problem:** timeout на login modal — credentials не заповнені коректно
-- **Artifacts:** `ct-548/stagehand/20260315-191118-login-as-test-user-via-email-password-navigate/`
+- **Artifacts:** `CT-548/stagehand/20260315-191118-login-as-test-user-via-email-password-navigate/`
 - **Screenshots:** 9 скріншотів (initial + 8 steps)
 
 ### Запуск 2 (19:16) — Login retry
@@ -32,7 +32,7 @@
   - Password textbox clicked, keys typed
   - Start Playing clicked (3x)
 - **Problem:** timeout — login не завершився, залишається на modal
-- **Artifacts:** `ct-548/stagehand/20260315-191612-login-as-test-user-via-email-password-navigate/`
+- **Artifacts:** `CT-548/stagehand/20260315-191612-login-as-test-user-via-email-password-navigate/`
 - **Screenshots:** 21 скріншот
 - **Root cause:** Stagehand не може коректно заповнити login form
 
@@ -46,7 +46,7 @@
   5. scroll
   6. screenshot
 - **Problem:** test-social-linking сторінка порожня для не залогінених користувачів
-- **Artifacts:** `ct-548/stagehand/20260315-192015-navigate-to-test-social-linking-page-find-and-c/`
+- **Artifacts:** `CT-548/stagehand/20260315-192015-navigate-to-test-social-linking-page-find-and-c/`
 - **Screenshots:** 7 скріншотів
 - **Root cause:** Social linking UI доступна тільки для logged-in users
 
@@ -92,6 +92,6 @@
 - If Option 3: get API endpoint info
 
 ## Evidence Paths
-- Run 1: `/Users/ihorsolopii/.openclaw/workspace/shared/test-results/ct-548/stagehand/20260315-191118-login-as-test-user-via-email-password-navigate/`
-- Run 2: `/Users/ihorsolopii/.openclaw/workspace/shared/test-results/ct-548/stagehand/20260315-191612-login-as-test-user-via-email-password-navigate/`
-- Run 3: `/Users/ihorsolopii/.openclaw/workspace/shared/test-results/ct-548/stagehand/20260315-192015-navigate-to-test-social-linking-page-find-and-c/`
+- Run 1: `/Users/ihorsolopii/.openclaw/workspace/shared/test-results/CT-548/stagehand/20260315-191118-login-as-test-user-via-email-password-navigate/`
+- Run 2: `/Users/ihorsolopii/.openclaw/workspace/shared/test-results/CT-548/stagehand/20260315-191612-login-as-test-user-via-email-password-navigate/`
+- Run 3: `/Users/ihorsolopii/.openclaw/workspace/shared/test-results/CT-548/stagehand/20260315-192015-navigate-to-test-social-linking-page-find-and-c/`

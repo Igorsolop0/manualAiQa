@@ -1,0 +1,60 @@
+{
+  "ticket_id": "CT-752",
+  "run_id": "CT-752-20260313-01",
+  "generated_at": "2026-03-16T14:10:43Z",
+  "status": "ready",
+  "result_ready": true,
+  "result_wait": {
+    "result_file": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/CT-752/results.json",
+    "elapsed_sec": 0.0,
+    "attempts": 1,
+    "size_bytes": 7772,
+    "mtime_utc": "2026-03-13T15:46:43Z"
+  },
+  "sync": {
+    "copied": 2,
+    "skipped": 24,
+    "report_ref": "shared/runs/CT-752-20260313-01/meta/legacy-sync-report.json"
+  },
+  "contracts": {
+    "tool": "ajv-cli",
+    "result_packets": {
+      "required_min_files": 1,
+      "found": 1,
+      "valid": 1,
+      "invalid": []
+    },
+    "session_records": {
+      "found": 0,
+      "valid": 0,
+      "invalid": [],
+      "skipped": true
+    },
+    "ok": true
+  },
+  "runtime_policy": {
+    "stagehand_policy": "off",
+    "task_file_ref": "workspace/shared/tasks/CT-752.md",
+    "ok": true,
+    "findings": []
+  },
+  "learning_sync": {
+    "ok": false,
+    "ticket_id": "CT-752",
+    "insight_note": {
+      "exists": true,
+      "contains_ticket": true,
+      "ref": "workspace/memory/insights/CT-752-insights.md"
+    },
+    "daily_intake": {
+      "exists": true,
+      "contains_ticket": false,
+      "ref": "workspace/shared/DAILY_INSIGHTS.md"
+    },
+    "run_learning": {
+      "dir_ref": "shared/runs/CT-752-20260313-01/learning",
+      "files_found": 0,
+      "matching_ticket_entries": 0
+    }
+  }
+}

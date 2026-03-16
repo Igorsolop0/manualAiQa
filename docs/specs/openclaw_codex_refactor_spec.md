@@ -6,6 +6,37 @@
 **Owner:** Ihor  
 **Primary goal:** turn OpenClaw from a promising multi-agent prototype into a reliable personal QA operating system that can remove ~60–70% of routine work on a secondary project while keeping human judgment in requirements analysis, risk review, and final product decisions.
 
+## Progress snapshot (updated 2026-03-15)
+
+Current implementation status against this spec:
+
+- `Phase 0` — completed
+- `Phase 1` — completed
+- `Phase 2` — completed
+- `Phase 3` — in progress, with strong structural baseline completed
+- `Phase 4` — not started
+- `Phase 5` — not started
+- `Phase 6` — not started
+- `Phase 7` — not started
+
+What is already materially implemented:
+
+- architecture baseline and migration notes under `docs/architecture/`
+- canonical contracts under `contracts/`
+- capability and maturity registries under `shared/registry/`
+- run-centric pilot helper and dual-write scaffolding
+- session registry and session-record usage in pilot flow
+- core trio file-meaning standard and role cleanup
+- canonical QA framework, Nexus planning format, learning sync model
+- cleanup/archive pass and live agent reference map
+
+What is still open at the time of this update:
+
+- Phase 3 runtime hardening so real ticket runs follow the new model more consistently
+- stronger enforcement for `Stagehand ONLY` / `Stagehand REQUIRED` execution behavior
+- consistent learning emission on live runs
+- naming/traceability cleanup in runtime artifacts
+
 ---
 
 ## 1. Executive summary
@@ -845,6 +876,8 @@ Rules:
 
 ## Phase 0 — Freeze and inventory
 
+**Status (2026-03-15):** completed
+
 ### Goal
 Create a safe baseline before structural changes.
 
@@ -860,9 +893,19 @@ Create a safe baseline before structural changes.
 
 - a new contributor can see what is core, what is experimental, and what is deprecated.
 
+### Implemented
+
+- spec copied into `docs/specs/`
+- `docs/architecture/current-state.md` created
+- `shared/registry/maturity.yaml` created
+- Vision Scout marked as deprecated in maturity/governance
+- Researcher marked as alpha/advisory and removed from mandatory ticket-critical path in docs/routing
+
 ---
 
 ## Phase 1 — Contracts and registry
+
+**Status (2026-03-15):** completed
 
 ### Goal
 Introduce the canonical contracts and capability registry.
@@ -879,9 +922,19 @@ Introduce the canonical contracts and capability registry.
 
 - one dry-run ticket can produce task charter, handoff packet, and result packet with valid structure.
 
+### Implemented
+
+- canonical schemas created under `contracts/`
+- example JSON artifacts created under `contracts/examples/`
+- `shared/registry/capabilities.yaml` created
+- Nexus docs updated to route by capability + maturity
+- lightweight validation support added through pilot helper / `ajv-cli`
+
 ---
 
 ## Phase 2 — Run ledger and session registry
+
+**Status (2026-03-15):** completed
 
 ### Goal
 Replace folder-level ambiguity with run-level traceability.
@@ -899,9 +952,25 @@ Replace folder-level ambiguity with run-level traceability.
 - a mixed UI+API test leaves all major artifacts inside one run folder,
 - session exchange happens via session references.
 
+### Implemented
+
+- `shared/runs/<run_id>/` pilot scaffolding added
+- `shared/sessions/registry.json` added
+- `session-record` flow added via `phase2_pilot.py register-session`
+- `result-packet` flow added via `phase2_pilot.py emit-result`
+- dual-write migration path documented and working for pilot tickets
+- `bootstrap-dispatch` and `pre-summary-gate` added
+
+### Note
+
+Phase 2 is considered complete as infrastructure and operating path.
+Real ticket runs still need stronger default adoption, which is being handled as Phase 3 runtime hardening rather than Phase 2 redesign.
+
 ---
 
 ## Phase 3 — Core trio cleanup
+
+**Status (2026-03-15):** in progress
 
 ### Goal
 Make Nexus, Clawver, and Cipher consistent and production-lean.
@@ -919,6 +988,28 @@ Make Nexus, Clawver, and Cipher consistent and production-lean.
 - the core trio is internally consistent,
 - template noise is removed,
 - each core agent has clear input/output boundaries.
+
+### Implemented so far
+
+- standardized meanings of `AGENTS.md`, `SOUL.md`, `MEMORY.md`, `TOOLS.md`, `USER.md`, `IDENTITY.md`, `HEARTBEAT.md`
+- cleaned Nexus, Clawver, and Cipher docs
+- reduced Nexus `MEMORY.md` into operational memory
+- added shared standards:
+  - `docs/architecture/core-trio-shared-standard.md`
+  - `docs/architecture/qa-operating-framework.md`
+  - `docs/architecture/nexus-planning-format.md`
+  - `docs/architecture/learning-sync-model.md`
+- added cleanup/reference docs:
+  - `docs/architecture/safe-cleanup-plan-2026-03-15.md`
+  - `docs/architecture/agent-reference-map.md`
+  - `docs/architecture/refactor-compliance-checklist.md`
+
+### Still open
+
+- runtime hardening so live runs consistently follow pilot + tooling policy
+- stronger enforcement for Stagehand-only behavior
+- consistent learning sync on real runs
+- final decision on what else to promote from `workspace/QA_TEST_DESIGN_APPROACH.md`
 
 ---
 

@@ -129,6 +129,11 @@ After execution, run mirror sync:
 python3 /Users/ihorsolopii/.openclaw/scripts/phase2_pilot.py sync-legacy --ticket CT-STAGEHAND-SMOKE
 ```
 
+Fail-fast runtime guard (required before normal emit-result in Stagehand ONLY tasks):
+```bash
+python3 /Users/ihorsolopii/.openclaw/scripts/phase2_pilot.py stagehand-guard --ticket CT-STAGEHAND-SMOKE --phase post --agent qa-agent --on-violation blocked --next-owner nexus --emit-result --write-results-stub
+```
+
 If auth/session was used in this run, register session-record (reference-only handoff):
 ```bash
 python3 /Users/ihorsolopii/.openclaw/scripts/phase2_pilot.py register-session --ticket CT-STAGEHAND-SMOKE --project minebit --subject-type player --owner qa-agent --storage-state-ref workspace/shared/test-auth/prod-player-auth.json --token-ref workspace/shared/test-auth/token.txt --status active --refresh-strategy ui_login
@@ -137,5 +142,15 @@ python3 /Users/ihorsolopii/.openclaw/scripts/phase2_pilot.py register-session --
 Emit result packet for Nexus review:
 ```bash
 python3 /Users/ihorsolopii/.openclaw/scripts/phase2_pilot.py emit-result --ticket CT-STAGEHAND-SMOKE --agent qa-agent --status completed --confidence medium --next-owner nexus --evidence-ref workspace/shared/test-results/CT-STAGEHAND-SMOKE/results.json
+```
+
+Emit learning candidate (if run produced reusable insight):
+```bash
+python3 /Users/ihorsolopii/.openclaw/scripts/phase2_pilot.py emit-learning --ticket CT-STAGEHAND-SMOKE --owner qa-agent --status completed --observed "<observed>" --impact "<impact>" --applies-to "<applies-to>" --promote-to run-only --evidence-ref workspace/shared/test-results/CT-STAGEHAND-SMOKE/results.json
+```
+
+Nexus pre-summary gate (wait for stable results + validate contracts):
+```bash
+python3 /Users/ihorsolopii/.openclaw/scripts/phase2_pilot.py pre-summary-gate --ticket CT-STAGEHAND-SMOKE
 ```
 <!-- PHASE2_DISPATCH_BLOCK_END -->

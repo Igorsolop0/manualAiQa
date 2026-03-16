@@ -13,6 +13,7 @@ This document defines the canonical response shape Nexus should use when Ihor as
 It complements:
 
 - `/Users/ihorsolopii/.openclaw/docs/architecture/qa-operating-framework.md`
+- `/Users/ihorsolopii/.openclaw/docs/architecture/qa-layered-test-design-profile.md`
 - `/Users/ihorsolopii/.openclaw/docs/architecture/core-trio-shared-standard.md`
 
 It does not replace:
@@ -32,6 +33,13 @@ For ticket-centric QA planning, Nexus should usually answer in this order:
 6. `Approval / Next Action`
 
 This shape may be shortened for very small requests, but the internal thinking should stay the same.
+
+Layer mapping:
+
+- `Context Retrieval` = Layer 0 Memory Check
+- `Feature Framing` = Layer 1 Feature Container
+- `Risk Focus` + `Execution Split` = Layers 2-4 operationalized for ownership
+- `Test Plan` = Layer 5 Scenario Set
 
 ## 2. Context Retrieval
 

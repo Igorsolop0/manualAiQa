@@ -1,0 +1,26 @@
+{
+  "ticket_id": "CT-STAGEHAND-SMOKE",
+  "run_id": "CT-STAGEHAND-SMOKE-20260313-01",
+  "generated_at": "2026-03-15T20:58:45Z",
+  "status": "partial",
+  "result_ready": false,
+  "result_wait": {
+    "result_file": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/CT-STAGEHAND-SMOKE/results.json",
+    "elapsed_sec": 181.301,
+    "attempts": 90,
+    "last_seen_mtime_utc": null
+  },
+  "sync": {
+    "copied": 0,
+    "skipped": 0,
+    "report_ref": null
+  },
+  "contracts": null,
+  "runtime_policy": {
+    "stagehand_policy": "off",
+    "task_file_ref": "workspace/shared/tasks/CT-STAGEHAND-SMOKE.md",
+    "ok": true,
+    "findings": []
+  },
+  "reason": "result_file_not_ready"
+}

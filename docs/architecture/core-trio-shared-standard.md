@@ -32,6 +32,7 @@ Do not duplicate the same policy across all files.
 All three agents also share the canonical QA operating framework:
 
 - `/Users/ihorsolopii/.openclaw/docs/architecture/qa-operating-framework.md`
+- `/Users/ihorsolopii/.openclaw/docs/architecture/qa-layered-test-design-profile.md`
 - `/Users/ihorsolopii/.openclaw/docs/architecture/learning-sync-model.md`
 
 This is the shared thinking model for:
