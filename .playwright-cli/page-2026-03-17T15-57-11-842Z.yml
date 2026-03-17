@@ -1,0 +1,60 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e4]:
+    - generic:
+      - banner:
+        - generic [ref=e6]:
+          - button "open_sidebar_7caabb617f.svg" [ref=e10] [cursor=pointer]:
+            - img "open_sidebar_7caabb617f.svg" [ref=e11]
+          - button "search_8bdabea647.svg" [ref=e15] [cursor=pointer]:
+            - img "search_8bdabea647.svg" [ref=e16]
+          - button "bonuses_e44044ad0c.svg Bonuses" [ref=e20] [cursor=pointer]:
+            - img "bonuses_e44044ad0c.svg" [ref=e22]
+            - text: Bonuses
+          - button "Log In" [ref=e26] [cursor=pointer]
+          - button "Sign Up" [ref=e30] [cursor=pointer]
+    - generic [ref=e31]:
+      - navigation [ref=e34]:
+        - menuitem "casino_af2bf3f3d7.svg" [ref=e35] [cursor=pointer]:
+          - button "casino_af2bf3f3d7.svg" [ref=e36]:
+            - img "casino_af2bf3f3d7.svg" [ref=e38]
+        - menuitem "promotions_c6df78d8d2.svg" [ref=e39] [cursor=pointer]:
+          - link "promotions_c6df78d8d2.svg" [ref=e40]:
+            - /url: /promo-list
+            - img "promotions_c6df78d8d2.svg" [ref=e42]
+        - menuitem "loyalty_0e3b0bb2e0.svg" [ref=e43] [cursor=pointer]:
+          - link "loyalty_0e3b0bb2e0.svg" [ref=e44]:
+            - /url: /loyalty-guest
+            - img "loyalty_0e3b0bb2e0.svg" [ref=e46]
+        - menuitem "vip_club_dc14dd1e60.svg" [ref=e47] [cursor=pointer]:
+          - link "vip_club_dc14dd1e60.svg" [ref=e48]:
+            - /url: /vip-club-unauthenticated
+            - img "vip_club_dc14dd1e60.svg" [ref=e50]
+        - menuitem "missions_ece5061175.svg" [ref=e51] [cursor=pointer]:
+          - link "missions_ece5061175.svg" [ref=e52]:
+            - /url: /quests
+            - img "missions_ece5061175.svg" [ref=e54]
+        - menuitem "live_support_785e562852.svg" [ref=e55] [cursor=pointer]:
+          - button "live_support_785e562852.svg" [ref=e56]:
+            - img "live_support_785e562852.svg" [ref=e58]
+        - menuitem "en_flag_39ae719dbf.png" [ref=e59] [cursor=pointer]:
+          - link "en_flag_39ae719dbf.png" [ref=e60]:
+            - /url: /test-social-linking#auth=be5a3fd946fc4ba99b48f99c448caecb?modal=choose-language
+            - img "en_flag_39ae719dbf.png" [ref=e61]
+        - menuitem [ref=e62] [cursor=pointer]:
+          - link [ref=e63]:
+            - /url: /test-social-linking#auth=be5a3fd946fc4ba99b48f99c448caecb?modal=iqs-sign-up
+        - menuitem "download_7965b89b37.svg" [ref=e64] [cursor=pointer]:
+          - link "download_7965b89b37.svg" [ref=e65]:
+            - /url: /download-app
+            - img "download_7965b89b37.svg" [ref=e67]
+        - menuitem "social_share_af47365deb.svg" [ref=e68] [cursor=pointer]:
+          - link "social_share_af47365deb.svg" [ref=e69]:
+            - /url: https://mine.partners/
+            - img "social_share_af47365deb.svg" [ref=e71]
+        - menuitem "help_33676574e4.svg":
+          - link "help_33676574e4.svg" [ref=e72] [cursor=pointer]:
+            - /url: /help-center-account
+            - img "help_33676574e4.svg" [ref=e74]
+      - main [ref=e75]
+    - contentinfo [ref=e78]
+  - alert [ref=e89]

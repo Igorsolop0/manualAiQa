@@ -1,0 +1,76 @@
+{
+  "ticket": "CT-824",
+  "task": "Пошук бонусу для Instant Rakeback на PROD",
+  "environment": "prod",
+  "timestamp": "2026-03-17T11:34:00Z",
+  
+  "found_bonus": {
+    "id": 11377,
+    "name": "Rakeback",
+    "description": "Per-real-bet rakeback accumulation bonus",
+    "bonus_type_id": 11,
+    "bonus_tag_id": 3,
+    "template_bonus_name": null,
+    "template_bonus_id": null,
+    "status": true,
+    "start_time": "2026-03-05T21:30:00Z",
+    "finish_time": "2027-03-06T21:59:59Z",
+    "wager_balance_activated_when_type": 0,
+    "percent": 100.0,
+    "total_receivers_count": 85
+  },
+  
+  "bonus_details": {
+    "products": [
+      {
+        "id": 2293034,
+        "product_structure_id": 21781,
+        "percent": 100.0
+      }
+    ],
+    "wager_balance_type": 0,
+    "is_always_eligible": true,
+    "requires_manual_claim": false,
+    "is_smartico": true,
+    "linked_campaign": false,
+    "valid_for_awarding": 10,
+    "valid_for_spending": 10,
+    "reset_schedule": "*/30 * * *"
+  },
+  
+  "confirmation": {
+    "matches_qa_context": {
+      "bonus_type": "Rakeback",
+      "bonus_tag_id": 3,
+      "game": "trade-smarter-1000x",
+      "expected_match": "BonusType 11 with BonusTagId 3 = Rakeback bonus"
+    },
+    "qa_bonus_id": {
+      "bonus_id": 2469229,
+      "environment": "qa",
+      "note": "ID відмінний від PROD, але той самий тип"
+    }
+  },
+  
+  "tag_system_reference": {
+    "tag_id": 3,
+    "tag_name": "Rakeback",
+    "source": "GET /api/Bonus/GetBonusTags"
+    "tags_available": 8
+  },
+  
+  "api_endpoints_used": [
+    {
+      "endpoint": "POST /api/Bonus/GetBonuses",
+      "method": "POST",
+      "parameters": {"partnerId": 5, "takeCount": 2000, "skipCount": 0, "isActive": true},
+      "purpose": "Search all bonuses"
+    },
+    {
+      "endpoint": "POST /api/Bonus/GetBonusInfo",
+      "method": "POST",
+      "parameters": {"bonusId": 11377},
+      "purpose": "Get detailed bonus info"
+    }
+  ]
+}

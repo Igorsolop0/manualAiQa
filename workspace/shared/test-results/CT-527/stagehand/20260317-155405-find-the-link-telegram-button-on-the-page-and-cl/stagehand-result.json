@@ -1,0 +1,118 @@
+{
+  "success": false,
+  "reason": "timeout",
+  "steps": [
+    {
+      "index": 1,
+      "action": "ariaTree",
+      "description": "ariaTree",
+      "selector": null,
+      "method": null,
+      "arguments": null,
+      "framePath": null,
+      "url": "https://minebit-casino.qa.sofon.one/test-social-linking#auth=be5a3fd946fc4ba99b48f99c448caecb"
+    },
+    {
+      "index": 2,
+      "action": "screenshot",
+      "description": "screenshot",
+      "selector": null,
+      "method": null,
+      "arguments": null,
+      "framePath": null,
+      "url": "https://minebit-casino.qa.sofon.one/test-social-linking#auth=be5a3fd946fc4ba99b48f99c448caecb"
+    },
+    {
+      "index": 3,
+      "action": "wait",
+      "description": "wait",
+      "selector": null,
+      "method": null,
+      "arguments": null,
+      "framePath": null,
+      "url": "https://minebit-casino.qa.sofon.one/test-social-linking#auth=be5a3fd946fc4ba99b48f99c448caecb"
+    },
+    {
+      "index": 4,
+      "action": "screenshot",
+      "description": "screenshot",
+      "selector": null,
+      "method": null,
+      "arguments": null,
+      "framePath": null,
+      "url": "https://minebit-casino.qa.sofon.one/test-social-linking#auth=be5a3fd946fc4ba99b48f99c448caecb"
+    },
+    {
+      "index": 5,
+      "action": "wait",
+      "description": "wait",
+      "selector": null,
+      "method": null,
+      "arguments": null,
+      "framePath": null,
+      "url": "https://minebit-casino.qa.sofon.one/test-social-linking#auth=be5a3fd946fc4ba99b48f99c448caecb"
+    },
+    {
+      "index": 6,
+      "action": "screenshot",
+      "description": "screenshot",
+      "selector": null,
+      "method": null,
+      "arguments": null,
+      "framePath": null,
+      "url": "https://minebit-casino.qa.sofon.one/test-social-linking#auth=be5a3fd946fc4ba99b48f99c448caecb"
+    }
+  ],
+  "artifacts": {
+    "screenshots": [
+      {
+        "stepIndex": 0,
+        "path": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/CT-527/stagehand/20260317-155405-find-the-link-telegram-button-on-the-page-and-cl/step-000-initial.png",
+        "label": "initial"
+      },
+      {
+        "stepIndex": 1,
+        "path": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/CT-527/stagehand/20260317-155405-find-the-link-telegram-button-on-the-page-and-cl/step-001-after-tool.png",
+        "label": "after-step-1"
+      },
+      {
+        "stepIndex": 2,
+        "path": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/CT-527/stagehand/20260317-155405-find-the-link-telegram-button-on-the-page-and-cl/step-002-after-tool.png",
+        "label": "after-step-2"
+      },
+      {
+        "stepIndex": 3,
+        "path": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/CT-527/stagehand/20260317-155405-find-the-link-telegram-button-on-the-page-and-cl/step-003-after-tool.png",
+        "label": "after-step-3"
+      },
+      {
+        "stepIndex": 4,
+        "path": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/CT-527/stagehand/20260317-155405-find-the-link-telegram-button-on-the-page-and-cl/step-004-after-tool.png",
+        "label": "after-step-4"
+      },
+      {
+        "stepIndex": 5,
+        "path": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/CT-527/stagehand/20260317-155405-find-the-link-telegram-button-on-the-page-and-cl/step-005-after-tool.png",
+        "label": "after-step-5"
+      },
+      {
+        "stepIndex": 6,
+        "path": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/CT-527/stagehand/20260317-155405-find-the-link-telegram-button-on-the-page-and-cl/step-006-after-tool.png",
+        "label": "after-step-6"
+      }
+    ],
+    "domSnapshots": []
+  },
+  "errors": [
+    "Agent execution was aborted: timeout"
+  ],
+  "meta": {
+    "durationMs": 96603,
+    "timedOut": true,
+    "model": "zai/glm-5-turbo",
+    "resolvedModel": "deepseek/glm-5-turbo",
+    "initialUrl": "https://minebit-casino.qa.sofon.one/test-social-linking#auth=be5a3fd946fc4ba99b48f99c448caecb",
+    "finalUrl": null,
+    "artifactDir": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/CT-527/stagehand/20260317-155405-find-the-link-telegram-button-on-the-page-and-cl"
+  }
+}

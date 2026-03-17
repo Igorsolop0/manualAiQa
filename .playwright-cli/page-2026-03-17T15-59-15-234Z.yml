@@ -1,0 +1,243 @@
+- generic [ref=e1]:
+  - generic [ref=e4]:
+    - generic:
+      - banner:
+        - generic [ref=e6]:
+          - button "open_sidebar_7caabb617f.svg" [ref=e10] [cursor=pointer]:
+            - img "open_sidebar_7caabb617f.svg" [ref=e11]
+          - link "Frame_1321320440_a321c4640e.svg" [ref=e94] [cursor=pointer]:
+            - /url: /
+            - img "Frame_1321320440_a321c4640e.svg" [ref=e95]
+          - button "search_8bdabea647.svg" [ref=e15] [cursor=pointer]:
+            - img "search_8bdabea647.svg" [ref=e16]
+          - button "bonuses_e44044ad0c.svg Bonuses" [ref=e20] [cursor=pointer]:
+            - img "bonuses_e44044ad0c.svg" [ref=e22]
+            - text: Bonuses
+          - button "Log In" [active] [ref=e26] [cursor=pointer]: Log In
+          - button "Sign Up" [ref=e30] [cursor=pointer]: Sign Up
+    - generic [ref=e31]:
+      - navigation [ref=e34]:
+        - menuitem "casino_af2bf3f3d7.svg" [ref=e35] [cursor=pointer]:
+          - button "casino_af2bf3f3d7.svg" [ref=e36]:
+            - img "casino_af2bf3f3d7.svg" [ref=e38]
+        - menuitem "promotions_c6df78d8d2.svg" [ref=e39] [cursor=pointer]:
+          - link "promotions_c6df78d8d2.svg" [ref=e40]:
+            - /url: /promo-list
+            - img "promotions_c6df78d8d2.svg" [ref=e42]
+        - menuitem "loyalty_0e3b0bb2e0.svg" [ref=e43] [cursor=pointer]:
+          - link "loyalty_0e3b0bb2e0.svg" [ref=e44]:
+            - /url: /loyalty-guest
+            - img "loyalty_0e3b0bb2e0.svg" [ref=e46]
+        - menuitem "vip_club_dc14dd1e60.svg" [ref=e47] [cursor=pointer]:
+          - link "vip_club_dc14dd1e60.svg" [ref=e48]:
+            - /url: /vip-club-unauthenticated
+            - img "vip_club_dc14dd1e60.svg" [ref=e50]
+        - menuitem "missions_ece5061175.svg" [ref=e51] [cursor=pointer]:
+          - link "missions_ece5061175.svg" [ref=e52]:
+            - /url: /quests
+            - img "missions_ece5061175.svg" [ref=e54]
+        - menuitem "live_support_785e562852.svg" [ref=e55] [cursor=pointer]:
+          - button "live_support_785e562852.svg" [ref=e56]:
+            - img "live_support_785e562852.svg" [ref=e58]
+        - menuitem "en_flag_39ae719dbf.png" [ref=e59] [cursor=pointer]:
+          - link "en_flag_39ae719dbf.png" [ref=e60]:
+            - /url: /test-social-linking#auth=be5a3fd946fc4ba99b48f99c448caecb?modal=iqs-sign-in
+            - img "en_flag_39ae719dbf.png" [ref=e61]
+        - menuitem [ref=e62] [cursor=pointer]:
+          - link [ref=e63]:
+            - /url: /test-social-linking#auth=be5a3fd946fc4ba99b48f99c448caecb?modal=iqs-sign-in
+        - menuitem "download_7965b89b37.svg" [ref=e64] [cursor=pointer]:
+          - link "download_7965b89b37.svg" [ref=e65]:
+            - /url: /download-app
+            - img "download_7965b89b37.svg" [ref=e67]
+        - menuitem "social_share_af47365deb.svg" [ref=e68] [cursor=pointer]:
+          - link "social_share_af47365deb.svg" [ref=e69]:
+            - /url: https://mine.partners/
+            - img "social_share_af47365deb.svg" [ref=e71]
+        - menuitem "help_33676574e4.svg":
+          - link "help_33676574e4.svg" [ref=e72] [cursor=pointer]:
+            - /url: /help-center-account
+            - img "help_33676574e4.svg" [ref=e74]
+      - main [ref=e75]
+    - contentinfo [ref=e78]:
+      - generic [ref=e79]:
+        - link "Frame_1321320440_a321c4640e.svg" [ref=e98] [cursor=pointer]:
+          - /url: /
+          - img "Frame_1321320440_a321c4640e.svg" [ref=e99]
+        - generic [ref=e103]:
+          - img "Flag of Anjouan" [ref=e110]
+          - paragraph [ref=e117]:
+            - link "minebit.io" [ref=e118] [cursor=pointer]:
+              - /url: http://minebit.io
+            - text: "is owned and operated by Crea Tech Dynamics Limited, registration number: 3-102-910445, registered address: Provincia 06 Puntarenas, Canton 11 Garabito, Jaco, Avenida Pastor Diaz, Costado Este De La Municipalidad De Garabito, Bufete Sanchez Chavarria, 61101, Costa Rica. Contact us at"
+            - link "support@minebit.io" [ref=e119] [cursor=pointer]:
+              - /url: mailto:support@minebit.io
+            - text: .
+            - link "minebit.io" [ref=e120] [cursor=pointer]:
+              - /url: http://minebit.io
+            - text: is licensed and regulated by the Government of the Autonomous Island of Anjouan, Union of Comoros and operates under License No. ALSI-202409037-FI2.
+            - link "minebit.io" [ref=e121] [cursor=pointer]:
+              - /url: http://minebit.io
+            - text: is compliant with applicable regulations and is legally authorized to offer games of chance and wagering.
+        - navigation [ref=e122]:
+          - generic [ref=e123]:
+            - paragraph [ref=e125]: Casino
+            - menuitem "All Games" [ref=e127] [cursor=pointer]:
+              - link "All Games" [ref=e128]:
+                - /url: /games/all
+                - text: All Games
+            - menuitem "Slots" [ref=e130] [cursor=pointer]:
+              - link "Slots" [ref=e131]:
+                - /url: /games/slots
+                - text: Slots
+            - menuitem "Popular" [ref=e133] [cursor=pointer]:
+              - link "Popular" [ref=e134]:
+                - /url: /games/popular
+                - text: Popular
+            - menuitem "New Games" [ref=e136] [cursor=pointer]:
+              - link "New Games" [ref=e137]:
+                - /url: /games/new
+                - text: New Games
+            - menuitem "Instant Games" [ref=e139] [cursor=pointer]:
+              - link "Instant Games" [ref=e140]:
+                - /url: /instant-games-lobby
+                - text: Instant Games
+            - menuitem "Live Casino" [ref=e142] [cursor=pointer]:
+              - link "Live Casino" [ref=e143]:
+                - /url: /live-casino-lobby
+                - text: Live Casino
+            - menuitem "Game Shows" [ref=e145] [cursor=pointer]:
+              - link "Game Shows" [ref=e146]:
+                - /url: /games/game-shows
+                - text: Game Shows
+            - menuitem "Blackjack" [ref=e148] [cursor=pointer]:
+              - link "Blackjack" [ref=e149]:
+                - /url: /games/blackjack
+                - text: Blackjack
+            - menuitem "Roulette" [ref=e151] [cursor=pointer]:
+              - link "Roulette" [ref=e152]:
+                - /url: /games/roulette
+                - text: Roulette
+          - generic [ref=e153]:
+            - paragraph [ref=e155]: Promo
+            - menuitem "Promotions" [ref=e157] [cursor=pointer]:
+              - link "Promotions" [ref=e158]:
+                - /url: /promo-list
+                - text: Promotions
+            - menuitem "VIP Club" [ref=e160] [cursor=pointer]:
+              - link "VIP Club" [ref=e161]:
+                - /url: /vip-club-authenticated
+                - text: VIP Club
+            - menuitem "Affiliate Program" [ref=e163] [cursor=pointer]:
+              - link "Affiliate Program" [ref=e164]:
+                - /url: https://mine.partners/
+                - text: Affiliate Program
+            - menuitem "Personal Quests" [ref=e166] [cursor=pointer]:
+              - link "Personal Quests" [ref=e167]:
+                - /url: /quests
+                - text: Personal Quests
+          - generic [ref=e168]:
+            - paragraph [ref=e170]: Support
+            - menuitem "Help Center" [ref=e172] [cursor=pointer]:
+              - link "Help Center" [ref=e173]:
+                - /url: /help-center-account
+                - text: Help Center
+            - menuitem "FAQ" [ref=e175] [cursor=pointer]:
+              - link "FAQ" [ref=e176]:
+                - /url: /faq
+                - text: FAQ
+            - menuitem "Responsible Gaming" [ref=e178] [cursor=pointer]:
+              - link "Responsible Gaming" [ref=e179]:
+                - /url: /responsible-game
+                - text: Responsible Gaming
+            - menuitem "Live Support" [ref=e181] [cursor=pointer]:
+              - button "Live Support" [ref=e182]: Live Support
+            - generic:
+              - menuitem
+            - menuitem "Payment Info" [ref=e184]:
+              - button "Payment Info"
+            - menuitem "Deposits and Withdrawals" [ref=e186] [cursor=pointer]:
+              - link "Deposits and Withdrawals" [ref=e187]:
+                - /url: /withdrawal-and-refund-policy
+                - text: Deposits and Withdrawals
+            - menuitem "Supported Crypto" [ref=e189] [cursor=pointer]:
+              - link "Supported Crypto" [ref=e190]:
+                - /url: /withdrawal-and-refund-policy
+                - text: Supported Crypto
+          - generic [ref=e191]:
+            - paragraph [ref=e193]: About Us
+            - menuitem "Terms and Conditions" [ref=e195] [cursor=pointer]:
+              - link "Terms and Conditions" [ref=e196]:
+                - /url: /terms-and-conditions
+                - text: Terms and Conditions
+            - menuitem "Privacy Policy" [ref=e198] [cursor=pointer]:
+              - link "Privacy Policy" [ref=e199]:
+                - /url: /privacy-policy
+                - text: Privacy Policy
+            - menuitem "Privacy, AML & KYC Policy" [ref=e201] [cursor=pointer]:
+              - link "Privacy, AML & KYC Policy" [ref=e202]:
+                - /url: /aml-and-kyc-policy
+                - text: Privacy, AML & KYC Policy
+            - menuitem "Fair Play" [ref=e204] [cursor=pointer]:
+              - link "Fair Play" [ref=e205]:
+                - /url: /fair-play
+                - text: Fair Play
+            - menuitem "Download App" [ref=e207] [cursor=pointer]:
+              - link "Download App" [ref=e208]:
+                - /url: /download-app
+                - text: Download App
+          - generic [ref=e209]:
+            - paragraph [ref=e211]: Contacts
+            - menuitem "kyc@minebit.com" [ref=e213] [cursor=pointer]:
+              - link "kyc@minebit.com" [ref=e214]:
+                - /url: mailto:kyc@minebit.com
+                - text: kyc@minebit.com
+            - menuitem "support@minebit.com" [ref=e216] [cursor=pointer]:
+              - link "support@minebit.com" [ref=e217]:
+                - /url: mailto:support@minebit.com
+                - text: support@minebit.com
+        - generic [ref=e226]:
+          - paragraph [ref=e227]: Payment Methods
+          - list [ref=e228]:
+            - listitem [ref=e229]:
+              - img "Tether" [ref=e230]
+            - listitem [ref=e231]:
+              - img "USD Coin" [ref=e232]
+            - listitem [ref=e233]:
+              - img "Bitcoin" [ref=e234]
+            - listitem [ref=e235]:
+              - img "Ethereum" [ref=e236]
+            - listitem [ref=e237]:
+              - img "Binance" [ref=e238]
+            - listitem [ref=e239]:
+              - img "Solana" [ref=e240]
+            - listitem [ref=e241]:
+              - img "Ripple" [ref=e242]
+            - listitem [ref=e243]:
+              - img "Dogecoin" [ref=e244]
+            - listitem [ref=e245]:
+              - img "Tron" [ref=e246]
+            - listitem [ref=e247]:
+              - img "Cardano" [ref=e248]
+            - listitem [ref=e249]:
+              - img "Bitcoin Cash" [ref=e250]
+        - generic [ref=e252]:
+          - paragraph [ref=e257]: Follow Us
+          - generic [ref=e262]:
+            - button "facebook_1dc5d75a3a.svg" [ref=e266] [cursor=pointer]:
+              - img "facebook_1dc5d75a3a.svg" [ref=e267]
+            - button "x_e4e7696d2a.svg" [ref=e271] [cursor=pointer]:
+              - img "x_e4e7696d2a.svg" [ref=e272]
+            - button "inst_bb4bce5d7c.svg" [ref=e276] [cursor=pointer]:
+              - img "inst_bb4bce5d7c.svg" [ref=e277]
+            - button "telegram_b4451cde27.svg" [ref=e281] [cursor=pointer]:
+              - img "telegram_b4451cde27.svg" [ref=e282]
+            - button "discord_icon_6e97506251.svg" [ref=e286] [cursor=pointer]:
+              - img "discord_icon_6e97506251.svg" [ref=e287]
+          - paragraph [ref=e292]: Download App
+          - generic [ref=e297]:
+            - button "google_play_77d364362b.svg" [ref=e301] [cursor=pointer]:
+              - img "google_play_77d364362b.svg" [ref=e302]
+            - button "app_store_9b43fa6eb5.svg" [ref=e306] [cursor=pointer]:
+              - img "app_store_9b43fa6eb5.svg" [ref=e307]
+  - alert [ref=e89]: /test-social-linking#auth=be5a3fd946fc4ba99b48f99c448caecb?modal=iqs-sign-in
