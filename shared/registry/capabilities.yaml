@@ -16,8 +16,8 @@ capabilities:
 
   ui.discover_path:
     owner: stagehand-helper
-    maturity: stable
-    notes: "Use only for unstable locator/modal/iframe discovery."
+    maturity: deprecated
+    notes: "DEPRECATED — Stagehand cannot drive browser actions with ZAI models. Use playwright-cli snapshot/click instead."
 
   api.execute:
     owner: cipher

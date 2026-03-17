@@ -24,15 +24,15 @@ Use canonical ticket casing in paths: `CT-XXX` (not `ct-xxx`).
   2. [second risk]
 - **Environment:** https://minebit-casino.prod.sofon.one
 - **Auth:** Required. Read credentials from `workspace/shared/credentials/CT-476-prod-credentials.json`
-- **Stagehand mode:** auto (`auto|required|off`)
+- **Browser tool:** `playwright-cli` (default for all browser tasks)
 - **Execution owner:** `qa-agent` (`qa-agent|api-docs-agent|mixed`)
 - **Execution split:**
   - Clawver: [browser or UI scope]
   - Cipher: [API or data-prep scope, if any]
-- **Browser goals (only if Stagehand mode != off):**
-  1. Reach state: [expected final UI state]
-  2. Start URL: [exact URL]
-  3. Max steps/timeout: [e.g. 25 / 90000ms]
+- **Browser goals:**
+  1. Start URL: [exact URL]
+  2. Expected final state: [what should be visible/confirmed]
+  3. Key elements to capture: [forms, buttons, modals to document]
 - **Knowledge output target:** `workspace/projects/nextcode/docs/ui-knowledge/minebit/`
 - **Scenarios:**
   1. `cashierstep=depositcrypto`
@@ -49,11 +49,6 @@ Use canonical ticket casing in paths: `CT-XXX` (not `ct-xxx`).
 After execution, run mirror sync:
 ```bash
 python3 /Users/ihorsolopii/.openclaw/scripts/phase2_pilot.py sync-legacy --ticket CT-476
-```
-
-Fail-fast Stagehand policy guard (must run before normal emit-result for Stagehand ONLY tasks):
-```bash
-python3 /Users/ihorsolopii/.openclaw/scripts/phase2_pilot.py stagehand-guard --ticket CT-476 --phase post --agent qa-agent --on-violation blocked --next-owner nexus --emit-result --write-results-stub
 ```
 
 If auth/session was used, register session-record (no raw token in prose):
@@ -110,7 +105,6 @@ python3 /Users/ihorsolopii/.openclaw/scripts/phase2_pilot.py pre-summary-gate --
 ```
 
 `pre-summary-gate` now also checks runtime policy violations for pilot runs.
-Example: if the task says `Stagehand ONLY` but the evidence folder contains `manual-test.ts` or `*.spec.ts`, the gate should return `partial`.
 
 ## Nexus planning expectation
 

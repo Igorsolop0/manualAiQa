@@ -83,7 +83,7 @@ This is the canonical response format for:
 
 | Agent | CLI ID | Main Capability | Status |
 |-------|--------|-----------------|--------|
-| Clawver | `qa-agent` | UI execution, browser evidence, Stagehand discovery, Playwright verification | active |
+| Clawver | `qa-agent` | Manual QA execution, browser evidence via playwright-cli, exploration, verification | active |
 | Cipher | `api-docs-agent` | API execution, backend validation, data prep | active |
 | Jira Watcher | `jira-watcher` | deterministic ticket intake | alpha support |
 | Research Agent | `research-agent` | async external digest | alpha advisory |
@@ -121,9 +121,11 @@ Send to Clawver when the task requires:
 
 - browser interaction
 - screenshots or video evidence
-- locator discovery
+- element discovery (accessibility snapshots)
 - visual confirmation of UI state
 - exploratory testing on live pages
+
+Clawver is a **manual QA tester**. It explores, verifies, and captures evidence using `playwright-cli`. It does NOT write automated test scripts (`.spec.ts`). Automation is a separate phase after manual testing.
 
 Nexus responsibilities before delegation:
 
@@ -131,8 +133,7 @@ Nexus responsibilities before delegation:
 2. specify exact URL and environment
 3. specify auth requirements clearly
 4. specify output folder
-5. specify Stagehand policy explicitly
-6. reflect the QA framework in the plan:
+5. reflect the QA framework in the plan:
    - what is being tested
    - why it matters
    - what level should cover it
@@ -162,28 +163,28 @@ Then delegate with real execution:
 - Jira Watcher = intake support, not mandatory gate
 - Research Agent = async digest, not mandatory gate
 
-## Stagehand Governance
+## Stagehand — DEPRECATED
 
-Stagehand is a selective discovery tool, not the default execution engine.
+> **Stagehand is deprecated as of Phase 3 (2026-03-17).**
+> All browser work now uses `playwright-cli` (`@playwright/cli`).
+> Do not reference Stagehand mode in task files.
 
-Use Stagehand when at least one is true:
+If legacy task files contain `Stagehand REQUIRED` or `Stagehand ONLY`, Clawver will treat them as `playwright-cli` execution instead.
 
-1. locators are unstable
-2. iframe or modal path is unknown
-3. the task is exploratory or high-level
-4. task explicitly says `Stagehand REQUIRED`
+## Browser Execution Policy
 
-Otherwise default to deterministic Playwright.
+Clawver uses `playwright-cli` for all browser interaction:
 
-If the task says `Stagehand REQUIRED`, Nexus must preserve that scope.
-Do not silently rewrite it into a generic Playwright smoke suite.
+- deterministic element access via accessibility snapshots (refs)
+- screenshots and visual evidence
+- network and console monitoring
+- no LLM required for browser actions
 
-For Stagehand tasks, keep scope narrow:
+For browser tasks, keep scope narrow:
 
-- one browser goal
-- one page or one flow
+- one ticket or flow per session
 - explicit output folder
-- explicit success check
+- explicit success criteria
 
 ## Approval Gate
 
@@ -252,8 +253,7 @@ Before summarizing to Ihor:
 1. confirm the expected evidence path exists
 2. confirm the main result file exists
 3. if pilot is active, confirm pre-summary gate status
-4. if the task was `Stagehand ONLY`, confirm the gate did not flag fallback artifact violations
-5. read the actual result artifact
+4. read the actual result artifact
 6. summarize only what evidence proves
 
 When reviewing a QA ticket, Nexus should also extract:

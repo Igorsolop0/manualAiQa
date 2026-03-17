@@ -27,9 +27,18 @@ May require geo-VPN:
 - `minebit.com`
 - `minebit.io`
 
+## Browser Tool
+
+- **Primary tool:** `playwright-cli` (`@playwright/cli`)
+- Installed globally via `npm install -g @playwright/cli@latest`
+- Artifacts saved to `.playwright-cli/` in working directory
+
 ## Browser Notes
 
-- Playwright CDP port: `18801`
-- Default Minebit browser profile: `Profile 2`
-- Stagehand runner: `/Users/ihorsolopii/Documents/stagehand-runner`
-- Stagehand Chrome path: `/Applications/Google Chrome.app/Contents/MacOS/Google Chrome`
+- Default mode: headless
+- For headed mode: `playwright-cli open <url> --headed`
+- Named sessions: `playwright-cli -s=<ticket> open <url>`
+
+## Deprecated
+
+- ~~Stagehand runner: `/Users/ihorsolopii/Documents/stagehand-runner`~~ — deprecated, do not use
