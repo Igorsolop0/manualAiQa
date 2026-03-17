@@ -1618,6 +1618,47 @@ def cmd_pre_summary_gate(args: argparse.Namespace) -> int:
     return 0 if status == "ready" else 2
 
 
+def cmd_verify_run(args: argparse.Namespace) -> int:
+    """Check whether an active pilot run exists for a ticket.
+
+    Exit codes:
+        0 — run exists and run directory is present
+        1 — no run registered or run directory missing
+    """
+    root = repo_root()
+    ticket_id = canonical_ticket_id(args.ticket)
+    run_id = find_active_run_for_ticket(root, ticket_id)
+
+    if not run_id:
+        print(f"[verify] ticket={ticket_id}")
+        print("[verify] status=missing")
+        print("[verify] reason=no active run registered")
+        print(
+            f"[verify] action=run: python3 {root / 'scripts' / 'phase2_pilot.py'} "
+            f"bootstrap-dispatch --ticket {ticket_id} "
+            f"--task-file workspace/shared/tasks/{ticket_id}.md"
+        )
+        return 1
+
+    run_dir = root / "shared" / "runs" / run_id
+    if not run_dir.exists():
+        print(f"[verify] ticket={ticket_id}")
+        print(f"[verify] run_id={run_id}")
+        print("[verify] status=missing")
+        print("[verify] reason=run registered but directory does not exist")
+        return 1
+
+    manifest_path = run_dir / "meta" / "run-manifest.json"
+    has_manifest = manifest_path.exists()
+
+    print(f"[verify] ticket={ticket_id}")
+    print(f"[verify] run_id={run_id}")
+    print(f"[verify] run_dir={run_dir}")
+    print(f"[verify] manifest={'present' if has_manifest else 'missing'}")
+    print("[verify] status=ok")
+    return 0
+
+
 def cmd_bootstrap_dispatch(args: argparse.Namespace) -> int:
     root = repo_root()
     ticket_id = canonical_ticket_id(args.ticket)
@@ -1931,6 +1972,12 @@ def parse_args() -> argparse.Namespace:
         help="Path to task markdown file (absolute or repo-relative).",
     )
 
+    verify_cmd = sub.add_parser(
+        "verify-run",
+        help="Check if an active pilot run exists for a ticket. Exit 0 = ok, exit 1 = missing.",
+    )
+    verify_cmd.add_argument("--ticket", required=True, help="Ticket key (e.g. CT-901).")
+
     bootstrap_cmd = sub.add_parser(
         "bootstrap-dispatch",
         help="Ensure pilot init exists for ticket and upsert dispatch hooks for selected agents.",
@@ -2010,6 +2057,8 @@ def main() -> int:
         return cmd_stagehand_guard(args)
     if args.command == "prepare-dispatch":
         return cmd_prepare_dispatch(args)
+    if args.command == "verify-run":
+        return cmd_verify_run(args)
     if args.command == "bootstrap-dispatch":
         return cmd_bootstrap_dispatch(args)
     if args.command == "pre-summary-gate":

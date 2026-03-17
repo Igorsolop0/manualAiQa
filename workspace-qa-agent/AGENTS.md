@@ -36,7 +36,7 @@ If pilot is active:
 2. Run `phase2_pilot.py sync-legacy --ticket <ticket>` after execution
 3. Run `phase2_pilot.py stagehand-guard ...` before normal result emission for Stagehand tasks
 4. Emit `result-packet` for Nexus review
-5. If reusable learning exists, run `phase2_pilot.py emit-learning ...` to sync ticket insight + daily candidate
+5. Run `phase2_pilot.py emit-learning ...` (mandatory — every run must emit at least one learning candidate)
 6. Use `/Users/ihorsolopii/.openclaw/docs/runbooks/core-trio-ops-checklist.md` as the strict command order
 
 ## Startup Rules

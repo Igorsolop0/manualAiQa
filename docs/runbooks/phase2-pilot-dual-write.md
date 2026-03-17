@@ -18,11 +18,18 @@ Keep current behavior (`workspace/shared/*`) while introducing per-ticket run tr
 
 - Legacy paths remain active.
 - No existing task/evidence path is removed.
-- Pilot is opt-in per ticket.
-- For new `CT-*` execution tasks, treat pilot bootstrap as the default operating path.
+- Every `CT-*` execution task must go through bootstrap (mandatory since Phase 3).
 - Ticket naming is canonicalized to `CT-XXX` for task, result, stagehand, and run paths.
 
 ## Commands
+
+Verify that an active run exists for a ticket (mandatory before delegation):
+
+```bash
+python3 /Users/ihorsolopii/.openclaw/scripts/phase2_pilot.py verify-run --ticket CT-XXX
+```
+
+Exit code 0 = run exists. Exit code 1 = missing, must run bootstrap-dispatch first.
 
 Initialize pilot run for one ticket:
 
@@ -121,7 +128,7 @@ python3 /Users/ihorsolopii/.openclaw/scripts/phase2_pilot.py pre-summary-gate --
 ## Pilot operating rules
 
 1. Nexus still writes task file into legacy `workspace/shared/tasks/`.
-2. For a new `CT-*` execution task, Nexus should run `bootstrap-dispatch` before delegation unless the work is analysis-only.
+2. For every `CT-*` execution task, Nexus MUST run `verify-run` then `bootstrap-dispatch` (if needed) before delegation. Analysis-only answers are exempt.
 3. Clawver/Cipher still write evidence into legacy `workspace/shared/test-results/<ticket>/`.
 4. After each executor pass, Nexus (or executor) runs `sync-legacy`.
 5. Session handoff is by `session-record` refs (no raw token in prose).

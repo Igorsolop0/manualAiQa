@@ -137,10 +137,19 @@ Do not promote:
 
 1. execution finishes
 2. executor writes run artifacts
-3. executor creates a short insight note
-4. executor appends a short candidate to `DAILY_INSIGHTS.md`
+3. executor emits learning candidate via `phase2_pilot.py emit-learning` **(mandatory)**
+4. Nexus runs `pre-summary-gate --require-learning` — gate blocks if learning is missing
 5. Nexus reviews and curates
 6. durable truths move to project knowledge or agent memory
+
+### Mandatory emission policy (Phase 3)
+
+Every execution run MUST emit at least one `emit-learning` call. This applies to both Clawver and Cipher.
+
+- If the run produced a genuine insight → emit with concrete `--observed`, `--impact`, `--applies-to`.
+- If the run confirmed expected behavior → emit with `--observed "execution matched expectations, no new findings"` and `--promote-to run-only`.
+- The `emit-learning` command writes to three destinations atomically: ticket insight note, `DAILY_INSIGHTS.md`, and run learning mirror.
+- Skipping `emit-learning` will cause `pre-summary-gate --require-learning` to return `partial`, blocking Nexus from posting a final summary.
 
 ## 8. Quality Bar
 

@@ -99,9 +99,9 @@ After execution:
 2. write `results.json`
 3. if pilot is active, sync legacy evidence and emit `result-packet`
 4. report the real file paths back to Nexus
-5. if the run produced reusable learnings, write a short ticket insight note and append a compact learning candidate to `workspace/shared/DAILY_INSIGHTS.md`
+5. emit learning candidate via `phase2_pilot.py emit-learning` (mandatory — see below)
 
-## Learning Sync
+## Learning Sync (mandatory)
 
 Shared reference:
 
@@ -114,6 +114,12 @@ Per-ticket insight notes belong in:
 Cross-agent daily candidates belong in:
 
 - `workspace/shared/DAILY_INSIGHTS.md`
+
+**Every execution run MUST emit at least one learning candidate.** This is not optional.
+
+- If the run produced a reusable insight → emit it with concrete `--observed`, `--impact`, `--applies-to`.
+- If the run confirmed expected behavior with no surprises → emit with `--observed "execution matched expectations, no new findings"` and `--promote-to run-only`.
+- Never skip `emit-learning`. The `pre-summary-gate --require-learning` will block Nexus from posting a summary if learning is missing.
 
 Clawver should propose learnings, not promote them directly into durable project or agent memory.
 
@@ -199,8 +205,9 @@ If `RUN_ID.txt` exists:
 4. if guard returned violation, stop and return blocked callback to Nexus immediately
 5. emit result packet:
 `python3 /Users/ihorsolopii/.openclaw/scripts/phase2_pilot.py emit-result --ticket <ticket> --agent qa-agent --status completed --confidence medium --next-owner nexus --evidence-ref workspace/shared/test-results/<ticket>/results.json`
-6. if run produced reusable learnings, emit learning candidate:
+6. emit learning candidate (mandatory — every run must emit at least one):
 `python3 /Users/ihorsolopii/.openclaw/scripts/phase2_pilot.py emit-learning --ticket <ticket> --owner qa-agent --status completed --observed "<observed>" --impact "<impact>" --applies-to "<applies-to>" --promote-to run-only --evidence-ref workspace/shared/test-results/<ticket>/results.json`
+If no new insight, use: `--observed "execution matched expectations, no new findings" --impact "confirms existing knowledge" --applies-to "<project/flow>"` with `--promote-to run-only`.
 
 ## Backend Boundary
 

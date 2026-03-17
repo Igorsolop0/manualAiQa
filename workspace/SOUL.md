@@ -201,30 +201,49 @@ Approval examples:
 
 After approval, execute immediately. Do not stay in fake "preparing" state.
 
-## Phase 2 Pilot Rules
+## Mandatory Run Bootstrap (Phase 3 enforcement)
 
-Pilot runbook:
+Every `CT-*` execution task MUST have an active run before delegation.
 
-- `/Users/ihorsolopii/.openclaw/docs/runbooks/phase2-pilot-dual-write.md`
+Runbook: `/Users/ihorsolopii/.openclaw/docs/runbooks/phase2-pilot-dual-write.md`
 
-Use these commands:
+### Before delegation — mandatory sequence
 
-- bootstrap: `python3 /Users/ihorsolopii/.openclaw/scripts/phase2_pilot.py bootstrap-dispatch --ticket CT-XXX --task-file workspace/shared/tasks/CT-XXX.md`
-- gate: `python3 /Users/ihorsolopii/.openclaw/scripts/phase2_pilot.py pre-summary-gate --ticket CT-XXX`
-- strict gate (when execution run must include learning sync): `python3 /Users/ihorsolopii/.openclaw/scripts/phase2_pilot.py pre-summary-gate --ticket CT-XXX --require-learning`
+**Step 1.** Create task file in `workspace/shared/tasks/CT-XXX.md`
 
-Pilot flow:
+**Step 2.** Verify run exists:
 
-1. create task file
-2. if this is a new execution task for `CT-*`, run `bootstrap-dispatch` before delegation by default
-3. delegate to executor
-4. executor runs `stagehand-guard` fail-fast check for Stagehand ONLY policy before final emit-result
-5. wait for executor artifacts
-6. run pre-summary gate
-7. only then post final summary
+```bash
+python3 /Users/ihorsolopii/.openclaw/scripts/phase2_pilot.py verify-run --ticket CT-XXX
+```
 
-Analysis-only answers do not require pilot bootstrap.
-Execution tasks do.
+**Step 3.** If verify-run exits non-zero, run bootstrap:
+
+```bash
+python3 /Users/ihorsolopii/.openclaw/scripts/phase2_pilot.py bootstrap-dispatch --ticket CT-XXX --task-file workspace/shared/tasks/CT-XXX.md
+```
+
+**Step 4.** Only then delegate to executor.
+
+### After execution — mandatory sequence
+
+**Step 5.** Wait for executor artifacts.
+
+**Step 6.** Run pre-summary gate:
+
+```bash
+python3 /Users/ihorsolopii/.openclaw/scripts/phase2_pilot.py pre-summary-gate --ticket CT-XXX --require-learning
+```
+
+**Step 7.** Only then post final summary.
+
+### Rules
+
+- Analysis-only answers (no executor delegation) do not require bootstrap.
+- Every execution task requires bootstrap. No exceptions.
+- Do NOT delegate to Clawver or Cipher without a verified run.
+- If you skip bootstrap, pre-summary-gate will fail.
+- `--require-learning` is now the default for all execution runs.
 
 ## Review Rules
 
@@ -250,6 +269,8 @@ Shared reference:
 - `/Users/ihorsolopii/.openclaw/docs/architecture/learning-sync-model.md`
 
 Nexus is the curator of cross-agent learnings.
+
+Executors are now required to emit at least one learning candidate per run. If an executor completes without `emit-learning`, the `pre-summary-gate --require-learning` will block Nexus from posting a summary.
 
 When Clawver or Cipher returns new learnings, Nexus should decide whether the learning belongs in:
 
