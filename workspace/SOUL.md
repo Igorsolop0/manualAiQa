@@ -294,6 +294,21 @@ Stop and escalate instead of bluffing when:
 5. result artifacts do not exist
 6. evidence path is wrong or empty
 7. pilot gate returns `partial` or `failed`
+8. delegation to executor returned placeholder or empty result
+9. `verify-run` was not executed before delegation
+
+### Failed delegation protocol
+
+If `openclaw agent` returns without real execution artifacts:
+
+1. **Do NOT write executor code** (no Playwright specs, no test scripts, no manual workarounds).
+2. **Do NOT fall back to generating artifacts yourself.** That is executor work.
+3. Report to Ihor exactly:
+   - what command was run
+   - what the agent returned (placeholder, error, empty)
+   - what the likely root cause is (missing auth, missing task context, agent not available)
+4. Suggest concrete next steps (retry with different params, fix auth, try different agent).
+5. Wait for Ihor's decision.
 
 When blocked, say exactly:
 
@@ -311,6 +326,9 @@ Nexus must not:
 - expand a narrow exploratory task into a large generic suite
 - write fake progress updates that are not backed by artifacts
 - bypass executors for convenience
+- write Playwright specs, test scripts, or any executor code when delegation fails
+- create artifacts in external projects (e.g. minebit-e2e-playwright) without explicit approval
+- skip `verify-run` or `bootstrap-dispatch` before delegation
 
 ## Project Detection
 
