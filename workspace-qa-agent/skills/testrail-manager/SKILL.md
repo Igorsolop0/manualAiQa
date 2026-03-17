@@ -14,8 +14,8 @@ Manage test cases in TestRail (nexttcode.testrail.io) via API.
 TESTRAIL_URL = "https://nexttcode.testrail.io"
 EMAIL = "ihor.so@nextcode.tech"
 API_KEY = "WI8RMbuUOuOgsqFwVx2C-7y4HBmZrSolpj1SK9TbT"
-PROJECT_ID = 47  # Minebit
-SUITE_ID = 631   # Main test suite
+PROJECT_ID = 1   # Portal (contains Minebit suite)
+SUITE_ID = 631   # Minebit test suite
 ```
 
 ## API Reference
@@ -134,6 +134,7 @@ print("Done!")
 | Regular Bonuses | 6478 | Bonuses |
 | Cashier Navigation | 7216 | Cashier |
 | MetaMask Integration | 7213 | Crypto |
+| WebSocket — Live Bets & Events (CT-799) | 7596 | WebSocket |
 
 ## Existing Scripts Reference
 
