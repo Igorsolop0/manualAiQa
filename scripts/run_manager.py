@@ -1271,6 +1271,24 @@ def cmd_emit_learning(args: argparse.Namespace) -> int:
         print(f"[learning] run_learning={run_learning_path}")
     else:
         print("[learning] run_learning=skipped")
+
+    # Auto-trigger memory reindex to keep RAG up to date
+    reindex_script = root / "scripts" / "memory_reindex.py"
+    if reindex_script.exists():
+        try:
+            import subprocess as _sp
+            result = _sp.run(
+                ["python3", str(reindex_script), "--discover"],
+                capture_output=True, text=True, timeout=30,
+            )
+            if result.returncode == 0:
+                for line in result.stdout.strip().splitlines():
+                    print(f"[learning] {line}")
+            else:
+                print(f"[learning] reindex-discover: skipped ({result.stderr.strip()[:80]})")
+        except Exception as exc:
+            print(f"[learning] reindex-discover: error ({exc})")
+
     return 0
 
 

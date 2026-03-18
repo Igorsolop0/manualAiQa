@@ -13,6 +13,36 @@ Gmail checks + Jira processing працюють повноцінно.
 
 ---
 
+## RAG Memory Reindex (daily, 9:00 AM)
+
+Keep the semantic memory index up to date so all agents can find relevant knowledge.
+
+### What it does
+
+1. Scans `workspace/memory/insights/` for new insight files
+2. Updates `openclaw.json` extraPaths if new files discovered
+3. Triggers `openclaw memory index` to re-embed any changed files
+
+### Command
+
+```bash
+python3 /Users/ihorsolopii/.openclaw/scripts/memory_reindex.py
+```
+
+### When to run manually
+
+- After a batch of `emit-learning` calls
+- After manually editing PROJECT_KNOWLEDGE.md or DAILY_INSIGHTS.md
+- After adding new insight files
+
+### Dry-run check
+
+```bash
+python3 /Users/ihorsolopii/.openclaw/scripts/memory_reindex.py --dry-run
+```
+
+---
+
 ## Agent Learning Health Check (every 30 minutes)
 
 Verify that executors (Clawver, Cipher) are emitting learnings for their runs.
