@@ -110,6 +110,30 @@ Strict variant (fail gate when learning sync is missing):
 python3 /Users/ihorsolopii/.openclaw/scripts/phase2_pilot.py pre-summary-gate --ticket CT-XXX --require-learning
 ```
 
+Naming audit (scan for non-canonical ticket ID casing):
+
+```bash
+python3 /Users/ihorsolopii/.openclaw/scripts/phase2_pilot.py naming-audit
+```
+
+Fix violations automatically:
+
+```bash
+python3 /Users/ihorsolopii/.openclaw/scripts/phase2_pilot.py naming-audit --fix
+```
+
+## Naming Convention
+
+All ticket IDs must use uppercase canonical form: `CT-548` (not `ct-548` or `Ct-548`).
+
+This applies to:
+- `workspace/shared/test-results/<TICKET>/`
+- `workspace/shared/tasks/<TICKET>.md`
+- `workspace/shared/runs/<RUN_ID>/`
+- `workspace/memory/insights/<TICKET>-insights.md`
+
+The `canonical_ticket_id()` function normalizes all input automatically. The `naming-audit` command can verify and fix existing violations.
+
 ## What gets created
 
 - `shared/runs/<run_id>/` folders:

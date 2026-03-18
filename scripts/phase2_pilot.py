@@ -298,6 +298,24 @@ def canonical_ticket_id(raw: str) -> str:
     return f"{match.group(1).upper()}-{match.group(2)}"
 
 
+def assert_canonical_ticket_id(ticket_id: str) -> str:
+    """Validate and return canonical ticket ID. Warn if input was non-canonical."""
+    canonical = canonical_ticket_id(ticket_id)
+    if canonical != ticket_id:
+        print(f"[naming-guard] WARNING: '{ticket_id}' normalized to '{canonical}'")
+    return canonical
+
+
+def validate_evidence_path(path: Path, ticket_id: str) -> bool:
+    """Check that evidence path uses canonical ticket ID casing."""
+    canonical = canonical_ticket_id(ticket_id)
+    path_str = str(path)
+    if ticket_id != canonical and ticket_id in path_str:
+        print(f"[naming-guard] ERROR: path '{path}' uses non-canonical ticket ID '{ticket_id}' (expected '{canonical}')")
+        return False
+    return True
+
+
 def make_learning_fingerprint(
     ticket_id: str,
     owner: str,
@@ -2038,7 +2056,76 @@ def parse_args() -> argparse.Namespace:
         help="Mark gate as partial if ticket learning sync is missing.",
     )
 
+    audit_cmd = sub.add_parser(
+        "naming-audit",
+        help="Scan test-results, tasks, runs, and insights for non-canonical ticket ID casing.",
+    )
+    audit_cmd.add_argument(
+        "--fix",
+        action="store_true",
+        help="Attempt to rename non-canonical directories/files (dry-run by default).",
+    )
+
     return parser.parse_args()
+
+
+def cmd_naming_audit(args: argparse.Namespace) -> int:
+    """Scan workspace paths for non-canonical ticket ID casing."""
+    root = repo_root()
+    fix_mode = args.fix
+    violations = []
+
+    scan_dirs = [
+        root / "workspace" / "shared" / "test-results",
+        root / "workspace" / "shared" / "tasks",
+        root / "workspace" / "shared" / "runs",
+        root / "workspace" / "memory" / "insights",
+    ]
+
+    for scan_dir in scan_dirs:
+        if not scan_dir.exists():
+            continue
+        for entry in sorted(scan_dir.iterdir()):
+            name = entry.name
+            # Extract potential ticket ID from filename or dirname
+            # Handles: CT-548, CT-548.md, CT-548-insights.md, CT-548-20260313-01
+            base = name.split(".")[0]  # strip extension
+            parts = base.split("-")
+            if len(parts) >= 2 and parts[0].isalpha():
+                raw_ticket = f"{parts[0]}-{parts[1]}"
+                canonical = canonical_ticket_id(raw_ticket)
+                if raw_ticket != canonical:
+                    violations.append({
+                        "path": str(entry),
+                        "current": raw_ticket,
+                        "expected": canonical,
+                        "type": "directory" if entry.is_dir() else "file",
+                    })
+
+    if not violations:
+        print("[naming-audit] status=clean")
+        print(f"[naming-audit] scanned={len(scan_dirs)} directories")
+        print("[naming-audit] violations=0")
+        return 0
+
+    print(f"[naming-audit] violations={len(violations)}")
+    for v in violations:
+        print(f"[naming-audit] {v['type']}: {v['path']}")
+        print(f"[naming-audit]   current={v['current']} expected={v['expected']}")
+        if fix_mode:
+            old_path = Path(v["path"])
+            new_name = old_path.name.replace(v["current"], v["expected"])
+            new_path = old_path.parent / new_name
+            if new_path.exists():
+                print(f"[naming-audit]   SKIP: target '{new_path}' already exists")
+            else:
+                old_path.rename(new_path)
+                print(f"[naming-audit]   FIXED: renamed to {new_path}")
+
+    if not fix_mode and violations:
+        print("[naming-audit] hint: run with --fix to rename automatically")
+
+    return 1 if violations else 0
 
 
 def main() -> int:
@@ -2063,6 +2150,8 @@ def main() -> int:
         return cmd_bootstrap_dispatch(args)
     if args.command == "pre-summary-gate":
         return cmd_pre_summary_gate(args)
+    if args.command == "naming-audit":
+        return cmd_naming_audit(args)
     raise SystemExit(f"Unknown command: {args.command}")
 
 
