@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenClaw Architecture v5.0 — Phase 3 Runtime Hardening</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0a0a0f;
+            --panel: rgba(16, 16, 24, 0.92);
+            --card: rgba(22, 22, 35, 0.85);
+            --border: rgba(255,255,255,0.06);
+            --text: #e8eaed;
+            --muted: #7a7f8a;
+            --accent: #f59e0b;
+            --nexus: #f59e0b;
+            --qa: #a78bfa;
+            --api: #38bdf8;
+            --jira: #34d399;
+            --cron: #f472b6;
+            --shared: #ec4899;
+            --user: #10b981;
+            --memory: #06b6d4;
+            --slack: #e01e5a;
+            --telegram: #26a5e4;
+            --research: #fb7185;
+            --playwright: #2dd4bf;
+            --knowledge: #14b8a6;
+            --heartbeat: #22c55e;
+            --rag: #8b5cf6;
+        }
+
+        * { box-sizing: border-box; margin: 0; }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Inter', -apple-system, sans-serif;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+        }
+
+        .sidebar {
+            width: 400px;
+            min-width: 400px;
+            background: var(--panel);
+            border-right: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            z-index: 50;
+            backdrop-filter: blur(32px);
+        }
+        .sidebar-header { padding: 28px 24px 0; }
+        .sidebar-header h1 {
+            font-size: 1.6rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #f59e0b, #ec4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.2;
+        }
+        .sidebar-header .version {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--muted);
+            margin-top: 4px;
+            letter-spacing: 1px;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 2px;
+            padding: 16px 24px 0;
+            border-bottom: 1px solid var(--border);
+        }
+        .tab {
+            padding: 10px 14px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--muted);
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            transition: all 0.2s;
+            background: none;
+            border-top: none; border-left: none; border-right: none;
+        }
+        .tab:hover { color: var(--text); }
+        .tab.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+        .sidebar-content {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px 24px;
+        }
+        .sidebar-content::-webkit-scrollbar { width: 4px; }
+        .sidebar-content::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 2px; }
+
+        .info-card {
+            padding: 16px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            margin-bottom: 12px;
+        }
+        .info-card h3 {
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .info-card p {
+            font-size: 0.82rem;
+            line-height: 1.6;
+            color: var(--muted);
+        }
+        .info-card code {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            background: rgba(255,255,255,0.06);
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: #8b5cf6;
+        }
+
+        .tag-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+        .tag {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            padding: 3px 8px;
+            border-radius: 4px;
+            background: rgba(255,255,255,0.05);
+            color: var(--muted);
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+        .tag.ok { color: #34d399; border-color: rgba(52,211,153,0.3); }
+        .tag.err { color: #f87171; border-color: rgba(248,113,113,0.3); }
+        .tag.warn { color: #fbbf24; border-color: rgba(251,191,36,0.3); }
+        .tag.new { color: #a78bfa; border-color: rgba(167,139,250,0.3); }
+        .tag.dep { color: #6b7280; border-color: rgba(107,114,128,0.3); text-decoration: line-through; }
+
+        .status-dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
+        .status-dot.green { background: #34d399; box-shadow: 0 0 6px #34d399; }
+        .status-dot.red { background: #f87171; box-shadow: 0 0 6px #f87171; }
+        .status-dot.yellow { background: #fbbf24; box-shadow: 0 0 6px #fbbf24; }
+
+        .legend {
+            padding: 20px 24px;
+            border-top: 1px solid var(--border);
+        }
+        .legend h4 {
+            font-size: 0.75rem;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.78rem;
+            color: var(--muted);
+            margin-bottom: 6px;
+        }
+        .legend-line { width: 28px; height: 3px; border-radius: 2px; }
+
+        .canvas-wrap {
+            flex: 1;
+            position: relative;
+            overflow: hidden;
+            background:
+                radial-gradient(circle at 30% 20%, rgba(245,158,11,0.03), transparent 40%),
+                radial-gradient(circle at 70% 80%, rgba(139,92,246,0.03), transparent 40%);
+        }
+        .canvas-wrap::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-size: 32px 32px;
+            z-index: 0;
+        }
+
+        svg.lines { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 5; pointer-events: none; }
+
+        .node {
+            position: absolute;
+            transform: translate(-50%, -50%);
+            z-index: 10;
+            cursor: pointer;
+            transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .node:hover { z-index: 20; transform: translate(-50%, -50%) scale(1.08); }
+        .node-inner {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 18px;
+            border-radius: 12px;
+            border: 2px solid;
+            backdrop-filter: blur(16px);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+            white-space: nowrap;
+        }
+        .node.hub .node-inner { padding: 16px 22px; border-width: 2.5px; box-shadow: 0 12px 48px rgba(0,0,0,0.5); }
+        .node .icon { font-size: 1.4rem; }
+        .node.hub .icon { font-size: 1.8rem; }
+        .node .name { font-weight: 700; font-size: 0.88rem; }
+        .node.hub .name { font-size: 1rem; }
+        .node .sub {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.65rem;
+            color: var(--muted);
+            margin-top: 2px;
+        }
+        .node.deprecated .node-inner { opacity: 0.35; border-style: dashed; }
+
+        .node-status { position: absolute; top: -4px; right: -4px; width: 12px; height: 12px; border-radius: 50%; border: 2px solid var(--bg); }
+        .node-status.green { background: #34d399; }
+        .node-status.yellow { background: #fbbf24; }
+        .node-status.red { background: #f87171; }
+
+        .zone-label {
+            position: absolute;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: rgba(255,255,255,0.12);
+            font-weight: 700;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .link { fill: none; stroke-linecap: round; }
+        .link-exec { stroke: #8b5cf6; stroke-width: 2.5; stroke-dasharray: 8 4; animation: dash 1.2s linear infinite; }
+        .link-session { stroke: #f59e0b; stroke-width: 2; stroke-dasharray: 4 4; animation: dash 1.5s linear infinite; }
+        .link-cron { stroke: #f472b6; stroke-width: 2; stroke-dasharray: 3 6; animation: dashRev 2s linear infinite; }
+        .link-rw { stroke: #38bdf8; stroke-width: 1.5; opacity: 0.6; }
+        .link-io { stroke: #10b981; stroke-width: 2.5; stroke-dasharray: 6 4; animation: dash 1.5s linear infinite; }
+        .link-memory { stroke: #06b6d4; stroke-width: 1.5; stroke-dasharray: 2 4; opacity: 0.5; }
+        .link-rag { stroke: #8b5cf6; stroke-width: 2; stroke-dasharray: 3 3; animation: dash 2s linear infinite; opacity: 0.7; }
+
+        .link-label { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 600; fill: var(--muted); }
+
+        @keyframes dash { to { stroke-dashoffset: -24; } }
+        @keyframes dashRev { to { stroke-dashoffset: 24; } }
+
+        .canvas-wrap.dimmed .node:not(.hl) { opacity: 0.12; filter: grayscale(80%); }
+        .canvas-wrap.dimmed .link:not(.hl-link) { opacity: 0.04 !important; }
+        .canvas-wrap.dimmed .link-label:not(.hl-label) { opacity: 0 !important; }
+        .canvas-wrap.dimmed .zone-label { opacity: 0.04; }
+        .hl-link { stroke-width: 3.5 !important; opacity: 1 !important; filter: drop-shadow(0 0 3px currentColor); }
+    </style>
+</head>
+<body>
+
+<div class="sidebar">
+    <div class="sidebar-header">
+        <h1 id="title">OpenClaw v5.0</h1>
+        <div class="version" id="subtitle">PHASE 3 — RUNTIME HARDENING + RAG MEMORY</div>
+    </div>
+
+    <div class="tabs">
+        <button class="tab active" onclick="showTab('overview')">Overview</button>
+        <button class="tab" onclick="showTab('agents')">Agents</button>
+        <button class="tab" onclick="showTab('data')">Data Flow</button>
+        <button class="tab" onclick="showTab('learning')">Learning</button>
+        <button class="tab" onclick="showTab('ops')">Ops</button>
+    </div>
+
+    <div class="sidebar-content" id="sidebar-body"></div>
+
+    <div class="legend">
+        <h4>Connection Types</h4>
+        <div class="legend-item"><div class="legend-line" style="background:#8b5cf6;"></div> exec (agent dispatch)</div>
+        <div class="legend-item"><div class="legend-line" style="background:#f59e0b;"></div> session / notify</div>
+        <div class="legend-item"><div class="legend-line" style="background:#f472b6;"></div> cron / scheduled</div>
+        <div class="legend-item"><div class="legend-line" style="background:#38bdf8;"></div> read / write (files)</div>
+        <div class="legend-item"><div class="legend-line" style="background:#10b981;"></div> user &harr; nexus (chat)</div>
+        <div class="legend-item"><div class="legend-line" style="background:linear-gradient(90deg,#8b5cf6,#06b6d4);"></div> RAG semantic search</div>
+    </div>
+</div>
+
+<div class="canvas-wrap" id="canvasWrap">
+    <div class="zone-label" style="top:4%;left:50%;transform:translateX(-50%)">Channels</div>
+    <div class="zone-label" style="top:22%;left:50%;transform:translateX(-50%)">Orchestration + Memory</div>
+    <div class="zone-label" style="top:50%;left:50%;transform:translateX(-50%)">Shared State + Enforcement</div>
+    <div class="zone-label" style="top:78%;left:50%;transform:translateX(-50%)">Execution Agents</div>
+
+    <svg class="lines" id="svg"></svg>
+    <div id="nodes"></div>
+</div>
+
+<script>
+const NODES = [
+    // Channels
+    { id:'slack',     icon:'💬', name:'Slack',     sub:'#general · #qa-testing', x:35, y:9, color:'var(--slack)',    status:'green' },
+    { id:'telegram',  icon:'✈️', name:'Telegram',  sub:'pings + private chat', x:65, y:9, color:'var(--telegram)', status:'green' },
+
+    // Orchestration + Memory
+    { id:'nexus',       icon:'👑', name:'Nexus',       sub:'orchestrator · GLM-4.7 · plan → route → review', x:50, y:28, color:'var(--nexus)', hub:true, status:'green' },
+    { id:'rag_memory',  icon:'🧠', name:'RAG Memory',  sub:'text-embedding-3-small · semantic search · auto-reindex', x:22, y:28, color:'var(--rag)', status:'green' },
+    { id:'knowledge',   icon:'📚', name:'PROJECT_KNOWLEDGE', sub:'curated truths + reusable findings', x:78, y:28, color:'var(--knowledge)' },
+    { id:'heartbeat',   icon:'💓', name:'Heartbeat',   sub:'learning health + gmail + reindex', x:78, y:18, color:'var(--heartbeat)', status:'green' },
+
+    // Shared State + Enforcement
+    { id:'tasks',       icon:'📋', name:'shared/tasks/', sub:'task files + dispatch hooks', x:14, y:50, color:'var(--shared)' },
+    { id:'run_mgr',     icon:'⚙️', name:'run_manager.py', sub:'bootstrap · verify · emit · gate · audit', x:35, y:50, color:'var(--cron)', status:'green' },
+    { id:'runs',        icon:'📊', name:'shared/runs/', sub:'run-centric traceability', x:52, y:50, color:'var(--shared)' },
+    { id:'insights',    icon:'💡', name:'DAILY_INSIGHTS', sub:'candidate learnings + auto-learn', x:69, y:50, color:'var(--shared)' },
+    { id:'registry',    icon:'🗂️', name:'capabilities.yaml', sub:'maturity + routing guardrails', x:88, y:50, color:'var(--knowledge)' },
+
+    // Execution
+    { id:'clawver',     icon:'🐞', name:'Clawver',     sub:'manual QA · GLM-5 Turbo · playwright-cli', x:18, y:85, color:'var(--qa)', hub:true, status:'green' },
+    { id:'pw_cli',      icon:'🎭', name:'playwright-cli', sub:'browser hands+eyes · snapshot · click · screenshot', x:7, y:72, color:'var(--playwright)', status:'green' },
+    { id:'cipher',      icon:'🔌', name:'Cipher',      sub:'API/BE · DeepSeek V3.2 · swagger', x:42, y:85, color:'var(--api)', hub:true, status:'green' },
+    { id:'research',    icon:'🔎', name:'Researcher',  sub:'async digest (alpha)', x:64, y:85, color:'var(--research)', hub:true, status:'yellow' },
+    { id:'jiraw',       icon:'🦉', name:'Jira Watcher',sub:'cron intake / polling', x:82, y:85, color:'var(--jira)', hub:true, status:'yellow' },
+
+    // Cron
+    { id:'cron_engine', icon:'⏰', name:'Cron Engine', sub:'scheduled jobs', x:92, y:68, color:'var(--cron)', status:'green' },
+];
+
+const LINKS = [
+    // User → Nexus
+    { from:'slack',    to:'nexus',   type:'io',      label:'Ticket / report request' },
+    { from:'telegram', to:'nexus',   type:'io',      label:'Short ping' },
+
+    // Nexus ↔ Memory
+    { from:'nexus', to:'rag_memory',  type:'rag',     label:'Semantic recall' },
+    { from:'nexus', to:'knowledge',   type:'rw',      label:'Read/promote knowledge' },
+    { from:'heartbeat', to:'nexus',   type:'cron',    label:'Learning health + reindex' },
+
+    // RAG feeds
+    { from:'rag_memory', to:'clawver',  type:'rag',   label:'Context injection' },
+    { from:'rag_memory', to:'cipher',   type:'rag',   label:'Context injection' },
+    { from:'insights', to:'rag_memory', type:'memory', label:'Auto-reindex on emit' },
+    { from:'knowledge', to:'rag_memory',type:'memory', label:'Indexed as extraPath' },
+
+    // Nexus → Shared State
+    { from:'nexus', to:'tasks',    type:'rw',      label:'Write task file' },
+    { from:'nexus', to:'run_mgr',  type:'exec',    label:'verify-run → bootstrap' },
+    { from:'nexus', to:'runs',     type:'rw',      label:'Read run status' },
+    { from:'nexus', to:'insights', type:'rw',      label:'Curate learnings' },
+
+    // Nexus → Agents
+    { from:'nexus', to:'clawver',  type:'exec',    label:'exec: qa-agent' },
+    { from:'nexus', to:'cipher',   type:'exec',    label:'exec: api-docs-agent' },
+
+    // Agent results back
+    { from:'clawver', to:'nexus',  type:'session', label:'Evidence ready' },
+    { from:'cipher',  to:'nexus',  type:'session', label:'Result ready' },
+    { from:'jiraw',   to:'nexus',  type:'session', label:'Ready-for-testing' },
+
+    // Clawver ecosystem
+    { from:'clawver', to:'pw_cli',    type:'exec',    label:'snapshot → click → screenshot' },
+    { from:'clawver', to:'tasks',     type:'rw',      label:'Read task' },
+    { from:'clawver', to:'runs',      type:'rw',      label:'Write evidence' },
+    { from:'clawver', to:'insights',  type:'rw',      label:'emit-learning (mandatory)' },
+    { from:'clawver', to:'run_mgr',   type:'exec',    label:'emit-result + emit-learning' },
+
+    // Cipher ecosystem
+    { from:'cipher', to:'tasks',      type:'rw',      label:'Read API task' },
+    { from:'cipher', to:'runs',       type:'rw',      label:'Write API evidence' },
+    { from:'cipher', to:'insights',   type:'rw',      label:'emit-learning (mandatory)' },
+    { from:'cipher', to:'run_mgr',    type:'exec',    label:'emit-result + emit-learning' },
+
+    // Enforcement
+    { from:'run_mgr', to:'runs',      type:'rw',      label:'Create run folders' },
+    { from:'run_mgr', to:'rag_memory',type:'memory',  label:'Auto-discover → reindex' },
+
+    // Cron
+    { from:'cron_engine', to:'jiraw',    type:'cron',  label:'Jira polling' },
+    { from:'cron_engine', to:'heartbeat',type:'cron',  label:'Daily self-review' },
+
+    // Research
+    { from:'nexus', to:'research',  type:'exec',    label:'exec: research-agent' },
+    { from:'research', to:'nexus',  type:'session', label:'Digest ready' },
+    { from:'cron_engine', to:'research', type:'cron', label:'Periodic digest' },
+];
+
+const TABS = {
+    overview: `
+        <div class="info-card">
+            <h3>Architecture: Hub & Spoke v5.0</h3>
+            <p>
+                <strong style="color:var(--nexus)">Nexus</strong> (GLM-4.7) — orchestrator, test planner, reviewer. Does not execute.<br><br>
+                <strong style="color:var(--qa)">Clawver</strong> (GLM-5 Turbo) — manual QA tester. Uses <code>playwright-cli</code> as browser hands+eyes. Explores, verifies, captures evidence. Does NOT write automated tests.<br><br>
+                <strong style="color:var(--api)">Cipher</strong> (DeepSeek V3.2) — API/backend tester. Swagger, data prep, payload validation.<br><br>
+                <strong style="color:var(--rag)">RAG Memory</strong> (text-embedding-3-small) — semantic search across all agent knowledge. Auto-reindexes after every learning emission.
+            </p>
+        </div>
+        <div class="info-card">
+            <h3>Core Flow</h3>
+            <p style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;line-height:2.2;color:var(--text)">
+                1. Ihor &rarr; Nexus: ticket to test<br>
+                2. Nexus: plan + task file + <code>verify-run</code><br>
+                3. Nexus: <code>bootstrap-dispatch</code> (mandatory)<br>
+                4. Nexus &rarr; Clawver / Cipher (delegate)<br>
+                5. Agent: execute + evidence + <code>emit-learning</code><br>
+                6. Nexus: <code>pre-summary-gate --require-learning</code><br>
+                7. Nexus &rarr; Ihor: evidence-backed summary
+            </p>
+        </div>
+        <div class="info-card">
+            <h3>Phase 3 Changes (2026-03-18)</h3>
+            <p>
+                <span class="tag new">NEW</span> <code>run_manager.py</code> — central CLI (was phase2_pilot.py)<br>
+                <span class="tag new">NEW</span> RAG Memory with auto-reindex after emit-learning<br>
+                <span class="tag new">NEW</span> Auto-learn skill for Clawver + Cipher<br>
+                <span class="tag new">NEW</span> GLM-5 Turbo for Clawver (89.7% Tau2Bench)<br>
+                <span class="tag new">NEW</span> DeepSeek V3.2 for Cipher<br>
+                <span class="tag new">NEW</span> Naming audit (<code>CT-XXX</code> enforcement)<br>
+                <span class="tag dep">DEP</span> Stagehand deprecated (GLM models can't drive it)<br>
+                <span class="tag ok">ENF</span> bootstrap-dispatch mandatory before every delegation<br>
+                <span class="tag ok">ENF</span> emit-learning mandatory after every execution
+            </p>
+        </div>
+    `,
+    agents: `
+        <div class="info-card" style="border-color:var(--nexus)">
+            <h3>Nexus (Orchestrator)</h3>
+            <p>
+                <strong>Model:</strong> <code>zai-coding/glm-4.7</code><br>
+                <strong>Role:</strong> plan, route, review. Never executes.<br>
+                <strong>Delegation format:</strong> concise pointer to task file, not prose.<br>
+                <strong>Enforcement:</strong> verify-run &rarr; bootstrap &rarr; delegate &rarr; gate
+            </p>
+            <div class="tag-row">
+                <span class="tag ok">Active</span>
+                <span class="tag">Hub</span>
+                <span class="tag">Planner</span>
+                <span class="tag">Reviewer</span>
+            </div>
+        </div>
+        <div class="info-card" style="border-color:var(--qa)">
+            <h3>Clawver (Manual QA)</h3>
+            <p>
+                <strong>Model:</strong> <code>zai/glm-5-turbo</code> (upgraded from GLM-4.7)<br>
+                <strong>Role:</strong> manual QA tester &mdash; explore, verify, document<br>
+                <strong>Browser:</strong> <code>playwright-cli</code> (snapshot &rarr; click &rarr; screenshot loop)<br>
+                <strong>Does NOT:</strong> write .spec.ts or automated tests<br>
+                <strong>Output:</strong> screenshots, snapshots, network logs, results.json
+            </p>
+            <div class="tag-row">
+                <span class="tag ok">Active</span>
+                <span class="tag new">GLM-5 Turbo</span>
+                <span class="tag">playwright-cli</span>
+                <span class="tag">Manual QA</span>
+                <span class="tag">Evidence First</span>
+            </div>
+        </div>
+        <div class="info-card" style="border-color:var(--api)">
+            <h3>Cipher (API/Backend)</h3>
+            <p>
+                <strong>Model:</strong> <code>deepseek/deepseek-chat</code> (V3.2)<br>
+                <strong>Role:</strong> API testing, data prep, swagger validation<br>
+                <strong>Tools:</strong> exec, read, write, edit
+            </p>
+            <div class="tag-row">
+                <span class="tag ok">Active</span>
+                <span class="tag new">DeepSeek V3.2</span>
+                <span class="tag">API</span>
+                <span class="tag">Swagger</span>
+                <span class="tag">Data Prep</span>
+            </div>
+        </div>
+        <div class="info-card" style="border-color:var(--playwright)">
+            <h3>🎭 playwright-cli</h3>
+            <p>
+                <strong>Role:</strong> Clawver's browser hands and eyes<br>
+                <strong>Flow:</strong> <code>open</code> &rarr; <code>snapshot</code> (accessibility tree) &rarr; <code>click ref</code> &rarr; <code>screenshot</code> &rarr; <code>network</code><br>
+                <strong>Key:</strong> LLM reads snapshot, decides action, CLI executes it. Adaptive loop, not scripted.
+            </p>
+            <div class="tag-row">
+                <span class="tag ok">Active</span>
+                <span class="tag">@playwright/cli</span>
+                <span class="tag">Token-efficient</span>
+                <span class="tag">Deterministic</span>
+            </div>
+        </div>
+        <div class="info-card" style="border-color:var(--rag)">
+            <h3>RAG Memory</h3>
+            <p>
+                <strong>Embedding:</strong> <code>text-embedding-3-small</code> (OpenAI, 1536 dims)<br>
+                <strong>Store:</strong> SQLite + vec0 per agent<br>
+                <strong>Sources:</strong> MEMORY.md + PROJECT_KNOWLEDGE + DAILY_INSIGHTS + insights/*<br>
+                <strong>Auto-reindex:</strong> after every emit-learning via <code>memory_reindex.py</code>
+            </p>
+            <div class="tag-row">
+                <span class="tag ok">Active</span>
+                <span class="tag new">Auto-reindex</span>
+                <span class="tag">223 chunks (Nexus)</span>
+                <span class="tag">Semantic search</span>
+            </div>
+        </div>
+        <div class="info-card" style="border-color:var(--research)">
+            <h3>Researcher + Jira Watcher</h3>
+            <p>
+                <strong>Researcher:</strong> async digest, not in critical path<br>
+                <strong>Jira Watcher:</strong> cron-based ticket intake<br>
+                Both are alpha/advisory — not required for ticket execution.
+            </p>
+            <div class="tag-row">
+                <span class="tag warn">Alpha</span>
+                <span class="tag">Advisory</span>
+            </div>
+        </div>
+    `,
+    data: `
+        <div class="info-card">
+            <h3>Mandatory Execution Flow</h3>
+            <p style="font-family:'JetBrains Mono',monospace;font-size:0.74rem;line-height:2.2;color:var(--text)">
+                <span style="color:var(--nexus)">Nexus:</span> create task file CT-XXX.md<br>
+                <span style="color:var(--nexus)">Nexus:</span> <code>run_manager.py verify-run --ticket CT-XXX</code><br>
+                <span style="color:var(--nexus)">Nexus:</span> <code>run_manager.py bootstrap-dispatch ...</code><br>
+                <span style="color:var(--nexus)">Nexus:</span> <code>openclaw agent --id qa-agent ...</code><br>
+                <span style="color:var(--qa)">Clawver:</span> read task &rarr; playwright-cli &rarr; evidence<br>
+                <span style="color:var(--qa)">Clawver:</span> <code>run_manager.py emit-result ...</code><br>
+                <span style="color:var(--qa)">Clawver:</span> <code>run_manager.py emit-learning ...</code><br>
+                <span style="color:var(--rag)">&nbsp;&nbsp;&nbsp;auto:</span> memory_reindex.py &rarr; RAG updated<br>
+                <span style="color:var(--nexus)">Nexus:</span> <code>run_manager.py pre-summary-gate --require-learning</code><br>
+                <span style="color:var(--nexus)">Nexus:</span> evidence-backed summary to Ihor
+            </p>
+        </div>
+        <div class="info-card">
+            <h3>Shared State</h3>
+            <p>
+                <code>shared/tasks/CT-XXX.md</code> — what to test<br>
+                <code>shared/runs/CT-XXX-DATE-NN/</code> — run traceability<br>
+                <code>shared/test-results/CT-XXX/</code> — legacy evidence<br>
+                <code>shared/sessions/registry.json</code> — auth sessions<br>
+                <code>shared/DAILY_INSIGHTS.md</code> — daily learnings<br>
+                <code>PROJECT_KNOWLEDGE.md</code> — curated project truths
+            </p>
+        </div>
+        <div class="info-card">
+            <h3>run_manager.py Commands</h3>
+            <p style="font-family:'JetBrains Mono',monospace;font-size:0.72rem;line-height:2;color:var(--text)">
+                <code>init</code> — create run folder structure<br>
+                <code>bootstrap-dispatch</code> — init + inject hooks<br>
+                <code>verify-run</code> — check run exists (exit 0/1)<br>
+                <code>emit-result</code> — write result packet<br>
+                <code>emit-learning</code> — write learning + auto-reindex<br>
+                <code>pre-summary-gate</code> — block if no evidence/learning<br>
+                <code>naming-audit</code> — scan CT-XXX casing violations<br>
+                <code>sync-legacy</code> — mirror evidence to run folder
+            </p>
+        </div>
+    `,
+    learning: `
+        <div class="info-card">
+            <h3>Learning Pipeline</h3>
+            <p style="font-family:'JetBrains Mono',monospace;font-size:0.74rem;line-height:2.2;color:var(--text)">
+                <strong style="color:var(--text)">1. Capture:</strong><br>
+                &nbsp;&nbsp;Agent executes &rarr; auto-learn skill triggers<br>
+                &nbsp;&nbsp;<code>emit-learning --observed --impact --applies-to</code><br><br>
+                <strong style="color:var(--text)">2. Store (3 places atomically):</strong><br>
+                &nbsp;&nbsp;insights/CT-XXX-insights.md (ticket-specific)<br>
+                &nbsp;&nbsp;DAILY_INSIGHTS.md (cross-agent daily)<br>
+                &nbsp;&nbsp;runs/CT-XXX-DATE/learning/ (run mirror)<br><br>
+                <strong style="color:var(--text)">3. Index:</strong><br>
+                &nbsp;&nbsp;memory_reindex.py auto-discovers new files<br>
+                &nbsp;&nbsp;Updates openclaw.json extraPaths<br>
+                &nbsp;&nbsp;Next reindex &rarr; embeddings created<br><br>
+                <strong style="color:var(--text)">4. Retrieve:</strong><br>
+                &nbsp;&nbsp;Agent gets new task &rarr; RAG semantic search<br>
+                &nbsp;&nbsp;Relevant chunks injected into prompt<br>
+                &nbsp;&nbsp;Agent works with context, not from scratch
+            </p>
+        </div>
+        <div class="info-card">
+            <h3>Auto-Promote Rules</h3>
+            <p>
+                <strong>run-only &rarr; project:</strong> same pattern 3+ times in 7 days<br>
+                <strong>project &rarr; agent:</strong> applies across features<br>
+                <strong>stale tag:</strong> not referenced in 30+ days<br><br>
+                Nexus is the curator. Agents propose, Nexus promotes.
+            </p>
+        </div>
+        <div class="info-card">
+            <h3>Enforcement</h3>
+            <p>
+                <strong style="color:#f87171">Every run MUST emit at least one learning.</strong><br><br>
+                If skipped: <code>pre-summary-gate --require-learning</code> blocks Nexus from posting summary.<br>
+                HEARTBEAT: Nexus monitors "runs without learnings" daily.
+            </p>
+        </div>
+    `,
+    ops: `
+        <div class="info-card">
+            <h3><span class="status-dot green"></span> Nexus Heartbeat</h3>
+            <p>
+                <strong>RAG reindex:</strong> daily at 9:00 AM<br>
+                <strong>Learning health:</strong> every 30 min (runs vs learnings)<br>
+                <strong>Gmail check:</strong> every 30 min<br>
+                <strong>Jira workflow:</strong> every 30 min
+            </p>
+        </div>
+        <div class="info-card">
+            <h3><span class="status-dot green"></span> Clawver + Cipher Heartbeat</h3>
+            <p>
+                <strong>Learning scan:</strong> every 30 min<br>
+                Check for orphaned results (evidence without learning).<br>
+                Post-execution checklist: evidence + results.json + emit-learning + DAILY_INSIGHTS.
+            </p>
+        </div>
+        <div class="info-card">
+            <h3><span class="status-dot yellow"></span> Cron Jobs</h3>
+            <p>
+                <strong>Jira Watcher:</strong> polling for Ready for Testing<br>
+                <strong>Researcher:</strong> periodic external digest<br>
+                <strong>Daily self-review:</strong> Nexus benchmark + learning count
+            </p>
+        </div>
+        <div class="info-card">
+            <h3>Model Configuration</h3>
+            <p>
+                <strong style="color:var(--nexus)">Nexus:</strong> <code>zai-coding/glm-4.7</code> (planning, review)<br>
+                <strong style="color:var(--qa)">Clawver:</strong> <code>zai/glm-5-turbo</code> (tool calling 89.7%)<br>
+                <strong style="color:var(--api)">Cipher:</strong> <code>deepseek/deepseek-chat</code> (V3.2, cost-efficient)<br>
+                <strong style="color:var(--rag)">RAG:</strong> <code>text-embedding-3-small</code> (OpenAI)
+            </p>
+        </div>
+    `
+};
+
+// Render
+const nodesEl = document.getElementById('nodes');
+const svgEl = document.getElementById('svg');
+const wrap = document.getElementById('canvasWrap');
+
+NODES.forEach(n => {
+    const div = document.createElement('div');
+    div.className = `node${n.hub ? ' hub' : ''}${n.deprecated ? ' deprecated' : ''}`;
+    div.id = n.id;
+    div.style.left = n.x + '%';
+    div.style.top = n.y + '%';
+    div.innerHTML = `
+        <div class="node-inner" style="background:${n.color}22;border-color:${n.color}">
+            <div class="icon">${n.icon}</div>
+            <div>
+                <div class="name">${n.name}</div>
+                <div class="sub">${n.sub}</div>
+            </div>
+        </div>
+        ${n.status ? `<div class="node-status ${n.status}"></div>` : ''}
+    `;
+    div.addEventListener('mouseenter', () => highlight(n.id));
+    div.addEventListener('mouseleave', clearHL);
+    nodesEl.appendChild(div);
+});
+
+function getPos(id) {
+    const el = document.getElementById(id);
+    if (!el) return { x: 0, y: 0 };
+    const r = el.getBoundingClientRect();
+    const p = wrap.getBoundingClientRect();
+    return { x: r.left - p.left + r.width / 2, y: r.top - p.top + r.height / 2 };
+}
+
+function drawLinks() {
+    svgEl.querySelectorAll('.link, .link-label').forEach(e => e.remove());
+    let defs = svgEl.querySelector('defs');
+    if (!defs) {
+        defs = document.createElementNS('http://www.w3.org/2000/svg', 'defs');
+        defs.innerHTML = `
+            <marker id="arr-exec" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0L10 5L0 10z" fill="#8b5cf6"/></marker>
+            <marker id="arr-session" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0L10 5L0 10z" fill="#f59e0b"/></marker>
+            <marker id="arr-cron" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0L10 5L0 10z" fill="#f472b6"/></marker>
+            <marker id="arr-io" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0L10 5L0 10z" fill="#10b981"/></marker>
+            <marker id="arr-rag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0L10 5L0 10z" fill="#8b5cf6"/></marker>
+        `;
+        svgEl.appendChild(defs);
+    }
+
+    LINKS.forEach((l, i) => {
+        const a = getPos(l.from);
+        const b = getPos(l.to);
+        const mx = (a.x + b.x) / 2;
+        const my = (a.y + b.y) / 2;
+        const dx = b.x - a.x;
+        const dy = b.y - a.y;
+        const dupes = LINKS.filter((ll, j) => j < i && ((ll.from === l.from && ll.to === l.to) || (ll.from === l.to && ll.to === l.from)));
+        const off = dupes.length * 25;
+        let cx = mx + (Math.abs(dy) > Math.abs(dx) ? off + 20 : 0);
+        let cy = my + (Math.abs(dx) > Math.abs(dy) ? -(off + 20) : 0);
+
+        const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+        path.setAttribute('d', `M${a.x} ${a.y} Q${cx} ${cy} ${b.x} ${b.y}`);
+        path.setAttribute('class', `link link-${l.type}`);
+        path.setAttribute('data-from', l.from);
+        path.setAttribute('data-to', l.to);
+        path.id = `link${i}`;
+        if (['exec','session','cron','io','rag'].includes(l.type)) {
+            path.setAttribute('marker-end', `url(#arr-${l.type})`);
+        }
+        svgEl.appendChild(path);
+
+        const txt = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+        txt.setAttribute('class', 'link-label');
+        txt.setAttribute('data-from', l.from);
+        txt.setAttribute('data-to', l.to);
+        txt.setAttribute('dy', '-6');
+        const tp = document.createElementNS('http://www.w3.org/2000/svg', 'textPath');
+        tp.setAttribute('href', `#link${i}`);
+        tp.setAttribute('startOffset', '50%');
+        tp.setAttribute('text-anchor', 'middle');
+        tp.textContent = l.label;
+        txt.appendChild(tp);
+        svgEl.appendChild(txt);
+    });
+}
+
+function highlight(id) {
+    wrap.classList.add('dimmed');
+    document.getElementById(id).classList.add('hl');
+    LINKS.forEach((l, i) => {
+        if (l.from === id || l.to === id) {
+            const other = l.from === id ? l.to : l.from;
+            const otherEl = document.getElementById(other);
+            if (otherEl) otherEl.classList.add('hl');
+            svgEl.querySelector(`#link${i}`)?.classList.add('hl-link');
+            svgEl.querySelectorAll('.link-label').forEach(t => {
+                if (t.getAttribute('data-from') === l.from && t.getAttribute('data-to') === l.to) t.classList.add('hl-label');
+            });
+        }
+    });
+    const node = NODES.find(n => n.id === id);
+    if (node) {
+        document.getElementById('title').innerHTML = `${node.icon} ${node.name}`;
+        document.getElementById('subtitle').textContent = node.sub;
+    }
+}
+
+function clearHL() {
+    wrap.classList.remove('dimmed');
+    document.querySelectorAll('.hl,.hl-link,.hl-label').forEach(e => e.classList.remove('hl','hl-link','hl-label'));
+    document.getElementById('title').innerHTML = 'OpenClaw v5.0';
+    document.getElementById('subtitle').textContent = 'PHASE 3 — RUNTIME HARDENING + RAG MEMORY';
+}
+
+function showTab(name) {
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    document.querySelector(`.tab[onclick="showTab('${name}')"]`).classList.add('active');
+    document.getElementById('sidebar-body').innerHTML = TABS[name];
+}
+
+showTab('overview');
+setTimeout(drawLinks, 150);
+window.addEventListener('resize', drawLinks);
+wrap.addEventListener('click', e => { if (e.target === wrap || e.target === svgEl) clearHL(); });
+</script>
+</body>
+</html>
