@@ -151,7 +151,40 @@ Every execution run MUST emit at least one `emit-learning` call. This applies to
 - The `emit-learning` command writes to three destinations atomically: ticket insight note, `DAILY_INSIGHTS.md`, and run learning mirror.
 - Skipping `emit-learning` will cause `pre-summary-gate --require-learning` to return `partial`, blocking Nexus from posting a final summary.
 
-## 8. Quality Bar
+## 8. Auto-Learn Mechanism (Phase 3)
+
+### HEARTBEAT Scan
+
+Every 30 minutes, Clawver and Cipher check for orphaned results — runs that produced evidence but no learning.
+
+If found → generate learning from available evidence and emit it.
+
+See:
+- `workspace-qa-agent/HEARTBEAT.md`
+- `workspace-api-docs/HEARTBEAT.md`
+
+### Nexus Learning Health Check
+
+Nexus monitors learning emission health as part of its HEARTBEAT:
+- Counts runs vs learnings per day
+- Flags agents that completed runs without emitting
+- Reports in daily self-review
+
+### Auto-Promote Rules
+
+| Current level | Promote to | Condition |
+|---------------|------------|-----------|
+| run-only | project | Same pattern seen in 3+ runs within 7 days |
+| project | agent | Pattern applies across multiple features |
+| any | `[stale]` tag | Not referenced in 30+ days |
+
+### Auto-Learn Skill
+
+Both Clawver and Cipher have an `auto-learn` skill that enforces post-execution learning capture.
+
+See: `workspace-qa-agent/skills/auto-learn/SKILL.md`
+
+## 9. Quality Bar
 
 A good synced learning should:
 

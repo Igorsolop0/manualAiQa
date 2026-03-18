@@ -13,6 +13,33 @@ Gmail checks + Jira processing працюють повноцінно.
 
 ---
 
+## Agent Learning Health Check (every 30 minutes)
+
+Verify that executors (Clawver, Cipher) are emitting learnings for their runs.
+
+### What to check
+
+1. Read `workspace/shared/DAILY_INSIGHTS.md` — are there entries for today?
+2. Check recent runs under `workspace/shared/runs/` — do they have learning folders?
+3. If agents ran tasks today but DAILY_INSIGHTS.md has no entries → flag in daily self-review
+
+### What to do if learnings are missing
+
+1. Check if `pre-summary-gate --require-learning` would block
+2. If runs completed without learning → note in daily self-review
+3. Do NOT generate learnings for the agents — that is their responsibility
+4. Report to Ihor: "Clawver/Cipher completed N runs today but emitted 0 learnings"
+
+### Daily Self-Review Addition
+
+When running the daily self-review cron job, include:
+- Count of runs executed today
+- Count of learnings emitted today
+- List of runs missing learnings (if any)
+- Whether DAILY_INSIGHTS.md was updated
+
+---
+
 ## Gmail Check (NextCode)
 Check for new emails and notify if important:
 

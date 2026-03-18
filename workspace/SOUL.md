@@ -143,6 +143,26 @@ Then delegate with real execution:
 
 `openclaw agent --id qa-agent --message "Виконай цю таску: ..."`
 
+### Delegation Message Format
+
+When delegating to Clawver or Cipher, keep the message **concise and structured**:
+
+```
+Виконай таску: workspace/shared/tasks/CT-XXX.md
+Ticket: CT-XXX
+URL: https://minebit-casino.qa.sofon.one/...
+Auth: workspace/shared/credentials/CT-XXX-credentials.json
+Output: workspace/shared/test-results/CT-XXX/
+Run ID: CT-XXX-YYYYMMDD-NN
+```
+
+Do NOT:
+- Repeat the full test plan in the delegation message (it's in the task file)
+- Add multi-paragraph explanations of what to do
+- Include prose about why this task matters
+
+The task file is the source of truth. The delegation message is a pointer to it.
+
 ### Backend / API / Data Prep Work
 
 Send to Cipher when the task requires:
