@@ -118,7 +118,7 @@ def build_task_charter(ticket_id: str, run_id: str, project: str) -> dict:
         "scope": {"ui": True, "api": True, "research": False},
         "preconditions": [
             "Legacy workspace paths remain active.",
-            "Pilot run initialized via scripts/phase2_pilot.py.",
+            "Pilot run initialized via scripts/run_manager.py.",
         ],
         "data_needs": [],
         "assertions": [
@@ -823,13 +823,13 @@ def build_dispatch_block(root: Path, ticket_id: str, run_id: str, agent: str) ->
         "",
         "After execution, run mirror sync:",
         "```bash",
-        f"python3 {root / 'scripts' / 'phase2_pilot.py'} sync-legacy --ticket {ticket_id}",
+        f"python3 {root / 'scripts' / 'run_manager.py'} sync-legacy --ticket {ticket_id}",
         "```",
         "",
         "Fail-fast runtime guard (required before normal emit-result in Stagehand ONLY tasks):",
         "```bash",
         (
-            f"python3 {root / 'scripts' / 'phase2_pilot.py'} stagehand-guard --ticket {ticket_id} "
+            f"python3 {root / 'scripts' / 'run_manager.py'} stagehand-guard --ticket {ticket_id} "
             f"--phase post --agent {agent_safe} --on-violation blocked --next-owner nexus "
             "--emit-result --write-results-stub"
         ),
@@ -838,7 +838,7 @@ def build_dispatch_block(root: Path, ticket_id: str, run_id: str, agent: str) ->
         session_hint,
         "```bash",
         (
-            f"python3 {root / 'scripts' / 'phase2_pilot.py'} register-session --ticket {ticket_id} "
+            f"python3 {root / 'scripts' / 'run_manager.py'} register-session --ticket {ticket_id} "
             f"--project minebit --subject-type player --owner {session_owner} "
             "--storage-state-ref workspace/shared/test-auth/prod-player-auth.json "
             "--token-ref workspace/shared/test-auth/token.txt --status active "
@@ -849,7 +849,7 @@ def build_dispatch_block(root: Path, ticket_id: str, run_id: str, agent: str) ->
         "Emit result packet for Nexus review:",
         "```bash",
         (
-            f"python3 {root / 'scripts' / 'phase2_pilot.py'} emit-result --ticket {ticket_id} "
+            f"python3 {root / 'scripts' / 'run_manager.py'} emit-result --ticket {ticket_id} "
             f"--agent {agent_safe} --status completed --confidence medium --next-owner nexus "
             f"--evidence-ref {default_evidence}"
         ),
@@ -858,7 +858,7 @@ def build_dispatch_block(root: Path, ticket_id: str, run_id: str, agent: str) ->
         "Emit learning candidate (if run produced reusable insight):",
         "```bash",
         (
-            f"python3 {root / 'scripts' / 'phase2_pilot.py'} emit-learning --ticket {ticket_id} "
+            f"python3 {root / 'scripts' / 'run_manager.py'} emit-learning --ticket {ticket_id} "
             f"--owner {agent_safe} --status completed --observed \"<observed>\" "
             "--impact \"<impact>\" --applies-to \"<applies-to>\" --promote-to run-only "
             f"--evidence-ref {default_evidence}"
@@ -867,7 +867,7 @@ def build_dispatch_block(root: Path, ticket_id: str, run_id: str, agent: str) ->
         "",
         "Nexus pre-summary gate (wait for stable results + validate contracts):",
         "```bash",
-        f"python3 {root / 'scripts' / 'phase2_pilot.py'} pre-summary-gate --ticket {ticket_id}",
+        f"python3 {root / 'scripts' / 'run_manager.py'} pre-summary-gate --ticket {ticket_id}",
         "```",
     ]
     return "\n".join(lines) + "\n"
@@ -1652,7 +1652,7 @@ def cmd_verify_run(args: argparse.Namespace) -> int:
         print("[verify] status=missing")
         print("[verify] reason=no active run registered")
         print(
-            f"[verify] action=run: python3 {root / 'scripts' / 'phase2_pilot.py'} "
+            f"[verify] action=run: python3 {root / 'scripts' / 'run_manager.py'} "
             f"bootstrap-dispatch --ticket {ticket_id} "
             f"--task-file workspace/shared/tasks/{ticket_id}.md"
         )

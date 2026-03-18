@@ -48,22 +48,22 @@ Use canonical ticket casing in paths: `CT-XXX` (not `ct-xxx`).
 
 After execution, run mirror sync:
 ```bash
-python3 /Users/ihorsolopii/.openclaw/scripts/phase2_pilot.py sync-legacy --ticket CT-476
+python3 /Users/ihorsolopii/.openclaw/scripts/run_manager.py sync-legacy --ticket CT-476
 ```
 
 If auth/session was used, register session-record (no raw token in prose):
 ```bash
-python3 /Users/ihorsolopii/.openclaw/scripts/phase2_pilot.py register-session --ticket CT-476 --project minebit --subject-type player --owner qa-agent --storage-state-ref workspace/shared/test-auth/prod-player-auth.json --token-ref workspace/shared/test-auth/token.txt --status active --refresh-strategy ui_login
+python3 /Users/ihorsolopii/.openclaw/scripts/run_manager.py register-session --ticket CT-476 --project minebit --subject-type player --owner qa-agent --storage-state-ref workspace/shared/test-auth/prod-player-auth.json --token-ref workspace/shared/test-auth/token.txt --status active --refresh-strategy ui_login
 ```
 
 Emit result packet:
 ```bash
-python3 /Users/ihorsolopii/.openclaw/scripts/phase2_pilot.py emit-result --ticket CT-476 --agent qa-agent --status completed --confidence medium --next-owner nexus --evidence-ref workspace/shared/test-results/CT-476/results.json
+python3 /Users/ihorsolopii/.openclaw/scripts/run_manager.py emit-result --ticket CT-476 --agent qa-agent --status completed --confidence medium --next-owner nexus --evidence-ref workspace/shared/test-results/CT-476/results.json
 ```
 
 Emit learning candidate (when run produced reusable finding):
 ```bash
-python3 /Users/ihorsolopii/.openclaw/scripts/phase2_pilot.py emit-learning --ticket CT-476 --owner qa-agent --status completed --observed "<observed>" --impact "<impact>" --applies-to "<applies-to>" --promote-to run-only --evidence-ref workspace/shared/test-results/CT-476/results.json
+python3 /Users/ihorsolopii/.openclaw/scripts/run_manager.py emit-learning --ticket CT-476 --owner qa-agent --status completed --observed "<observed>" --impact "<impact>" --applies-to "<applies-to>" --promote-to run-only --evidence-ref workspace/shared/test-results/CT-476/results.json
 ```
 <!-- PHASE2_DISPATCH_BLOCK_END -->
 ```
@@ -73,14 +73,14 @@ python3 /Users/ihorsolopii/.openclaw/scripts/phase2_pilot.py emit-learning --tic
 Nexus can auto-insert/update the Phase 2 block into any task file:
 
 ```bash
-python3 /Users/ihorsolopii/.openclaw/scripts/phase2_pilot.py prepare-dispatch --ticket CT-XXX --agent qa-agent --task-file workspace/shared/tasks/CT-XXX.md
-python3 /Users/ihorsolopii/.openclaw/scripts/phase2_pilot.py prepare-dispatch --ticket CT-XXX --agent api-docs-agent --task-file workspace/shared/tasks/CT-XXX.md
+python3 /Users/ihorsolopii/.openclaw/scripts/run_manager.py prepare-dispatch --ticket CT-XXX --agent qa-agent --task-file workspace/shared/tasks/CT-XXX.md
+python3 /Users/ihorsolopii/.openclaw/scripts/run_manager.py prepare-dispatch --ticket CT-XXX --agent api-docs-agent --task-file workspace/shared/tasks/CT-XXX.md
 ```
 
 Recommended for Nexus (enforce init + dispatch in one command):
 
 ```bash
-python3 /Users/ihorsolopii/.openclaw/scripts/phase2_pilot.py bootstrap-dispatch --ticket CT-XXX --task-file workspace/shared/tasks/CT-XXX.md
+python3 /Users/ihorsolopii/.openclaw/scripts/run_manager.py bootstrap-dispatch --ticket CT-XXX --task-file workspace/shared/tasks/CT-XXX.md
 ```
 
 For new `CT-*` execution tasks, this should be treated as the default path, not an optional extra.
@@ -89,19 +89,19 @@ Analysis-only ticket summaries do not need pilot bootstrap.
 API-only variant:
 
 ```bash
-python3 /Users/ihorsolopii/.openclaw/scripts/phase2_pilot.py bootstrap-dispatch --ticket CT-XXX --task-file workspace/shared/tasks/CT-XXX.md --agent api-docs-agent
+python3 /Users/ihorsolopii/.openclaw/scripts/run_manager.py bootstrap-dispatch --ticket CT-XXX --task-file workspace/shared/tasks/CT-XXX.md --agent api-docs-agent
 ```
 
 Before final Slack summary in pilot mode:
 
 ```bash
-python3 /Users/ihorsolopii/.openclaw/scripts/phase2_pilot.py pre-summary-gate --ticket CT-XXX
+python3 /Users/ihorsolopii/.openclaw/scripts/run_manager.py pre-summary-gate --ticket CT-XXX
 ```
 
 If you want strict enforcement of learning sync:
 
 ```bash
-python3 /Users/ihorsolopii/.openclaw/scripts/phase2_pilot.py pre-summary-gate --ticket CT-XXX --require-learning
+python3 /Users/ihorsolopii/.openclaw/scripts/run_manager.py pre-summary-gate --ticket CT-XXX --require-learning
 ```
 
 `pre-summary-gate` now also checks runtime policy violations for pilot runs.

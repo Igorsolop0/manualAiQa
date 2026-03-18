@@ -23,7 +23,7 @@ for dir in workspace/shared/test-results/CT-*/; do
   results="$dir/results.json"
   if [ -f "$results" ]; then
     # Check if learning exists in the run
-    run_id=$(python3 /Users/ihorsolopii/.openclaw/scripts/phase2_pilot.py verify-run --ticket "$ticket" 2>/dev/null | grep "run_id=" | cut -d= -f2)
+    run_id=$(python3 /Users/ihorsolopii/.openclaw/scripts/run_manager.py verify-run --ticket "$ticket" 2>/dev/null | grep "run_id=" | cut -d= -f2)
     if [ -n "$run_id" ]; then
       learning_dir="workspace/shared/runs/$run_id/learning"
       if [ ! -d "$learning_dir" ] || [ -z "$(ls -A "$learning_dir" 2>/dev/null)" ]; then

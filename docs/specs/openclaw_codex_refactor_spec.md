@@ -956,8 +956,8 @@ Replace folder-level ambiguity with run-level traceability.
 
 - `shared/runs/<run_id>/` pilot scaffolding added
 - `shared/sessions/registry.json` added
-- `session-record` flow added via `phase2_pilot.py register-session`
-- `result-packet` flow added via `phase2_pilot.py emit-result`
+- `session-record` flow added via `run_manager.py register-session`
+- `result-packet` flow added via `run_manager.py emit-result`
 - dual-write migration path documented and working for pilot tickets
 - `bootstrap-dispatch` and `pre-summary-gate` added
 

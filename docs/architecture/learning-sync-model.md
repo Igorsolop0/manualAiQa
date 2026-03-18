@@ -137,7 +137,7 @@ Do not promote:
 
 1. execution finishes
 2. executor writes run artifacts
-3. executor emits learning candidate via `phase2_pilot.py emit-learning` **(mandatory)**
+3. executor emits learning candidate via `run_manager.py emit-learning` **(mandatory)**
 4. Nexus runs `pre-summary-gate --require-learning` — gate blocks if learning is missing
 5. Nexus reviews and curates
 6. durable truths move to project knowledge or agent memory

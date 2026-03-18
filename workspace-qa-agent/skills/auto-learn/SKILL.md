@@ -2,7 +2,7 @@
 name: auto-learn
 description: |
   Automatic learning capture after every execution. Scans recent activity,
-  extracts insights, and emits learning candidates via phase2_pilot.py.
+  extracts insights, and emits learning candidates via run_manager.py.
   Ensures Clawver never finishes a run without recording what was learned.
 activation: |
   Triggered automatically:
@@ -28,14 +28,14 @@ After completing any task execution and before responding to Nexus:
 
 1. Review what was done during this execution
 2. Extract key observations
-3. Emit learning via `phase2_pilot.py emit-learning`
+3. Emit learning via `run_manager.py emit-learning`
 
 ### Trigger 2: HEARTBEAT Scan (every 30 min)
 
 Check for orphaned results — runs that completed but have no learning:
 
 ```bash
-python3 /Users/ihorsolopii/.openclaw/scripts/phase2_pilot.py scan-missing-learnings
+python3 /Users/ihorsolopii/.openclaw/scripts/run_manager.py scan-missing-learnings
 ```
 
 If missing learnings found → generate and emit them from available evidence.
@@ -71,7 +71,7 @@ Ask yourself:
 ### Step 3: Emit the learning
 
 ```bash
-python3 /Users/ihorsolopii/.openclaw/scripts/phase2_pilot.py emit-learning \
+python3 /Users/ihorsolopii/.openclaw/scripts/run_manager.py emit-learning \
   --ticket <TICKET> \
   --owner qa-agent \
   --status completed \
@@ -128,7 +128,7 @@ Learnings that appear 3+ times across different tickets in 7 days should be prom
 
 Demotion: if a learning hasn't been referenced in 30+ days, it stays but gets tagged `[stale]`.
 
-## Integration with phase2_pilot.py
+## Integration with run_manager.py
 
 The `pre-summary-gate --require-learning` command will **block** Nexus from posting a summary if no learning was emitted. This is the enforcement mechanism.
 

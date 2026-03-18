@@ -235,13 +235,13 @@ Runbook: `/Users/ihorsolopii/.openclaw/docs/runbooks/phase2-pilot-dual-write.md`
 **Step 2.** Verify run exists:
 
 ```bash
-python3 /Users/ihorsolopii/.openclaw/scripts/phase2_pilot.py verify-run --ticket CT-XXX
+python3 /Users/ihorsolopii/.openclaw/scripts/run_manager.py verify-run --ticket CT-XXX
 ```
 
 **Step 3.** If verify-run exits non-zero, run bootstrap:
 
 ```bash
-python3 /Users/ihorsolopii/.openclaw/scripts/phase2_pilot.py bootstrap-dispatch --ticket CT-XXX --task-file workspace/shared/tasks/CT-XXX.md
+python3 /Users/ihorsolopii/.openclaw/scripts/run_manager.py bootstrap-dispatch --ticket CT-XXX --task-file workspace/shared/tasks/CT-XXX.md
 ```
 
 **Step 4.** Only then delegate to executor.
@@ -253,7 +253,7 @@ python3 /Users/ihorsolopii/.openclaw/scripts/phase2_pilot.py bootstrap-dispatch 
 **Step 6.** Run pre-summary gate:
 
 ```bash
-python3 /Users/ihorsolopii/.openclaw/scripts/phase2_pilot.py pre-summary-gate --ticket CT-XXX --require-learning
+python3 /Users/ihorsolopii/.openclaw/scripts/run_manager.py pre-summary-gate --ticket CT-XXX --require-learning
 ```
 
 **Step 7.** Only then post final summary.

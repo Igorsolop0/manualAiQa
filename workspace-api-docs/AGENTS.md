@@ -33,9 +33,9 @@ Before acting:
 If pilot is active:
 
 1. Keep writing legacy evidence under `workspace/shared/test-results/<ticket>/`
-2. Run `phase2_pilot.py sync-legacy --ticket <ticket>` after execution
+2. Run `run_manager.py sync-legacy --ticket <ticket>` after execution
 3. Emit `result-packet` for Nexus review
-4. Run `phase2_pilot.py emit-learning ...` (mandatory — every run must emit at least one learning candidate)
+4. Run `run_manager.py emit-learning ...` (mandatory — every run must emit at least one learning candidate)
 5. Use `/Users/ihorsolopii/.openclaw/docs/runbooks/core-trio-ops-checklist.md` as the strict command order
 
 ## Startup Rules

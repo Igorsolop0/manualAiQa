@@ -33,7 +33,7 @@ Status: additive rollout (no destructive migration)
   - `shared/runs/`
   - `shared/sessions/registry.json`
 - Added pilot automation helper:
-  - `scripts/phase2_pilot.py` (`init`, `sync-legacy`, `register-session`, `emit-result`, `prepare-dispatch`)
+  - `scripts/run_manager.py` (`init`, `sync-legacy`, `register-session`, `emit-result`, `prepare-dispatch`)
 - Added runbook:
   - `docs/runbooks/phase2-pilot-dual-write.md`
 - Migration mode is dual-write for selected tickets only:
@@ -45,13 +45,13 @@ Status: additive rollout (no destructive migration)
 1. [x] Add result-ready gate for Nexus before Slack summary.
    - Problem: transient ENOENT race when reading `workspace/shared/test-results/<ticket>/results.json`.
    - Observed example: `2026-03-13 16:37:24` read attempt for `CT-752` before file creation (`16:46:43`).
-   - Implemented via: `phase2_pilot.py pre-summary-gate` (wait + stability check + report).
+   - Implemented via: `run_manager.py pre-summary-gate` (wait + stability check + report).
 2. [x] Enforce Phase 2 pilot bootstrap for selected CT tickets.
-   - Require `phase2_pilot.py init` + `prepare-dispatch` at task creation time.
-   - Implemented via: `phase2_pilot.py bootstrap-dispatch` (init-if-missing + dispatch block).
+   - Require `run_manager.py init` + `prepare-dispatch` at task creation time.
+   - Implemented via: `run_manager.py bootstrap-dispatch` (init-if-missing + dispatch block).
 3. [x] Add pre-summary contract validation gate in pilot flow.
    - Validate emitted `result-packet` and (if used) `session-record` before final Nexus summary.
-   - Implemented via: `phase2_pilot.py pre-summary-gate` (`ajv-cli` contract validation).
+   - Implemented via: `run_manager.py pre-summary-gate` (`ajv-cli` contract validation).
 4. [x] Batch 1.5: Nexus MEMORY cleanup.
    - Reduced `workspace/MEMORY.md` into compact operational memory.
    - Preserved durable orchestration truths and recurring failure patterns.
@@ -78,9 +78,9 @@ Completed so far:
 
 Still open in Phase 3:
 
-- Stagehand drift hardening now has fail-fast guard (`phase2_pilot.py stagehand-guard`) for `Stagehand ONLY` violations
+- Stagehand drift hardening now has fail-fast guard (`run_manager.py stagehand-guard`) for `Stagehand ONLY` violations
 - roll out updated dispatch block via `bootstrap-dispatch` on new execution tasks to apply guard consistently
-- learning emission hardening is now implemented in pilot helper (`phase2_pilot.py emit-learning` + gate visibility in `pre-summary-gate`)
+- learning emission hardening is now implemented in pilot helper (`run_manager.py emit-learning` + gate visibility in `pre-summary-gate`)
 - Batch 6A baseline checklist added: `docs/runbooks/core-trio-ops-checklist.md`
 - adopt `pre-summary-gate --require-learning` on selected runs after 1-2 dry runs confirm signal/noise balance
 - use the refactor compliance checklist on more live runs and convert repeated failures into explicit guardrails

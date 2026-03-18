@@ -40,10 +40,10 @@ Before routing agent work:
 For every `CT-*` execution task (mandatory, not optional):
 
 1. Create task file
-2. Run `phase2_pilot.py verify-run --ticket CT-XXX`
-3. If verify-run fails, run `phase2_pilot.py bootstrap-dispatch --ticket CT-XXX --task-file workspace/shared/tasks/CT-XXX.md`
+2. Run `run_manager.py verify-run --ticket CT-XXX`
+3. If verify-run fails, run `run_manager.py bootstrap-dispatch --ticket CT-XXX --task-file workspace/shared/tasks/CT-XXX.md`
 4. Only then delegate to executor
-5. After execution, run `phase2_pilot.py pre-summary-gate --ticket CT-XXX --require-learning` before final summary
+5. After execution, run `run_manager.py pre-summary-gate --ticket CT-XXX --require-learning` before final summary
 6. Follow `/Users/ihorsolopii/.openclaw/docs/runbooks/core-trio-ops-checklist.md` for command order and guardrails
 
 ## Startup Rules

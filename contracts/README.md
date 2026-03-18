@@ -31,11 +31,11 @@ If `npx` is unavailable, install Node.js first or validate with your preferred J
 For run-centric dual-write pilot scaffolding, use:
 
 ```bash
-python3 /Users/ihorsolopii/.openclaw/scripts/phase2_pilot.py init --ticket CT-XXX --project minebit
-python3 /Users/ihorsolopii/.openclaw/scripts/phase2_pilot.py sync-legacy --ticket CT-XXX
-python3 /Users/ihorsolopii/.openclaw/scripts/phase2_pilot.py register-session --ticket CT-XXX --project minebit --subject-type player --owner qa-agent --storage-state-ref workspace/shared/test-auth/prod-player-auth.json --token-ref workspace/shared/test-auth/token.txt --status active --refresh-strategy ui_login
-python3 /Users/ihorsolopii/.openclaw/scripts/phase2_pilot.py emit-result --ticket CT-XXX --agent qa-agent --status completed --confidence medium --next-owner nexus --evidence-ref workspace/shared/test-results/CT-XXX/results.json
-python3 /Users/ihorsolopii/.openclaw/scripts/phase2_pilot.py prepare-dispatch --ticket CT-XXX --agent qa-agent --task-file workspace/shared/tasks/CT-XXX.md
-python3 /Users/ihorsolopii/.openclaw/scripts/phase2_pilot.py bootstrap-dispatch --ticket CT-XXX --task-file workspace/shared/tasks/CT-XXX.md
-python3 /Users/ihorsolopii/.openclaw/scripts/phase2_pilot.py pre-summary-gate --ticket CT-XXX
+python3 /Users/ihorsolopii/.openclaw/scripts/run_manager.py init --ticket CT-XXX --project minebit
+python3 /Users/ihorsolopii/.openclaw/scripts/run_manager.py sync-legacy --ticket CT-XXX
+python3 /Users/ihorsolopii/.openclaw/scripts/run_manager.py register-session --ticket CT-XXX --project minebit --subject-type player --owner qa-agent --storage-state-ref workspace/shared/test-auth/prod-player-auth.json --token-ref workspace/shared/test-auth/token.txt --status active --refresh-strategy ui_login
+python3 /Users/ihorsolopii/.openclaw/scripts/run_manager.py emit-result --ticket CT-XXX --agent qa-agent --status completed --confidence medium --next-owner nexus --evidence-ref workspace/shared/test-results/CT-XXX/results.json
+python3 /Users/ihorsolopii/.openclaw/scripts/run_manager.py prepare-dispatch --ticket CT-XXX --agent qa-agent --task-file workspace/shared/tasks/CT-XXX.md
+python3 /Users/ihorsolopii/.openclaw/scripts/run_manager.py bootstrap-dispatch --ticket CT-XXX --task-file workspace/shared/tasks/CT-XXX.md
+python3 /Users/ihorsolopii/.openclaw/scripts/run_manager.py pre-summary-gate --ticket CT-XXX
 ```

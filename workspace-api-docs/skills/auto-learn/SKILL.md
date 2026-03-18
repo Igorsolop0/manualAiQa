@@ -2,7 +2,7 @@
 name: auto-learn
 description: |
   Automatic learning capture after every API execution. Scans recent activity,
-  extracts insights, and emits learning candidates via phase2_pilot.py.
+  extracts insights, and emits learning candidates via run_manager.py.
   Ensures Cipher never finishes a run without recording what was learned.
 activation: |
   Triggered automatically:
@@ -34,7 +34,7 @@ After every execution, before responding to Nexus:
 ### Step 2: Classify and emit
 
 ```bash
-python3 /Users/ihorsolopii/.openclaw/scripts/phase2_pilot.py emit-learning \
+python3 /Users/ihorsolopii/.openclaw/scripts/run_manager.py emit-learning \
   --ticket <TICKET> \
   --owner api-docs-agent \
   --status completed \

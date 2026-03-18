@@ -15,4 +15,4 @@ Do not keep shared routing policy here. Shared behavior belongs in:
 ## Current Notes
 
 - Slack and Telegram delivery behavior may differ; final summaries should be reviewed against actual artifacts first.
-- Phase 2 pilot helpers live in `/Users/ihorsolopii/.openclaw/scripts/phase2_pilot.py`
+- Phase 2 pilot helpers live in `/Users/ihorsolopii/.openclaw/scripts/run_manager.py`

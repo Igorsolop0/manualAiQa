@@ -26,7 +26,7 @@ Keep current behavior (`workspace/shared/*`) while introducing per-ticket run tr
 Verify that an active run exists for a ticket (mandatory before delegation):
 
 ```bash
-python3 /Users/ihorsolopii/.openclaw/scripts/phase2_pilot.py verify-run --ticket CT-XXX
+python3 /Users/ihorsolopii/.openclaw/scripts/run_manager.py verify-run --ticket CT-XXX
 ```
 
 Exit code 0 = run exists. Exit code 1 = missing, must run bootstrap-dispatch first.
@@ -34,92 +34,92 @@ Exit code 0 = run exists. Exit code 1 = missing, must run bootstrap-dispatch fir
 Initialize pilot run for one ticket:
 
 ```bash
-python3 /Users/ihorsolopii/.openclaw/scripts/phase2_pilot.py init --ticket CT-XXX --project minebit
+python3 /Users/ihorsolopii/.openclaw/scripts/run_manager.py init --ticket CT-XXX --project minebit
 ```
 
 Initialize and immediately mirror existing legacy evidence:
 
 ```bash
-python3 /Users/ihorsolopii/.openclaw/scripts/phase2_pilot.py init --ticket CT-XXX --project minebit --sync-legacy
+python3 /Users/ihorsolopii/.openclaw/scripts/run_manager.py init --ticket CT-XXX --project minebit --sync-legacy
 ```
 
 Sync legacy evidence into active run after Clawver/Cipher finished:
 
 ```bash
-python3 /Users/ihorsolopii/.openclaw/scripts/phase2_pilot.py sync-legacy --ticket CT-XXX
+python3 /Users/ihorsolopii/.openclaw/scripts/run_manager.py sync-legacy --ticket CT-XXX
 ```
 
 Or explicitly by run_id:
 
 ```bash
-python3 /Users/ihorsolopii/.openclaw/scripts/phase2_pilot.py sync-legacy --run-id CT-XXX-YYYYMMDD-01
+python3 /Users/ihorsolopii/.openclaw/scripts/run_manager.py sync-legacy --run-id CT-XXX-YYYYMMDD-01
 ```
 
 Fail-fast Stagehand policy guard (use after executor pass, before normal `emit-result`):
 
 ```bash
-python3 /Users/ihorsolopii/.openclaw/scripts/phase2_pilot.py stagehand-guard --ticket CT-XXX --phase post --agent qa-agent --on-violation blocked --next-owner nexus --emit-result --write-results-stub
+python3 /Users/ihorsolopii/.openclaw/scripts/run_manager.py stagehand-guard --ticket CT-XXX --phase post --agent qa-agent --on-violation blocked --next-owner nexus --emit-result --write-results-stub
 ```
 
 Register session-record (instead of raw token handoff):
 
 ```bash
-python3 /Users/ihorsolopii/.openclaw/scripts/phase2_pilot.py register-session --ticket CT-XXX --project minebit --subject-type player --owner qa-agent --storage-state-ref workspace/shared/test-auth/prod-player-auth.json --token-ref workspace/shared/test-auth/token.txt --status active --refresh-strategy ui_login
+python3 /Users/ihorsolopii/.openclaw/scripts/run_manager.py register-session --ticket CT-XXX --project minebit --subject-type player --owner qa-agent --storage-state-ref workspace/shared/test-auth/prod-player-auth.json --token-ref workspace/shared/test-auth/token.txt --status active --refresh-strategy ui_login
 ```
 
 Emit result-packet from executor:
 
 ```bash
-python3 /Users/ihorsolopii/.openclaw/scripts/phase2_pilot.py emit-result --ticket CT-XXX --agent qa-agent --status completed --confidence medium --next-owner nexus --evidence-ref workspace/shared/test-results/CT-XXX/results.json
+python3 /Users/ihorsolopii/.openclaw/scripts/run_manager.py emit-result --ticket CT-XXX --agent qa-agent --status completed --confidence medium --next-owner nexus --evidence-ref workspace/shared/test-results/CT-XXX/results.json
 ```
 
 Emit learning candidate (idempotent; writes ticket insight + daily intake + run learning mirror):
 
 ```bash
-python3 /Users/ihorsolopii/.openclaw/scripts/phase2_pilot.py emit-learning --ticket CT-XXX --owner qa-agent --status completed --observed "Google OAuth page opens but requires pre-auth session" --impact "auth-first precondition must be explicit in planning" --applies-to "Minebit social linking flows" --promote-to project --evidence-ref workspace/shared/test-results/CT-XXX/results.json
+python3 /Users/ihorsolopii/.openclaw/scripts/run_manager.py emit-learning --ticket CT-XXX --owner qa-agent --status completed --observed "Google OAuth page opens but requires pre-auth session" --impact "auth-first precondition must be explicit in planning" --applies-to "Minebit social linking flows" --promote-to project --evidence-ref workspace/shared/test-results/CT-XXX/results.json
 ```
 
 Auto-insert hooks into task file:
 
 ```bash
-python3 /Users/ihorsolopii/.openclaw/scripts/phase2_pilot.py prepare-dispatch --ticket CT-XXX --agent qa-agent --task-file workspace/shared/tasks/CT-XXX.md
-python3 /Users/ihorsolopii/.openclaw/scripts/phase2_pilot.py prepare-dispatch --ticket CT-XXX --agent api-docs-agent --task-file workspace/shared/tasks/CT-XXX.md
+python3 /Users/ihorsolopii/.openclaw/scripts/run_manager.py prepare-dispatch --ticket CT-XXX --agent qa-agent --task-file workspace/shared/tasks/CT-XXX.md
+python3 /Users/ihorsolopii/.openclaw/scripts/run_manager.py prepare-dispatch --ticket CT-XXX --agent api-docs-agent --task-file workspace/shared/tasks/CT-XXX.md
 ```
 
 Preferred one-shot bootstrap (init if missing + dispatch hooks):
 
 ```bash
-python3 /Users/ihorsolopii/.openclaw/scripts/phase2_pilot.py bootstrap-dispatch --ticket CT-XXX --task-file workspace/shared/tasks/CT-XXX.md
+python3 /Users/ihorsolopii/.openclaw/scripts/run_manager.py bootstrap-dispatch --ticket CT-XXX --task-file workspace/shared/tasks/CT-XXX.md
 ```
 
 For API-only ticket handoff:
 
 ```bash
-python3 /Users/ihorsolopii/.openclaw/scripts/phase2_pilot.py bootstrap-dispatch --ticket CT-XXX --task-file workspace/shared/tasks/CT-XXX.md --agent api-docs-agent
+python3 /Users/ihorsolopii/.openclaw/scripts/run_manager.py bootstrap-dispatch --ticket CT-XXX --task-file workspace/shared/tasks/CT-XXX.md --agent api-docs-agent
 ```
 
 Pre-summary gate before Nexus posts Slack result:
 
 ```bash
-python3 /Users/ihorsolopii/.openclaw/scripts/phase2_pilot.py pre-summary-gate --ticket CT-XXX
+python3 /Users/ihorsolopii/.openclaw/scripts/run_manager.py pre-summary-gate --ticket CT-XXX
 ```
 
 Strict variant (fail gate when learning sync is missing):
 
 ```bash
-python3 /Users/ihorsolopii/.openclaw/scripts/phase2_pilot.py pre-summary-gate --ticket CT-XXX --require-learning
+python3 /Users/ihorsolopii/.openclaw/scripts/run_manager.py pre-summary-gate --ticket CT-XXX --require-learning
 ```
 
 Naming audit (scan for non-canonical ticket ID casing):
 
 ```bash
-python3 /Users/ihorsolopii/.openclaw/scripts/phase2_pilot.py naming-audit
+python3 /Users/ihorsolopii/.openclaw/scripts/run_manager.py naming-audit
 ```
 
 Fix violations automatically:
 
 ```bash
-python3 /Users/ihorsolopii/.openclaw/scripts/phase2_pilot.py naming-audit --fix
+python3 /Users/ihorsolopii/.openclaw/scripts/run_manager.py naming-audit --fix
 ```
 
 ## Naming Convention

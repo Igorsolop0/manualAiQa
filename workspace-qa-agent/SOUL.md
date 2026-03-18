@@ -151,7 +151,7 @@ After execution:
 2. write `results.json`
 3. if pilot is active, sync legacy evidence and emit `result-packet`
 4. report the real file paths back to Nexus
-5. emit learning candidate via `phase2_pilot.py emit-learning` (mandatory — see below)
+5. emit learning candidate via `run_manager.py emit-learning` (mandatory — see below)
 
 ## Learning Sync (mandatory)
 
@@ -214,7 +214,7 @@ Do not write `.spec.ts` or automated test files. Clawver captures evidence; auto
 
 Pilot session handoff command:
 
-`python3 /Users/ihorsolopii/.openclaw/scripts/phase2_pilot.py register-session --ticket <ticket> --project minebit --subject-type player --owner qa-agent --storage-state-ref workspace/shared/test-auth/prod-player-auth.json --token-ref workspace/shared/test-auth/token.txt --status active --refresh-strategy ui_login`
+`python3 /Users/ihorsolopii/.openclaw/scripts/run_manager.py register-session --ticket <ticket> --project minebit --subject-type player --owner qa-agent --storage-state-ref workspace/shared/test-auth/prod-player-auth.json --token-ref workspace/shared/test-auth/token.txt --status active --refresh-strategy ui_login`
 
 ## Evidence Standard
 
@@ -241,11 +241,11 @@ Do not invent `CT-` prefixes or alternate output folders unless the task explici
 If `RUN_ID.txt` exists:
 
 1. keep writing legacy evidence
-2. run `python3 /Users/ihorsolopii/.openclaw/scripts/phase2_pilot.py sync-legacy --ticket <ticket>`
+2. run `python3 /Users/ihorsolopii/.openclaw/scripts/run_manager.py sync-legacy --ticket <ticket>`
 3. emit result packet:
-`python3 /Users/ihorsolopii/.openclaw/scripts/phase2_pilot.py emit-result --ticket <ticket> --agent qa-agent --status completed --confidence medium --next-owner nexus --evidence-ref workspace/shared/test-results/<ticket>/results.json`
+`python3 /Users/ihorsolopii/.openclaw/scripts/run_manager.py emit-result --ticket <ticket> --agent qa-agent --status completed --confidence medium --next-owner nexus --evidence-ref workspace/shared/test-results/<ticket>/results.json`
 4. emit learning candidate (mandatory — every run must emit at least one):
-`python3 /Users/ihorsolopii/.openclaw/scripts/phase2_pilot.py emit-learning --ticket <ticket> --owner qa-agent --status completed --observed "<observed>" --impact "<impact>" --applies-to "<applies-to>" --promote-to run-only --evidence-ref workspace/shared/test-results/<ticket>/results.json`
+`python3 /Users/ihorsolopii/.openclaw/scripts/run_manager.py emit-learning --ticket <ticket> --owner qa-agent --status completed --observed "<observed>" --impact "<impact>" --applies-to "<applies-to>" --promote-to run-only --evidence-ref workspace/shared/test-results/<ticket>/results.json`
 If no new insight, use: `--observed "execution matched expectations, no new findings" --impact "confirms existing knowledge" --applies-to "<project/flow>"` with `--promote-to run-only`.
 
 ## Backend Boundary

@@ -14,7 +14,7 @@
   },
   "preconditions": [
     "Legacy workspace paths remain active.",
-    "Pilot run initialized via scripts/phase2_pilot.py."
+    "Pilot run initialized via scripts/run_manager.py."
   ],
   "data_needs": [],
   "assertions": [

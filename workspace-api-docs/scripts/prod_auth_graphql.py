@@ -243,7 +243,7 @@ def register_session_record(run_id, ticket, storage_ref, token_ref):
     """Optional: register session-record in Phase 2 pilot registry."""
     cmd = [
         "python3",
-        "/Users/ihorsolopii/.openclaw/scripts/phase2_pilot.py",
+        "/Users/ihorsolopii/.openclaw/scripts/run_manager.py",
         "register-session",
         "--project",
         "minebit",
