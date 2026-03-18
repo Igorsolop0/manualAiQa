@@ -1,0 +1,153 @@
+{
+  "websocket": [],
+  "api": [
+    {
+      "url": "https://minebit-casino.qa.sofon.one/cms-graphql?operationName=DynamicGlobalTranslations&variables=%7B%22brandIdentifier%22%3A%22minebit%22%2C%22locale%22%3A%22en%22%7D&extensions=%7B%22persistedQuery%22%3A%7B%22version%22%3A1%2C%22sha256Hash%22%3A%2221cf41305f44f1470f5c2326bb103c4f38e5c5f29818a01f30ab345da00ef67b%22%7D%7D",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "url": "https://minebit-casino.qa.sofon.one/cms-graphql?operationName=DynamicMode&variables=%7B%22excludeBannerIds%22%3A%5B%2210234%22%2C%226080%22%2C%226082%22%5D%2C%22userSegmentIds%22%3Anull%2C%22isLoggedIn%22%3Afalse%2C%22locale%22%3A%22en%22%2C%22bannersSliderId%22%3A%221686%22%7D&extensions=%7B%22persistedQuery%22%3A%7B%22version%22%3A1%2C%22sha256Hash%22%3A%22f0d22e0f8d5cb2deea858414d54c315fe0ab67615ef85ad0a5a27425d278ecd7%22%7D%7D",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "url": "https://minebit-casino.qa.sofon.one/cms-graphql?operationName=DynamicMode&variables=%7B%22excludeBannerIds%22%3A%5B%2211416%22%5D%2C%22userSegmentIds%22%3Anull%2C%22isLoggedIn%22%3Afalse%2C%22locale%22%3A%22en%22%2C%22bannersSliderId%22%3A%223768%22%7D&extensions=%7B%22persistedQuery%22%3A%7B%22version%22%3A1%2C%22sha256Hash%22%3A%22f0d22e0f8d5cb2deea858414d54c315fe0ab67615ef85ad0a5a27425d278ecd7%22%7D%7D",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "url": "https://minebit-casino.qa.sofon.one/cms-graphql?operationName=DynamicProviders&variables=%7B%22brandIdentifier%22%3A%22minebit%22%2C%22locale%22%3A%22en%22%7D&extensions=%7B%22persistedQuery%22%3A%7B%22version%22%3A1%2C%22sha256Hash%22%3A%223dcf5daffc64b5e08fba3e703ad19a45014eea5754dc9b4e7bc0e6dcff2c94ba%22%7D%7D",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "url": "https://minebit-casino.qa.sofon.one/graphql",
+      "method": "POST",
+      "status": 200
+    },
+    {
+      "url": "https://minebit-casino.qa.sofon.one/cms-graphql?operationName=DynamicMode&variables=%7B%22id%22%3A%22710%22%2C%22page%22%3A1%2C%22pageSize%22%3A10%2C%22sort%22%3A%5B%22default%22%5D%2C%22nonAvailableGamesIds%22%3Anull%2C%22brandIdentifier%22%3A%22minebit%22%2C%22locale%22%3A%22en%22%7D&extensions=%7B%22persistedQuery%22%3A%7B%22version%22%3A1%2C%22sha256Hash%22%3A%2286add75efe1fb25d75879dc5bbabf2c0c91a3d83428fc57b74e475501443c92c%22%7D%7D",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "url": "https://minebit-casino.qa.sofon.one/cms-graphql?operationName=DynamicMode&variables=%7B%22useDynamicLoadPromotionsCategory%22%3Afalse%2C%22brandIdentifier%22%3A%22minebit%22%2C%22locale%22%3A%22en%22%7D&extensions=%7B%22persistedQuery%22%3A%7B%22version%22%3A1%2C%22sha256Hash%22%3A%22c25250cde7d6dd0dc6bda3e694d6a2b6e4e8fea867cbdedf81e984568f80c534%22%7D%7D",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "url": "https://minebit-casino.qa.sofon.one/cms-graphql?operationName=DynamicMode&variables=%7B%22useDynamicLoadPromotionsCategory%22%3Atrue%2C%22brandIdentifier%22%3A%22minebit%22%2C%22locale%22%3A%22en%22%7D&extensions=%7B%22persistedQuery%22%3A%7B%22version%22%3A1%2C%22sha256Hash%22%3A%2216cda0dbb47ca81633df819bc50eb49471deb0ecd6efd8884bc475e7e194a657%22%7D%7D",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "url": "https://minebit-casino.qa.sofon.one/graphql",
+      "method": "POST"
+    },
+    {
+      "url": "https://minebit-casino.qa.sofon.one/cms-graphql?operationName=DynamicMode&variables=%7B%22id%22%3A%22710%22%2C%22page%22%3A1%2C%22pageSize%22%3A10%2C%22sort%22%3A%5B%22default%22%5D%2C%22nonAvailableGamesIds%22%3Anull%2C%22brandIdentifier%22%3A%22minebit%22%2C%22locale%22%3A%22en%22%7D&extensions=%7B%22persistedQuery%22%3A%7B%22version%22%3A1%2C%22sha256Hash%22%3A%2286add75efe1fb25d75879dc5bbabf2c0c91a3d83428fc57b74e475501443c92c%22%7D%7D",
+      "method": "GET"
+    },
+    {
+      "url": "https://minebit-casino.qa.sofon.one/cms-graphql?operationName=DynamicProviders&variables=%7B%22brandIdentifier%22%3A%22minebit%22%2C%22locale%22%3A%22en%22%7D&extensions=%7B%22persistedQuery%22%3A%7B%22version%22%3A1%2C%22sha256Hash%22%3A%223dcf5daffc64b5e08fba3e703ad19a45014eea5754dc9b4e7bc0e6dcff2c94ba%22%7D%7D",
+      "method": "GET"
+    },
+    {
+      "url": "https://api.livechatinc.com/global-mapper/lc_license_id/19056071/region?jsonp=__lc_region",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "url": "https://api.livechatinc.com/v3.6/customer/action/get_dynamic_configuration?x-region=us-south1&license_id=19056071&client_id=c5e4f61e1a6c3b1521b541bc5c5a2ac5&url=https%3A%2F%2Fminebit-casino.qa.sofon.one%2F%3Fmodal%3Diqs-sign-up&group_id=1&channel_type=code&implementation_type=%40livechat%2Fwidget-react&jsonp=__soq17ddu3j9",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "url": "https://modelforms.com/api/v1/store",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "url": "https://region1.google-analytics.com/g/collect?v=2&tid=G-98C7CYYB9F&gtm=45je63g1v9206480896z89205507174za20gzb9205507174zd9205507174&_p=1773842637417&gcd=13l3l3l2l1l1&npa=1&dma_cps=a&dma=1&cid=501708541.1773842638&ul=en-us&sr=1280x720&uaa=arm&uab=64&uafvl=HeadlessChrome%3B143.0.7499.4%7CChromium%3B143.0.7499.4%7CNot%2520A(Brand%3B24.0.0.0&uamb=0&uam=&uap=macOS&uapv=15.6.1&uaw=0&are=1&frm=0&pscdl=noapi&_s=1&tag_exp=103116026~103200004~115938466~115938469~116024733~117484252&sid=1773842637&sct=1&seg=0&dl=https%3A%2F%2Fminebit-casino.qa.sofon.one%2F%3Fmodal%3Diqs-sign-up&dt=Bet%20Free%2C%20Win%20Big%20with%20MineBit!%20Crypto-Friendly%20Casino&en=page_view&_fv=1&_nsi=1&_ss=1&tfd=12521",
+      "method": "POST",
+      "status": 204
+    },
+    {
+      "url": "https://region1.google-analytics.com/g/collect?v=2&tid=G-98C7CYYB9F&gtm=45je63g1v9206480896z89205507174za20gzb9205507174zd9205507174&_p=1773842637417&gcd=13l3l3l2l1l1&npa=1&dma_cps=a&dma=1&cid=501708541.1773842638&ul=en-us&sr=1280x720&uaa=arm&uab=64&uafvl=HeadlessChrome%3B143.0.7499.4%7CChromium%3B143.0.7499.4%7CNot%2520A(Brand%3B24.0.0.0&uamb=0&uam=&uap=macOS&uapv=15.6.1&uaw=0&are=1&frm=0&pscdl=noapi&_eu=AAAAAAQ&_s=2&tag_exp=103116026~103200004~115938466~115938469~116024733~117484252&sid=1773842637&sct=1&seg=0&dl=https%3A%2F%2Fminebit-casino.qa.sofon.one%2F%3Fmodal%3Diqs-sign-up&dt=Bet%20Free%2C%20Win%20Big%20with%20MineBit!%20Crypto-Friendly%20Casino&en=stag&_et=21&up.screen_resolution=1280x720&tfd=18423",
+      "method": "POST",
+      "status": 204
+    },
+    {
+      "url": "https://minebit-casino.qa.sofon.one/graphql",
+      "method": "POST"
+    },
+    {
+      "url": "https://region1.google-analytics.com/g/collect?v=2&tid=G-98C7CYYB9F&gtm=45je63g1v9206480896za20gzb9205507174zd9205507174&_p=1773842637417&gcd=13l3l3l2l1l1&npa=1&dma_cps=a&dma=1&cid=501708541.1773842638&ul=en-us&sr=1280x720&uaa=arm&uab=64&uafvl=HeadlessChrome%3B143.0.7499.4%7CChromium%3B143.0.7499.4%7CNot%2520A(Brand%3B24.0.0.0&uamb=0&uam=&uap=macOS&uapv=15.6.1&uaw=0&are=1&frm=0&pscdl=noapi&_eu=AAAAAAQ&_s=3&tag_exp=103116026~103200004~115938466~115938469~116024733~117484252&sid=1773842637&sct=1&seg=1&dl=https%3A%2F%2Fminebit-casino.qa.sofon.one%2F%3Fmodal%3Diqs-sign-up&dt=Bet%20Free%2C%20Win%20Big%20with%20MineBit!%20Crypto-Friendly%20Casino&en=user_engagement&_et=24412&tfd=36965",
+      "method": "POST"
+    },
+    {
+      "url": "https://minebit-casino.qa.sofon.one/cms-graphql?operationName=DynamicGlobalTranslations&variables=%7B%22brandIdentifier%22%3A%22minebit%22%2C%22locale%22%3A%22en%22%7D&extensions=%7B%22persistedQuery%22%3A%7B%22version%22%3A1%2C%22sha256Hash%22%3A%2221cf41305f44f1470f5c2326bb103c4f38e5c5f29818a01f30ab345da00ef67b%22%7D%7D",
+      "method": "GET"
+    },
+    {
+      "url": "https://minebit-casino.qa.sofon.one/cms-graphql?operationName=DynamicMode&variables=%7B%22excludeBannerIds%22%3A%5B%2210234%22%2C%226080%22%2C%226082%22%5D%2C%22userSegmentIds%22%3Anull%2C%22isLoggedIn%22%3Anull%2C%22locale%22%3A%22en%22%2C%22bannersSliderId%22%3A%221686%22%7D&extensions=%7B%22persistedQuery%22%3A%7B%22version%22%3A1%2C%22sha256Hash%22%3A%22f0d22e0f8d5cb2deea858414d54c315fe0ab67615ef85ad0a5a27425d278ecd7%22%7D%7D",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "url": "https://minebit-casino.qa.sofon.one/cms-graphql?operationName=DynamicProviders&variables=%7B%22brandIdentifier%22%3A%22minebit%22%2C%22locale%22%3A%22en%22%7D&extensions=%7B%22persistedQuery%22%3A%7B%22version%22%3A1%2C%22sha256Hash%22%3A%223dcf5daffc64b5e08fba3e703ad19a45014eea5754dc9b4e7bc0e6dcff2c94ba%22%7D%7D",
+      "method": "GET"
+    },
+    {
+      "url": "https://minebit-casino.qa.sofon.one/graphql",
+      "method": "POST"
+    },
+    {
+      "url": "https://minebit-casino.qa.sofon.one/cms-graphql?operationName=DynamicMode&variables=%7B%22id%22%3A%22710%22%2C%22page%22%3A1%2C%22pageSize%22%3A10%2C%22sort%22%3A%5B%22default%22%5D%2C%22nonAvailableGamesIds%22%3Anull%2C%22brandIdentifier%22%3A%22minebit%22%2C%22locale%22%3A%22en%22%7D&extensions=%7B%22persistedQuery%22%3A%7B%22version%22%3A1%2C%22sha256Hash%22%3A%2286add75efe1fb25d75879dc5bbabf2c0c91a3d83428fc57b74e475501443c92c%22%7D%7D",
+      "method": "GET"
+    },
+    {
+      "url": "https://minebit-casino.qa.sofon.one/cms-graphql?operationName=DynamicMode&variables=%7B%22useDynamicLoadPromotionsCategory%22%3Atrue%2C%22brandIdentifier%22%3A%22minebit%22%2C%22locale%22%3A%22en%22%7D&extensions=%7B%22persistedQuery%22%3A%7B%22version%22%3A1%2C%22sha256Hash%22%3A%2216cda0dbb47ca81633df819bc50eb49471deb0ecd6efd8884bc475e7e194a657%22%7D%7D",
+      "method": "GET"
+    },
+    {
+      "url": "https://minebit-casino.qa.sofon.one/cms-graphql?operationName=DynamicMode&variables=%7B%22useDynamicLoadPromotionsCategory%22%3Afalse%2C%22brandIdentifier%22%3A%22minebit%22%2C%22locale%22%3A%22en%22%7D&extensions=%7B%22persistedQuery%22%3A%7B%22version%22%3A1%2C%22sha256Hash%22%3A%22c25250cde7d6dd0dc6bda3e694d6a2b6e4e8fea867cbdedf81e984568f80c534%22%7D%7D",
+      "method": "GET"
+    },
+    {
+      "url": "https://minebit-casino.qa.sofon.one/cms-graphql?operationName=DynamicMode&variables=%7B%22excludeBannerIds%22%3A%5B%2210234%22%2C%226080%22%2C%226082%22%5D%2C%22userSegmentIds%22%3Anull%2C%22isLoggedIn%22%3Afalse%2C%22locale%22%3A%22en%22%2C%22bannersSliderId%22%3A%221686%22%7D&extensions=%7B%22persistedQuery%22%3A%7B%22version%22%3A1%2C%22sha256Hash%22%3A%22f0d22e0f8d5cb2deea858414d54c315fe0ab67615ef85ad0a5a27425d278ecd7%22%7D%7D",
+      "method": "GET"
+    },
+    {
+      "url": "https://minebit-casino.qa.sofon.one/cms-graphql?operationName=DynamicMode&variables=%7B%22excludeBannerIds%22%3A%5B%2211416%22%5D%2C%22userSegmentIds%22%3Anull%2C%22isLoggedIn%22%3Afalse%2C%22locale%22%3A%22en%22%2C%22bannersSliderId%22%3A%223768%22%7D&extensions=%7B%22persistedQuery%22%3A%7B%22version%22%3A1%2C%22sha256Hash%22%3A%22f0d22e0f8d5cb2deea858414d54c315fe0ab67615ef85ad0a5a27425d278ecd7%22%7D%7D",
+      "method": "GET"
+    },
+    {
+      "url": "https://minebit-casino.qa.sofon.one/cms-graphql?operationName=DynamicProviders&variables=%7B%22brandIdentifier%22%3A%22minebit%22%2C%22locale%22%3A%22en%22%7D&extensions=%7B%22persistedQuery%22%3A%7B%22version%22%3A1%2C%22sha256Hash%22%3A%223dcf5daffc64b5e08fba3e703ad19a45014eea5754dc9b4e7bc0e6dcff2c94ba%22%7D%7D",
+      "method": "GET"
+    },
+    {
+      "url": "https://minebit-casino.qa.sofon.one/cms-graphql?operationName=DynamicMode&variables=%7B%22id%22%3A%22710%22%2C%22page%22%3A1%2C%22pageSize%22%3A10%2C%22sort%22%3A%5B%22default%22%5D%2C%22nonAvailableGamesIds%22%3Anull%2C%22brandIdentifier%22%3A%22minebit%22%2C%22locale%22%3A%22en%22%7D&extensions=%7B%22persistedQuery%22%3A%7B%22version%22%3A1%2C%22sha256Hash%22%3A%2286add75efe1fb25d75879dc5bbabf2c0c91a3d83428fc57b74e475501443c92c%22%7D%7D",
+      "method": "GET"
+    },
+    {
+      "url": "https://minebit-casino.qa.sofon.one/graphql",
+      "method": "POST"
+    },
+    {
+      "url": "https://api.livechatinc.com/global-mapper/lc_license_id/19056071/region?jsonp=__lc_region",
+      "method": "GET"
+    },
+    {
+      "url": "https://modelforms.com/api/v1/store",
+      "method": "GET"
+    },
+    {
+      "url": "https://api.livechatinc.com/v3.6/customer/action/get_dynamic_configuration?x-region=us-south1&license_id=19056071&client_id=c5e4f61e1a6c3b1521b541bc5c5a2ac5&url=https%3A%2F%2Fminebit-casino.qa.sofon.one%2F%3Fmodal%3Diqs-sign-up&group_id=1&channel_type=code&implementation_type=%40livechat%2Fwidget-react&jsonp=__kou38jz7dpb",
+      "method": "GET",
+      "status": 200
+    }
+  ],
+  "total": 415
+}

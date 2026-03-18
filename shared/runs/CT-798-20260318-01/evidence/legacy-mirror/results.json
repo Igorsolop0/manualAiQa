@@ -1,0 +1,126 @@
+{
+  "ticket": "CT-798",
+  "test": "WebSocket Connection Validation",
+  "environment": "QA",
+  "url": "https://minebit-casino.qa.sofon.one",
+  "timestamp": "2026-03-18T14:04:37.907Z",
+  "runId": "CT-798-20260318-01",
+  "results": {
+    "websocketConnectionFound": true,
+    "websocketConnections": [
+      {
+        "url": "wss://minebit-casino.qa.sofon.one/wwa/basehub?id=vmuWCy1INSDrgXqXh5W1yQ",
+        "closed": true,
+        "time": "2026-03-18T14:03:48.507Z"
+      },
+      {
+        "url": "wss://minebit-casino.qa.sofon.one/wwa/basehub?id=tq6DfpfYt_1fD9-JeDF9Qg",
+        "closed": false,
+        "time": "2026-03-18T14:04:23.766Z"
+      }
+    ],
+    "websocketMessages": {
+      "total": 12,
+      "sent": 6,
+      "received": 6,
+      "sampleFrames": [
+        {
+          "requestId": "50029.228",
+          "timestamp": 95867.984058,
+          "opcode": 1,
+          "payloadLength": 32,
+          "payloadData": "{\"protocol\":\"json\",\"version\":1}\u001e",
+          "direction": "sent"
+        },
+        {
+          "requestId": "50029.228",
+          "timestamp": 95868.009476,
+          "opcode": 1,
+          "mask": false,
+          "payloadLength": 3,
+          "payloadData": "{}\u001e",
+          "direction": "received"
+        },
+        {
+          "requestId": "50029.228",
+          "timestamp": 95868.010565,
+          "opcode": 1,
+          "payloadLength": 90,
+          "payloadData": "{\"arguments\":[5],\"invocationId\":\"0\",\"target\":\"RegisterAnonymousForNotification\",\"type\":1}\u001e",
+          "direction": "sent"
+        },
+        {
+          "requestId": "50029.228",
+          "timestamp": 95868.058672,
+          "opcode": 1,
+          "mask": false,
+          "payloadLength": 158,
+          "payloadData": "{\"type\":3,\"invocationId\":\"0\",\"result\":{\"ResponseCode\":0,\"NewResponseCode\":null,\"InterruptionCode\":0,\"Description\":null,\"ResponseObject\":null,\"TraceId\":null}}\u001e",
+          "direction": "received"
+        },
+        {
+          "requestId": "50029.228",
+          "timestamp": 95883.0715,
+          "opcode": 1,
+          "payloadLength": 11,
+          "payloadData": "{\"type\":6}\u001e",
+          "direction": "sent"
+        },
+        {
+          "requestId": "50029.228",
+          "timestamp": 95883.195856,
+          "opcode": 1,
+          "mask": false,
+          "payloadLength": 11,
+          "payloadData": "{\"type\":6}\u001e",
+          "direction": "received"
+        },
+        {
+          "requestId": "50029.228",
+          "timestamp": 95898.06637,
+          "opcode": 1,
+          "payloadLength": 11,
+          "payloadData": "{\"type\":6}\u001e",
+          "direction": "sent"
+        },
+        {
+          "requestId": "50029.228",
+          "timestamp": 95899.190143,
+          "opcode": 1,
+          "mask": false,
+          "payloadLength": 11,
+          "payloadData": "{\"type\":6}\u001e",
+          "direction": "received"
+        },
+        {
+          "requestId": "50029.745",
+          "timestamp": 95903.527636,
+          "opcode": 1,
+          "payloadLength": 32,
+          "payloadData": "{\"protocol\":\"json\",\"version\":1}\u001e",
+          "direction": "sent"
+        },
+        {
+          "requestId": "50029.745",
+          "timestamp": 95903.567202,
+          "opcode": 1,
+          "mask": false,
+          "payloadLength": 3,
+          "payloadData": "{}\u001e",
+          "direction": "received"
+        }
+      ]
+    },
+    "recentWinnersFound": true,
+    "recentWinnersData": "TradeSmarter OptionsTradeSmarter Optionste***@***.techUSD 17.70",
+    "consoleErrors": 12,
+    "wsConsoleErrors": 2,
+    "totalRequests": 415,
+    "registeredEmail": "test_ws_1773842629182@test.tech"
+  },
+  "summary": {
+    "wsConnectionExists": "Y",
+    "recentWinnersExists": "Y",
+    "overallStatus": "PASS"
+  }
+}

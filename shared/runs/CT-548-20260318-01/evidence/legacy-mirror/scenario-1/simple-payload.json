@@ -1,0 +1,11 @@
+{
+  "goal": "Navigate to test-social-linking page, find and click Link Google button, complete Google OAuth using Chrome Profile 3, verify Google account is linked",
+  "initialUrl": "https://minebit-casino.qa.sofon.one/test-social-linking",
+  "ticketId": "CT-548",
+  "maxSteps": 20,
+  "timeoutMs": 60000,
+  "needScreenshots": true,
+  "needDomSnapshots": true,
+  "chromeProfile": "/Users/ihorsolopii/Library/Application Support/Google/Chrome/Profile 3",
+  "assumeLoggedIn": true
+}

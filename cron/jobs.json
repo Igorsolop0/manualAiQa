@@ -7,7 +7,7 @@
       "name": "Gmail Check - NextCode",
       "enabled": true,
       "createdAtMs": 1771084279927,
-      "updatedAtMs": 1773770423863,
+      "updatedAtMs": 1773856817051,
       "schedule": {
         "kind": "cron",
         "expr": "0 8-19 * * 1-5"
@@ -24,10 +24,10 @@
         "channel": "slack"
       },
       "state": {
-        "nextRunAtMs": 1773817200000,
-        "lastRunAtMs": 1773770400066,
+        "nextRunAtMs": 1773903600000,
+        "lastRunAtMs": 1773856800078,
         "lastStatus": "ok",
-        "lastDurationMs": 23797,
+        "lastDurationMs": 16973,
         "consecutiveErrors": 0,
         "lastRunStatus": "ok",
         "lastDeliveryStatus": "not-delivered",
@@ -41,7 +41,7 @@
       "description": "Щоденний аналіз дій, розмов та model performance для покращення роботи",
       "enabled": true,
       "createdAtMs": 1772640000000,
-      "updatedAtMs": 1773698419042,
+      "updatedAtMs": 1773784850651,
       "schedule": {
         "kind": "cron",
         "expr": "0 23 * * *",
@@ -58,14 +58,14 @@
         "channel": "telegram"
       },
       "state": {
-        "consecutiveErrors": 1,
-        "nextRunAtMs": 1773784800000,
-        "lastRunAtMs": 1773698400060,
-        "lastRunStatus": "error",
-        "lastStatus": "error",
-        "lastDurationMs": 18982,
-        "lastDeliveryStatus": "unknown",
-        "lastError": "Delivering to Telegram requires target <chatId>"
+        "consecutiveErrors": 0,
+        "nextRunAtMs": 1773871200000,
+        "lastRunAtMs": 1773784800033,
+        "lastRunStatus": "ok",
+        "lastStatus": "ok",
+        "lastDurationMs": 50618,
+        "lastDeliveryStatus": "delivered",
+        "lastDelivered": true
       }
     },
     {
@@ -95,16 +95,16 @@
         "bestEffort": true
       },
       "state": {
-        "nextRunAtMs": 1773774084157,
-        "lastRunAtMs": 1773770484170,
+        "nextRunAtMs": 1773860484157,
+        "lastRunAtMs": 1773856884175,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 277791,
+        "lastDurationMs": 289844,
         "lastDeliveryStatus": "delivered",
         "consecutiveErrors": 0,
         "lastDelivered": true
       },
-      "updatedAtMs": 1773770761961
+      "updatedAtMs": 1773857174019
     },
     {
       "id": "api-docs-daily",
@@ -132,16 +132,16 @@
         "bestEffort": true
       },
       "state": {
-        "nextRunAtMs": 1773820800000,
-        "lastRunAtMs": 1773734463758,
+        "nextRunAtMs": 1773907200000,
+        "lastRunAtMs": 1773820848101,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 162575,
+        "lastDurationMs": 410733,
         "lastDeliveryStatus": "delivered",
         "consecutiveErrors": 0,
         "lastDelivered": true
       },
-      "updatedAtMs": 1773734626333
+      "updatedAtMs": 1773821258834
     }
   ]
 }

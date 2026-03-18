@@ -1,0 +1,777 @@
+- generic [ref=e1]:
+  - generic [ref=e4]:
+    - generic [ref=e6]:
+      - button [ref=e1562] [cursor=pointer]:
+        - img [ref=e1563]
+      - link [ref=e1564] [cursor=pointer]:
+        - /url: /
+        - img [ref=e1565]
+      - button [ref=e1566] [cursor=pointer]:
+        - img [ref=e1567]
+      - button [ref=e1568] [cursor=pointer]:
+        - img [ref=e1569]
+        - text: Bonuses
+      - button [ref=e1570] [cursor=pointer]: Log In
+      - button [ref=e1571] [cursor=pointer]: Sign Up
+    - generic [ref=e31]:
+      - navigation [ref=e34]:
+        - menuitem [ref=e1572] [cursor=pointer]:
+          - button [ref=e1573]:
+            - img [ref=e1574]
+        - menuitem [ref=e1575] [cursor=pointer]:
+          - link [ref=e1576]:
+            - /url: /promo-list
+            - img [ref=e1577]
+        - menuitem [ref=e1578] [cursor=pointer]:
+          - link [ref=e1579]:
+            - /url: /loyalty-guest
+            - img [ref=e1580]
+        - menuitem [ref=e1581] [cursor=pointer]:
+          - link [ref=e1582]:
+            - /url: /vip-club-unauthenticated
+            - img [ref=e1583]
+        - menuitem [ref=e1584] [cursor=pointer]:
+          - link [ref=e1585]:
+            - /url: /quests
+            - img [ref=e1586]
+        - menuitem [ref=e1587] [cursor=pointer]:
+          - button [ref=e1588]:
+            - img [ref=e1589]
+        - menuitem [ref=e1590] [cursor=pointer]:
+          - link [ref=e1591]:
+            - /url: /?modal=choose-language
+            - img [ref=e1592]
+        - menuitem [ref=e62] [cursor=pointer]:
+          - link [ref=e63]:
+            - /url: /?modal=iqs-sign-up
+        - menuitem [ref=e1593] [cursor=pointer]:
+          - link [ref=e1594]:
+            - /url: /download-app
+            - img [ref=e1595]
+        - menuitem [ref=e1596] [cursor=pointer]:
+          - link [ref=e1597]:
+            - /url: https://mine.partners/
+            - img [ref=e1598]
+        - link [ref=e1599] [cursor=pointer]:
+          - /url: /help-center-account
+          - img [ref=e1600]
+      - main [ref=e75]:
+        - generic [ref=e79]:
+          - generic [ref=e186]:
+            - generic [ref=e188]:
+              - button [ref=e189] [cursor=pointer]:
+                - img [ref=e190]
+              - button [ref=e198] [cursor=pointer]:
+                - img [ref=e199]
+            - generic [ref=e202]:
+              - generic [ref=e216]:
+                - img [ref=e1601]
+                - generic [ref=e220]:
+                  - generic [ref=e221]: Complete Tasks & Earn Rewards
+                  - button [ref=e1602] [cursor=pointer]: Personal quests
+              - generic [ref=e228]:
+                - img [ref=e1603]
+                - generic [ref=e232]:
+                  - generic [ref=e233]:
+                    - text: Become VIP - Unlock Perks, Get More
+                    - link [ref=e234] [cursor=pointer]:
+                      - /url: /vip-club-authenticated
+                  - button [ref=e1604] [cursor=pointer]: VIP
+              - generic [ref=e241]:
+                - img [ref=e1605]
+                - generic [ref=e245]:
+                  - generic [ref=e246]: Be First to See New Promos on X
+                  - button [ref=e1606] [cursor=pointer]: Follow us
+              - generic [ref=e253]:
+                - img [ref=e1607]
+                - generic [ref=e257]:
+                  - generic [ref=e258]: Drops & Wins €25,000,000
+                  - button [ref=e1608] [cursor=pointer]: Tournament
+              - generic [ref=e204]:
+                - img [ref=e1609]
+                - generic [ref=e208]:
+                  - generic [ref=e209]: Win up to $30,000
+                  - button [ref=e1610] [cursor=pointer]: Hot bonus
+          - generic [ref=e271]:
+            - button [ref=e1611] [cursor=pointer]:
+              - img [ref=e1612]
+              - text: Slots
+            - button [ref=e1613] [cursor=pointer]:
+              - img [ref=e1614]
+              - text: Hot Games
+            - button [ref=e1615] [cursor=pointer]:
+              - img [ref=e1616]
+              - text: New Games
+            - button [ref=e1617] [cursor=pointer]:
+              - img [ref=e1618]
+              - text: Instant
+            - button [ref=e1619] [cursor=pointer]:
+              - img [ref=e1620]
+              - text: Live Casino
+            - button [ref=e1621] [cursor=pointer]:
+              - img [ref=e1622]
+              - text: Blackjack
+            - button [ref=e1623] [cursor=pointer]:
+              - img [ref=e1624]
+              - text: Roulette
+            - button [ref=e1625] [cursor=pointer]:
+              - img [ref=e1626]
+              - text: Game Shows
+            - button [ref=e1627] [cursor=pointer]:
+              - img [ref=e1628]
+              - text: Jackpots
+            - button [ref=e1629] [cursor=pointer]:
+              - img [ref=e1630]
+              - text: Drops & Wins
+            - button [ref=e1631] [cursor=pointer]:
+              - img [ref=e1632]
+              - text: Providers
+            - button [ref=e1633] [cursor=pointer]:
+              - img [ref=e1634]
+              - text: Themes
+          - generic [ref=e347]:
+            - paragraph [ref=e349]: Recent Top Wins
+            - generic [ref=e351]:
+              - button [disabled] [ref=e352] [cursor=pointer]:
+                - img [ref=e353]
+              - button [ref=e355] [cursor=pointer]:
+                - img [ref=e356]
+            - generic [ref=e359]:
+              - generic [ref=e361]:
+                - cell [ref=e364]:
+                  - button [ref=e372] [cursor=pointer]
+                - generic [ref=e373]:
+                  - paragraph [ref=e375]: TradeSmarter Options
+                  - paragraph [ref=e377]: te***@***.tech
+                  - generic [ref=e378]:
+                    - text: $
+                    - paragraph [ref=e379]: USD 31.86
+              - generic [ref=e381]:
+                - cell [ref=e384]:
+                  - button [ref=e392] [cursor=pointer]
+                - generic [ref=e393]:
+                  - paragraph [ref=e395]: TradeSmarter Options
+                  - paragraph [ref=e397]: te***@***.tech
+                  - generic [ref=e398]:
+                    - text: $
+                    - paragraph [ref=e399]: USD 31.86
+              - generic [ref=e401]:
+                - cell [ref=e404]:
+                  - button [ref=e412] [cursor=pointer]
+                - generic [ref=e413]:
+                  - paragraph [ref=e415]: TradeSmarter Options
+                  - paragraph [ref=e417]: te***@***.tech
+                  - generic [ref=e418]:
+                    - text: $
+                    - paragraph [ref=e419]: USD 26.55
+              - generic [ref=e421]:
+                - cell [ref=e424]:
+                  - button [ref=e432] [cursor=pointer]
+                - generic [ref=e433]:
+                  - paragraph [ref=e435]: TradeSmarter Options
+                  - paragraph [ref=e437]: te***@***.tech
+                  - generic [ref=e438]:
+                    - text: $
+                    - paragraph [ref=e439]: USD 26.55
+              - generic [ref=e441]:
+                - cell [ref=e444]:
+                  - button [ref=e452] [cursor=pointer]
+                - generic [ref=e453]:
+                  - paragraph [ref=e455]: TradeSmarter Options
+                  - paragraph [ref=e457]: te***@***.tech
+                  - generic [ref=e458]:
+                    - text: $
+                    - paragraph [ref=e459]: USD 26.55
+              - generic [ref=e461]:
+                - cell [ref=e464]:
+                  - button [ref=e472] [cursor=pointer]
+                - generic [ref=e473]:
+                  - paragraph [ref=e475]: TradeSmarter Options
+                  - paragraph [ref=e477]: te***@***.tech
+                  - generic [ref=e478]:
+                    - text: $
+                    - paragraph [ref=e479]: USD 26.55
+              - generic [ref=e481]:
+                - cell [ref=e484]:
+                  - button [ref=e492] [cursor=pointer]
+                - generic [ref=e493]:
+                  - paragraph [ref=e495]: TradeSmarter Options
+                  - paragraph [ref=e497]: te***@***.tech
+                  - generic [ref=e498]:
+                    - text: $
+                    - paragraph [ref=e499]: USD 26.55
+              - generic [ref=e501]:
+                - cell [ref=e504]:
+                  - button [ref=e512] [cursor=pointer]
+                - generic [ref=e513]:
+                  - paragraph [ref=e515]: TradeSmarter Options
+                  - paragraph [ref=e517]: te***@***.tech
+                  - generic [ref=e518]:
+                    - text: $
+                    - paragraph [ref=e519]: USD 1.77
+              - generic [ref=e521]:
+                - cell [ref=e524]:
+                  - button [ref=e532] [cursor=pointer]
+                - generic [ref=e533]:
+                  - paragraph [ref=e535]: TradeSmarter Options
+                  - paragraph [ref=e537]: te***@***.tech
+                  - generic [ref=e538]:
+                    - text: $
+                    - paragraph [ref=e539]: USD 1.77
+              - generic [ref=e541]:
+                - cell [ref=e544]:
+                  - button [ref=e552] [cursor=pointer]
+                - generic [ref=e553]:
+                  - paragraph [ref=e555]: TradeSmarter Options
+                  - paragraph [ref=e557]: te***@***.tech
+                  - generic [ref=e558]:
+                    - text: $
+                    - paragraph [ref=e559]: USD 1.77
+          - button [ref=e1635] [cursor=pointer]: View all
+          - generic [ref=e563]:
+            - link [ref=e1636] [cursor=pointer]:
+              - /url: /games/popular
+              - paragraph [ref=e566]: Hot Games
+            - paragraph [ref=e568]:
+              - generic [ref=e569]: "1100"
+            - generic [ref=e571]:
+              - button [disabled] [ref=e572] [cursor=pointer]:
+                - img [ref=e573]
+              - button [ref=e575] [cursor=pointer]:
+                - img [ref=e576]
+            - generic [ref=e579]:
+              - cell [ref=e1637]:
+                - generic [ref=e584]:
+                  - paragraph [ref=e585]: Chaos Crew 3
+                  - paragraph [ref=e586]: Hacksaw Gaming
+                - generic [ref=e589]:
+                  - button [ref=e1638] [cursor=pointer]: Play
+                  - button [ref=e1639] [cursor=pointer]: Demo
+                  - paragraph [ref=e601]: Chaos Crew 3
+                  - paragraph [ref=e605]: Hacksaw Gaming
+              - cell [ref=e1640]:
+                - generic [ref=e610]:
+                  - paragraph [ref=e611]: Le Fisherman
+                  - paragraph [ref=e612]: Hacksaw Gaming
+                - generic [ref=e615]:
+                  - button [ref=e1641] [cursor=pointer]: Play
+                  - button [ref=e1642] [cursor=pointer]: Demo
+                  - paragraph [ref=e627]: Le Fisherman
+                  - paragraph [ref=e631]: Hacksaw Gaming
+              - cell [ref=e1643]:
+                - img [ref=e1644]
+                - generic [ref=e637]:
+                  - paragraph [ref=e638]: "3x5 Patrick: Hold The Spin"
+                  - paragraph [ref=e639]: Gamzix
+                - generic [ref=e642]:
+                  - button [ref=e1645] [cursor=pointer]: Play
+                  - button [ref=e1646] [cursor=pointer]: Demo
+                  - paragraph [ref=e654]: "3x5 Patrick: Hold The Spin"
+                  - paragraph [ref=e658]: Gamzix
+              - cell [ref=e1647]:
+                - generic [ref=e663]:
+                  - paragraph [ref=e664]: RIP City
+                  - paragraph [ref=e665]: Hacksaw Gaming
+                - generic [ref=e668]:
+                  - button [ref=e1648] [cursor=pointer]: Play
+                  - button [ref=e1649] [cursor=pointer]: Demo
+                  - paragraph [ref=e680]: RIP City
+                  - paragraph [ref=e684]: Hacksaw Gaming
+              - cell [ref=e1650]:
+                - img [ref=e1651]
+                - generic [ref=e690]:
+                  - paragraph [ref=e691]: Emerald King - Wheel of Wealth
+                  - paragraph [ref=e692]: PragmaticPlay
+                - generic [ref=e695]:
+                  - button [ref=e1652] [cursor=pointer]: Play
+                  - button [ref=e1653] [cursor=pointer]: Demo
+                  - paragraph [ref=e707]: Emerald King - Wheel of Wealth
+                  - paragraph [ref=e711]: PragmaticPlay
+              - cell [ref=e1654]:
+                - img [ref=e1655]
+                - generic [ref=e717]:
+                  - paragraph [ref=e718]: DJ Neko
+                  - paragraph [ref=e719]: PragmaticPlay
+                - generic [ref=e722]:
+                  - button [ref=e1656] [cursor=pointer]: Play
+                  - button [ref=e1657] [cursor=pointer]: Demo
+                  - paragraph [ref=e734]: DJ Neko
+                  - paragraph [ref=e738]: PragmaticPlay
+              - cell [ref=e1658]:
+                - img [ref=e1659]
+                - generic [ref=e744]:
+                  - paragraph [ref=e745]: Bloody Dawn
+                  - paragraph [ref=e746]: PragmaticPlay
+                - generic [ref=e749]:
+                  - button [ref=e1660] [cursor=pointer]: Play
+                  - button [ref=e1661] [cursor=pointer]: Demo
+                  - paragraph [ref=e761]: Bloody Dawn
+                  - paragraph [ref=e765]: PragmaticPlay
+              - cell [ref=e1662]:
+                - img [ref=e1663]
+                - generic [ref=e771]:
+                  - paragraph [ref=e772]: Floating Dragon Wild Horses
+                  - paragraph [ref=e773]: PragmaticPlay
+                - generic [ref=e776]:
+                  - button [ref=e1664] [cursor=pointer]: Play
+                  - button [ref=e1665] [cursor=pointer]: Demo
+                  - paragraph [ref=e788]: Floating Dragon Wild Horses
+                  - paragraph [ref=e792]: PragmaticPlay
+              - cell [ref=e1666]:
+                - img [ref=e1667]
+                - generic [ref=e798]:
+                  - paragraph [ref=e799]: Dragon Tiger Fortunes
+                  - paragraph [ref=e800]: PragmaticPlay
+                - generic [ref=e803]:
+                  - button [ref=e1668] [cursor=pointer]: Play
+                  - button [ref=e1669] [cursor=pointer]: Demo
+                  - paragraph [ref=e815]: Dragon Tiger Fortunes
+                  - paragraph [ref=e819]: PragmaticPlay
+              - cell [ref=e1670]:
+                - img [ref=e1671]
+                - generic [ref=e825]:
+                  - paragraph [ref=e826]: The Cage
+                  - paragraph [ref=e827]: Nolimit City
+                - generic [ref=e830]:
+                  - button [ref=e1672] [cursor=pointer]: Play
+                  - button [ref=e1673] [cursor=pointer]: Demo
+                  - paragraph [ref=e842]: The Cage
+                  - paragraph [ref=e846]: Nolimit City
+              - cell [ref=e848]
+          - button [ref=e1674] [cursor=pointer]: View all
+          - generic [ref=e855]:
+            - link [ref=e1675] [cursor=pointer]:
+              - /url: /games/slots
+              - paragraph [ref=e858]: Slots
+            - paragraph [ref=e860]:
+              - generic [ref=e861]: "2060"
+            - generic [ref=e863]:
+              - button [disabled] [ref=e864] [cursor=pointer]:
+                - img [ref=e865]
+              - button [ref=e867] [cursor=pointer]:
+                - img [ref=e868]
+            - generic [ref=e871]:
+              - cell [ref=e1676]:
+                - generic [ref=e876]:
+                  - paragraph [ref=e877]: Chaos Crew 3
+                  - paragraph [ref=e878]: Hacksaw Gaming
+                - generic [ref=e881]:
+                  - button [ref=e1677] [cursor=pointer]: Play
+                  - button [ref=e1678] [cursor=pointer]: Demo
+                  - paragraph [ref=e893]: Chaos Crew 3
+                  - paragraph [ref=e897]: Hacksaw Gaming
+              - cell [ref=e1679]:
+                - generic [ref=e902]:
+                  - paragraph [ref=e903]: Le Fisherman
+                  - paragraph [ref=e904]: Hacksaw Gaming
+                - generic [ref=e907]:
+                  - button [ref=e1680] [cursor=pointer]: Play
+                  - button [ref=e1681] [cursor=pointer]: Demo
+                  - paragraph [ref=e919]: Le Fisherman
+                  - paragraph [ref=e923]: Hacksaw Gaming
+              - cell [ref=e1682]:
+                - img [ref=e1683]
+                - generic [ref=e929]:
+                  - paragraph [ref=e930]: "3x5 Patrick: Hold The Spin"
+                  - paragraph [ref=e931]: Gamzix
+                - generic [ref=e934]:
+                  - button [ref=e1684] [cursor=pointer]: Play
+                  - button [ref=e1685] [cursor=pointer]: Demo
+                  - paragraph [ref=e946]: "3x5 Patrick: Hold The Spin"
+                  - paragraph [ref=e950]: Gamzix
+              - cell [ref=e1686]:
+                - generic [ref=e955]:
+                  - paragraph [ref=e956]: RIP City
+                  - paragraph [ref=e957]: Hacksaw Gaming
+                - generic [ref=e960]:
+                  - button [ref=e1687] [cursor=pointer]: Play
+                  - button [ref=e1688] [cursor=pointer]: Demo
+                  - paragraph [ref=e972]: RIP City
+                  - paragraph [ref=e976]: Hacksaw Gaming
+              - cell [ref=e1689]:
+                - img [ref=e1690]
+                - generic [ref=e982]:
+                  - paragraph [ref=e983]: Emerald King - Wheel of Wealth
+                  - paragraph [ref=e984]: PragmaticPlay
+                - generic [ref=e987]:
+                  - button [ref=e1691] [cursor=pointer]: Play
+                  - button [ref=e1692] [cursor=pointer]: Demo
+                  - paragraph [ref=e999]: Emerald King - Wheel of Wealth
+                  - paragraph [ref=e1003]: PragmaticPlay
+              - cell [ref=e1693]:
+                - img [ref=e1694]
+                - generic [ref=e1009]:
+                  - paragraph [ref=e1010]: DJ Neko
+                  - paragraph [ref=e1011]: PragmaticPlay
+                - generic [ref=e1014]:
+                  - button [ref=e1695] [cursor=pointer]: Play
+                  - button [ref=e1696] [cursor=pointer]: Demo
+                  - paragraph [ref=e1026]: DJ Neko
+                  - paragraph [ref=e1030]: PragmaticPlay
+              - cell [ref=e1697]:
+                - img [ref=e1698]
+                - generic [ref=e1036]:
+                  - paragraph [ref=e1037]: Bloody Dawn
+                  - paragraph [ref=e1038]: PragmaticPlay
+                - generic [ref=e1041]:
+                  - button [ref=e1699] [cursor=pointer]: Play
+                  - button [ref=e1700] [cursor=pointer]: Demo
+                  - paragraph [ref=e1053]: Bloody Dawn
+                  - paragraph [ref=e1057]: PragmaticPlay
+              - cell [ref=e1701]:
+                - img [ref=e1702]
+                - generic [ref=e1063]:
+                  - paragraph [ref=e1064]: Floating Dragon Wild Horses
+                  - paragraph [ref=e1065]: PragmaticPlay
+                - generic [ref=e1068]:
+                  - button [ref=e1703] [cursor=pointer]: Play
+                  - button [ref=e1704] [cursor=pointer]: Demo
+                  - paragraph [ref=e1080]: Floating Dragon Wild Horses
+                  - paragraph [ref=e1084]: PragmaticPlay
+              - cell [ref=e1705]:
+                - img [ref=e1706]
+                - generic [ref=e1090]:
+                  - paragraph [ref=e1091]: Dragon Tiger Fortunes
+                  - paragraph [ref=e1092]: PragmaticPlay
+                - generic [ref=e1095]:
+                  - button [ref=e1707] [cursor=pointer]: Play
+                  - button [ref=e1708] [cursor=pointer]: Demo
+                  - paragraph [ref=e1107]: Dragon Tiger Fortunes
+                  - paragraph [ref=e1111]: PragmaticPlay
+              - cell [ref=e1709]:
+                - img [ref=e1710]
+                - generic [ref=e1117]:
+                  - paragraph [ref=e1118]: The Cage
+                  - paragraph [ref=e1119]: Nolimit City
+                - generic [ref=e1122]:
+                  - button [ref=e1711] [cursor=pointer]: Play
+                  - button [ref=e1712] [cursor=pointer]: Demo
+                  - paragraph [ref=e1134]: The Cage
+                  - paragraph [ref=e1138]: Nolimit City
+              - cell [ref=e1140]
+          - button [ref=e1713] [cursor=pointer]: View all
+          - generic [ref=e1152]:
+            - paragraph [ref=e1154]: Providers
+            - generic [ref=e1156]:
+              - button [disabled] [ref=e1157] [cursor=pointer]:
+                - img [ref=e1158]
+              - button [ref=e1160] [cursor=pointer]:
+                - img [ref=e1161]
+            - generic [ref=e1164]:
+              - link [ref=e1714] [cursor=pointer]:
+                - /url: /provider/pragmatic-play
+                - img [ref=e1715]
+              - link [ref=e1716] [cursor=pointer]:
+                - /url: /provider/net-ent
+                - img [ref=e1717]
+              - link [ref=e1718] [cursor=pointer]:
+                - /url: /provider/hacksaw-gaming
+                - img [ref=e1719]
+              - link [ref=e1720] [cursor=pointer]:
+                - /url: /provider/evolution-gaming
+                - img [ref=e1721]
+              - link [ref=e1722] [cursor=pointer]:
+                - /url: /provider/b-gaming
+                - img [ref=e1723]
+              - link [ref=e1724] [cursor=pointer]:
+                - /url: /provider/nolimit-city
+                - img [ref=e1725]
+              - link [ref=e1726] [cursor=pointer]:
+                - /url: /provider/red-tiger-gaming
+                - img [ref=e1727]
+              - link [ref=e1728] [cursor=pointer]:
+                - /url: /provider/inoutgames
+                - img [ref=e1729]
+              - link [ref=e1730] [cursor=pointer]:
+                - /url: /provider/spinomenal
+                - img [ref=e1731]
+              - link [ref=e1732] [cursor=pointer]:
+                - /url: /provider/betsoft
+                - img [ref=e1733]
+              - link [ref=e1734] [cursor=pointer]:
+                - /url: /provider/endorphina
+                - img [ref=e1735]
+              - link [ref=e1736] [cursor=pointer]:
+                - /url: /provider/avatar-ux
+                - img [ref=e1737]
+              - link [ref=e1738] [cursor=pointer]:
+                - /url: /provider/pg-soft
+                - img [ref=e1739]
+              - link [ref=e1740] [cursor=pointer]:
+                - /url: /provider/gamzix
+                - img [ref=e1741]
+              - link [ref=e1742] [cursor=pointer]:
+                - /url: /provider/mascot-gaming
+                - img [ref=e1743]
+              - link [ref=e1744] [cursor=pointer]:
+                - /url: /provider/belatra
+                - img [ref=e1745]
+              - link [ref=e1746] [cursor=pointer]:
+                - /url: /provider/volt-ent
+                - img [ref=e1747]
+              - link [ref=e1748] [cursor=pointer]:
+                - /url: /provider/red-rake-gaming
+                - img [ref=e1749]
+              - link [ref=e1750] [cursor=pointer]:
+                - /url: /provider/gameart
+                - img [ref=e1751]
+              - link [ref=e1752] [cursor=pointer]:
+                - /url: /provider/smart-soft
+                - img [ref=e1753]
+              - link [ref=e1754] [cursor=pointer]:
+                - /url: /provider/slot-mill-games
+                - img [ref=e1755]
+              - link [ref=e1756] [cursor=pointer]:
+                - /url: /provider/aviatrix
+                - img [ref=e1757]
+              - link [ref=e1758] [cursor=pointer]:
+                - /url: /provider/spribe
+                - img [ref=e1759]
+              - link [ref=e1760] [cursor=pointer]:
+                - /url: /provider/turbogames
+                - img [ref=e1761]
+              - link [ref=e1762] [cursor=pointer]:
+                - /url: /provider/onlyplay
+                - img [ref=e1763]
+              - link [ref=e1764] [cursor=pointer]:
+                - /url: /provider/popiplay
+                - img [ref=e1765]
+              - link [ref=e1766] [cursor=pointer]:
+                - /url: /provider/one-touch
+                - img [ref=e1767]
+              - link [ref=e1768] [cursor=pointer]:
+                - /url: /provider/evoplay-entertainment
+                - img [ref=e1769]
+              - link [ref=e1770] [cursor=pointer]:
+                - /url: /provider/ezugi
+                - img [ref=e1771]
+              - link [ref=e1772] [cursor=pointer]:
+                - /url: /provider/big-time-gaming
+                - img [ref=e1773]
+              - link [ref=e1774] [cursor=pointer]:
+                - /url: /provider/platipus
+                - img [ref=e1775]
+              - link [ref=e1776] [cursor=pointer]:
+                - /url: /provider/blueprint-gaming
+                - img [ref=e1777]
+              - link [ref=e1778] [cursor=pointer]:
+                - /url: /provider/microgaming
+                - img [ref=e1779]
+              - link [ref=e1780] [cursor=pointer]:
+                - /url: /provider/peter-and-sons
+                - img [ref=e1781]
+              - link [ref=e1782] [cursor=pointer]:
+                - /url: /provider/platipus
+                - img [ref=e1783]
+              - link [ref=e1784] [cursor=pointer]:
+                - /url: /provider/retro-gaming
+                - img [ref=e1785]
+              - link [ref=e1786] [cursor=pointer]:
+                - /url: /provider/shady-lady
+                - img [ref=e1787]
+              - link [ref=e1788] [cursor=pointer]:
+                - /url: /provider/true-lab
+                - img [ref=e1789]
+              - link [ref=e1790] [cursor=pointer]:
+                - /url: /provider/yoriginal
+                - img [ref=e1791]
+              - link [ref=e1792] [cursor=pointer]:
+                - /url: /provider/playngo
+                - img [ref=e1793]
+          - button [ref=e1794] [cursor=pointer]: View all
+          - generic [ref=e1325]:
+            - link [ref=e1795] [cursor=pointer]:
+              - /url: /games/live-casino
+              - paragraph [ref=e1328]: Live Games
+            - paragraph [ref=e1330]:
+              - generic [ref=e1331]: "0"
+          - button [ref=e1796] [cursor=pointer]: View all
+          - generic [ref=e1334]:
+            - paragraph [ref=e1336]: Tournaments
+            - generic [ref=e1338]:
+              - button [disabled] [ref=e1339] [cursor=pointer]:
+                - img [ref=e1340]
+              - button [disabled] [ref=e1342] [cursor=pointer]:
+                - img [ref=e1343]
+            - generic [ref=e1348]:
+              - img [ref=e1797]
+              - generic [ref=e1352]:
+                - generic [ref=e1353]:
+                  - paragraph [ref=e1355]: "350"
+                  - paragraph [ref=e1356]: Days
+                - generic [ref=e1357]:
+                  - paragraph [ref=e1359]: "05"
+                  - paragraph [ref=e1360]: Hrs
+                - generic [ref=e1361]:
+                  - paragraph [ref=e1363]: "03"
+                  - paragraph [ref=e1364]: Min
+                - generic [ref=e1365]:
+                  - paragraph [ref=e1367]: "15"
+                  - paragraph [ref=e1368]: Sec
+              - generic [ref=e1369]:
+                - generic [ref=e1370]:
+                  - generic [ref=e1372]: Active
+                  - generic [ref=e1375]:
+                    - img [ref=e1798]
+                    - generic [ref=e1379]:
+                      - paragraph [ref=e1380]: Provider Tournament
+                      - generic [ref=e1381]: Drops & Wins
+                      - paragraph [ref=e1382]: Prize Pool
+                      - generic [ref=e1383]: €25,000,000
+                  - link [ref=e1799] [cursor=pointer]:
+                    - /url: /promo/drops-and-wins-2026
+                    - text: View Details
+                - button [ref=e1387] [cursor=pointer]
+          - button [ref=e1800] [cursor=pointer]: View all
+          - generic [ref=e1388]:
+            - link [ref=e1801] [cursor=pointer]:
+              - /url: /instant-games-lobby
+              - paragraph [ref=e1391]: Instant Games
+            - paragraph [ref=e1393]:
+              - generic [ref=e1394]: "1"
+            - cell [ref=e1802]:
+              - generic [ref=e1401]:
+                - paragraph [ref=e1402]: Hook Up! Fishing Wars
+                - paragraph [ref=e1403]: Play'n GO
+              - generic [ref=e1406]:
+                - button [ref=e1803] [cursor=pointer]: Play
+                - button [ref=e1804] [cursor=pointer]: Demo
+                - paragraph [ref=e1418]: Hook Up! Fishing Wars
+                - paragraph [ref=e1422]: Play'n GO
+          - generic [ref=e1423]:
+            - paragraph [ref=e1425]: Follow Us
+            - generic [ref=e1427]:
+              - generic [ref=e1430]:
+                - paragraph [ref=e1432]: Telegram
+                - button [ref=e1805] [cursor=pointer]: Follow
+              - generic [ref=e1440]:
+                - paragraph [ref=e1442]: Х
+                - button [ref=e1806] [cursor=pointer]: Follow
+              - generic [ref=e1450]:
+                - paragraph [ref=e1452]: Instagram
+                - button [ref=e1807] [cursor=pointer]: Follow
+              - generic [ref=e1460]:
+                - paragraph [ref=e1462]: Facebook
+                - button [ref=e1808] [cursor=pointer]: Follow
+              - generic [ref=e1470]:
+                - paragraph [ref=e1472]: Discord
+                - button [ref=e1809] [cursor=pointer]: Follow
+          - button [ref=e1810] [cursor=pointer]: View all
+          - generic [ref=e1478]:
+            - link [ref=e1811] [cursor=pointer]:
+              - /url: /games/new
+              - paragraph [ref=e1481]: New Games
+            - paragraph [ref=e1483]:
+              - generic [ref=e1484]: "0"
+          - button [ref=e1812] [cursor=pointer]: View all
+          - button [ref=e1813] [cursor=pointer]: View all
+          - button [ref=e1814] [cursor=pointer]: View all
+    - contentinfo [ref=e165]:
+      - generic [ref=e166]:
+        - link [ref=e1815] [cursor=pointer]:
+          - /url: /
+          - img [ref=e1816]
+        - generic [ref=e1494]:
+          - img [ref=e1823]
+          - paragraph [ref=e1501]:
+            - link [ref=e1824] [cursor=pointer]:
+              - /url: http://minebit.io
+              - text: minebit.io
+            - text: "is owned and operated by Crea Tech Dynamics Limited, registration number: 3-102-910445, registered address: Provincia 06 Puntarenas, Canton 11 Garabito, Jaco, Avenida Pastor Diaz, Costado Este De La Municipalidad De Garabito, Bufete Sanchez Chavarria, 61101, Costa Rica. Contact us at"
+            - link [ref=e1825] [cursor=pointer]:
+              - /url: mailto:support@minebit.io
+              - text: support@minebit.io
+            - text: .
+            - link [ref=e1826] [cursor=pointer]:
+              - /url: http://minebit.io
+              - text: minebit.io
+            - text: is licensed and regulated by the Government of the Autonomous Island of Anjouan, Union of Comoros and operates under License No. ALSI-202409037-FI2.
+            - link [ref=e1827] [cursor=pointer]:
+              - /url: http://minebit.io
+              - text: minebit.io
+            - text: is compliant with applicable regulations and is legally authorized to offer games of chance and wagering.
+        - generic [ref=e1514]:
+          - paragraph [ref=e1515]: Payment Methods
+          - list [ref=e1516]:
+            - listitem [ref=e1517]:
+              - img [ref=e1828]
+            - listitem [ref=e1519]:
+              - img [ref=e1829]
+            - listitem [ref=e1521]:
+              - img [ref=e1830]
+            - listitem [ref=e1523]:
+              - img [ref=e1831]
+            - listitem [ref=e1525]:
+              - img [ref=e1832]
+            - listitem [ref=e1527]:
+              - img [ref=e1833]
+            - listitem [ref=e1529]:
+              - img [ref=e1834]
+            - listitem [ref=e1531]:
+              - img [ref=e1835]
+            - listitem [ref=e1533]:
+              - img [ref=e1836]
+            - listitem [ref=e1535]:
+              - img [ref=e1837]
+            - listitem [ref=e1537]:
+              - img [ref=e1838]
+        - generic [ref=e1540]:
+          - paragraph [ref=e1545]: Follow Us
+          - paragraph [ref=e1555]: Download App
+  - alert [ref=e176]: Bet Free, Win Big with MineBit! Crypto-Friendly Casino
+  - generic [ref=e1841]:
+    - button [ref=e1843] [cursor=pointer]:
+      - img [ref=e1844]
+    - generic [ref=e1846]:
+      - generic [ref=e1851]:
+        - img "Registration MineBit" [ref=e1854]
+        - generic [ref=e1855]:
+          - paragraph [ref=e1857]: Play. Earn.
+          - paragraph [ref=e1859]: Win Big.
+      - generic [ref=e1863]:
+        - generic [ref=e1867]:
+          - button "Google_d77cd6e33d.svg Google Auth Button" [ref=e1871] [cursor=pointer]:
+            - img "Google_d77cd6e33d.svg" [ref=e1873]
+            - text: Google Auth Button
+          - button "telegram_31c3a567e5.svg Telegram Auth Button" [ref=e1877] [cursor=pointer]:
+            - img "telegram_31c3a567e5.svg" [ref=e1879]
+            - text: Telegram Auth Button
+        - button "Meta_Mask_icon_fox_d4d6540bfe.svg" [ref=e1887] [cursor=pointer]:
+          - img "Meta_Mask_icon_fox_d4d6540bfe.svg" [ref=e1888]
+        - paragraph [ref=e1894]: or Continue with
+        - generic [ref=e1898]:
+          - generic [ref=e1899]:
+            - generic [ref=e1904]:
+              - generic [ref=e1907]:
+                - textbox "Email" [ref=e1908]
+                - group
+              - generic [ref=e1911]:
+                - textbox "Password" [ref=e1912]
+                - button "toggle password visibility" [ref=e1914] [cursor=pointer]:
+                  - img "Vector_45c1567e50.svg" [ref=e1915]
+                - group
+              - generic [ref=e1917]:
+                - generic [ref=e1918]: "*"
+                - generic [ref=e1919]:
+                  - button "USD" [ref=e1920] [cursor=pointer]
+                  - textbox: USD
+                  - img
+                  - group
+              - generic [ref=e1924] [cursor=pointer]:
+                - checkbox "Add promocode" [ref=e1927]
+                - generic [ref=e1930]: Add promocode
+              - generic [ref=e1934] [cursor=pointer]:
+                - generic [ref=e1935]:
+                  - checkbox "I have read and accepted the Terms and Conditions. I am 18 years or older and not a resident of the restricted territories." [checked] [ref=e1936]
+                  - img [ref=e1937]
+                - generic [ref=e1939]:
+                  - text: I have read and accepted the
+                  - link "Terms and Conditions" [ref=e1940]:
+                    - /url: /terms-and-conditions
+                  - text: .
+                  - text: I am 18 years or older and not a resident of the restricted territories.
+            - button "Join & Play, Unlock Rewards" [ref=e1942] [cursor=pointer]: Join & Play, Unlock Rewards
+          - paragraph [ref=e1945]:
+            - text: Already have an account?
+            - link "Log in" [ref=e1946] [cursor=pointer]:
+              - /url: /?modal=iqs-sign-in

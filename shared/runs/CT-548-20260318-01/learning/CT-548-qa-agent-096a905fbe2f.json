@@ -1,0 +1,24 @@
+{
+  "ticket_id": "CT-548",
+  "run_id": "CT-548-20260318-01",
+  "date": "2026-03-18",
+  "owner": "qa-agent",
+  "status": "completed",
+  "observed": [
+    "test-social-linking page uses Connect buttons (not Link Google). OAuth flow opens popup to Google with linkToken in Base64-encoded state param. GetAuthUrl not called client-side - OAuth URL constructed directly in browser. Auth validation happens at callback not page load. FedCM provider not configured causes console warnings."
+  ],
+  "impact": [
+    "linkToken confirmed present in OAuth state, AuthTokenMode=1, full E2E linking requires real Google account or callback mock"
+  ],
+  "applies_to": [
+    "CT-548,CT-752,google-linking,social-linking"
+  ],
+  "promote_to": "run-only",
+  "evidence_refs": [
+    "workspace/shared/test-results/CT-548/results.json"
+  ],
+  "insight_note_ref": "workspace/memory/insights/CT-548-insights.md",
+  "daily_candidate_ref": "workspace/shared/DAILY_INSIGHTS.md",
+  "fingerprint": "096a905fbe2f",
+  "created_at": "2026-03-18T15:48:12Z"
+}

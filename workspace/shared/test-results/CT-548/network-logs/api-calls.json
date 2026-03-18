@@ -1,0 +1,111 @@
+{
+  "totalRequests": 1879,
+  "apiCalls": [
+    {
+      "url": "https://accounts.google.com/gsi/client",
+      "method": "GET",
+      "type": "script"
+    },
+    {
+      "url": "https://accounts.google.com/gsi/style",
+      "method": "GET",
+      "type": "stylesheet"
+    },
+    {
+      "url": "https://google.com/.well-known/web-identity",
+      "method": "GET",
+      "type": "fedcm"
+    },
+    {
+      "url": "https://accounts.google.com/gsi/fedcm.json",
+      "method": "GET",
+      "type": "fedcm"
+    },
+    {
+      "url": "https://accounts.google.com/gsi/client",
+      "method": "GET",
+      "type": "script"
+    },
+    {
+      "url": "https://google.com/.well-known/web-identity",
+      "method": "GET",
+      "type": "fedcm"
+    },
+    {
+      "url": "https://accounts.google.com/gsi/fedcm.json",
+      "method": "GET",
+      "type": "fedcm"
+    },
+    {
+      "url": "https://accounts.google.com/gsi/style",
+      "method": "GET",
+      "type": "stylesheet"
+    },
+    {
+      "url": "https://accounts.google.com/gsi/client",
+      "method": "GET",
+      "type": "script"
+    },
+    {
+      "url": "https://minebit-casino.qa.sofon.one/assets/google_play_77d364362b.svg",
+      "method": "GET",
+      "type": "image"
+    },
+    {
+      "url": "https://minebit-casino.qa.sofon.one/assets/login_google_icon_0082569e57.svg",
+      "method": "GET",
+      "type": "image"
+    },
+    {
+      "url": "https://accounts.google.com/gsi/style",
+      "method": "GET",
+      "type": "stylesheet"
+    },
+    {
+      "url": "https://accounts.google.com/gsi/client",
+      "method": "GET",
+      "type": "script"
+    },
+    {
+      "url": "https://minebit-casino.qa.sofon.one/assets/google_play_77d364362b.svg",
+      "method": "GET",
+      "type": "image"
+    },
+    {
+      "url": "https://minebit-casino.qa.sofon.one/assets/login_google_icon_0082569e57.svg",
+      "method": "GET",
+      "type": "image"
+    },
+    {
+      "url": "https://accounts.google.com/gsi/style",
+      "method": "GET",
+      "type": "stylesheet"
+    },
+    {
+      "url": "https://accounts.google.com/o/oauth2/v2/auth?client_id=1039679963247-chsuag3vd6s9unsv0ri7k8hpplmot8os.apps.googleusercontent.com&redirect_uri=https%3A%2F%2Fminebit-casino.qa.sofon.one%2Fwebsitewebapi%2Fapi%2Fv2%2FGoogleAccount%2FCallback&response_type=code&scope=openid+profile+email&state=eyJQYXJ0bmVySWQiOjUsIlNvdXJjZSI6Ik1vemlsbGEvNS4wIChNYWNpbnRvc2g7IEludGVsIE1hYyBPUyBYIDEwXzE1XzcpIEFwcGxlV2ViS2l0LzUzNy4zNiAoS0hUTUwsIGxpa2UgR2Vja28pIEhlYWRsZXNzQ2hyb21lLzE0My4wLjc0OTkuNCBTYWZhcmkvNTM3LjM2IiwiUmV0dXJuVXJsIjoiaHR0cHM6Ly9taW5lYml0LWNhc2luby5xYS5zb2Zvbi5vbmUvdGVzdC1zb2NpYWwtbGlua2luZyIsIkVycm9yQmFja1VybCI6Imh0dHBzOi8vbWluZWJpdC1jYXNpbm8ucWEuc29mb24ub25lL2VuLyIsIlJlZGlyZWN0VXJsIjoiaHR0cHM6Ly9taW5lYml0LWNhc2luby5xYS5zb2Zvbi5vbmUvd2Vic2l0ZXdlYmFwaS9hcGkvdjIvR29vZ2xlQWNjb3VudC9DYWxsYmFjayIsIkRldmljZUZpbmdlclByaW50IjoiMTNjMGQ0NmQwZTk2YmQ3NjI2MjdmY2FkOWUxOGM4NjIiLCJMYW5ndWFnZUlkIjoiZW4iLCJDdXJyZW5jeUlkIjpudWxsLCJDb3VudHJ5SWQiOm51bGwsIkNvdW50cnlDb2RlIjoiIiwiSXAiOiIxMC4xNTAuMTQ3LjExMyIsIkFmZmlsaWF0ZURhdGEiOiJodHRwczovL21pbmViaXQtY2FzaW5vLnFhLnNvZm9uLm9uZS90ZXN0LXNvY2lhbC1saW5raW5nIiwiRGV2aWNlVHlwZUlkIjoxLCJQcm9tb0NvZGUiOm51bGwsIlBrY2VDb2RlVmVyaWZpZXIiOm51bGwsIkZyYXVkQ2hlY2tEZXZpY2VGaW5nZXJQcmludCI6InVuZGVmaW5lZCIsIkxpbmtUb2tlbiI6IjNhMDNlNDNiMTJhYTQ1NDViMDAxMzJmMmVkYjU4Y2M5IiwiQXV0aFRva2VuTW9kZSI6MX0",
+      "method": "GET",
+      "type": "document"
+    },
+    {
+      "url": "https://accounts.google.com/gsi/client",
+      "method": "GET",
+      "type": "script"
+    },
+    {
+      "url": "https://minebit-casino.qa.sofon.one/assets/google_play_77d364362b.svg",
+      "method": "GET",
+      "type": "image"
+    },
+    {
+      "url": "https://minebit-casino.qa.sofon.one/assets/login_google_icon_0082569e57.svg",
+      "method": "GET",
+      "type": "image"
+    },
+    {
+      "url": "https://accounts.google.com/gsi/style",
+      "method": "GET",
+      "type": "stylesheet"
+    }
+  ],
+  "timestamps": "2026-03-18T15:46:31.746Z"
+}

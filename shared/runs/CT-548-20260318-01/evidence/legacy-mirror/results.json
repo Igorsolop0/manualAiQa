@@ -1,0 +1,126 @@
+{
+  "ticket": "CT-548",
+  "test": "Google Linking & Unlinking — UI Test",
+  "environment": "QA",
+  "url": "https://minebit-casino.qa.sofon.one/test-social-linking",
+  "timestamp": "2026-03-18T15:46:31.746Z",
+  "runId": "CT-548-20260318-01",
+  "strategy": "Playwright Network Mocking (Option B)",
+  "registeredEmail": "ct548_test_1773848754680@nextcode.tech",
+  "results": {
+    "total": 4,
+    "passed": 1,
+    "failed": 0,
+    "partial": 2,
+    "blocked": 0,
+    "skipped": 1,
+    "details": [
+      {
+        "tc": "TC4",
+        "scenario": "Page loads & displays content",
+        "status": "PARTIAL",
+        "evidence": "01_page_load.png",
+        "notes": "Google text: false, Telegram: false, Buttons: [Bonuses, Log In, Sign Up, Live Support, Payment Info]",
+        "timestamp": "2026-03-18T15:45:59.714Z"
+      },
+      {
+        "tc": "TC5",
+        "scenario": "\"Connect\" button visible for Google (authenticated user)",
+        "status": "PASS",
+        "evidence": "04_test_page_authenticated.png",
+        "notes": "Authenticated buttons: [$0.00, Wallet, Bonuses, 0, Connect, Connect, Live Support, Payment Info], Google text: true",
+        "timestamp": "2026-03-18T15:46:12.996Z"
+      },
+      {
+        "tc": "TC9",
+        "scenario": "Unlink Google available (requires linked state)",
+        "status": "SKIP",
+        "evidence": "",
+        "notes": "No unlink elements — Google not linked",
+        "timestamp": "2026-03-18T15:46:28.358Z"
+      },
+      {
+        "tc": "TC12",
+        "scenario": "Link without auth — error handling",
+        "status": "PARTIAL",
+        "evidence": "10_no_auth_state.png",
+        "notes": "Link Google visible without auth: false, Error text: false",
+        "timestamp": "2026-03-18T15:46:31.742Z"
+      }
+    ]
+  },
+  "pageDiscovery": {
+    "hasLinkGoogleButton": false,
+    "hasUnlinkGoogleButton": false,
+    "hasGoogleText": false,
+    "hasTelegramText": false,
+    "hasConnectButton": false,
+    "hasLinkButton": false,
+    "hasUnlinkButton": false,
+    "buttonCount": 12,
+    "linkCount": 53,
+    "inputCount": 1,
+    "formCount": 0,
+    "buttonTexts": [
+      "Bonuses",
+      "Log In",
+      "Sign Up",
+      "Live Support",
+      "Payment Info"
+    ],
+    "linkTexts": [
+      "minebit.io",
+      "support@minebit.io",
+      "minebit.io",
+      "minebit.io",
+      "All Games",
+      "Slots",
+      "Popular",
+      "New Games",
+      "Instant Games",
+      "Live Casino",
+      "Game Shows",
+      "Blackjack",
+      "Roulette",
+      "Promotions",
+      "VIP Club",
+      "Affiliate Program",
+      "Personal Quests",
+      "Help Center",
+      "FAQ",
+      "Responsible Gaming",
+      "Contact Us",
+      "Deposits and Withdrawals",
+      "Supported Crypto",
+      "Terms and Conditions",
+      "Privacy Policy",
+      "Privacy, AML & KYC Policy",
+      "Fair Play",
+      "Download App",
+      "kyc@minebit.com",
+      "support@minebit.com"
+    ]
+  },
+  "network": {
+    "totalRequests": 1879,
+    "apiCalls": 21,
+    "consoleErrors": 19
+  },
+  "evidence": {
+    "screenshots": [
+      "screenshots/01_page_load.png",
+      "screenshots/02_login_filled.png",
+      "screenshots/03_after_login.png",
+      "screenshots/04_test_page_authenticated.png",
+      "screenshots/05_before_link_click.png",
+      "screenshots/07_after_link_click.png",
+      "screenshots/10_no_auth_state.png"
+    ],
+    "networkLogs": [
+      "network-logs/api-calls.json"
+    ],
+    "consoleLogs": [
+      "console-logs/errors.log"
+    ]
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "ticket_id": "CT-798",
+  "run_id": "CT-798-20260318-01",
+  "date": "2026-03-18",
+  "owner": "qa-agent",
+  "status": "completed",
+  "observed": [
+    "WebSocket connection to /wwa/basehub uses SignalR JSON hub protocol v1 with anonymous notification registration. WS establishes on first page load without auth. RegisterAnonymousForNotification called with arguments:[5] returns ResponseCode:0. Keep-alive ping/pong every ~15s. No live win events observed in 10s window for anonymous users. Recent Winners element found via data-cp selector showing static data."
+  ],
+  "impact": [
+    "WebSocket infrastructure is working but live win streaming may require enableLiveUpdates Strapi config or authenticated session"
+  ],
+  "applies_to": [
+    "CT-798,minebit-recent-winners,websocket-integration"
+  ],
+  "promote_to": "run-only",
+  "evidence_refs": [
+    "workspace/shared/test-results/CT-798/results.json"
+  ],
+  "insight_note_ref": "workspace/memory/insights/CT-798-insights.md",
+  "daily_candidate_ref": "workspace/shared/DAILY_INSIGHTS.md",
+  "fingerprint": "d5ef2a8875c2",
+  "created_at": "2026-03-18T14:05:26Z"
+}

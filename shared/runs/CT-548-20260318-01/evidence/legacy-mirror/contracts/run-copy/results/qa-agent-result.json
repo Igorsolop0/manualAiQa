@@ -1,0 +1,13 @@
+{
+  "run_id": "CT-548-20260318-01",
+  "agent": "qa-agent",
+  "status": "completed",
+  "assertions_passed": [],
+  "assertions_failed": [],
+  "blockers": [],
+  "evidence_refs": [
+    "workspace/shared/test-results/CT-548/results.json"
+  ],
+  "confidence": "medium",
+  "recommended_next_owner": "nexus"
+}

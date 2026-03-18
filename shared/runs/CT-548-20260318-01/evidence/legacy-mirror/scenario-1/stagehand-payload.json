@@ -1,0 +1,14 @@
+{
+  "goal": "Login as test user via email password, navigate to test-social-linking page, click Link Google button, complete Google OAuth using Chrome Profile 3, verify Google account is linked",
+  "initialUrl": "https://minebit-casino.qa.sofon.one",
+  "ticketId": "CT-548",
+  "maxSteps": 40,
+  "timeoutMs": 120000,
+  "needScreenshots": true,
+  "needDomSnapshots": true,
+  "chromeProfile": "/Users/ihorsolopii/Library/Application Support/Google/Chrome/Profile 3",
+  "testCredentials": {
+    "email": "test-ihorsolop0@nextcode.tech",
+    "password": "Qweasd123!"
+  }
+}

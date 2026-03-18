@@ -1,0 +1,61 @@
+{
+  "ticket_id": "CT-798",
+  "run_id": "CT-798-20260318-01",
+  "generated_at": "2026-03-18T14:06:31Z",
+  "status": "ready",
+  "result_ready": true,
+  "result_wait": {
+    "result_file": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/CT-798/results.json",
+    "elapsed_sec": 2.043,
+    "attempts": 2,
+    "size_bytes": 3825,
+    "mtime_utc": "2026-03-18T14:04:37Z"
+  },
+  "sync": {
+    "copied": 2,
+    "skipped": 20,
+    "report_ref": "shared/runs/CT-798-20260318-01/meta/legacy-sync-report.json"
+  },
+  "contracts": {
+    "tool": "ajv-cli",
+    "result_packets": {
+      "required_min_files": 1,
+      "found": 1,
+      "valid": 1,
+      "invalid": []
+    },
+    "session_records": {
+      "found": 0,
+      "valid": 0,
+      "invalid": [],
+      "skipped": true
+    },
+    "ok": true
+  },
+  "runtime_policy": {
+    "stagehand_policy": "only",
+    "run_id": "CT-798-20260318-01",
+    "task_file_ref": "workspace/shared/tasks/CT-798.md",
+    "ok": true,
+    "findings": []
+  },
+  "learning_sync": {
+    "ok": true,
+    "ticket_id": "CT-798",
+    "insight_note": {
+      "exists": true,
+      "contains_ticket": true,
+      "ref": "workspace/memory/insights/CT-798-insights.md"
+    },
+    "daily_intake": {
+      "exists": true,
+      "contains_ticket": true,
+      "ref": "workspace/shared/DAILY_INSIGHTS.md"
+    },
+    "run_learning": {
+      "dir_ref": "shared/runs/CT-798-20260318-01/learning",
+      "files_found": 1,
+      "matching_ticket_entries": 1
+    }
+  }
+}

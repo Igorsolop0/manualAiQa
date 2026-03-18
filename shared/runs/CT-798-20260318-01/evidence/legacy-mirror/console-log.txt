@@ -1,0 +1,32 @@
+[info] 🌐 i18next is maintained with support from locize.com — consider powering your project with managed localization (AI, CDN, integrations): https://locize.com 💙
+[warning] [.WebGL-0x13c001b2000]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels
+[warning] [.WebGL-0x13c001b1a00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels
+[warning] [.WebGL-0x13c001b1a00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels
+[info] [2026-03-18T14:03:47.251Z] Information: Normalizing '/wwa/basehub' to 'https://minebit-casino.qa.sofon.one/wwa/basehub'.
+[log] Google One Tap script successfully loaded
+[error] The fetch of the well-known file resulted in a network error: ERR_CONNECTION_REFUSED
+[error] The provider's FedCM well-known file fetch resulted in an error response code.
+[info] [2026-03-18T14:03:48.668Z] Information: WebSocket connected to wss://minebit-casino.qa.sofon.one/wwa/basehub?id=vmuWCy1INSDrgXqXh5W1yQ.
+[error] Failed to load resource: the server responded with a status of 404 (Not Found)
+[error] Failed to load resource: the server responded with a status of 404 (Not Found)
+[error] Failed to load resource: the server responded with a status of 404 (Not Found)
+[log] Telegram Widget script successfully loaded
+[log] GTM script successfully loaded
+[log] [AnjouanSealFix] Initial scan {count: 0, SEAL_SELECTOR: a[href*="anjouangamingboard.org/validate"],a[href*…alidate"],[data-anj-seal-id] a[href*="/validate"]}
+[error] Current domain is not added to the allowlist.
+[log] [AnjouanSealFix] Replaced logo → FLAG {reason: addedNode.contains, href: }
+[error] [GSI_LOGGER]: FedCM get() rejects with NetworkError: Error retrieving a token.
+[error] Failed to load resource: the server responded with a status of 400 (Bad Request)
+[info] 🌐 i18next is maintained with support from locize.com — consider powering your project with managed localization (AI, CDN, integrations): https://locize.com 💙
+[info] [2026-03-18T14:04:22.942Z] Information: Normalizing '/wwa/basehub' to 'https://minebit-casino.qa.sofon.one/wwa/basehub'.
+[log] Google One Tap script successfully loaded
+[warning] Swiper Loop Warning: The number of slides is not enough for loop mode, it will be disabled or not function properly. You need to add more slides (or make duplicates) or lower the values of slidesPerView and slidesPerGroup parameters
+[error] The fetch of the well-known file resulted in a network error: ERR_CONNECTION_REFUSED
+[error] The provider's FedCM well-known file fetch resulted in an error response code.
+[info] [2026-03-18T14:04:24.212Z] Information: WebSocket connected to wss://minebit-casino.qa.sofon.one/wwa/basehub?id=tq6DfpfYt_1fD9-JeDF9Qg.
+[error] Failed to load resource: the server responded with a status of 404 (Not Found)
+[log] GTM script successfully loaded
+[log] [AnjouanSealFix] Initial scan {count: 0, SEAL_SELECTOR: a[href*="anjouangamingboard.org/validate"],a[href*…alidate"],[data-anj-seal-id] a[href*="/validate"]}
+[log] Telegram Widget script successfully loaded
+[error] Current domain is not added to the allowlist.
+[log] [AnjouanSealFix] Replaced logo → FLAG {reason: addedNode.contains, href: }

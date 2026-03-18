@@ -1,0 +1,10 @@
+{
+  "run_id": "CT-798-20260318-01",
+  "ticket_id": "CT-798",
+  "timestamp": "2026-03-18T14:06:28Z",
+  "legacy_results_ref": "workspace/shared/test-results/CT-798",
+  "run_mirror_ref": "shared/runs/CT-798-20260318-01/evidence/legacy-mirror",
+  "files_copied": 2,
+  "files_skipped": 20,
+  "contracts_exported_count": 7
+}

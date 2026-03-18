@@ -1,0 +1,73 @@
+{
+  "ticket_id": "CT-548",
+  "run_id": "CT-548-20260318-01",
+  "generated_at": "2026-03-18T16:08:21Z",
+  "status": "partial",
+  "result_ready": true,
+  "result_wait": {
+    "result_file": "/Users/ihorsolopii/.openclaw/workspace/shared/test-results/CT-548/results.json",
+    "elapsed_sec": 2.008,
+    "attempts": 2,
+    "size_bytes": 3501,
+    "mtime_utc": "2026-03-18T15:46:31Z"
+  },
+  "sync": {
+    "copied": 2,
+    "skipped": 136,
+    "report_ref": "shared/runs/CT-548-20260318-01/meta/legacy-sync-report.json"
+  },
+  "contracts": {
+    "tool": "ajv-cli",
+    "result_packets": {
+      "required_min_files": 1,
+      "found": 1,
+      "valid": 1,
+      "invalid": []
+    },
+    "session_records": {
+      "found": 0,
+      "valid": 0,
+      "invalid": [],
+      "skipped": true
+    },
+    "ok": true
+  },
+  "runtime_policy": {
+    "stagehand_policy": "only",
+    "run_id": "CT-548-20260318-01",
+    "task_file_ref": "workspace/shared/tasks/CT-548.md",
+    "ok": false,
+    "findings": [
+      {
+        "type": "forbidden_fallback_artifact",
+        "file": "workspace/shared/test-results/CT-548/scenario-1/manual-test.ts",
+        "message": "Stagehand ONLY task produced a Playwright-style fallback artifact."
+      },
+      {
+        "type": "forbidden_fallback_artifact",
+        "file": "shared/runs/CT-548-20260318-01/evidence/legacy-mirror/scenario-1/manual-test.ts",
+        "message": "Stagehand ONLY task produced a Playwright-style fallback artifact."
+      }
+    ]
+  },
+  "learning_sync": {
+    "ok": true,
+    "ticket_id": "CT-548",
+    "insight_note": {
+      "exists": true,
+      "contains_ticket": true,
+      "ref": "workspace/memory/insights/CT-548-insights.md"
+    },
+    "daily_intake": {
+      "exists": true,
+      "contains_ticket": true,
+      "ref": "workspace/shared/DAILY_INSIGHTS.md"
+    },
+    "run_learning": {
+      "dir_ref": "shared/runs/CT-548-20260318-01/learning",
+      "files_found": 1,
+      "matching_ticket_entries": 1
+    }
+  },
+  "reason": "runtime_policy_violation"
+}

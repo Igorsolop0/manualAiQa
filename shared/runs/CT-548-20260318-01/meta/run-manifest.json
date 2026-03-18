@@ -1,0 +1,23 @@
+{
+  "run_id": "CT-548-20260318-01",
+  "ticket_id": "CT-548",
+  "project": "minebit",
+  "mode": "phase2-dual-write-pilot",
+  "created_at": "2026-03-18T15:36:37Z",
+  "status": "initialized",
+  "legacy": {
+    "task_file_ref": "workspace/shared/tasks/CT-548.md",
+    "results_dir_ref": "workspace/shared/test-results/CT-548"
+  },
+  "run_paths": {
+    "intake": "shared/runs/CT-548-20260318-01/intake",
+    "plan": "shared/runs/CT-548-20260318-01/plan",
+    "handoffs": "shared/runs/CT-548-20260318-01/handoffs",
+    "sessions": "shared/runs/CT-548-20260318-01/sessions",
+    "evidence_ui": "shared/runs/CT-548-20260318-01/evidence/ui",
+    "evidence_api": "shared/runs/CT-548-20260318-01/evidence/api",
+    "evidence_legacy_mirror": "shared/runs/CT-548-20260318-01/evidence/legacy-mirror",
+    "results": "shared/runs/CT-548-20260318-01/results",
+    "learning": "shared/runs/CT-548-20260318-01/learning"
+  }
+}

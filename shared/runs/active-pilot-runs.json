@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-03-13T16:38:07Z",
+  "updated_at": "2026-03-18T15:36:37Z",
   "tickets": {
     "CT-STAGEHAND-SMOKE": {
       "active_run_id": "CT-STAGEHAND-SMOKE-20260313-01",
@@ -16,6 +16,22 @@
       "legacy_results_ref": "workspace/shared/test-results/CT-752",
       "task_file_ref": "workspace/shared/tasks/CT-752.md",
       "updated_at": "2026-03-13T16:38:07Z"
+    },
+    "CT-798": {
+      "active_run_id": "CT-798-20260318-01",
+      "mode": "dual-write",
+      "status": "active",
+      "legacy_results_ref": "workspace/shared/test-results/CT-798",
+      "task_file_ref": "workspace/shared/tasks/CT-798.md",
+      "updated_at": "2026-03-18T11:37:16Z"
+    },
+    "CT-548": {
+      "active_run_id": "CT-548-20260318-01",
+      "mode": "dual-write",
+      "status": "active",
+      "legacy_results_ref": "workspace/shared/test-results/CT-548",
+      "task_file_ref": "workspace/shared/tasks/CT-548.md",
+      "updated_at": "2026-03-18T15:36:37Z"
     }
   }
 }
