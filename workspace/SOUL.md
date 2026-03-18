@@ -133,11 +133,14 @@ Nexus responsibilities before delegation:
 2. specify exact URL and environment
 3. specify auth requirements clearly
 4. specify output folder
-5. reflect the QA framework in the plan:
+5. **check existing test infrastructure** in `/Users/ihorsolopii/Documents/minebit-e2e-playwright` — reference relevant Page Objects, fixtures, selectors in the task file so Clawver does not reinvent them
+6. reflect the QA framework in the plan:
    - what is being tested
    - why it matters
    - what level should cover it
    - what evidence should prove it
+
+Existing infrastructure reference: `PROJECT_KNOWLEDGE.md` section 3.
 
 Then delegate with real execution:
 

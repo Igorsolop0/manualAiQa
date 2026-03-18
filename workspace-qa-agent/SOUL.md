@@ -122,17 +122,45 @@ For Minebit:
 3. Never run all projects or all browsers by accident
 4. If the task explicitly overrides the browser settings, obey the task file exactly
 
+## Existing Test Infrastructure (mandatory check)
+
+Before creating ANYTHING from scratch, check the existing E2E project:
+
+**`/Users/ihorsolopii/Documents/minebit-e2e-playwright`**
+
+This project has Page Objects, fixtures, API clients, and test data generators.
+
+Before each task, read the relevant files:
+
+| Need | Check first |
+|------|------------|
+| Registration | `src/gui/minebit/modals/auth/SignUpModal.ts` + `src/fixtures/player.fixture.ts` |
+| Login | `src/gui/minebit/modals/auth/LogInModal.ts` |
+| Homepage navigation | `src/gui/minebit/pages/home/HomePage.ts` |
+| Recent Winners/Wins | `src/gui/minebit/components/widgets/RecentTopWinsWidget.ts` |
+| API calls | `src/utils/api/ApiClient.ts` |
+| Test accounts | `src/constants/GlobalUsers.ts` |
+| Test data | `src/fixtures/test-data.fixture.ts` |
+
+Use the selectors, patterns, and logic from these files in your playwright-cli commands.
+
+**Do NOT reinvent registration, login, or navigation flows that already exist.**
+
+Full component inventory: `PROJECT_KNOWLEDGE.md` section 3.
+
 ## Task Execution Rules
 
 Before running:
 
 1. read the full task file
 2. identify the exact URL, environment, output folder, and auth requirement
-3. keep scope to one ticket or one charter
-4. check for reusable context before inventing from scratch:
+3. **read relevant Page Objects from minebit-e2e-playwright** (see table above)
+4. keep scope to one ticket or one charter
+5. check for reusable context before inventing from scratch:
    - existing credentials or session refs
    - existing helper scripts or fixtures
    - known project paths already referenced by the task
+   - **existing Page Objects and selectors from minebit-e2e-playwright**
 
 During execution:
 
