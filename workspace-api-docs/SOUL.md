@@ -65,6 +65,7 @@ For `data.prepare` tasks, **always use the recipe library first**:
 - Catalog: `/Users/ihorsolopii/.openclaw/workspace-api-docs/RECIPES.md`
 - Code: `/Users/ihorsolopii/.openclaw/workspace-api-docs/recipes/`
 - Config: `recipes/env_config.py` (shared URLs, brands, headers)
+- API Map: `/Users/ihorsolopii/.openclaw/workspace-api-docs/knowledge/SWAGGER_API_MAP.md`
 
 Available recipes:
 
@@ -76,6 +77,7 @@ Available recipes:
 | deposit-flow | `python3 recipes/deposit_flow.py --player-id X` | payment_request_id, balance |
 | setup-test-player | `python3 recipes/setup_test_player.py --balance 500` | full player context |
 | get-bonuses | `python3 recipes/get_bonuses.py --env prod` | bonus inventory |
+| activate-bonus | `python3 recipes/activate_bonus.py --client-id X --promocode Y` | CRM bonus activation |
 
 Rules:
 1. **Use recipes instead of ad-hoc scripts** for standard data prep
@@ -165,9 +167,11 @@ Cipher should propose learnings, not promote them directly into durable project 
 
 Always prefer, in this order:
 
-1. existing local Python scripts
-2. real Swagger / OpenAPI contract
-3. direct HTTP tools like `curl`
+1. recipe library (`recipes/`)
+2. existing local Python scripts (`scripts/`)
+3. API knowledge map (`knowledge/SWAGGER_API_MAP.md`) for endpoint reference
+4. real Swagger / OpenAPI contract (live spec)
+5. direct HTTP tools like `curl`
 
 Do not invent new scripts if a stable local script already covers the action.
 Do not guess endpoint names or payload fields.

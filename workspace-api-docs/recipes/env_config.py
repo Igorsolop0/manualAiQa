@@ -9,6 +9,7 @@ ENVIRONMENTS = {
         "website_api": "https://websitewebapi.qa.sofon.one",
         "backoffice_api": "https://adminwebapi.qa.sofon.one",
         "wallet_api": "https://wallet.qa.sofon.one",
+        "crm_gateway": "https://crmgateway.qa.sofon.one",
         "site_origin": "https://minebit-casino.qa.sofon.one",
         "bo_user_id": "1",
     },
@@ -17,6 +18,7 @@ ENVIRONMENTS = {
         "website_api": "https://websitewebapi.prod.sofon.one",
         "backoffice_api": "https://adminwebapi.prod.sofon.one",
         "wallet_api": "https://wallet.prod.sofon.one",
+        "crm_gateway": "https://crmgateway.prod.sofon.one",
         "site_origin": "https://minebit.io",
         "bo_user_id": "560",
     },
@@ -66,4 +68,19 @@ def backoffice_headers(env: str = DEFAULT_ENV) -> dict:
         "Content-Type": "application/json",
         "Accept": "application/json",
         "UserId": e["bo_user_id"],
+    }
+
+
+# Smartico CRM Gateway credentials (shared across environments)
+CRM_API_USER_ID = "560"
+CRM_API_KEY = "ihorsnextcodebo"
+
+
+def crm_headers() -> dict:
+    """Standard headers for CRM Gateway (Smartico) API requests."""
+    return {
+        "Content-Type": "application/json",
+        "Accept": "application/json",
+        "Api-UserId": CRM_API_USER_ID,
+        "Api-Key": CRM_API_KEY,
     }

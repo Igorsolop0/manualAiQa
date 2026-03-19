@@ -13,6 +13,7 @@ All recipes use `env_config.py` for shared environment configuration.
 | deposit-flow | `python3 recipes/deposit_flow.py --player-id X --amount 100` | Full deposit via payment system |
 | setup-test-player | `python3 recipes/setup_test_player.py --env qa --balance 500` | Create player + credit (composite) |
 | get-bonuses | `python3 recipes/get_bonuses.py --env prod` | List active bonuses |
+| activate-bonus | `python3 recipes/activate_bonus.py --client-id X --promocode Y` | Activate bonus via Smartico CRM |
 
 ## Environment Config
 
@@ -21,7 +22,7 @@ All recipes share `recipes/env_config.py`:
 ```python
 from env_config import get_env, get_brand
 
-get_env("qa")    # → graphql, website_api, backoffice_api, wallet_api URLs
+get_env("qa")    # → graphql, website_api, backoffice_api, wallet_api, crm_gateway URLs
 get_brand("minebit")  # → partner_id: 5, currency: USD
 ```
 
@@ -81,6 +82,22 @@ python3 recipes/get_bonuses.py --env qa --all  # include inactive
 ```
 - Retrieves bonus inventory from BackOffice API
 - Returns: id, name, type, status, bet_real_percent, wagering_multiplier
+
+### activate-bonus (CRM Gateway / Smartico)
+```bash
+# Activate by promo code
+python3 recipes/activate_bonus.py --client-id 123 --promocode WELCOME100 --env qa
+
+# Claim campaign bonus
+python3 recipes/activate_bonus.py --client-id 123 --bonus-id 8301 --env qa
+
+# List available campaigns
+python3 recipes/activate_bonus.py --list-campaigns --env qa
+```
+- Uses CRM Gateway (Smartico) API
+- Auth: `Api-UserId: 560` + `Api-Key` (configured in `env_config.py`)
+- Supports: promo code activation, campaign bonus claim, campaign listing
+- Returns: success status, API response
 
 ## How Nexus Uses Recipes
 
