@@ -107,4 +107,18 @@ This is the existing Playwright E2E project for Minebit. Agents MUST check it be
 ---
 
 ## 4. General Business Logic
-*(Will be populated by Nexus)*
+
+### 4.1 Website API v3 (2026-03-19)
+- **Major Version Change**: v3 introduces 111 new endpoints; v1 endpoints completely removed (breaking change)
+- **New Features**: 2FA, OTP authentication, social login (Google/VK/Telegram), enhanced bonus system (calendar bonuses, deposit bonus selection), payment hub integration, enhanced client management
+- **Backoffice API v2**: Specialized API (51 endpoints) for partner config and payment settings — NOT a v1 replacement
+- **Testing Priorities**: 2FA flows, OTP authentication, social auth, payment operations, enhanced bonus system
+- **Migration Impact**: Full regression required for v1→v3 migration
+
+---
+
+## 5. Agent Activity Log (Daily Abstracts)
+
+_Recent agent insights promoted to project-level knowledge:_
+
+- **2026-03-19**: Cipher analyzed Website API v3 swagger — 111 new endpoints, major security/auth changes
