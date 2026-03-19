@@ -26,8 +26,8 @@ capabilities:
 
   data.prepare:
     owner: cipher
-    maturity: beta
-    notes: "Player/balance/bonus/flag setup and reset recipes."
+    maturity: stable
+    notes: "Formalized recipe library: create-player, login, credit-balance, deposit-flow, setup-test-player, get-bonuses. See RECIPES.md."
 
   research.digest:
     owner: researcher

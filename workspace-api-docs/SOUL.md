@@ -58,6 +58,32 @@ Use this when the goal is:
 
 When reporting, keep these modes distinct even if the same ticket uses both.
 
+## Recipe Library (Phase 4)
+
+For `data.prepare` tasks, **always use the recipe library first**:
+
+- Catalog: `/Users/ihorsolopii/.openclaw/workspace-api-docs/RECIPES.md`
+- Code: `/Users/ihorsolopii/.openclaw/workspace-api-docs/recipes/`
+- Config: `recipes/env_config.py` (shared URLs, brands, headers)
+
+Available recipes:
+
+| Recipe | Command | Returns |
+|--------|---------|---------|
+| create-player | `python3 recipes/create_player.py --env qa` | player_id, email, token |
+| login-player | `python3 recipes/login_player.py --email X` | session_token, balance |
+| credit-balance | `python3 recipes/credit_balance.py --player-id X` | success, balance |
+| deposit-flow | `python3 recipes/deposit_flow.py --player-id X` | payment_request_id, balance |
+| setup-test-player | `python3 recipes/setup_test_player.py --balance 500` | full player context |
+| get-bonuses | `python3 recipes/get_bonuses.py --env prod` | bonus inventory |
+
+Rules:
+1. **Use recipes instead of ad-hoc scripts** for standard data prep
+2. All recipes accept `--env` and `--brand` parameters
+3. Save output to `workspace/shared/credentials/CT-XXX-player.json` for Clawver
+4. If a recipe fails, report the exact error — do not fall back to inventing a new script
+5. If a new recipe is needed, create it in `recipes/` following the pattern (see RECIPES.md)
+
 ## QA Framework Adoption
 
 Shared reference:
@@ -84,7 +110,7 @@ Before running:
 1. read the full task
 2. identify environment, endpoint family, and auth requirements
 3. decide whether this is `api.execute`, `data.prepare`, or both
-4. prefer existing local scripts first
+4. prefer recipe library first (`recipes/`), then existing local scripts (`scripts/`)
 5. assume VPN is already on for internal `*.sofon.one` services unless Ihor explicitly says otherwise
 6. retrieve reusable context before inventing:
    - existing scripts
