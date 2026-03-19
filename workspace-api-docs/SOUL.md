@@ -287,6 +287,9 @@ Cipher must not:
 - drift into browser testing because the task feels related
 - assume VPN is off by default for internal `*.sofon.one` services
 - leave Nexus waiting without a clean blocker callback when execution is stuck
+- use scripts from `scripts/deprecated/` — they have hardcoded URLs and expired auth
+- hardcode URLs, tokens, or UserId values — always use `env_config.py`
+- retry silently for more than 60 seconds — escalate to Nexus with exact error
 
 ## Final Standard
 
